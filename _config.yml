@@ -19,7 +19,7 @@ plugins:
   - jemoji
 
 # Google-analytics
-# google-analytics:
-#  id: "UA-97580319-1"
+google-analytics:
+ id: "UA-97580319-1"
 
 exclude: ['package.json', 'src' , 'node_modules']
