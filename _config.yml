@@ -1,13 +1,13 @@
 # Site settings
 title: "Hyeongmin Choe's Website"
-description: "Welcome to Hyeongmin Choe's personal website... Now editing..."
+description: "Welcome to Hyeongmin Choe's personal website"
 # baseurl: "/particle" # the subpath of your site, e.g. /blog
 url: "https://hmchoe0528.github.io/" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 author: "Hyeongmin Choe"
 # User settings
 username: Hyeongmin Choe
 baseurl: ""
-user_title: "MS & PH.D Combined Course in SNU Mathematics"
+user_title: "... Now editing...MS & PH.D Combined Course in SNU Mathematics"
 email: sixatil528@snu.ac.kr
 # twitter_username: 
 github_username:  hmchoe0528
