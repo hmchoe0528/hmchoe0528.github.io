@@ -285,11 +285,11 @@ body {
     transition: color .1s ease-in;
 }
 
+.boxed {
+    border: 1px solid green ;
+  }
+
 #header-img {
   width: 100%;
   z-index: 0;
 }
-
-.boxed {
-    border: solid black;
-  }
