@@ -198,31 +198,36 @@ body {
     margin: 10px auto
 }
 
-.user-projects {
+.user-publications {
     margin: 40px auto
 }
 
-.user-projects img {
+.user-publications img {
     max-width: 100%;
     height: auto;
     border-radius: 5px
 }
 
-.user-projects h5,
+.user-publications h5,
 body {
     margin: 0
 }
 
-.user-projects li {
+.user-publications li {
     color: #496e97;
     font-size: 1.1rem
 }
 
-.user-projects p {
+.user-publications p {
     margin-right: 5px
 }
 
 #experience li {
+    font-size: 1.5rem;
+    margin-left 10px;
+}
+
+#awards li {
     font-size: 1.5rem;
     margin-left 10px;
 }
