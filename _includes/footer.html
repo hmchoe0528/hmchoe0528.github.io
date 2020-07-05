@@ -1,6 +1,7 @@
 <footer class="footer">
     <p>&copy; {{ site.time | date: '%Y' }} {{site.username}}</p>
-    <p>{{ site.email }}</p>
+    <a aria-label="Send email" href="mailto:{{site.email}}">{{ site.email }}</a>
+
     <!-- hitwebcounter Code START -->
     <!-- <a href="https://www.hitwebcounter.com" target="_blank">
       <img src="https://hitwebcounter.com/counter/counter.php?page=7537914&style=0024&nbdigits=5&type=ip&initCount=0" title="Web Counter" Alt="counter free"   border="0" >
