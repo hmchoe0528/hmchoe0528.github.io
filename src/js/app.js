@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "value": "random"
       },
       "shape": {
-        "type": "star",
+        "type": "image",
         "stroke": {
           "width": 0,
           "color": "#000000"
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "nb_sides": 5
         },
         "image": {
-          "src": "img/github.svg",
+          "src": "assets/img/SSHS_LOGO2.gif",
           "width": 100,
           "height": 100
         }
