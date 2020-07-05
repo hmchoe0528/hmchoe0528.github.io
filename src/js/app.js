@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "random": true,
         "anim": {
           "enable": false,
-          "speed": 19.18081918081918,
+          "speed": 49.18081918081918,
           "size_min": 0.1,
           "sync": false
         }
