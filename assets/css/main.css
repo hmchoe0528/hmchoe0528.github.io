@@ -295,6 +295,16 @@ body {
     transition: color .1s ease-in;
 }
 
+.link2 {
+    color: black;
+    transition: color .1s ease-in;
+}
+
+.link2:hover {
+    color: blue;
+    transition: color .1s ease-in;
+}
+
 .tex sub, .latex sub, .latex sup {
     text-transform: uppercase;
   }
