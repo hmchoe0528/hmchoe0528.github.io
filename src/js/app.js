@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
       "color": {
-        "value": "#D70C0C"
+        "value": "random"
       },
       "shape": {
-        "type": "circle",
+        "type": "star",
         "stroke": {
           "width": 0,
           "color": "#000000"
