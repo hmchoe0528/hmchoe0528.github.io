@@ -1,2 +1,4 @@
 # hmchoe.github.io
-My second webpage
+My second webpage.
+
+Thanks to Jaihyun Park, for allowing me to fork his web page https://jaihyunp.github.io/.
