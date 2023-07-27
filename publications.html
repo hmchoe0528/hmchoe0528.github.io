@@ -15,38 +15,33 @@
 
 <style>
 .papers{
-        list-style-type:decimal;list-style-position: outside;
-/*         list-style-type: none; */
+        /*list-style-type:decimal;list-style-position: outside;*/
+	list-style-type: none;
     }
-.manuscripts{
-        list-style-type:decimal;list-style-position: outside;
-/*         list-style-type: none; */
-    }    
-    .papers, .manuscripts > h1{
+    .papers > h1{
         font-family: 'noto-eng-i', 'noto-kor-i'; 
         font-size: 20pt; 
         margin-bottom: 40px
     }
-    .papers, .manuscripts > li{
+    .papers > li{
         margin-bottom:30px;
         display: list-item;
         /*margin-left:20px;*/
     }
-    .papers, .manuscripts > li h2{
+    .papers > li h2{
         font-family: 'noto-eng','noto-kor';
         font-size: 12pt;
         /*margin-bottom:5px;*/
     }
-    .papers, .manuscripts > li p{
+    .papers > li p{
         font-family: 'noto-eng-i','noto-kor-i';
         font-size: 11pt;
     }
-    .papers, .manuscripts .links{
+    .papers .links{
         font-family: 'noto-eng-i','noto-kor-i';
         font-size:10pt;
     }
     .papers > li::marker {
-	  color: #f90;
           font-size: 12pt;
     }
 </style>
@@ -113,7 +108,7 @@
             </li>
 	</ol>
 	    <h1>Manuscripts</h1>
-	<ol reversed class='manuscripts'>
+	<ul reversed class='papers'>
 	    <li class='equal'>   
                 <h2>
                     (eprint) HAETAE: Shorter Lattice-Based Fiat-Shamir Signatures
@@ -151,7 +146,7 @@
                 <p class='kor'>(알파벳순) By <u>최형민</u>, 정새별, 이다훈, <a href="https://jaihyunp.github.io/">박재현</a></p>
                 <p>In <a href='https://kcryptoforum.or.kr/web/Board/523/detailView.do'>National Cryptography Contest 2022</a> (Encouragement Prize)</p>
             </li>  
-        </ol>
+        </ul>
 
     </div>
 
