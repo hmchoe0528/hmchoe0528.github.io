@@ -3,7 +3,8 @@
 <html lang="en" style='display:none'>
 
 <head>
-    <noscript><meta http-equiv="refresh" content="0;url=noscript.html"></noscript>
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=noscript.html"></noscript>
 
     <!-- meta set -->
     <meta charset="utf-8" />
@@ -11,62 +12,255 @@
 
     <!-- title -->
     <title>Hyeongmin Choe</title>
-    <link rel='stylesheet' href='css/style.css'></link>
-    <link rel='shortcut icon' href='assets/icons/logo-fill.png' type='image/x-icon'></link>
+    <link rel='stylesheet' href='css/style.css'>
+    </link>
+    <link rel='shortcut icon' href='assets/icons/logo-fill.png' type='image/x-icon'>
+    </link>
 
     <style>
-        .main-profile{z-index:20;margin:auto;padding-top:150px;position:relative;margin-bottom:50px}
-        .main-profile *{position:relative!important}
-        .main-profile > img {width:240px;position:relative;margin-left:auto;margin-right:40px;margin-top:0px}
-        .main-profile > div {width:650px;position:relative;margin-bottom:0px;margin-top:auto;margin-right:auto;margin-left:40px}
-        .main-profile h1 {font-family:'noto-eng','noto-kor';font-size:30pt;color:black}
-        .main-profile h2 {font-family:'noto-eng-ii','noto-kor-ii';font-size:10pt;color:#101010}
+        .main-profile {
+            z-index: 20;
+            margin: auto;
+            padding-top: 150px;
+            position: relative;
+            margin-bottom: 50px
+        }
 
-        .social {margin-top:10px;margin-bottom:45px;display:flex}
-        .social li {text-align:left;display:flex;margin-left:0;margin-right:20px}
-        .social a {display:flex; border-bottom: 1pt white solid}
-        .social img {width:22px;height:22px}
-        .social p {display:inline;margin:auto 5px;font-family:'noto-eng-i','noto-kor-i';font-size:9.5pt;text-align:left;color:black;margin-bottom:0px!important}
+        .main-profile * {
+            position: relative !important
+        }
 
-        .bio {font-family:'noto-eng-i','noto-kor-i';font-size:12pt;color:black;text-align:left!important;margin-top:20px;margin-bottom: 5px}
+        .main-profile>img {
+            width: 240px;
+            position: relative;
+            margin-left: auto;
+            margin-right: 40px;
+            margin-top: 0px
+        }
 
-        .news, .topics{position:relative;z-index:20;margin:auto;margin-bottom:70px}
-        .news *, .topics *{position:relative!important}
-        .news > h1, .topics > h1{font-family:'noto-eng-b','noto-kor-b';font-size:20pt;color:indianred;}
-        .news ol, .topics ol {margin-top:15px}
-        .news ol li, .topics ol li {list-style-type:none;margin-top:10px;padding-bottom:5px}
-        .news ol li p {font-family:'noto-eng-i','noto-kor-i';font-size:12pt;color:black;margin:auto;text-align:left!important}
-        .topics ol li a {font-style:italic;}
+        .main-profile>div {
+            width: 650px;
+            position: relative;
+            margin-bottom: 0px;
+            margin-top: auto;
+            margin-right: auto;
+            margin-left: 40px
+        }
 
-        .news ol li h1 {min-width:90px;font-family:'noto-eng-i','noto-kor-i';font-size:12pt;color:black;margin:0px;margin-bottom:auto;text-align:left!important}
-        .news ol li p {margin-left:20px;}
+        .main-profile h1 {
+            font-family: 'noto-eng', 'noto-kor';
+            font-size: 30pt;
+            color: black
+        }
 
-        .topics > h1 {margin-bottom: 20px}
-        .topics ol li{margin-bottom: 40px}
-        .topics ol li div{margin-top: 0px}
-        .topics ol li h1 {font-family: 'noto-eng', 'noto-kor'; font-size: 14pt; color: indianred; text-align: left;margin-left: 0px}
-        .topics ol li p {font-family:'noto-eng-i','noto-kor-i';font-size:12pt;color:black;margin: 0px;text-align: justify; text-indent: 1em}
-<!--    .topics ol li p {text-indent: 1em;text-align: justify;margin: 0px; word-break: break-all} -->
-        .topics ol li img {margin: 0px;margin-bottom: 10px}
-        .topics img {width: 150px; height: 150px}
+        .main-profile h2 {
+            font-family: 'noto-eng-ii', 'noto-kor-ii';
+            font-size: 10pt;
+            color: #101010
+        }
+
+        .social {
+            margin-top: 10px;
+            margin-bottom: 45px;
+            display: flex
+        }
+
+        .social li {
+            text-align: left;
+            display: flex;
+            margin-left: 0;
+            margin-right: 20px
+        }
+
+        .social a {
+            display: flex;
+            border-bottom: 1pt white solid
+        }
+
+        .social img {
+            width: 22px;
+            height: 22px
+        }
+
+        .social p {
+            display: inline;
+            margin: auto 5px;
+            font-family: 'noto-eng-i', 'noto-kor-i';
+            font-size: 9.5pt;
+            text-align: left;
+            color: black;
+            margin-bottom: 0px !important
+        }
+
+        .bio {
+            font-family: 'noto-eng-i', 'noto-kor-i';
+            font-size: 12pt;
+            color: black;
+            text-align: left !important;
+            margin-top: 20px;
+            margin-bottom: 5px
+        }
+
+        .news,
+        .topics {
+            position: relative;
+            z-index: 20;
+            margin: auto;
+            margin-bottom: 70px
+        }
+
+        .news *,
+        .topics * {
+            position: relative !important
+        }
+
+        .news>h1,
+        .topics>h1 {
+            font-family: 'noto-eng-b', 'noto-kor-b';
+            font-size: 20pt;
+            color: indianred;
+        }
+
+        .news ol,
+        .topics ol {
+            margin-top: 15px
+        }
+
+        .news ol li,
+        .topics ol li {
+            list-style-type: none;
+            margin-top: 10px;
+            padding-bottom: 5px
+        }
+
+        .news ol li p {
+            font-family: 'noto-eng-i', 'noto-kor-i';
+            font-size: 12pt;
+            color: black;
+            margin: auto;
+            text-align: left !important
+        }
+
+        .topics ol li a {
+            font-style: italic;
+        }
+
+        .news ol li h1 {
+            min-width: 90px;
+            font-family: 'noto-eng-i', 'noto-kor-i';
+            font-size: 12pt;
+            color: black;
+            margin: 0px;
+            margin-bottom: auto;
+            text-align: left !important
+        }
+
+        .news ol li p {
+            margin-left: 20px;
+        }
+
+        .topics>h1 {
+            margin-bottom: 20px
+        }
+
+        .topics ol li {
+            margin-bottom: 40px
+        }
+
+        .topics ol li div {
+            margin-top: 0px
+        }
+
+        .topics ol li h1 {
+            font-family: 'noto-eng', 'noto-kor';
+            font-size: 14pt;
+            color: indianred;
+            text-align: left;
+            margin-left: 0px
+        }
+
+        .topics ol li p {
+            font-family: 'noto-eng-i', 'noto-kor-i';
+            font-size: 12pt;
+            color: black;
+            margin: 0px;
+            text-align: justify;
+            text-indent: 1em
+        }
+
+        < !-- .topics ol li p {
+            text-indent: 1em;
+            text-align: justify;
+            margin: 0px;
+            word-break: break-all
+        }
+
+        -->.topics ol li img {
+            margin: 0px;
+            margin-bottom: 10px
+        }
+
+        .topics img {
+            width: 150px;
+            height: 150px
+        }
 
         @media screen and (max-width: 1000px) {
-            .main-profile{margin-bottom:80px;width:90%}
-            .main-profile > img {width:60%;margin:auto}
-            .main-profile > div {width:100%;margin:auto}
-            .main-profile h2{text-align:center!important;width:80%}
-            .bio{font-size:11pt}
+            .main-profile {
+                margin-bottom: 80px;
+                width: 90%
+            }
 
-            .news > div, .main-profile > div {margin-top: 40px}
-            .news > h1, .topics h1, .main-profile h1{text-align:center!important}
-            .news li h1, .topics li h1 {font-size:14pt}
-            .news li p, .topics li p {font-size:10pt}
+            .main-profile>img {
+                width: 60%;
+                margin: auto
+            }
 
-            .social li {margin:auto}
-            .social p {display:none}
+            .main-profile>div {
+                width: 100%;
+                margin: auto
+            }
+
+            .main-profile h2 {
+                text-align: center !important;
+                width: 80%
+            }
+
+            .bio {
+                font-size: 11pt
+            }
+
+            .news>div,
+            .main-profile>div {
+                margin-top: 40px
+            }
+
+            .news>h1,
+            .topics h1,
+            .main-profile h1 {
+                text-align: center !important
+            }
+
+            .news li h1,
+            .topics li h1 {
+                font-size: 14pt
+            }
+
+            .news li p,
+            .topics li p {
+                font-size: 10pt
+            }
+
+            .social li {
+                margin: auto
+            }
+
+            .social p {
+                display: none
+            }
         }
     </style>
-<meta name="google-site-verification" content="EFkLSgA_HwZ6Olh8EouRompX7h6nKv7AdkgdVmw-WMs" />
+    <meta name="google-site-verification" content="EFkLSgA_HwZ6Olh8EouRompX7h6nKv7AdkgdVmw-WMs" />
 </head>
 
 <body>
@@ -79,7 +273,7 @@
         <div>
             <h1 class='kor'>최 형 민</h1>
             <h1 class='eng'>Hyeongmin Choe</h1>
-            
+
             <h2 class='kor'>석박통합과정 • 서울대학교 수리과학부</h2>
             <h2 class='eng'>Integrated Ph.D. StudentㆍDepartment of Mathematical Sciences, Seoul National University</h2>
             <ul class='social'>
@@ -115,20 +309,20 @@
 
                 I work on cryptography, focusing on homomorphic encryption and lattice-based post-quantum cryptography. Here is my <a href="assets/CV.pdf">Curriculum Vitae</a>. </br></br>
 
-		Currently, I am involving in <a href="https://kpqc.or.kr/competition.html">Korean Post Quantum Cryptography (KpqC) competition</a>, for Korean PQC standard, as a member of Team <a href='https://kpqc.cryptolab.co.kr/smaug'>SMAUG</a> and Team <a href='https://kpqc.cryptolab.co.kr/haetae'>HAETAE</a>. HAETAE is also in <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC competition</a>. 
-		
+                Currently, I am involving in <a href="https://kpqc.or.kr/competition.html">Korean Post Quantum Cryptography (KpqC) competition</a>, for Korean PQC standard, as a member of Team <a href='https://kpqc.cryptolab.co.kr/smaug'>SMAUG</a> and Team <a href='https://kpqc.cryptolab.co.kr/haetae'>HAETAE</a>. HAETAE is also in <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC competition</a>.
+
             </p>
             <p class='bio kor'>
                 안녕하세요, 저는 서울대학교 수리과학부 석박사 통합과정에 재학 중이며 <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>천정희 교수님</a> 연구실에서 공부 중입니다.</br></br>
 
                 저는 암호학을 연구 중이며, 특히 동형암호와 격자기반 양자내성암호(PQC)에 관심이 많습니다. 더 자세한 사항은 제 <a href="assets/CV.pdf">이력서</a>에서 확인해보세요! </br></br>
 
-		현재 저는 Team <a href='https://kpqc.cryptolab.co.kr/smaug'>SMAUG</a>와 Team <a href='https://kpqc.cryptolab.co.kr/haetae'>HAETAE</a>의 일원으로 <a href="https://kpqc.or.kr/competition.html">대한민국 양자내성암호 국가공모전 (KpqC 공모전)</a>에 참여하고 있습니다. HAETAE는 최근에 NIST PQC Additional Signature에도 제출되었습니다. 
+                현재 저는 Team <a href='https://kpqc.cryptolab.co.kr/smaug'>SMAUG</a>와 Team <a href='https://kpqc.cryptolab.co.kr/haetae'>HAETAE</a>의 일원으로 <a href="https://kpqc.or.kr/competition.html">대한민국 양자내성암호 국가공모전 (KpqC 공모전)</a>에 참여하고 있습니다. HAETAE는 최근에 NIST PQC Additional Signature에도 제출되었습니다.
             </p>
 
         </div>
     </header>
-<!--
+    <!--
     Rule: 
 	Paper: 0.5-1 year
 	Presentation: max 6 months
@@ -140,37 +334,37 @@
         <h1 class='eng'>NEWS</h1>
         <h1 class='kor'>최근 소식들</h1>
         <ol>
-<!-- "23.08.14-27: SAC and Crypto" -->
+            <!-- "23.08.14-27: SAC and Crypto" -->
             <li class="flex-block">
                 <h1>Aug. 2023</h1>
-                <p class='eng'>The paper <a href="https://eprint.iacr.org/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a> will appear in 
-			<a href="https://sac-workshop.github.io/sac-2023">SAC</a>, Fredericton, Canada. After SAC, I am attending Crypto, Santa Barbara, USA.</p>
-                <p class='kor'>논문 <a href="https://eprint.iacr.org/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a> 이 캐나다 암호 학회인 
-			<a href="https://sac-workshop.github.io/sac-2023">SAC</a>에 accept 되었으며 발표할 예정입니다. 이후 미국 산타 바바라에서 열리는 Crypto 학회에도 참석할 예정입니다.</p>
+                <p class='eng'>The paper <a href="https://eprint.iacr.org/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a> will appear in
+                    <a href="https://sac-workshop.github.io/sac-2023">SAC</a>, Fredericton, Canada. After SAC, I am attending Crypto, Santa Barbara, USA.</p>
+                <p class='kor'>논문 <a href="https://eprint.iacr.org/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a> 이 캐나다 암호 학회인
+                    <a href="https://sac-workshop.github.io/sac-2023">SAC</a>에 accept 되었으며 발표할 예정입니다. 이후 미국 산타 바바라에서 열리는 Crypto 학회에도 참석할 예정입니다.</p>
             </li>
 
-<!-- "23.07.17: NIST additional sig" -->
+            <!-- "23.07.17: NIST additional sig" -->
             <li class="flex-block">
                 <h1>Jul. 2023</h1>
                 <p class='eng'>HAETAE is in <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Digital Signature</a> Round 1.</p>
                 <p class='kor'>HAETAE 전자서명 스킴이 <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Digital Signature</a> Round 1에서 표준화를 위해 경쟁 중입니다.</p>
             </li>
-		
-<!-- "23.05.18-20: KIAS-JBNU" -->
+
+            <!-- "23.05.18-20: KIAS-JBNU" -->
             <li class="flex-block">
                 <h1>May 2023</h1>
                 <p class='eng'>Presented HAETAE at <a href="http://events.kias.re.kr/h/KPQC/">KIAS-JBNU KpqC Workshop</a>, May 18-20th, Jeonju, Korea.</p>
                 <p class='kor'><a href="http://events.kias.re.kr/h/KPQC/">KIAS-JBNU KpqC Workshop</a>에서 HAETAE 전자서명 스킴에 대해 발표하였습니다 (5월 18-20일).</p>
             </li>
-		
-<!-- "23.05: SMAUG/HAETAE updates" -->
+
+            <!-- "23.05: SMAUG/HAETAE updates" -->
             <li class="flex-block">
                 <h1>May 2023</h1>
                 <p class='eng'>SMAUG and HAETAE update: v1.0 is now available on our <a href="https://kpqc.cryptolab.co.kr">website</a>.</p>
                 <p class='kor'>대한민국 양자내성암호 표준에 제출된 SMAUG 키 캡슐화 메커니즘 및 HAETAE 전자서명 스킴의 v1.0 버전이 <a href="https://kqpc.cryptolab.co.kr">공개</a>되었습니다.</p>
             </li>
-		
-<!-- "23.03: HES/FHE.org/RWC"
+
+            <!-- "23.03: HES/FHE.org/RWC"
             <li class="flex-block">
                 <h1>Mar. 2023</h1>
                 <p class='eng'>Attended <a href="https://homomorphicencryption.org/6th-homomorphicencryption-org-standards-meeting/">6th HES Meeting</a> in Seoul, Korea (staff), 
@@ -179,8 +373,8 @@
 			일본 도쿄에서 열리는 암호 학회 <a href="https://fhe.org/conferences/conference-2023/home">2nd FHE.org Conference</a>와 <a href="https://rwc.iacr.org/2023/">Real Wolrd Crypto 2023</a>에 
 			참석했습니다 (3월 23-29일).</p>
             </li>  
-	-->		
-<!-- "23.02: KpqC winter camp" 
+	-->
+            <!-- "23.02: KpqC winter camp" 
             <li class="flex-block">
                 <h1>Feb. 2023</h1>
                 <p class='eng'>Presented HAETAE at <a href="https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D">2023 KpqC Winter Camp</a>, 
@@ -189,7 +383,7 @@
 			스킴에 대해 발표하였습니다 (2월 22-24일).</p>
             </li>
 	-->
-<!-- "22.10: KpqC submission"
+            <!-- "22.10: KpqC submission"
             <li class="flex-block">
                 <h1>Oct. 2022</h1>
                 <p class='eng'>Involving in Korean Post Quantum Cryptography competition, for Korean standard: Key Encapsulation Mechanism <b>SMAUG</b> and Digital Signature <b>HAETAE</b>. 
@@ -197,29 +391,29 @@
                 <p class='kor'>대한민국의 양자내성암호 표준 제정을 위한 KpqC competition에 키 캡슐화 메커니즘 <b>SMAUG</b>와 전자서명 <b>HAETAE</b>의 설계, 안전성 분석, 파라미터 분석 등 전반에 걸쳐 참여 중입니다. 
 			<a href="https://kpqc.or.kr/contents/03_exhibit/sub01.html">확인해보세요!</a></p>
             </li>
-	-->		
-<!-- "22.09: Visiting ENS Lyon"
+	-->
+            <!-- "22.09: Visiting ENS Lyon"
             <li class="flex-block">
                 <h1>Sept. 2022</h1>
                 <p class='eng'>Visited ENS de Lyon, Sept. 5th - Oct. 31st, Lyon, France.</p>
                 <p class='kor'>프랑스 리옹의 ENS de Lyon에 두 달간 방문 했습니다 (9월 초 - 10월 말).</p>
             </li>
-	-->		
-<!-- "22.09: HES Geneva" 
+	-->
+            <!-- "22.09: HES Geneva" 
             <li class="flex-block">
                 <h1>Sept. 2022</h1>
                 <p class='eng'>Attended <a href="https://homomorphicencryption.org/5th-homomorphicencryption-org-standards-meeting/">5th HE.org Standards Meeting</a>, Sept. 1st - 2nd, Geneve, Switzerland.</p>
                 <p class='kor'>스위스 제네바에서 열린 학회 <a href="https://homomorphicencryption.org/5th-homomorphicencryption-org-standards-meeting/">5th HE.org Standards Meeting</a> 에 참석하였습니다 (9월 1-2일).</p>
             </li>
-	-->		
-<!-- "22.05: Eurocrypt Trondheim" 
+	-->
+            <!-- "22.05: Eurocrypt Trondheim" 
 	    <li class="flex-block">
                 <h1>May 2022</h1>
                 <p class='eng'>Attended 1st FHE.org Conference and <a href="https://eurocrypt.iacr.org/2022/">Eurocrypt 2022</a>, May 29th - June 3rd, Trondheim, Norway. </p>
                 <p class='kor'>노르웨이 트론헤임에서 열린 학회 1st FHE.org Conference와 <a href="https://eurocrypt.iacr.org/2022/">Eurocrypt 2022</a> 에 참석하였습니다 (5월 29일 - 6월 3일).</p>
             </li> 
-	-->		
-<!-- "22.04: BMC Genomics" 
+	-->
+            <!-- "22.04: BMC Genomics" 
             <li class="flex-block">
                 <h1>Apr. 2022</h1>
                 <p class='eng'>The paper <a href="https://doi.org/10.1186/s12864-022-08469-w">"Secure tumor classification by shallow neural network using homomorphic encryption"</a> was published in 
@@ -232,7 +426,7 @@
     </div>
 
 
-<!---------- Research Interests ---------->
+    <!---------- Research Interests ---------->
     <div class="topics wider-piece">
         <h1 class='eng'>Research Interests</h1>
         <h1 class='kor'>관심있는 연구주제</h1>
@@ -243,10 +437,10 @@
                     <h1 class='eng'>Homomorphic Encryption</h1>
                     <h1 class='kor'>동형암호</h1>
                     <p class='eng'>
-                        Cloud computing enables complex operations that clients with limited resources cannot compute by itself. But, is it safe? Wouldn't cloud providers use your data for other purposes? While general encryption only securely stores your data, Homorphic Encryption (HE) enables computation on encrypted data. HE enables cloud computing while ensuring data privacy. I am working on HE applications and bootstrapping. 
+                        Cloud computing enables complex operations that clients with limited resources cannot compute by itself. But, is it safe? Wouldn't cloud providers use your data for other purposes? While general encryption only securely stores your data, Homorphic Encryption (HE) enables computation on encrypted data. HE enables cloud computing while ensuring data privacy. I am working on HE applications and bootstrapping.
                     </p>
                     <p class='kor'>
-                        클라우드 컴퓨팅은 컴퓨팅 리소스가 제한된 일반 사용자가 직접 계산할 수 없는 복잡한 작업을 가능하게 합니다. 하지만 과연 이것이 안전할까요? 클라우드 제공자가 당신의 정보를 다른 목적으로 사용하지는 않을까요? 일반적인 암호는 데이터를 안전하게 저장하는 기능만을 가지고 있는 반면에, 동형암호로 암호화된 데이터에는 연산을 적용할 수 있습니다. 동형암호는 데이터를 안전하게 보호하면서 클라우드 컴퓨팅을 가능하게 합니다. 저는 동형암호의 활용과 동형암호문의 재부팅에 대해 연구하고 있습니다.                     </p>
+                        클라우드 컴퓨팅은 컴퓨팅 리소스가 제한된 일반 사용자가 직접 계산할 수 없는 복잡한 작업을 가능하게 합니다. 하지만 과연 이것이 안전할까요? 클라우드 제공자가 당신의 정보를 다른 목적으로 사용하지는 않을까요? 일반적인 암호는 데이터를 안전하게 저장하는 기능만을 가지고 있는 반면에, 동형암호로 암호화된 데이터에는 연산을 적용할 수 있습니다. 동형암호는 데이터를 안전하게 보호하면서 클라우드 컴퓨팅을 가능하게 합니다. 저는 동형암호의 활용과 동형암호문의 재부팅에 대해 연구하고 있습니다. </p>
                 </div>
             </li>
 
@@ -256,10 +450,10 @@
                     <h1 class='eng'>Post-Quantum Cryptography</h1>
                     <h1 class='kor'>양자내성암호</h1>
                     <p class='eng'>
-                        Will cryptosystems still be secure in the future when quantum computers are commercialized? The security of most modern cryptosystems is guaranteed by its base hard problems. However, most of the hard problems currently in use can be easily solved by quantum computers. Post-Quantum (or quantum-resistant) cryptography designs cryptosystems using hard problems that are difficult to solve even with quantum computers. I am particularly interested in cryptosystems based on lattice problems. 
+                        Will cryptosystems still be secure in the future when quantum computers are commercialized? The security of most modern cryptosystems is guaranteed by its base hard problems. However, most of the hard problems currently in use can be easily solved by quantum computers. Post-Quantum (or quantum-resistant) cryptography designs cryptosystems using hard problems that are difficult to solve even with quantum computers. I am particularly interested in cryptosystems based on lattice problems.
                     </p>
                     <p class='kor'>
-                        양자 컴퓨터가 상용화되는 미래에도 암호 시스템은 여전히 안전할까요? 대부분의 현대 암호 시스템의 보안은 기반하고 있는 어려운 난제로부터 보장됩니다. 하지만, 현재 사용되고 있는 대부분의 난제는 양자 컴퓨터로 쉽게 해결될 수 있습니다. 양자내성암호는 양자 컴퓨터로도 해결하기 어려운 난제를 기반으로 암호 시스템을 설계합니다. 저는 특히 격자 난제에 기반한 암호 시스템에 관심이 많습니다. 
+                        양자 컴퓨터가 상용화되는 미래에도 암호 시스템은 여전히 안전할까요? 대부분의 현대 암호 시스템의 보안은 기반하고 있는 어려운 난제로부터 보장됩니다. 하지만, 현재 사용되고 있는 대부분의 난제는 양자 컴퓨터로 쉽게 해결될 수 있습니다. 양자내성암호는 양자 컴퓨터로도 해결하기 어려운 난제를 기반으로 암호 시스템을 설계합니다. 저는 특히 격자 난제에 기반한 암호 시스템에 관심이 많습니다.
                     </p>
                 </div>
             </li>
