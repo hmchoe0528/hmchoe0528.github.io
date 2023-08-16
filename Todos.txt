@@ -1,0 +1,3 @@
+% Todo list for the website
+% - Aug. 17, 2023: Change the publication list to include the official Specs. and the links to them. 
+% - 
