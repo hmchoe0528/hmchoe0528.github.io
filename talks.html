@@ -18,7 +18,7 @@
 
     <style>
         .talks {
-            list-style-type: none;
+            list-style-type: dot;
         }
 
         .talks>h1 {
@@ -30,12 +30,19 @@
         .talks>h2 {
             font-family: 'noto-eng-i', 'noto-kor-i';
             font-size: 20pt;
-            margin-bottom: 40px
+            margin-bottom: -5px
         }
 
         .talks>li {
-            margin-bottom: 30px;
             display: list-item;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .talks>li.sub {
+            display: list-item;
+            margin-top: 0px;
+            margin-bottom: 0px;
         }
 
         .talks>li h3 {
@@ -69,65 +76,74 @@
 
     <!-- contents -->
     <div class='big-piece'>
-        <ol reversed class='talks'>
+        <ul reversed class='talks'>
             <h1>Talks</h1>
             <li>
                 <h3>SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits</h3>
-                <ol>
+                <ul>
                     <li class='eng'>[<a href="assets/SMAUG_slide_2023_08_16_SAC.pdf">slide</a>] <a href='https://sac-workshop.github.io/sac-2023'>SAC 2023</a>, Fredericton, New Brunswick, Canada, August 2023.
                     </li>
-                    <li class='kor'>[<a href="assets/SMAUG_slide_2023_08_16_SAC.pdf">slide</a>] <a href='https://sac-workshop.github.io/sac-2023'>SAC 2023</a>, 캐나다 뉴브런즈윅 프레더릭턴, 2023.8.
+                    <li class='kor'>[<a href="assets/SMAUG_slide_2023_08_16_SAC.pdf">slide</a>] <a href='https://sac-workshop.github.io/sac-2023'>SAC 2023</a>, 캐나다 뉴브런즈윅 프레더릭턴, 2023. 8.
                     </li>
-                </ol>
+                </ul>
             </li>
-            <li>
-                <h2>HAETAE</h2>
+
+            <h2>HAETAE</h2>
+            <li class='sub'>
                 <h3>HAETAE, a Post-Quantum Signature Scheme</h3>
                 <ul>
                     <li class='eng'>[<a href="assets/HAETAE_slide_2023_07_24_korea_univ.pdf">slide</a>] Korea University, Seoul, Korea, July 2023.
                     </li>
-                    <li class='kor'>[<a href="assets/HAETAE_slide_2023_07_24_korea_univ.pdf">slide</a>] 고려대학교, 2023.5.
+                    <li class='kor'>[<a href="assets/HAETAE_slide_2023_07_24_korea_univ.pdf">slide</a>] 고려대학교, 2023. 5.
                     </li>
                 </ul>
+            </li>
+
+            <li class='sub'>
                 <h3>HAETAE: Rejecting on Hyperballs</h3>
                 <ul>
                     <li class='eng'>[<a href="assets/HAETAE_slide_2023_05_19_kias-jbnu.pdf">slide</a>] <a href='http://events.kias.re.kr/h/KPQC'>KIAS-JBNU KpqC Workshop</a>, Jeonju, Korea, May 2023.
                     </li>
-                    <li class='kor'>[<a href="assets/HAETAE_slide_2023_05_19_kias-jbnu.pdf">slide</a>] <a href='http://events.kias.re.kr/h/KPQC'>KIAS-JBNU KpqC Workshop</a>, 전주, 2023.5.
+                    <li class='kor'>[<a href="assets/HAETAE_slide_2023_05_19_kias-jbnu.pdf">slide</a>] <a href='http://events.kias.re.kr/h/KPQC'>KIAS-JBNU KpqC Workshop</a>, 전주, 2023. 5.
                     </li>
                 </ul>
+
+            <li class='sub'>
                 <h3>Introduction to HAETAE</h3>
                 <ul>
                     <li class='eng'>[<a href="assets/HAETAE_slide_2023_02_23_winter_camp.pdf">slide</a>] <a href='https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'>KpqC Winter Camp</a>, Seoul, Korea, Feburary 2023.
                     </li>
-                    <li class='kor'>[<a href="assets/HAETAE_slide_2023_02_23_winter_camp.pdf">slide</a>] <a href='https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'>KpqC Winter Camp</a>, 서울, 2023.2.
+                    <li class='kor'>[<a href="assets/HAETAE_slide_2023_02_23_winter_camp.pdf">slide</a>] <a href='https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'>KpqC Winter Camp</a>, 서울, 2023. 2.
                     </li>
                 </ul>
             </li>
+
             <li>
                 <h3>Efficient, Round-optimal Blind Signatures from Standard Assumptions</h3>
                 <ul>
                     <li class='eng'><a href='https://kms.or.kr/'>KMS</a> Spring Meeting, virtual, April 2022.</li>
-                    <li class='kor'><a href='https://kms.or.kr/'>대한수학회</a> 봄 연구발표회, 온라인, 2022.4.</li>
+                    <li class='kor'><a href='https://kms.or.kr/'>대한수학회</a> 봄 연구발표회, 온라인, 2022. 4.</li>
                 </ul>
             </li>
+
             <li>
                 <h3>Security Analysis on NIST PQC Lattice-based Finalists</h3>
                 <ul>
                     <li class='eng'>3rd <a href='https://kpqc.or.kr/'>KpqC</a> Workshop, Pyeongchang, Korea, November 2021.
                     </li>
-                    <li class='kor'><a href='https://kpqc.or.kr/contents/02_notice/board.html?no=27&mode=view&board_id=board_notice&start=&search_key=&keyword=&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'>KpqC 연구단 3차 워크숍</a>, 평창, 2021.11.
+                    <li class='kor'><a href='https://kpqc.or.kr/contents/02_notice/board.html?no=27&mode=view&board_id=board_notice&start=&search_key=&keyword=&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'>KpqC 연구단 3차 워크숍</a>, 평창, 2021. 11.
                     </li>
                 </ul>
             </li>
+
             <li>
                 <h3>Conversion between Two RLWE-based FHE Schemes and its Application</h3>
                 <ul>
                     <li class='eng'><a href='https://kms.or.kr/'>KMS</a> Fall Meeting, virtual, October 2020.</li>
-                    <li class='kor'><a href='https://kms.or.kr/'>대한수학회</a> 가을 연구발표회, 온라인, 2020.10.</li>
+                    <li class='kor'><a href='https://kms.or.kr/'>대한수학회</a> 가을 연구발표회, 온라인, 2020. 10.</li>
                 </ul>
             </li>
-        </ol>
+        </ul>
     </div>
 
 
