@@ -687,7 +687,7 @@ footer ._goto-top:hover {
 .post-head .post-keyword a {color:rgb(230,230,215);font-family:'noto-eng','noto-kor';font-size:10pt;text-decoration:none}
 .post-head .post-update {position:relative;text-align:left;margin:0;margin-top:10px;font-family:'noto-eng-ii','noto-kor-ii';font-size:9pt;color:white;text-align:center} 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .post-head .post-title {font-size:24pt}
 }
 
