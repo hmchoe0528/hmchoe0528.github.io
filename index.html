@@ -102,6 +102,7 @@
         }
 
         .news,
+        .selected,
         .topics {
             position: relative;
             z-index: 20;
@@ -110,11 +111,13 @@
         }
 
         .news *,
+        .selected *,
         .topics * {
             position: relative !important;
         }
 
         .news>h1,
+        .selected>h1,
         .topics>h1 {
             font-family: 'noto-eng-b', 'noto-kor-b';
             font-size: 20pt;
@@ -122,11 +125,13 @@
         }
 
         .news ol,
+        .selected ol,
         .topics ol {
             margin-top: 15px;
         }
 
         .news ol li,
+        .selected ol li,
         .topics ol li {
             list-style-type: none;
             margin-top: 10px;
@@ -134,6 +139,7 @@
         }
 
         .news ol li p,
+        .selected ol li p,
         .topics ol li p {
             font-family: 'noto-eng-i', 'noto-kor-i';
             font-size: 12pt;
@@ -146,7 +152,8 @@
             font-style: italic;
         }
 
-        .news ol li h1 {
+        .news ol li h1,
+        .selected ol li h1 {
             min-width: 90px;
             font-family: 'noto-eng-i', 'noto-kor-i';
             font-size: 12pt;
@@ -251,6 +258,76 @@
 
             .social p {
                 display: none;
+            }
+        }
+
+        div {
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .card h3 .toggle-icon {
+            margin-left: auto;
+            /* Push the icon to the far right */
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: blue;
+            /* Set the color to blue */
+        }
+
+        .content {
+            display: block;
+        }
+
+        .card.collapsed .content {
+            display: none;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 1050px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .card-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -407,7 +484,7 @@ Rule:
                 <p class='kor'>SMAUG-T KEM 스킴의 KpqC 공모전 2라운드 변경 사항에 대한 논문이 <a href=https://ieeeaccess.ieee.org>IEEE
                         ACCESS</a>에 <b>accept</b>되었습니다.</p>
             </li>
-            <!-- "24.10: Grand prize (~25.04)" -->
+            <!-- "24.10: Grand prize (~25.04)" 
             <li class="flex-block">
                 <h1>Oct. 2024</h1>
                 <p class='eng'>I received <b>Grand Prize</b> from the <a
@@ -419,6 +496,7 @@ Rule:
                     <b>대상</b>을 수상하였습니다.
                 </p>
             </li>
+-->
             <!-- "24.07: INDCPAD accepted (~25.07)" -->
             <li class="flex-block">
                 <h1>July 2024</h1>
@@ -584,6 +662,119 @@ Rule:
         </ol>
     </div>
 
+    <section>
+        <div class="selected wide-piece">
+            <h1 class='eng'>Selected Projects / Publications</h1>
+            <h1 class='kor'>대표업적</h1>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Grafting<span class="toggle-icon">-</span></h3>
+                    <div class="content">
+                        <p style="margin-bottom: 10px;"><b>Grafting: Decoupled Scale Factors and Modulus in
+                                RNS-CKKS</b>, <i>Eprint Archive 2024</i>.
+                        </p>
+                        <p class='eng' style="margin-bottom: 5px;">
+                            In this paper, we revisit the arithmetic structure of CKKS FHE scheme and introduce
+                            <b>Grafting</b>, a technique that decouples the scale factor from the modulus.
+                            This enables <b>optimized RNS packing</b> and <b>flexible rescaling</b>, while <b>reducing
+                                public key sizes and execution time</b>.
+                            Our latest experiments show 1.92× faster bootstrapping, 1.89× faster Bit-CKKS bootstrspping,
+                            and 62% smaller public keys.
+                        </p>
+                        <p class='eng'>
+                            <it>This work is part of my doctoral dissertation</it>.
+                        </p>
+                        <p class='kor' style="margin-bottom: 5px;">
+                            이 논문에서는 CKKS FHE 스킴의 기초 산술 구조를 재설계하는 <b>Grafting</b>이라는 기법을 소개합니다.
+                            이 기법은 스케일 팩터와 암호문 모듈러스를 분리해, <b>RNS 패킹 최적화</b>와 <b>유연한 rescaling</b>을 가능하게 하며, <b>공개 키 크기와
+                                모든 동형 연산 실행 시간을 줄여줍니다</b> 도움을 줍니다.
+                            가장 최근 업데이트된 실험 결과에서, 부트스트래핑 속도는 1.92배 빨라졌고, Bit-CKKS의 이진 게이트 부트스트래핑은 1.89배 향상되었으며, 공개 키 크기는
+                            62% 감소했습니다.
+                        </p>
+                        <p class='kor'>
+                            <it>이 연구는 제 박사학위논문에도 수록되어 있습니다</it>.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>IND-CPA^D Attacks<span class="toggle-icon">-</span></h3>
+                    <div class="content">
+                        <p style="margin-bottom: 10px;"><b>Attacks Against the IND-CPA^D Security of Exact FHE</b>,
+                            <i>ACM CCS 2024</i>.
+                        </p>
+                        <p class='eng' style="margin-bottom: 5px;">
+                            In this paper, we address the <b>IND-CPA<sup>D</sup> insecurity of exact FHE schemes</b>,
+                            which was previously believed to apply only to approximate FHEs.
+                            We identify vulnerabilities arising from <b>non-negligible incorrectness</b>, where the
+                            probability of incorrect evaluation is not exponentially small.
+                            Our attacks efficiently recover secret keys from BFV/BGV, DM/CGGI, and the exact variant of
+                            CKKS, exposing vulnerabilities in current parameter choices.
+                        </p>
+                        <p class='eng'>
+                            <it>This paper received the <b>Grand prize</b> at the Korean National Cryptography Contest
+                                in 2024</it>.
+                        </p>
+                        <p class='kor' style="margin-bottom: 5px;">
+                            이 논문은 <b>Exact FHE 스킴들의 IND-CPA<sup>D</sup> 안전성</b>에 대해 다루며, 기존에는 Approximate FHE
+                            스킴에만 적용된다고 여겨졌던 IND-CPA<sup>D</sup> 공격을 Exact FHE 스킴에도 적용한 연구입니다.
+                            우리는 스킴의 <b>정확성</b>, 특히 <b>non-negligible한 부정확성</b>이 <b>안전성</b>을 심각하게 위협한다는 점을 발견하였으며,
+                            실제로 BFV/BGV, DM/CGGI, Exact CKKS 스킴에서 작은 파라미터들을 바탕으로, 비밀 키를 효율적으로 복구하는 공격을 구현하였습니다.
+                            이러한 취약점은 실제 쓰이는 파라미터로도 자연스럽게 확장되며, 지수적으로 작은 부정확도를 보장하는 파라미터를 사용함으로써 해결될 수 있습니다.
+                        </p>
+                        <p class='kor'>
+                            <it>이 논문은 2024년 한국국가암호공모전에서 대상을 수상하였습니다</it>.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>HAETAE and SMAUG-T, Korean PQC Standards<span class="toggle-icon">-</span></h3>
+                    <div class="content">
+                        <p class='eng'>
+                            After 3 years of tremendous efforts—public evaluations, numerous improvements, and security
+                            validations—<b>HAETAE</b> and <b>SMAUG-T</b> were selected as the
+                            <b>final winners of the KpqC Competition</b> in January 2025.
+                            The competition aims to select Quantum-secure Digital Signatures and KEM candidates for
+                            Korean Standards, similar to NIST's PQC standardization process.
+                            These schemes will, in the near future, become part of the Korean Standard (KS).
+                            As a main contributor to both schemes, I am truly proud of the progress we've made.
+                        </p>
+                        <p class='kor'>
+                            지난 2021년 11월부터 시작된 한국양자내성암호 공모에서 약 3년 간의 공개적인 평가, 알고리즘 및 구현 수정과 개선, 안전성 검증 등을
+                            거쳐 2025년 1월, 제가 제출한 <b>HAETAE</b>와 <b>SMAUG-T</b> 알고리즘이 최종 우승자로 선정되었습니다.
+                            이 공모는 NIST의 PQC 표준화 과정과 유사하게, 한국 양자내성암호 표준 제정을 위한 전자서명 (Digital Signatures) 및
+                            키 캡슐화 메커니즘 (KEM) 후보를 선정하는 것을 목표로 진행되었으며, 선정된 스킴들은 한국 표준 (KS) 양자내성암호 알고리즘이 될 예정입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- <section>
+        <h2>Selected Projects / Publications</h2>
+      
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
+      
+          <div style="flex: 1; min-width: 300px; background-color: #f9f9f9; border-radius: 16px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h3>Grafting</h3>
+            <p style="color: #555;">(여기에 설명 입력)</p>
+          </div>
+      
+          <div style="flex: 1; min-width: 300px; background-color: #f9f9f9; border-radius: 16px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h3>KpqC</h3>
+            <p style="color: #555;">(여기에 설명 입력)</p>
+          </div>
+      
+          <div style="flex: 1; min-width: 300px; background-color: #f9f9f9; border-radius: 16px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h3>Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE</h3>
+            <p style="color: #555;">(여기에 설명 입력)</p>
+          </div>
+      
+        </div>
+      </section> -->
+
 
     <!---------- Research Interests ---------->
     <div class="topics wider-piece">
@@ -649,5 +840,34 @@ Rule:
     <!-- javascript -->
     <script src="js/jquery.js"></script>
     <script src="js/javascript.js"></script>
+
+    <!-- Toggle scripts -->
+    <script>
+        // Select all cards and h3 elements
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            const h3 = card.querySelector('h3');
+            const toggleIcon = h3.querySelector('.toggle-icon'); // Select the span with +/-
+
+            // Initially set the card to be collapsed
+            card.classList.add('collapsed');
+            toggleIcon.textContent = '+';  // Set the initial icon to +
+
+            // Add click event listener to toggle the card state
+            h3.addEventListener('click', () => {
+                // Toggle the collapsed class on the card when the h3 is clicked
+                card.classList.toggle('collapsed');
+
+                // Change the icon between + and −
+                if (card.classList.contains('collapsed')) {
+                    toggleIcon.textContent = '+';  // Icon when collapsed
+                } else {
+                    toggleIcon.textContent = '−';  // Icon when expanded
+                }
+            });
+        });
+    </script>
+
 
 </body>
