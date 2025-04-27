@@ -4,7 +4,8 @@
 
 <head>
     <noscript>
-        <meta http-equiv="refresh" content="0;url=noscript.html"></noscript>
+        <meta http-equiv="refresh" content="0;url=noscript.html">
+    </noscript>
 
     <!-- meta set -->
     <meta charset="utf-8" />
@@ -16,18 +17,17 @@
     </link>
     <link rel='shortcut icon' href='assets/icons/logo-fill.png' type='image/x-icon'>
     </link>
-
     <style>
         .main-profile {
             z-index: 20;
             margin: auto;
             padding-top: 150px;
             position: relative;
-            margin-bottom: 50px
+            margin-bottom: 50px;
         }
 
         .main-profile * {
-            position: relative !important
+            position: relative !important;
         }
 
         .main-profile>img {
@@ -35,7 +35,7 @@
             position: relative;
             margin-left: auto;
             margin-right: 40px;
-            margin-top: 0px
+            margin-top: 0px;
         }
 
         .main-profile>div {
@@ -44,42 +44,42 @@
             margin-bottom: 0px;
             margin-top: auto;
             margin-right: auto;
-            margin-left: 40px
+            margin-left: 40px;
         }
 
         .main-profile h1 {
             font-family: 'noto-eng', 'noto-kor';
             font-size: 30pt;
-            color: black
+            color: black;
         }
 
         .main-profile h2 {
             font-family: 'noto-eng-ii', 'noto-kor-ii';
             font-size: 10pt;
-            color: #101010
+            color: #101010;
         }
 
         .social {
             margin-top: 10px;
             margin-bottom: 45px;
-            display: flex
+            display: flex;
         }
 
         .social li {
             text-align: left;
             display: flex;
             margin-left: 0;
-            margin-right: 20px
+            margin-right: 20px;
         }
 
         .social a {
             display: flex;
-            border-bottom: 1pt white solid
+            border-bottom: 1pt white solid;
         }
 
         .social img {
             width: 22px;
-            height: 22px
+            height: 22px;
         }
 
         .social p {
@@ -89,7 +89,7 @@
             font-size: 9.5pt;
             text-align: left;
             color: black;
-            margin-bottom: 0px !important
+            margin-bottom: 0px !important;
         }
 
         .bio {
@@ -98,7 +98,7 @@
             color: black;
             text-align: left !important;
             margin-top: 20px;
-            margin-bottom: 5px
+            margin-bottom: 5px;
         }
 
         .news,
@@ -106,12 +106,12 @@
             position: relative;
             z-index: 20;
             margin: auto;
-            margin-bottom: 70px
+            margin-bottom: 70px;
         }
 
         .news *,
         .topics * {
-            position: relative !important
+            position: relative !important;
         }
 
         .news>h1,
@@ -123,22 +123,23 @@
 
         .news ol,
         .topics ol {
-            margin-top: 15px
+            margin-top: 15px;
         }
 
         .news ol li,
         .topics ol li {
             list-style-type: none;
             margin-top: 10px;
-            padding-bottom: 5px
+            padding-bottom: 5px;
         }
 
-        .news ol li p {
+        .news ol li p,
+        .topics ol li p {
             font-family: 'noto-eng-i', 'noto-kor-i';
             font-size: 12pt;
             color: black;
             margin: auto;
-            text-align: left !important
+            text-align: left !important;
         }
 
         .topics ol li a {
@@ -152,7 +153,7 @@
             color: black;
             margin: 0px;
             margin-bottom: auto;
-            text-align: left !important
+            text-align: left !important;
         }
 
         .news ol li p {
@@ -160,15 +161,15 @@
         }
 
         .topics>h1 {
-            margin-bottom: 20px
+            margin-bottom: 20px;
         }
 
         .topics ol li {
-            margin-bottom: 40px
+            margin-bottom: 40px;
         }
 
         .topics ol li div {
-            margin-top: 0px
+            margin-top: 0px;
         }
 
         .topics ol li h1 {
@@ -176,7 +177,7 @@
             font-size: 14pt;
             color: indianred;
             text-align: left;
-            margin-left: 0px
+            margin-left: 0px;
         }
 
         .topics ol li p {
@@ -185,83 +186,75 @@
             color: black;
             margin: 0px;
             text-align: justify;
-            text-indent: 1em
+            text-indent: 1em;
         }
 
-        <!-- 
-	.topics ol li p {
-            text-indent: 1em;
-            text-align: justify;
+        .topics ol li img {
             margin: 0px;
-            word-break: break-all
-        }
-        -->
-	
-	.topics ol li img {
-            margin: 0px;
-            margin-bottom: 10px
+            margin-bottom: 10px;
         }
 
         .topics img {
             width: 150px;
-            height: 150px
+            height: 150px;
         }
 
         @media screen and (max-width: 1200px) {
             .main-profile {
                 margin-bottom: 80px;
-                width: 90%
+                width: 90%;
             }
 
             .main-profile>img {
                 width: 60%;
-                margin: auto
+                margin: auto;
             }
 
             .main-profile>div {
                 width: 100%;
-                margin: auto
+                margin: auto;
             }
 
             .main-profile h2 {
                 text-align: center !important;
-                width: 80%
+                width: 80%;
             }
 
             .bio {
-                font-size: 11pt
+                font-size: 11pt;
             }
 
             .news>div,
             .main-profile>div {
-                margin-top: 40px
+                margin-top: 40px;
             }
 
             .news>h1,
             .topics h1,
             .main-profile h1 {
-                text-align: center !important
+                text-align: center !important;
             }
 
             .news li h1,
             .topics li h1 {
-                font-size: 14pt
+                font-size: 14pt;
             }
 
             .news li p,
             .topics li p {
-                font-size: 10pt
+                font-size: 10pt;
             }
 
             .social li {
-                margin: auto
+                margin: auto;
             }
 
             .social p {
-                display: none
+                display: none;
             }
         }
     </style>
+
     <meta name="google-site-verification" content="EFkLSgA_HwZ6Olh8EouRompX7h6nKv7AdkgdVmw-WMs" />
 </head>
 
@@ -312,26 +305,41 @@
             </ul>
 
             <p class='bio eng'>
-                Hi! I am currently working as a Cryptography Researcher/Engineer at CryptoLab Inc, Seoul, Korea. I recently earned my PhD at <a href="https://en.snu.ac.kr">Seoul National University (SNU)</a>, Department of Mathematical Sciences.
+                Hi! I am currently working as a Cryptography Engineer at CryptoLab Inc, Seoul, Korea. I recently earned
+                my PhD at <a href="https://en.snu.ac.kr">Seoul National University (SNU)</a>, Department of Mathematical
+                Sciences.
                 My PhD advisor was <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Prof. Jung Hee Cheon</a>.</br></br>
 
-                Here is my <a href="assets/CV.pdf">Curriculum Vitae</a>. I work on cryptography, focusing on (threshold) fully homomorphic encryption (FHE) and post-quantum cryptography (PQC) mainly focusing on lattice-based ones. I am also interested in privacy enhancing technologies (PET). </br></br>
+                Here is my <a href="assets/CV.pdf">Curriculum Vitae</a>. I work on cryptography, focusing on (threshold)
+                fully homomorphic encryption (FHE) and post-quantum cryptography (PQC) mainly focusing on lattice-based
+                ones. I am also interested in privacy enhancing technologies (PET). </br></br>
 
-                Currently, I am a member of Team <a href='https://kpqc.cryptolab.co.kr/smaug-t'>SMAUG(-T)</a> and Team <a href='https://kpqc.cryptolab.co.kr/haetae'>HAETAE</a>, the winners of the <a href="https://kpqc.or.kr/competition.html">Korean Post Quantum Cryptography (KpqC) Competition</a> for Korean PQC standard. HAETAE was also submitted to <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Signature</a> Round 1.
+                Currently, I am a member of Team <a href='https://kpqc.cryptolab.co.kr/smaug-t'>SMAUG(-T)</a> and Team
+                <a href='https://kpqc.cryptolab.co.kr/haetae'>HAETAE</a>, the winners of the <a
+                    href="https://kpqc.or.kr/competition.html">Korean Post Quantum Cryptography (KpqC) Competition</a>
+                for Korean PQC standard. HAETAE was also submitted to <a
+                    href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional
+                    Signature</a> Round 1.
 
             </p>
             <p class='bio kor'>
-                안녕하세요, 저는 암호학 연구자로, 현재 크립토랩에서 Cryptography Engineer로 일하고 있습니다. 2025년 2월에 서울대학교 수리과학부에서 <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>천정희 교수님</a>의 지도 하에 박사학위를 취득하였습니다.</br></br>
+                안녕하세요, 저는 암호학 연구자로, 현재 크립토랩에서 Cryptography Engineer로 일하고 있습니다. 2025년 2월에 서울대학교 수리과학부에서 <a
+                    href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>천정희 교수님</a>의 지도 하에 박사학위를 취득하였습니다.</br></br>
 
-                저는 암호학, 그 중에서도 특히 동형암호와 격자기반 양자내성암호(PQC)에 관심이 많습니다. 더 자세한 사항은 제 <a href="assets/CV.pdf">이력서</a>에서 확인해보세요! </br></br>
+                저는 암호학, 그 중에서도 특히 동형암호와 격자기반 양자내성암호(PQC)에 관심이 많습니다. 더 자세한 사항은 제 <a href="assets/CV.pdf">이력서</a>에서
+                확인해보세요! </br></br>
 
-                현재 저는 <a href="https://kpqc.or.kr/competition.html">대한민국 양자내성암호 국가공모전 (KpqC 공모전)</a>에서 최종 선정된 Team <a href='https://kpqc.cryptolab.co.kr/smaug-t'>SMAUG(-T)</a>와 Team <a href='https://kpqc.cryptolab.co.kr/haetae'>HAETAE</a>의 핵심 멤버로 참여하고 있습니다. HAETAE는 <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Signature</a> 1 라운드에도 제출되었습니다.
+                현재 저는 <a href="https://kpqc.or.kr/competition.html">대한민국 양자내성암호 국가공모전 (KpqC 공모전)</a>에서 최종 선정된 Team <a
+                    href='https://kpqc.cryptolab.co.kr/smaug-t'>SMAUG(-T)</a>와 Team <a
+                    href='https://kpqc.cryptolab.co.kr/haetae'>HAETAE</a>의 핵심 멤버로 참여하고 있습니다. HAETAE는 <a
+                    href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional
+                    Signature</a> 1 라운드에도 제출되었습니다.
             </p>
 
         </div>
     </header>
-	
-<!--
+
+    <!--
 #####
 Rule: 
 	Papers and Conference Presentations: 	6-12 months
@@ -348,14 +356,24 @@ Rule:
             <!-- "25.04: KMS invited talk (~25.10)" -->
             <li class="flex-block">
                 <h1>April 2025</h1>
-                <p class='eng'>I will give an <b>Invited Talk</b> at <a href='https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347'>2025 KMS Spring Meeting</a> this April.</p>
-                <p class='kor'><a href='https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347'>2025 대한수학회 봄 연구발표회</a>에 초청 받아 초청강연 발표를 할 예정입니다.</p>
+                <p class='eng'>I will give an <b>Invited Talk</b> at <a
+                        href='https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347'>2025
+                        KMS Spring Meeting</a> this April.</p>
+                <p class='kor'><a
+                        href='https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347'>2025
+                        대한수학회 봄 연구발표회</a>에 초청 받아 초청강연 발표를 할 예정입니다.</p>
             </li>
             <!-- "25.03: JKMS accepted (~25.09)" -->
             <li class="flex-block">
                 <h1>Mar. 2025</h1>
-                <p class='eng'>The <a href="https://eprint.iacr.org/2024/087">paper</a> suggesting homomorphic LookUp Table evaluation is <b>accepted</b> to <a href=https://jkms.kms.or.kr/content/about/aimsnscope.html>Journal of the Korean Mathematical Society</a>.</p>
-                <p class='kor'>동형 LookUp Table을 구현한 <a href="https://eprint.iacr.org/2024/087">논문</a>이 <a href=https://jkms.kms.or.kr/content/about/aimsnscope.html>대한수학회지 (Journal of KMS)</a>에 <b>accept</b>되었습니다.</p>
+                <p class='eng'>The <a href="https://eprint.iacr.org/2024/087">paper</a> suggesting homomorphic LookUp
+                    Table evaluation is <b>accepted</b> to <a
+                        href=https://jkms.kms.or.kr/content/about/aimsnscope.html>Journal of the Korean Mathematical
+                        Society</a>.</p>
+                <p class='kor'>동형 LookUp Table을 구현한 <a href="https://eprint.iacr.org/2024/087">논문</a>이 <a
+                        href=https://jkms.kms.or.kr/content/about/aimsnscope.html>대한수학회지 (Journal of KMS)</a>에
+                    <b>accept</b>되었습니다.
+                </p>
             </li>
             <!-- "25.02: Grafting eprint online (~25.05)"
             <li class="flex-block">
@@ -366,8 +384,12 @@ Rule:
             <!-- "25.01: KpqC final (~26.01)" -->
             <li class="flex-block">
                 <h1>Jan. 2025</h1>
-                <p class='eng'><b>HAETAE</b> digital signature scheme and <b>SMAUG-T</b> KEM scheme are selected as <b>final winners</b> of the <a href="https://kpqc.or.kr/competition.html">KpqC competition</a>.</p>
-                <p class='kor'><b>HAETAE</b> 전자서명 스킴과 <b>SMAUG-T</b> KEM 스킴이 KpqC 공모전 <b>최종 우승 알고리즘</b>으로 <a href="https://kpqc.or.kr/contents/03_exhibit/board.html?board_id=board_competition&mode=view&no=9&cate=">선정</a>되었습니다. </p>
+                <p class='eng'><b>HAETAE</b> digital signature scheme and <b>SMAUG-T</b> KEM scheme are selected as
+                    <b>final winners</b> of the <a href="https://kpqc.or.kr/competition.html">KpqC competition</a>.
+                </p>
+                <p class='kor'><b>HAETAE</b> 전자서명 스킴과 <b>SMAUG-T</b> KEM 스킴이 KpqC 공모전 <b>최종 우승 알고리즘</b>으로 <a
+                        href="https://kpqc.or.kr/contents/03_exhibit/board.html?board_id=board_competition&mode=view&no=9&cate=">선정</a>되었습니다.
+                </p>
             </li>
             <!-- "25.01: Visiting RUB (~25.04)"
             <li class="flex-block">
@@ -378,23 +400,41 @@ Rule:
             <!-- "24.12: IEEE accepted (~25.06)" -->
             <li class="flex-block">
                 <h1>Dec. 2024</h1>
-                <p class='eng'>The paper analyzing the KpqC Round2 changes of SMAUG-T KEM is <b>accepted</b> to <a href=https://ieeeaccess.ieee.org>IEEE ACCESS</a>. 
-                    The paper introduces new designs to SMAUG-T making it more timing-secure and efficient with less failures. </p>
-                <p class='kor'>SMAUG-T KEM 스킴의 KpqC 공모전 2라운드 변경 사항에 대한 논문이 <a href=https://ieeeaccess.ieee.org>IEEE ACCESS</a>에 <b>accept</b>되었습니다.</p>
+                <p class='eng'>The paper analyzing the KpqC Round2 changes of SMAUG-T KEM is <b>accepted</b> to <a
+                        href=https://ieeeaccess.ieee.org>IEEE ACCESS</a>.
+                    The paper introduces new designs to SMAUG-T making it more timing-secure and efficient with less
+                    failures. </p>
+                <p class='kor'>SMAUG-T KEM 스킴의 KpqC 공모전 2라운드 변경 사항에 대한 논문이 <a href=https://ieeeaccess.ieee.org>IEEE
+                        ACCESS</a>에 <b>accept</b>되었습니다.</p>
             </li>
             <!-- "24.10: Grand prize (~25.04)" -->
             <li class="flex-block">
                 <h1>Oct. 2024</h1>
-                <p class='eng'>I received <b>Grand Prize</b> from the <a href="https://kcryptoforum.or.kr/web/Board/549/detailView.do">Korean National Cryptography Contest</a> for the CCS 2024 paper <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact FHE"</a>.</p>
-                <p class='kor'><a href="https://kcryptoforum.or.kr/web/Board/549/detailView.do">국가암호공모전</a>에서 CCS 2024 논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact FHE"</a>으로 <b>대상</b>을 수상하였습니다.</p>
+                <p class='eng'>I received <b>Grand Prize</b> from the <a
+                        href="https://kcryptoforum.or.kr/web/Board/549/detailView.do">Korean National Cryptography
+                        Contest</a> for the CCS 2024 paper <a href="https://ia.cr/2024/127">"Attacks Against the
+                        IND-CPA^D Security of Exact FHE"</a>.</p>
+                <p class='kor'><a href="https://kcryptoforum.or.kr/web/Board/549/detailView.do">국가암호공모전</a>에서 CCS 2024
+                    논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact FHE"</a>으로
+                    <b>대상</b>을 수상하였습니다.
+                </p>
             </li>
             <!-- "24.07: INDCPAD accepted (~25.07)" -->
             <li class="flex-block">
                 <h1>July 2024</h1>
-                <p class='eng'>The paper <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact FHE"</a> is <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS 2024</a>.
-                I am attending CCS, Salt Lake City, USA and presenting at the <a href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral Symposium</a> (Mid Oct. 2024). </p>
-                <p class='kor'>논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact FHE"</a>이 암호/보안 분야 국제 학회인 <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS 2024</a>에 <b>accept</b> 되었습니다.
-                미국 솔트 레이크 시티에서 열리는 ACM CCS 2024 학회에 참석하며, <a href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral Symposium</a>에서 발표할 예정입니다 (10월 중순 경).</p>
+                <p class='eng'>The paper <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of
+                        Exact FHE"</a> is <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS
+                        2024</a>.
+                    I am attending CCS, Salt Lake City, USA and presenting at the <a
+                        href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral Symposium</a>
+                    (Mid Oct. 2024). </p>
+                <p class='kor'>논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact
+                        FHE"</a>이 암호/보안 분야 국제 학회인 <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS 2024</a>에
+                    <b>accept</b> 되었습니다.
+                    미국 솔트 레이크 시티에서 열리는 ACM CCS 2024 학회에 참석하며, <a
+                        href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral
+                        Symposium</a>에서 발표할 예정입니다 (10월 중순 경).
+                </p>
             </li>
             <!-- "24.06: Grafting eprint online (~24.12)"
             <li class="flex-block">
@@ -418,14 +458,14 @@ Rule:
                 <p class='kor'>논문 <a href="https://ia.cr/2023/624">"HAETAE: Shorter Lattice-Based Fiat-Shamir Signatures"</a>이 보안 분야 국제 학회인 <a href="https://ches.iacr.org/2024">CHES 2024</a>에 <b>accept</b> 되었습니다.
                 캐나다 핼리팩스에서 열리는 CHES 2024 학회에 참석할 예정입니다 (9월 초 경).</p>
             </li> -->
-		
+
             <!-- "24.02: KpqC Round 2 submission (~24.08)"
             <li class="flex-block">
                 <h1>Feb. 2024</h1>
                 <p class='eng'>SMAUG-T (a merge of SMAUG and TiGER) and HAETAE are in KpqC Competition Round 2.</p>
                 <p class='kor'>SMAUG-T (SMAUG와 TiGER 스킴의 결합 스킴) KEM 스킴과 HAETAE 전자서명 스킴이 대한민국 양자내성암호 국가공모전 2 라운드에 제출되었습니다.</p>
             </li>
--->		
+-->
             <!-- "23.12: KpqC Round 1 ended (~24.06)"
             <li class="flex-block">
                 <h1>Dec. 2023</h1>
@@ -433,7 +473,7 @@ Rule:
                 <p class='kor'>대한민국 양자내성암호 국가공모전에 제출된 SMAUG KEM 스킴과 HAETAE 전자서명 스킴이 1 라운드에서 선정되어, 2 라운드로 진출하였습니다.</p>
             </li>
 -->
-	    <!-- "23.11: HAETAE update (~24.05)"
+            <!-- "23.11: HAETAE update (~24.05)"
             <li class="flex-block">
                 <h1>Nov. 2023</h1>
                 <p class='eng'>HAETAE update: v2.0 is now available on HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">website</a>.</p>
@@ -447,7 +487,7 @@ Rule:
                 <p class='kor'>대한민국 양자내성암호 표준에 제출된 SMAUG 키 캡슐화 메커니즘 스킴의 v2.0 버전이 SMAUG <a href="https://kpqc.cryptolab.co.kr/smaug">웹사이트</a>와 <a href="https://github.com/hmchoe0528/SMAUG_public">GitHub repository</a>에 공개되었습니다.</p>
             </li>
 -->
-	    <!-- "23.08.14-27: SAC and Crypto (~24.08)" 
+            <!-- "23.08.14-27: SAC and Crypto (~24.08)" 
             <li class="flex-block">
                 <h1>Aug. 2023</h1>
                 <p class='eng'>The paper <a href="https://ia.cr/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a> is accepted to
@@ -556,19 +596,22 @@ Rule:
                     <h1 class='eng'>Homomorphic Encryption</h1>
                     <h1 class='kor'>동형암호</h1>
                     <p class='eng'>
-                        Cloud computing enables complex operations that clients with limited resources cannot compute alone. 
-                        But is it safe? Wouldn't cloud providers use your data for other purposes? 
-                        While general encryption only securely stores your data, Homorphic Encryption (HE) enables computation on encrypted data. 
-                        HE enables cloud computing while ensuring data privacy. 
-                        I am interested in broad topics in HE, e.g., security notions, accelerations, applications, and extensions to the threshold/multi-party setting. 
+                        Cloud computing enables complex operations that clients with limited resources cannot compute
+                        alone.
+                        But is it safe? Wouldn't cloud providers use your data for other purposes?
+                        While general encryption only securely stores your data, Homorphic Encryption (HE) enables
+                        computation on encrypted data.
+                        HE enables cloud computing while ensuring data privacy.
+                        I am interested in broad topics in HE, e.g., security notions, accelerations, applications, and
+                        extensions to the threshold/multi-party setting.
                     </p>
                     <p class='kor'>
-                        클라우드 컴퓨팅은 컴퓨팅 리소스가 제한된 일반 사용자가 직접 계산할 수 없는 복잡한 작업을 가능하게 합니다. 
-                        하지만 과연 이것이 안전할까요? 
-                        클라우드 제공자가 당신의 정보를 다른 목적으로 사용하지는 않을까요? 
-                        일반적인 암호는 데이터를 안전하게 저장하는 기능만을 가지고 있는 반면에, 동형암호로 암호화된 데이터에는 연산을 적용할 수 있습니다. 
-                        동형암호는 데이터를 안전하게 보호하면서 클라우드 컴퓨팅을 가능하게 합니다. 
-                        저는 다양한 면에서 동형암호를 연구하고 있습니다: 안전성, 가속, 응용, 그리고 다자간의 연산이 가능한 동형암호에 관심이 있습니다. 
+                        클라우드 컴퓨팅은 컴퓨팅 리소스가 제한된 일반 사용자가 직접 계산할 수 없는 복잡한 작업을 가능하게 합니다.
+                        하지만 과연 이것이 안전할까요?
+                        클라우드 제공자가 당신의 정보를 다른 목적으로 사용하지는 않을까요?
+                        일반적인 암호는 데이터를 안전하게 저장하는 기능만을 가지고 있는 반면에, 동형암호로 암호화된 데이터에는 연산을 적용할 수 있습니다.
+                        동형암호는 데이터를 안전하게 보호하면서 클라우드 컴퓨팅을 가능하게 합니다.
+                        저는 다양한 면에서 동형암호를 연구하고 있습니다: 안전성, 가속, 응용, 그리고 다자간의 연산이 가능한 동형암호에 관심이 있습니다.
                     </p>
                 </div>
             </li>
@@ -579,17 +622,18 @@ Rule:
                     <h1 class='eng'>Post-Quantum Cryptography</h1>
                     <h1 class='kor'>양자내성암호</h1>
                     <p class='eng'>
-                        Will cryptosystems still be secure in the future when quantum computers are commercialized? 
-                        The security of most modern cryptosystems is guaranteed by its base hard problems. 
-                        However, most of the hard problems currently in use can be easily solved by quantum computers. 
-                        Post-Quantum (or quantum-resistant) cryptography designs cryptosystems using hard problems that are difficult to solve even with quantum computers. 
+                        Will cryptosystems still be secure in the future when quantum computers are commercialized?
+                        The security of most modern cryptosystems is guaranteed by its base hard problems.
+                        However, most of the hard problems currently in use can be easily solved by quantum computers.
+                        Post-Quantum (or quantum-resistant) cryptography designs cryptosystems using hard problems that
+                        are difficult to solve even with quantum computers.
                         I am particularly interested in cryptosystems based on lattice problems.
-                    </p>                    
+                    </p>
                     <p class='kor'>
-                        양자 컴퓨터가 상용화되는 미래에도 암호 시스템은 여전히 안전할까요? 
-                        대부분의 현대 암호 시스템의 보안은 기반하고 있는 어려운 난제로부터 보장됩니다. 
-                        하지만, 현재 사용되고 있는 대부분의 난제는 양자 컴퓨터로 쉽게 해결될 수 있습니다. 
-                        양자내성암호는 양자 컴퓨터로도 해결하기 어려운 난제를 기반으로 암호 시스템을 설계합니다. 
+                        양자 컴퓨터가 상용화되는 미래에도 암호 시스템은 여전히 안전할까요?
+                        대부분의 현대 암호 시스템의 보안은 기반하고 있는 어려운 난제로부터 보장됩니다.
+                        하지만, 현재 사용되고 있는 대부분의 난제는 양자 컴퓨터로 쉽게 해결될 수 있습니다.
+                        양자내성암호는 양자 컴퓨터로도 해결하기 어려운 난제를 기반으로 암호 시스템을 설계합니다.
                         저는 특히 격자 난제에 기반한 암호 시스템을 연구하고 있습니다.
                     </p>
                 </div>
