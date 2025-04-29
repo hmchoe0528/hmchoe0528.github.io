@@ -298,9 +298,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 0;
+            margin-top: 1px;
             font-size: 1.3rem;
             cursor: pointer;
+            /* font-weight: bold; */
+        }
+
+        .card h3 sup {
+            position: relative;
+            top: -0.2em; 
+            font-size: 0.8em; 
+            /* margin-right: 0.1em; */
+            /* font-weight: bold; */
         }
 
         .card h3 .toggle-icon {
@@ -502,13 +511,13 @@ Rule:
             <!-- "24.07: INDCPAD accepted (~25.07)" -->
             <li class="flex-block">
                 <h1>July 2024</h1>
-                <p class='eng'>The paper <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of
+                <p class='eng'>The paper <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA<sup>D</sup> Security of
                         Exact FHE"</a> is <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS
                         2024</a>.
                     I am attending CCS, Salt Lake City, US and presenting at the <a
                         href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral Symposium</a>
                     (Mid Oct. 2024). </p>
-                <p class='kor'>논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact
+                <p class='kor'>논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA<sup>D</sup> Security of Exact
                         FHE"</a>이 암호/보안 분야 국제 학회인 <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS 2024</a>에
                     <b>accept</b> 되었습니다.
                     미국 솔트 레이크 시티에서 열리는 ACM CCS 2024 학회에 참석하며, <a
@@ -727,19 +736,19 @@ Rule:
             <h1 class='kor'>대표업적</h1>
             <div class="card-container">
                 <div class="card">
-                    <h3>Grafting<span class="toggle-icon">-</span></h3>
+                    <h3><b>Grafting</b><span class="toggle-icon">-</span></h3>
                     <p style="margin-top: 20px;">
                         <b>Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS</b>,
                     </p><p>
                         with Jung Hee Cheon, Minsik Kang, Jaehyung Kim, Seonghak Kim, Johannes Mono, and Taeyeong Noh,
                     </p><p>
-                        <i>Eprint Archive 2024</i>.
+                        <b><i>Eprint Archive 2024</i></b>.
                     </p>
                     <div class="content">
                         <!-- <p style="margin-bottom: 10px;"><b>Grafting: Decoupled Scale Factors and Modulus in
                                 RNS-CKKS</b>, <i>Eprint Archive 2024</i>.
                         </p> -->
-                        <p class='eng' style="margin-top: 20px; margin-bottom: 5px;">
+                        <p class='eng' style="margin-top: 10px; margin-bottom: 5px;">
                             In this paper, we revisit the arithmetic structure of CKKS FHE scheme and introduce
                             <b>Grafting</b>, a technique that decouples the scale factor from the modulus.
                             This enables <b>optimized RNS packing</b> and <b>flexible rescaling</b>, while <b>reducing
@@ -750,10 +759,10 @@ Rule:
                         <p class='eng'>
                             <i>This work is part of my doctoral dissertation</i>.
                         </p>
-                        <p class='kor' style="margin-top: 20px; margin-bottom: 5px;">
+                        <p class='kor' style="margin-top: 10px; margin-bottom: 5px;">
                             이 논문에서는 CKKS FHE 스킴의 기초 산술 구조를 재설계하는 <b>Grafting</b>이라는 기법을 소개합니다.
                             이 기법은 스케일 팩터와 암호문 모듈러스를 분리해, <b>RNS 패킹 최적화</b>와 <b>유연한 rescaling</b>을 가능하게 하며, <b>공개 키 크기와
-                                모든 동형 연산 실행 시간을 줄여줍니다</b> 도움을 줍니다.
+                                동형 연산 실행 시간까지도 줄여줍니다</b>.
                             가장 최근 업데이트된 실험 결과에서, 부트스트래핑 속도는 1.92배 빨라졌고, Bit-CKKS의 이진 게이트 부트스트래핑은 1.89배 향상되었으며, 공개 키 크기는
                             62% 감소했습니다.
                         </p>
@@ -763,16 +772,16 @@ Rule:
                     </div>
                 </div>
                 <div class="card">
-                    <h3>IND-CPA^D Attacks<span class="toggle-icon">-</span></h3>
+                    <h3><b>IND-CPA<sup>D</sup> Attacks</b><span class="toggle-icon">-</span></h3>
                     <p style="margin-top: 20px;">
-                        <b>Attacks Against the IND-CPA^D Security of Exact FHE</b>,
+                        <b>Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE</b>,
                     </p><p>
                         with Jung Hee Cheon, Alain Passelègue, Damien Stehl&eacute;, and Elias Suvanto,
                     </p><p>
-                        <i>ACM CCS 2024</i>.
+                        <b><i>ACM CCS 2024</i></b>.
                     </p>
                     <div class="content">
-                        <p class='eng' style="margin-top: 20px; margin-bottom: 5px;">
+                        <p class='eng' style="margin-top: 10px; margin-bottom: 5px;">
                             In this paper, we address the <b>IND-CPA<sup>D</sup> insecurity of exact FHE schemes</b>,
                             which was previously believed to apply only to approximate FHEs.
                             We identify vulnerabilities arising from <b>non-negligible incorrectness</b>, where the
@@ -784,7 +793,7 @@ Rule:
                             <i>This paper received the <b>Grand prize</b> at the Korean National Cryptography Contest
                                 in 2024</i>.
                         </p>
-                        <p class='kor' style="margin-top: 20px; margin-bottom: 5px;">
+                        <p class='kor' style="margin-top: 10px; margin-bottom: 5px;">
                             이 논문은 <b>Exact FHE 스킴들의 IND-CPA<sup>D</sup> 안전성</b>에 대해 다루며, 기존에는 Approximate FHE
                             스킴에만 적용된다고 여겨졌던 IND-CPA<sup>D</sup> 공격을 Exact FHE 스킴에도 적용한 연구입니다.
                             우리는 스킴의 <b>정확성</b>, 특히 <b>non-negligible한 부정확성</b>이 <b>안전성</b>을 심각하게 위협한다는 점을 발견하였으며,
@@ -797,14 +806,14 @@ Rule:
                     </div>
                 </div>
                 <div class="card">
-                    <h3>Korean PQC Standardization<span class="toggle-icon">-</span></h3>
+                    <h3><b>Korean PQC Standardization</b><span class="toggle-icon">-</span></h3>
                     <p style="margin-top: 20px;">
                         <b>HAETAE and SMAUG-T</b>, 
                     </p><p>
                         <i>Final Winners of KpqC Standardization Competition</i>.
                     </p>
                     <div class="content">
-                        <p class='eng' style="margin-top: 20px;">
+                        <p class='eng' style="margin-top: 10px;">
                             After 3 years of tremendous efforts—public evaluations, numerous improvements, and security
                             validations—<b>HAETAE</b> and <b>SMAUG-T</b> were selected as the
                             <b>final winners of the KpqC Competition</b> in January 2025.
@@ -813,9 +822,9 @@ Rule:
                             These schemes will, in the near future, become part of the Korean Standard (KS).
                             As a main contributor to both schemes, I am truly proud of the progress we've made.
                         </p>
-                        <p class='kor' style="margin-top: 20px;">
-                            지난 2021년 11월부터 시작된 한국양자내성암호 공모에서 약 3년 간의 공개적인 평가, 알고리즘 및 구현 수정과 개선, 안전성 검증 등을
-                            거쳐 2025년 1월, 제가 제출한 <b>HAETAE</b>와 <b>SMAUG-T</b> 알고리즘이 최종 우승자로 선정되었습니다.
+                        <p class='kor' style="margin-top: 10px;">
+                            지난 2021년 11월부터 시작된 한국양자내성암호 공모에서 약 3년 간의 공개적인 평가, 알고리즘 및 구현의 수정과 개선, 안전성 검증 등을
+                            거쳐 2025년 1월, 제가 제출한 <b>HAETAE</b>와 <b>SMAUG-T</b> 알고리즘이 <b>최종 우승자</b>로 선정되었습니다.
                             이 공모는 NIST의 PQC 표준화 과정과 유사하게, 한국 양자내성암호 표준 제정을 위한 전자서명 (Digital Signatures) 및
                             키 캡슐화 메커니즘 (KEM) 후보를 선정하는 것을 목표로 진행되었으며, 선정된 스킴들은 한국 표준 (KS) 양자내성암호 알고리즘이 될 예정입니다.
                         </p>
