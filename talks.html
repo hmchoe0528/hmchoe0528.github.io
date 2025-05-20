@@ -74,6 +74,14 @@
             font-family: 'noto-eng-i', 'noto-kor-i';
             font-size: 10pt;
         }
+
+        /* Dark mode detection */
+        @media (prefers-color-scheme: dark) {
+            li::marker {
+                color: white;
+                /* Make bullets visible in dark mode */
+            }
+        }
     </style>
 </head>
 

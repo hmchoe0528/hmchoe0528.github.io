@@ -54,8 +54,12 @@
             font-size: 10pt;
         }
 
-        .papers>li::marker {
-            font-size: 12pt;
+        /* Dark mode detection */
+        @media (prefers-color-scheme: dark) {
+            li::marker {
+                color: white;
+                /* Make bullets visible in dark mode */
+            }
         }
     </style>
 </head>
@@ -89,7 +93,8 @@
                     Tree-based Lookup Table on Batched Encrypted Queries using Homomorphic Encryption
                 </h2>
                 <p class='eng'>(α-β order) By <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe</u>, <a href="https://jaihyunp.github.io/">Jai Hyun Park*</a></p>
+                    <u>Hyeongmin Choe</u>, <a href="https://jaihyunp.github.io/">Jai Hyun Park*</a>
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민</u>, 박재현*</p>
                 <p class='links'>
                     Accepted to <a href=https://jkms.kms.or.kr/content/about/aimsnscope.html><b>JKMS</b></a>, available
@@ -101,7 +106,8 @@
                     SMAUG(-T), Revisited: Timing-secure, More Compact, Less Failure
                 </h2>
                 <p class='eng'>(α-β order) By <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe*</u>, Jungjoo Seo, Hyoeun Seong</p>
+                    <u>Hyeongmin Choe*</u>, Jungjoo Seo, Hyoeun Seong
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민*</u>, 서정주, 성효은</p>
                 <p><a href=https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access><b>IEEE
                             ACCESS</b></a>
@@ -126,7 +132,8 @@
                 </h2>
                 <p class='eng'>(α-β order) By <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Jung Hee Cheon</a>,
                     <u>Hyeongmin Choe</u>, <a href='https://perso.ens-lyon.fr/alain.passelegue'>Alain Passelègue</a>, <a
-                        href='http://perso.ens-lyon.fr/damien.stehle/'>Damien Stehl&eacute;</a>, Elias Suvanto</p>
+                        href='http://perso.ens-lyon.fr/damien.stehle/'>Damien Stehl&eacute;</a>, Elias Suvanto
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민</u>, 알랑 파슬렠, 다미안 스텔레, 일리아스 수반토</p>
                 <p><a href="https://www.sigsac.org/ccs/CCS2024"><b>ACM CCS 2024</b></a>
                     [<a href='https://doi.org/10.1145/3658644.3690341' ; style='color:blue'>paper</a>]
@@ -143,7 +150,8 @@
                         href='https://informatik.rub.de/seceng/personen/gueneysu/'>Tim G&uuml;neysu</a>, Dongyeon Hong,
                     <a href='https://informatik.rub.de/seceng/personen/krausz/'>Markus Krausz</a>, <a
                         href='https://www-cps.hb.dfki.de/about/staff/gela02'>Georg Land</a>, Marc M&#246;ller, <a
-                        href='http://perso.ens-lyon.fr/damien.stehle/'>Damien Stehl&eacute;</a>, MinJune Yi</p>
+                        href='http://perso.ens-lyon.fr/damien.stehle/'>Damien Stehl&eacute;</a>, MinJune Yi
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민</u>, 쥴리앙 드브붸, 팀 구네슈, 홍동연, 마르커스 크라우쯔, 게오르그 랑, 마크 뮬러, 다미안 스텔레, 이민준
                 </p>
                 <p><a href='https://ches.iacr.org/2024/'><b>CHES 2024</b></a>
@@ -155,7 +163,8 @@
                     SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits
                 </h2>
                 <p class='eng'>(α-β order) By <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe</u>, Dongyeon Hong, MinJune Yi</p>
+                    <u>Hyeongmin Choe</u>, Dongyeon Hong, MinJune Yi
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민</u>, 홍동연, 이민준</p>
                 <p><a href='https://sac-workshop.github.io/sac-2023/'><b>SAC 2023</b></a>
                     [<a href='https://doi.org/10.1007/978-3-031-53368-6_7' ; style='color:blue'>paper</a>]
@@ -179,7 +188,8 @@
                     Faster Linear Transformations in HElib, revisited
                 </h2>
                 <p class='eng'>(α-β order) By <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe</u>, Donghwan Lee, Yongha Son*</p>
+                    <u>Hyeongmin Choe</u>, Donghwan Lee, Yongha Son*
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민</u>, 이동환, 손용하*</p>
                 <p><a href='https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access'><b>IEEE
                             Access</b></a> 2019
@@ -218,7 +228,8 @@
                     (eprint) Reusable Dynamic Multi‑Party Homomorphic Encryption
                 </h2>
                 <p class='eng'>(α-β order) By <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe</u>, Seunghong Kim, <a href='https://yongdongyeo.github.io/'>Yongdong Yeo</a></p>
+                    <u>Hyeongmin Choe</u>, Seunghong Kim, <a href='https://yongdongyeo.github.io/'>Yongdong Yeo</a>
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민</u>, 김승홍, 여용동</p>
                 <p class='links'>
                     Eprint archive 2025/581 [<a href='https://eprint.iacr.org/2025/581' ;
@@ -231,7 +242,8 @@
                 </h2>
                 <p class='eng'>(α-β order) By <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Jung Hee Cheon</a>,
                     <u>Hyeongmin Choe</u>, Minsik Kang, <a href='https://jaehyungkim0.github.io/'>Jaehyung Kim</a>,
-                    Seonghak Kim, <a href='https://www.asdf.one/'>Johannes Mono</a>, Taeyeong Noh</p>
+                    Seonghak Kim, <a href='https://www.asdf.one/'>Johannes Mono</a>, Taeyeong Noh
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민</u>, 강민식, 김재형, 김성학, 요하네스 모노, 노태영</p>
                 <p>The title has been changed. Originally, it was "Grafting: Complementing RNS in CKKS."</p>
                 <p class='links'>
@@ -245,7 +257,8 @@
                 </h2>
                 <p class='eng'>(α-β order) By <a href='http://www.math.snu.ac.kr/~jhcheon/xe2/'>Jung Hee Cheon</a>,
                     <u>Hyeongmin Choe</u>, Saebyul Jung, <a href="https://du1204.github.io/">Duhyeong Kim</a>, Dah Hoon
-                    Lee, <a href="https://jaihyunp.github.io/">Jai Hyun Park</a></p>
+                    Lee, <a href="https://jaihyunp.github.io/">Jai Hyun Park</a>
+                </p>
                 <p class='kor'>(알파벳순) By 천정희, <u>최형민</u>, 정새별, 김두형, 이다훈, 박재현</p>
                 <p class='links'>
                     <!--Awarded from <a href='https://kcryptoforum.or.kr/web/Board/523/detailView.do'><b>National Cryptography Contest 2022</b></a> -->

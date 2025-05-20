@@ -139,6 +139,14 @@
         .hidden {
             display: none;
         }
+
+        /* Dark mode detection */
+        @media (prefers-color-scheme: dark) {
+            li::marker {
+                color: white;
+                /* Make bullets visible in dark mode */
+            }
+        }
     </style>
 </head>
 
@@ -237,14 +245,16 @@
         <h1>Some Useful Links</h1>
         <ul>
             <li>
-                Security/Cryptography Conference Rankings <a href="https://people.engr.tamu.edu/guofei/sec_conf_stat.htm">by Guofei Gu</a>
+                Security/Cryptography Conference Rankings <a
+                    href="https://people.engr.tamu.edu/guofei/sec_conf_stat.htm">by Guofei Gu</a>
                 and <a href="http://jianying.space/conference-ranking.html">by Jianying Zhou</a>.
             </li>
             <li>
-                Security/Cryptography Conference Deadlines <a href="https://sec-deadlines.github.io/">by Bogdan Kulynych & Clement Fung</a>.
+                Security/Cryptography Conference Deadlines <a href="https://sec-deadlines.github.io/">by Bogdan Kulynych
+                    & Clement Fung</a>.
             </li>
             <li>
-                Deadlines Calendar (last update: May, 2025). 
+                Deadlines Calendar (last update: May, 2025).
                 <p>List of conferences for personal reference :D The deadlines may vary each year.</p>
                 <div class="calendar">
                     <div class="month">
@@ -254,22 +264,27 @@
                             <span class="cycle">1/2</span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod"; href="https://acns2025.fordaysec.de/">ACNS</a></span> 
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://acns2025.fordaysec.de/">ACNS</a></span>
                             <span class="cycle">2/2</span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod"; href="https://asiaccs2025.hust.edu.vn/">AsiaCCS</a></span> 
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://asiaccs2025.hust.edu.vn/">AsiaCCS</a></span>
                             <span class="cycle">1/2</span>
                         </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES</a></span>
-                            <span class="cycle">3/4</span></div>
+                            <span class="cycle">3/4</span>
+                        </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX Sec.</a></span>
+                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX
+                                    Sec.</a></span>
                             <span class="cycle">2/2</span>
-                    </div>
+                        </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod"; href="https://sacworkshop.org/SAC25/index.html">SAC</a></span>
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://sacworkshop.org/SAC25/index.html">SAC</a></span>
                             <span class="cycle">1/2</span>
                         </div>
                     </div>
@@ -292,22 +307,26 @@
                     <div class="month">
                         <h3>Apr. &nbsp;&nbsp;4&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.sigsac.org/ccs/CCS2025/">ACM CCS</a></span> 
+                            <span class="conf-name"><a href="https://www.sigsac.org/ccs/CCS2025/">ACM CCS</a></span>
                             <span class="cycle">2/2</span>
                         </div>
-                        <div class="conf-entry"><span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES</a></span> <span class="cycle">4/4</span></div>
+                        <div class="conf-entry"><span class="conf-name"><a
+                                    href="https://ches.iacr.org/2025/">CHES</a></span> <span class="cycle">4/4</span>
+                        </div>
                     </div>
 
                     <div class="month">
                         <h3>May. &nbsp;&nbsp;5&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod"; href="https://sacworkshop.org/SAC25/index.html">SAC</a></span>
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://sacworkshop.org/SAC25/index.html">SAC</a></span>
                             <span class="cycle">2/2</span>
                         </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a href="https://asiacrypt.iacr.org/2025/">Asiacrypt</a></span>
                         </div>
-                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod"; href="https://tcc.iacr.org/2025/">TCC</a></span></div>
+                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://tcc.iacr.org/2025/">TCC</a></span></div>
                         <div class="conf-entry">
                             <span class="conf-name"><a href="https://petsymposium.org/">PETs</a></span>
                             <span class="cycle">3/4</span>
@@ -326,7 +345,8 @@
                         <h3>July &nbsp;&nbsp;7&#26376;</h3>
                         <div class="conf-entry">
                             <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES</a></span>
-                            <span class="cycle">1/4</span></div>
+                            <span class="cycle">1/4</span>
+                        </div>
                     </div>
 
                     <div class="month">
@@ -340,15 +360,18 @@
                     <div class="month">
                         <h3>Sep. &nbsp;&nbsp;9&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX Sec.</a></span> 
+                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX
+                                    Sec.</a></span>
                             <span class="cycle">1/2</span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod"; href="https://acns2025.fordaysec.de/">ACNS</a></span> 
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://acns2025.fordaysec.de/">ACNS</a></span>
                             <span class="cycle">1/2</span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod"; href="https://asiaccs2025.hust.edu.vn/">AsiaCCS</a></span> 
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://asiaccs2025.hust.edu.vn/">AsiaCCS</a></span>
                             <span class="cycle">1/2</span>
                         </div>
                     </div>
@@ -359,20 +382,26 @@
                             <span class="conf-name"><a href="https://eurocrypt.iacr.org/2025/">Eurocrypt</a></span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod"; href="https://fc25.ifca.ai/">FC</a></span></div>
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://fc25.ifca.ai/">FC</a></span>
+                        </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES</a></span>
                             <span class="cycle">2/4</span>
                         </div>
-                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod"; href="https://pkc.iacr.org/2025/">PKC</a></span></div>
-                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod"; href="https://ct-rsa-2025.csa.iisc.ac.in/">CT-RSA</a></span></div>
-                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod"; href="https://eurosp2025.ieee-security.org/">Euro S&P</a></span></div>
+                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://pkc.iacr.org/2025/">PKC</a></span></div>
+                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://ct-rsa-2025.csa.iisc.ac.in/">CT-RSA</a></span></div>
+                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://eurosp2025.ieee-security.org/">Euro S&P</a></span></div>
                     </div>
 
                     <div class="month">
                         <h3>Nov. &nbsp;&nbsp;11&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod"; href="https://pqcrypto2025.iis.sinica.edu.tw/">PQCrypto</a></span>
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://pqcrypto2025.iis.sinica.edu.tw/">PQCrypto</a></span>
                         </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a href="https://sp2026.ieee-security.org/index.html">S&P</a></span>
