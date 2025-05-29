@@ -99,10 +99,16 @@
             font-weight: bold;
         }
 
-        .cycle {
-            font-family: monospace;
+        .date {
+            /* font-family: monospace; */
             font-size: 12px;
             color: #666;
+        }
+
+        .date-late {
+            /* font-family: monospace; */
+            font-size: 12px;
+            color: #ccc;
         }
 
         @media (max-width: 5000px) {
@@ -111,19 +117,19 @@
             }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 990px) {
             .calendar {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 660px) {
             .calendar {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 300px) {
+        @media (max-width: 330px) {
             .calendar {
                 grid-template-columns: 1fr;
             }
@@ -255,48 +261,52 @@
             </li>
             <li>
                 Deadlines Calendar (last update: May, 2025).
-                <p>List of conferences for personal reference :D The deadlines may vary each year.</p>
+                <p>List of 2025-2026 conferences for personal reference :D The deadlines may vary each year.</p>
+                <!-- TODO: hard-coded -> automatize -->
                 <div class="calendar">
                     <div class="month">
                         <h3>Jan. &nbsp;&nbsp;1&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.sigsac.org/ccs/CCS2025/">ACM CCS</a></span>
-                            <span class="cycle">1/2</span>
+                            <span class="conf-name"><a style="color: #6495ED" ;
+                                    href="https://www.sigsac.org/ccs/CCS2025/">CCS '25 Oct.</a></span>
+                            <span class="date-late">1. 9 [1/2]</span>
                         </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://acns2025.fordaysec.de/">ACNS</a></span>
-                            <span class="cycle">2/2</span>
+                                    href="https://acns2025.fordaysec.de/">ACNS '25 June</a></span>
+                            <span class="date-late">1. 13 [2/2]</span>
+                        </div>
+                        <div class="conf-entry">
+                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES '25 Sep.</a></span>
+                            <span class="date-late">1. 15 [3/4]</span>
                         </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://asiaccs2025.hust.edu.vn/">AsiaCCS</a></span>
-                            <span class="cycle">1/2</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES</a></span>
-                            <span class="cycle">3/4</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX
-                                    Sec.</a></span>
-                            <span class="cycle">2/2</span>
+                                    href="https://asiaccs2025.hust.edu.vn/">AsiaCCS '25 Aug.</a></span>
+                            <span class="date-late">1. 20 [2/2]</span>
                         </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://sacworkshop.org/SAC25/index.html">SAC</a></span>
-                            <span class="cycle">1/2</span>
+                                    href="https://sacworkshop.org/SAC25/index.html">SAC '25 Aug.</a></span>
+                            <span class="date-late">1. 27 [1/2]</span>
                         </div>
                     </div>
 
                     <div class="month">
                         <h3>Feb. &nbsp;&nbsp;2&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://crypto.iacr.org/2025/">Crypto</a></span>
+                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX
+                                    '26 Aug.</a></span>
+                            <span class="date">2. 5 [2/2]</span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://petsymposium.org/">PETs</a></span>
-                            <span class="cycle">2/4</span>
+                            <span class="conf-name"><a style="color: #6495ED" ;
+                                href="https://crypto.iacr.org/2025/">Crypto '25 Aug.</a></span>
+                            <span class="date-late">2. 13 [1/1]</span>
+                        </div>
+                        <div class="conf-entry">
+                            <span class="conf-name"><a href="https://petsymposium.org/">PETs '26 ???.</a></span>
+                            <span class="date">2. 28 [4/4]</span>
                         </div>
                     </div>
 
@@ -307,11 +317,13 @@
                     <div class="month">
                         <h3>Apr. &nbsp;&nbsp;4&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.sigsac.org/ccs/CCS2025/">ACM CCS</a></span>
-                            <span class="cycle">2/2</span>
+                            <span class="conf-name"><a style="color: #6495ED" ;
+                                href="https://www.sigsac.org/ccs/CCS2025/">CCS '25 Oct.</a></span>
+                            <span class="date-late">4. 14 [2/2]</span>
                         </div>
-                        <div class="conf-entry"><span class="conf-name"><a
-                                    href="https://ches.iacr.org/2025/">CHES</a></span> <span class="cycle">4/4</span>
+                        <div class="conf-entry">
+                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES '25 Sep.</a></span>
+                            <span class="date-late">4. 15 [4/4]</span>
                         </div>
                     </div>
 
@@ -319,97 +331,117 @@
                         <h3>May. &nbsp;&nbsp;5&#26376;</h3>
                         <div class="conf-entry">
                             <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://sacworkshop.org/SAC25/index.html">SAC</a></span>
-                            <span class="cycle">2/2</span>
+                                    href="https://sacworkshop.org/SAC25/index.html">SAC '25 Aug.</a></span>
+                            <span class="date-late">5. 7 [2/2]</span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://asiacrypt.iacr.org/2025/">Asiacrypt</a></span>
+                            <span class="conf-name"><a style="color: #6495ED" ;
+                                href="https://asiacrypt.iacr.org/2025/">AC '25 Dec.</a></span>
+                            <span class="date-late">5. 16 [1/1]</span>
                         </div>
-                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://tcc.iacr.org/2025/">TCC</a></span></div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://petsymposium.org/">PETs</a></span>
-                            <span class="cycle">3/4</span>
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://tcc.iacr.org/2025/">TCC '25 Dec.</a></span>
+                            <span class="date">5. 27 [1/1]</span>
+                        </div>
+                        <div class="conf-entry">
+                            <span class="conf-name"><a href="https://petsymposium.org/">PETs '26 ???.</a></span>
+                            <span class="date">5. 31 [1/4]</span>
                         </div>
                     </div>
 
                     <div class="month">
                         <h3>June &nbsp;&nbsp;6&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://sp2026.ieee-security.org/index.html">S&P</a></span>
-                            <span class="cycle">1/2</span>
+                            <span class="conf-name"><a href="https://sp2026.ieee-security.org/index.html">S&P
+                                    '26 May</a></span>
+                            <span class="date">6. 5 [1/2]</span>
                         </div>
                     </div>
 
                     <div class="month">
                         <h3>July &nbsp;&nbsp;7&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES</a></span>
-                            <span class="cycle">1/4</span>
+                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES '25 Sep.</a></span>
+                            <span class="date-late">7. 15 [1/4]</span>
                         </div>
                     </div>
 
                     <div class="month">
                         <h3>Aug. &nbsp;&nbsp;8&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://petsymposium.org/">PETs</a></span>
-                            <span class="cycle">4/4</span>
+                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX
+                                    '26 Aug.</a></span>
+                            <span class="date">8. 26 [1/2]</span>
+                        </div>
+                        <div class="conf-entry">
+                            <span class="conf-name"><a href="https://petsymposium.org/">PETs '26 ???.</a></span>
+                            <span class="date">8. 31 [2/4]</span>
                         </div>
                     </div>
 
                     <div class="month">
                         <h3>Sep. &nbsp;&nbsp;9&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX
-                                    Sec.</a></span>
-                            <span class="cycle">1/2</span>
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://acns2025.fordaysec.de/">ACNS '25 June</a></span>
+                            <span class="date-late">9. 9 [1/2]</span>
                         </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://acns2025.fordaysec.de/">ACNS</a></span>
-                            <span class="cycle">1/2</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://asiaccs2025.hust.edu.vn/">AsiaCCS</a></span>
-                            <span class="cycle">1/2</span>
+                                    href="https://asiaccs2025.hust.edu.vn/">AsiaCCS '25 Aug.</a></span>
+                            <span class="date-late">9. 20 [1/2]</span>
                         </div>
                     </div>
 
                     <div class="month">
                         <h3>Oct. &nbsp;&nbsp;10&#26376;</h3>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://eurocrypt.iacr.org/2025/">Eurocrypt</a></span>
+                            <span class="conf-name"><a style="color: #6495ED" ;
+                                href="https://eurocrypt.iacr.org/2025/">EC '25 May</a></span>
+                            <span class="date-late">10. 2 [1/1]</span>
+                        </div>
+                        <!--
+                        Website currently unavailable!
+                        -->
+                        <!-- <div class="conf-entry">
+                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
+                                    href="https://fc25.ifca.ai/">FC</a></span>
+                        </div> -->
+                        <div class="conf-entry">
+                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES '25 Sep.</a></span>
+                            <span class="date-late">10. 15 [2/4]</span>
                         </div>
                         <div class="conf-entry">
                             <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://fc25.ifca.ai/">FC</a></span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES</a></span>
-                            <span class="cycle">2/4</span>
+                                    href="https://pkc.iacr.org/2025/">PKC '25 May</a></span>
+                            <span class="date-late">10. 16 [1/1]</span>
                         </div>
                         <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://pkc.iacr.org/2025/">PKC</a></span></div>
+                                    href="https://ct-rsa-2025.csa.iisc.ac.in/">CT-RSA '25 May</a></span>
+                            <span class="date-late">10. 30 [1/1]</span>
+                        </div>
                         <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://ct-rsa-2025.csa.iisc.ac.in/">CT-RSA</a></span></div>
-                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://eurosp2025.ieee-security.org/">Euro S&P</a></span></div>
+                                    href="https://eurosp2025.ieee-security.org/">Euro S&P '25 June</a></span>
+                            <span class="date-late">10. 24 [1/1]</span>
+                        </div>
                     </div>
 
                     <div class="month">
                         <h3>Nov. &nbsp;&nbsp;11&#26376;</h3>
                         <div class="conf-entry">
                             <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://pqcrypto2025.iis.sinica.edu.tw/">PQCrypto</a></span>
+                                    href="https://pqcrypto2025.iis.sinica.edu.tw/">PQC '25 Apr.</a></span>
+                                    <span class="date-late">11. 1 [1/1]</span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://sp2026.ieee-security.org/index.html">S&P</a></span>
-                            <span class="cycle">2/2</span>
+                            <span class="conf-name"><a href="https://sp2026.ieee-security.org/index.html">S&P
+                                    '26 May</a></span>
+                            <span class="date">11. 13 [2/2]</span>
                         </div>
                         <div class="conf-entry">
-                            <span class="conf-name"><a href="https://petsymposium.org/">PETs</a></span>
-                            <span class="cycle">1/4</span>
+                            <span class="conf-name"><a href="https://petsymposium.org/">PETs '26 ???.</a></span>
+                            <span class="date">11. 30 [3/4]</span>
                         </div>
                     </div>
 
