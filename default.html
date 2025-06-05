@@ -52,7 +52,7 @@
             <p class='kor post-footer-affl' style='position:relative;text-decoration:none;text-align:center;font-family:"noto-eng-i","noto-kor-i";font-size:9pt;color:darkslategray;display:block;margin-bottom:5px;text-align:left;'>석박통합과정 • 서울대학교 수리과학부</p>
             <ul style='display:flex;list-style-type:none;'>
                 <li style='margin-right:3px!important;margin-left:0px!important;'>
-                    <a href='mailto:hyeongmin.choe528@gmail.com'>
+                    <a href="#" onclick="copyEmail(); return false;">
                         <img src='assets/icons/logo-mail.png' style='width:14px;height:14px' />
                     </a>
                 </li>
@@ -77,7 +77,11 @@
         <div class='_overlay' style='background-color: rgb(24,24,24)'></div>
         <div class='_footer-line'>
             <h1>Modified from <a href='http://jaihyunp.github.io/'>JaiHyun Park</a>'s. <br>ⓒ 2022-2024 <a href='http://hmchoe0528.github.io/'>Hyeongmin Choe</a>. All rights reserved.</h1>
-            <p style='font-size:10pt;font-family:"noto-eng","noto-kor";margin-bottom:10px'><a href='mailto:hyeongmin.choe528@gmail.com'>hyeongmin choe528 at gmail</a></p>
+            <p style='font-size:10pt;font-family:"noto-eng","noto-kor";margin-bottom:10px'>
+                    <a href="#" onclick="copyEmail(); return false;">
+                        &#104;&#121;&#101;&#111;&#110;&#103;&#109;&#105;&#110;&#46;&#99;&#104;&#111;&#101;&#53;&#50;&#56; at gmail
+                    </a>
+            </p>
             <p class='update-time'></p>
             <p class='current-version'></p>
         </div>
@@ -86,5 +90,22 @@
 
     <script src="js/jquery.js"></script>
     <script src='js/manage-version.js'></script>
+
+    <script>
+        function copyText(text) {
+        navigator.clipboard.writeText(text).then(function () {
+            alert("Copied: " + text);
+        }, function (err) {
+            alert("Failed to copy text: " + err);
+        });
+        }
+
+        function copyEmail() {
+        const local = "hyeongmin.choe528";
+        const domain = "gmail.com";
+        const email = `${local}@${domain}`;
+        copyText(email);
+        }
+    </script>
 
 </body>

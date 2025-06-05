@@ -361,9 +361,9 @@
             <h2 class='eng'>PhD • Cryptography Researcher</h2>
             <ul class='social'>
                 <li>
-                    <a href='mailto:hyeongmin.choe528@gmail.com'>
+                    <a href="#" onclick="copyEmail(); return false;">
                         <img src='assets/icons/logo-mail.png' />
-                        <p>hyeongmin choe528 at gmail</p>
+                        <p>&#104;&#121;&#101;&#111;&#110;&#103;&#109;&#105;&#110;&#46;&#99;&#104;&#111;&#101;&#53;&#50;&#56; at gmail</p>
                     </a>
                 </li>
                 <li>
@@ -894,6 +894,23 @@ Rule:
                 }
             });
         });
+    </script>
+
+    <script>
+        function copyText(text) {
+        navigator.clipboard.writeText(text).then(function () {
+            alert("Copied: " + text);
+        }, function (err) {
+            alert("Failed to copy text: " + err);
+        });
+        }
+
+        function copyEmail() {
+        const local = "hyeongmin.choe528";
+        const domain = "gmail.com";
+        const email = `${local}@${domain}`;
+        copyText(email);
+        }
     </script>
 
 
