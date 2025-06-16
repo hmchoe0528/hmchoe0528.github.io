@@ -146,8 +146,8 @@ footer * {position: relative}
     border-left:white 1px solid;
     padding:0;
     margin:auto;
-    margin-left:50px;
-    padding-left:50px;
+    margin-left:auto;
+    padding-left:auto;
     font-family: 'noto-eng-ii','noto-kor-ii';
     font-size:13pt;
     line-height: 35px;
