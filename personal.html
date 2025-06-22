@@ -156,7 +156,7 @@
             display: none;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 460px) {
             .personals li {
                 word-break: break-all;
                 overflow-wrap: break-word;
@@ -166,7 +166,7 @@
                 display: none;
             }
             .only-mobile {
-                display: inline;
+                display: block;
             }
         }
     </style>
@@ -494,6 +494,11 @@
 
                 // Make a list of conferences
                 const confList = monthMap[i].sort((a, b) => a.day - b.day || a.year - b.year);
+                
+                // Display "No deadlines" if none
+                if (confList.length === 0) {
+                    monthDiv.innerHTML += `<p class='only-mobile'; style="color:#aaa; text-align:center;">No deadlines</p>`;
+                }
 
                 // Check deadlines whether all of them are behind
                 const conferenceStatus = {};
