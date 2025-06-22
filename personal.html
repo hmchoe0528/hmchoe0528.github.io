@@ -19,6 +19,7 @@
 
     <!-- style -->
     <style>
+        /*
         .glance {
             background-color: rgba(205, 92, 92, 0.05);
             padding-top: 30px;
@@ -42,6 +43,7 @@
             padding-bottom: 3px;
             border-bottom: 1pt solid gray;
         }
+        */
 
         .personals>ul {
             margin-top: 5px;
@@ -156,6 +158,24 @@
                 /* Make bullets visible in dark mode */
             }
         }
+
+        .only-mobile {
+            display: none;
+        }
+
+        @media (max-width: 500px) {
+            .personals li {
+                word-break: break-all;
+                overflow-wrap: break-word;
+                white-space: normal;
+            }
+            .no-mobile {
+                display: none;
+            }
+            .only-mobile {
+                display: inline;
+            }
+        }
     </style>
 </head>
 
@@ -164,7 +184,7 @@
     <header style='padding-top:160px'></header>
 
     <!--#### contents #####-->
-    <div class='glance'>
+    <!-- <div class='glance'>
         <div class='wide-piece'>
             <h1 class='eng'>&nbsp;Hyeongmin Choe&nbsp;</h1>
             <h1 class='kor'>&nbsp; 최 &nbsp;형 &nbsp;민 &nbsp;</h1>
@@ -186,21 +206,23 @@
                     <h1 class='kor'>나이</h1>
                     <p>1994.5.28.</p>
                 </li>
-                <!-- <li>
+                <li>
                     <h1 class='eng'>Affiliation</h1>
-                    <p class='eng'>Seoul National University</p>
+                    <p class='eng'>CryptoLab Inc.</p>
                     <h1 class='kor'>소속</h1>
-                    <p class='kor'>서울대학교</p>
-                </li> -->
+                    <p class='kor'>(주)크립토랩</p>
+                </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
     <div class='wider-piece personals'>
 
         <h1 class='eng'>About Me</h1>
         <h1 class='kor'>나에 대해서</h1>
         <ul>
+            <li class='eng'>My Korean name in <a href='https://en.wikipedia.org/wiki/Hangul'>Hangul</a> is
+                    최형민 [Choe-Hyeong-min]</li>
             <li class='eng'>I served in the <i>Republic of Korea Air Force</i> from 2015 to 2017 as part of my mandatory
                 military service.</li>
             <li class='kor'>2015년부터 2017년까지 <i>대한민국 공군</i> 에 복무했습니다.</li>
@@ -226,6 +248,11 @@
                 <a href='assets/draft_hyeongmin.pdf'>Accelerating Homomorphic Computation through Machine-Efficient
                     Arithmetic</a>이며, CKKS 동형암호 스킴의 개선에 관한
                 연구입니다.
+            </li>
+            <li class='eng'>
+                Currently, I am a Cryptography Engineer at <a href="https://www.cryptolab.co.kr/en/home/">CryptoLab Inc.</a> in Seoul, Korea.
+                I am actively <b>seeking academic positions</b> for the next chapter of my career. 
+                Feel free to reach out!
             </li>
         </ul>
 
