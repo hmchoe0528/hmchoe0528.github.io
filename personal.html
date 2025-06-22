@@ -75,13 +75,6 @@
             margin-right: auto;
             margin-top: auto;
             margin-bottom: auto;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .personals li li {
-            word-break: break-word;
-            overflow-wrap: break-word;
         }
 
         /* calendar */
@@ -91,23 +84,25 @@
             gap: 8px;
             margin-top: -70px;
             margin-bottom: 30px;
-            max-width: 100%;
+            max-width: 280px;
+            margin: auto;
             overflow-x: auto;
         }
 
-        @media (min-width: 430px) {
+        @media (min-width: 460px) {
             .calendar {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 100%;
             }
         }
 
-        @media (min-width: 624px) {
+        @media (min-width: 690px) {
             .calendar {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        @media (min-width: 818px) {
+        @media (min-width: 920px) {
             .calendar {
                 grid-template-columns: repeat(4, 1fr);
             }
