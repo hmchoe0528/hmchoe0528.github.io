@@ -238,10 +238,13 @@
                 margin-top: 40px;
             }
 
-            .news>h1,
             .topics h1,
             .main-profile h1 {
                 text-align: center !important;
+            }
+
+            .news > h1 {
+                text-align: left !important; 
             }
 
             .news li h1,
@@ -444,11 +447,11 @@ Rule:
             <!-- "25.04: KMS invited talk (~25.10)" -->
             <li class="flex-block">
                 <h1>April 2025</h1>
-                <p class='eng'>I am giving an <b>Invited Talk</b> about HAETAE and SMAUG-T, the KpqC Selected Algorithms, at <a
-                        href='https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347'>2025
+                <p class='eng'>I am giving an <b>Invited Talk</b> about HAETAE and SMAUG-T, the KpqC Selected Algorithms, at 
+                    <a href='https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347'>2025
                         KMS Spring Meeting</a> in April.</p>
-                <p class='kor'><a
-                        href='https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347'>2025
+                <p class='kor'>
+                    <a href='https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347'>2025 
                         대한수학회 봄 연구발표회</a>에 초청 받아 HAETAE와 SMAUG-T에 관한 <b>초청강연</b> 발표를 하였습니다.</p>
             </li>
             <!-- "25.03: JKMS accepted (~25.09)" -->
@@ -655,8 +658,9 @@ Rule:
         </ol>
     </div>
 
-
-    <!---------- Research Interests ---------->
+    <!-------------------------- 
+    ---- Research Interests ----
+    --------------------------->
     <div class="topics wider-piece">
         <h1 class='eng'>Research Interests</h1>
         <h1 class='kor'>관심있는 연구주제</h1>
@@ -712,6 +716,9 @@ Rule:
         </ol>
     </div>
 
+    <!------------------------------ 
+    ---- Selected Pubs & Projs. ----
+    ------------------------------->
     <section>
         <div class="selected wider-piece">
             <h1 class='eng'>Selected Publications & Projects</h1>
@@ -727,10 +734,11 @@ Rule:
                         <b><i>Eprint Archive 2024</i></b>.
                     </p>
                     <div class="content">
+                        <p>-----</p>
                         <!-- <p style="margin-bottom: 10px;"><b>Grafting: Decoupled Scale Factors and Modulus in
                                 RNS-CKKS</b>, <i>Eprint Archive 2024</i>.
                         </p> -->
-                        <p class='eng' style="margin-top: 10px; margin-bottom: 5px;">
+                        <p class='eng'>
                             In this paper, we revisit the arithmetic structure of CKKS FHE scheme and introduce
                             <b>Grafting</b>, a technique that decouples the scale factor from the modulus.
                             This enables <b>optimized RNS packing</b> and <b>flexible rescaling</b>, while <b>reducing
@@ -738,17 +746,17 @@ Rule:
                             Our latest experiments show 1.92× faster bootstrapping, 1.89× faster Bit-CKKS bootstrspping,
                             and 62% smaller public keys.
                         </p>
-                        <p class='eng'>
+                        <p class='eng' style="margin-top: 10px;">
                             <i>This work is part of my doctoral dissertation</i>.
                         </p>
-                        <p class='kor' style="margin-top: 10px; margin-bottom: 5px;">
+                        <p class='kor'>
                             이 논문에서는 CKKS FHE 스킴의 기초 산술 구조를 재설계하는 <b>Grafting</b>이라는 기법을 소개합니다.
                             이 기법은 스케일 팩터와 암호문 모듈러스를 분리해, <b>RNS 패킹 최적화</b>와 <b>유연한 rescaling</b>을 가능하게 하며, <b>공개 키 크기와
                                 동형 연산 실행 시간까지도 줄여줍니다</b>.
                             가장 최근 업데이트된 실험 결과에서, 부트스트래핑 속도는 1.92배 빨라졌고, Bit-CKKS의 이진 게이트 부트스트래핑은 1.89배 향상되었으며, 공개 키 크기는
                             62% 감소했습니다.
                         </p>
-                        <p class='kor'>
+                        <p class='kor' style="margin-top: 10px;">
                             <i>이 연구는 제 박사학위논문에도 수록되어 있습니다</i>.
                         </p>
                     </div>
@@ -763,7 +771,8 @@ Rule:
                         <b><i>ACM CCS 2024</i></b>.
                     </p>
                     <div class="content">
-                        <p class='eng' style="margin-top: 10px; margin-bottom: 5px;">
+                        <p>-----</p>
+                        <p class='eng'>
                             In this paper, we address the <b>IND-CPA<sup>D</sup> insecurity of exact FHE schemes</b>,
                             which was previously believed to apply only to approximate FHEs.
                             We identify vulnerabilities arising from <b>non-negligible incorrectness</b>, where the
@@ -771,18 +780,18 @@ Rule:
                             Our attacks efficiently recover secret keys from BFV/BGV, DM/CGGI, and the exact variant of
                             CKKS, exposing vulnerabilities in current parameter choices.
                         </p>
-                        <p class='eng'>
+                        <p class='eng' style="margin-top: 10px;">
                             <i>This paper received the <b>Grand prize</b> at the Korean National Cryptography Contest
                                 in 2024</i>.
                         </p>
-                        <p class='kor' style="margin-top: 10px; margin-bottom: 5px;">
+                        <p class='kor'>
                             이 논문은 <b>Exact FHE 스킴들의 IND-CPA<sup>D</sup> 안전성</b>에 대해 다루며, 기존에는 Approximate FHE
                             스킴에만 적용된다고 여겨졌던 IND-CPA<sup>D</sup> 공격을 Exact FHE 스킴에도 적용한 연구입니다.
                             우리는 스킴의 <b>정확성</b>, 특히 <b>non-negligible한 부정확성</b>이 <b>안전성</b>을 심각하게 위협한다는 점을 발견하였으며,
                             실제로 BFV/BGV, DM/CGGI, Exact CKKS 스킴에서 작은 파라미터들을 바탕으로, 비밀 키를 효율적으로 복구하는 공격을 구현하였습니다.
                             이러한 취약점은 실제 쓰이는 파라미터로도 자연스럽게 확장되며, 지수적으로 작은 부정확도를 보장하는 파라미터를 사용함으로써 해결될 수 있습니다.
                         </p>
-                        <p class='kor'>
+                        <p class='kor' style="margin-top: 10px;">
                             <i>이 논문은 2024년 한국국가암호공모전에서 대상을 수상하였습니다</i>.
                         </p>
                     </div>
@@ -795,20 +804,26 @@ Rule:
                         <i>Final Winners of KpqC Standardization Competition</i>.
                     </p>
                     <div class="content">
-                        <p class='eng' style="margin-top: 10px;">
+                        <p>-----</p>
+                        <p class='eng'>
                             After 3 years of tremendous efforts—public evaluations, numerous improvements, and security
                             validations—<b>HAETAE</b> and <b>SMAUG-T</b> were selected as the
                             <b>final winners of the KpqC Competition</b> in January 2025.
                             The competition aims to select Quantum-secure Digital Signatures and KEM candidates for
                             Korean Standards, similar to NIST's PQC standardization process.
-                            These schemes will, in the near future, become part of the Korean Standard (KS).
                             As a main contributor to both schemes, I am truly proud of the progress we've made.
                         </p>
-                        <p class='kor' style="margin-top: 10px;">
+                        <p class='eng' style="margin-top: 10px;">
+                            <i>The selected schemes will, in the near future, become part of the Korean Standard (KS)</i>.
+                        </p>
+                        <p class='kor'>
                             지난 2021년 11월부터 시작된 한국양자내성암호 공모에서 약 3년 간의 공개적인 평가, 알고리즘 및 구현의 수정과 개선, 안전성 검증 등을
                             거쳐 2025년 1월, 제가 제출한 <b>HAETAE</b>와 <b>SMAUG-T</b> 알고리즘이 <b>최종 우승자</b>로 선정되었습니다.
                             이 공모는 NIST의 PQC 표준화 과정과 유사하게, 한국 양자내성암호 표준 제정을 위한 전자서명 (Digital Signatures) 및
-                            키 캡슐화 메커니즘 (KEM) 후보를 선정하는 것을 목표로 진행되었으며, 선정된 스킴들은 한국 표준 (KS) 양자내성암호 알고리즘이 될 예정입니다.
+                            키 캡슐화 메커니즘 (KEM) 알고리즘을 선정하는 것을 목표로 진행되었습니다. 
+                        </p>
+                        <p class='kor' style="margin-top: 10px;">
+                            <i>선정된 스킴들은 한국 표준 (KS) 양자내성암호 알고리즘이 될 예정입니다</i>.
                         </p>
                     </div>
                 </div>

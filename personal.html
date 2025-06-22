@@ -17,6 +17,7 @@
     <link rel='shortcut icon' href='assets/icons/logo-fill.png' type='image/x-icon'>
     </link>
 
+    <!-- style -->
     <style>
         .glance {
             background-color: rgba(205, 92, 92, 0.05);
@@ -34,18 +35,17 @@
         }
 
         .glance>div>h1 {
+            margin-left: -50px;
             display: inline-block;
             font-family: "noto-eng", "noto-kor";
             font-size: 15pt;
             padding-bottom: 3px;
             border-bottom: 1pt solid gray;
-            ;
-            word-break: break-word;
-            overflow-wrap: break-word;
         }
 
         .personals>ul {
-            margin-left: 0px;
+            margin-top: 5px;
+            margin-left: 8px;
             margin-right: 0px;
             margin-bottom: 20px;
             word-break: break-word;
@@ -53,17 +53,17 @@
         }
 
         .personals h1 {
+            margin-left: auto;
             font-family: 'noto-eng-i', 'noto-kor-i';
-            font-size: 14pt;
+            font-size: 16pt;
+            font-weight: bold;
             margin-bottom: 5px;
-            word-break: break-word;
-            overflow-wrap: break-word;
         }
 
         .personals p {
             font-family: 'noto-eng-i', 'noto-kor-i';
             font-size: 12pt;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             word-break: break-word;
             overflow-wrap: break-word;
         }
@@ -71,10 +71,10 @@
         .personals li {
             font-family: 'noto-eng-i', 'noto-kor-i';
             font-size: 12pt;
-            margin-left: 0px;
-            margin-right: 0px;
-            margin-top: 0px;
-            margin-bottom: 0px;
+            margin-left: 12px;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
             word-break: break-word;
             overflow-wrap: break-word;
         }
@@ -84,17 +84,33 @@
             overflow-wrap: break-word;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
+        /* calendar */
         .calendar {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr;
             gap: 8px;
+            margin-top: -70px;
+            margin-bottom: 30px;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        @media (min-width: 430px) {
+            .calendar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 624px) {
+            .calendar {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 818px) {
+            .calendar {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         .month {
@@ -124,49 +140,13 @@
         }
 
         .date {
-            /* font-family: monospace; */
             font-size: 12px;
             color: #666;
         }
 
         .date-late {
-            /* font-family: monospace; */
             font-size: 12px;
             color: #ccc;
-        }
-
-        .calendar {
-            grid-template-columns: 1fr;
-            margin-bottom: 30px;
-        }
-
-        @media (min-width: 430px) {
-            .calendar {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 624px) {
-            .calendar {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (min-width: 818px) {
-            .calendar {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        pre {
-            background: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ccc;
-            overflow-x: auto;
-        }
-
-        .hidden {
-            display: none;
         }
 
         /* Dark mode detection */
@@ -180,15 +160,14 @@
 </head>
 
 <body>
-
     <div class='load-menubar'></div>
     <header style='padding-top:160px'></header>
 
-    <!-- contents -->
+    <!--#### contents #####-->
     <div class='glance'>
         <div class='wide-piece'>
-            <h1 class='eng'>Hyeongmin Choe</h1>
-            <h1 class='kor'>최형민</h1>
+            <h1 class='eng'>&nbsp;Hyeongmin Choe&nbsp;</h1>
+            <h1 class='kor'>&nbsp; 최 &nbsp;형 &nbsp;민 &nbsp;</h1>
             <ul class='grid-3-1-ul'>
                 <li id='name'>
                     <h1 class='eng'>Korean Name in <a href='https://en.wikipedia.org/wiki/Hangul'>Hangul</a></h1>
@@ -207,12 +186,12 @@
                     <h1 class='kor'>나이</h1>
                     <p>1994.5.28.</p>
                 </li>
-                <li>
+                <!-- <li>
                     <h1 class='eng'>Affiliation</h1>
                     <p class='eng'>Seoul National University</p>
                     <h1 class='kor'>소속</h1>
                     <p class='kor'>서울대학교</p>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -222,20 +201,32 @@
         <h1 class='eng'>About Me</h1>
         <h1 class='kor'>나에 대해서</h1>
         <ul>
-            <li class='eng'>I served in the <b>Republic of Korea Air Force</b> from 2015 to 2017 as part of my mandatory
+            <li class='eng'>I served in the <i>Republic of Korea Air Force</i> from 2015 to 2017 as part of my mandatory
                 military service.</li>
-            <li class='kor'>2015년부터 2017년까지 <b>대한민국 공군</b>에 복무했습니다.</li>
-            <li class='eng'>I earned my Bachelor's degree in Mathematics from Seoul National University (SNU) in August
-                2019, where I studied from 2013 to 2019.</li>
-            <li class='kor'><b>서울대학교 수리과학부</b>에서 학부를 졸업했습니다 (2013년 3월 - 2019년 8월).</li>
-            <li class='eng'>I completed my Doctorate in Mathematics at SNU in February 2025, after a 5.5-year doctoral
-                program from 2019 to 2025. My doctoral dissertation title is
-                <a href='assets/draft_hyeongmin.pdf'>Accelerating Homomorphic Computation through Machine-Efficient
-                    Arithmetic</a>, on improved underlying arithmetic for CKKS FHE scheme.
+            <li class='kor'>2015년부터 2017년까지 <i>대한민국 공군</i> 에 복무했습니다.</li>
+            <li class='eng'>I earned my Bachelor's degree in
+                <a
+                    href='https://science.snu.ac.kr/en/edu/programs#:~:text=University/Graduate%20School-,Department%20of%20Mathematical%20Sciences,-The%20Department%20of'>
+                    <i>Mathematics, Seoul National University (SNU)</i>
+                </a> in August
+                2019 (2013-2019).
             </li>
-            <li class='kor'><b>저는 2025년 2월 서울대학교 수리과학부</b>에서 박사학위를 취득했습니다 (2019년 9월 - 2025년 2월). 제 박사학위 논문 제목은
-                “Accelerating Homomorphic Computation through Machine-Efficient Arithmetic,”였으며, CKKS 동형암호 스킴의 개선에 관한
-                연구입니다.</li>
+            <li class='kor'>저는 2019년 8월 <i>서울대학교 수리과학부</i> 에서 학부를 졸업했습니다 (2013년 3월 - 2019년 8월).</li>
+            <li class='eng'>I completed my Doctorate in
+                <a
+                    href='https://science.snu.ac.kr/en/edu/programs#:~:text=University/Graduate%20School-,Department%20of%20Mathematical%20Sciences,-The%20Department%20of'>
+                    <i>Mathematics at SNU</i>
+                </a> in February 2025, after a 5.5-year doctoral
+                program (2019-2025). My doctoral dissertation title is
+                <a href='assets/draft_hyeongmin.pdf'>
+                    Accelerating Homomorphic Computation through Machine-Efficient Arithmetic
+                </a>, on improved underlying arithmetic for CKKS FHE scheme.
+            </li>
+            <li class='kor'>저는 2025년 2월 <i>서울대학교 수리과학부</i> 에서 박사 학위를 취득했습니다 (2019년 9월 - 2025년 2월). 제 박사학위 논문 제목은
+                <a href='assets/draft_hyeongmin.pdf'>Accelerating Homomorphic Computation through Machine-Efficient
+                    Arithmetic</a>이며, CKKS 동형암호 스킴의 개선에 관한
+                연구입니다.
+            </li>
         </ul>
 
         <h1 class='eng'>Teaching Assistant</h1>
@@ -243,30 +234,32 @@
         <ul>
             <li class='eng'><b>SNU</b>
                 <ul>
-                    <li>Honor Calculus Practice 2023-2, 2023-1 (Awarded for <b>Excellence in Teaching</b>), 2021-2,
-                        2020-2. </li>
-                    <li>Differential and Integral Calculus Practice 2022-1, 2021-1. </li>
-                    <li>Number Theory 2021-1, Calculus Practice 2020-1, Calculus TA Seminar 2024-1, 2020-1. </li>
+                    <li>Calculus TA Seminar 2024-1, 2020-1. </li>
+                    <li>Honor Calculus Practice 2023-2, 2023-1 (Awarded for
+                        <a href='assets/2023_TA_Award.pdf'>Excellence in Teaching</a>), 2021-2, 2020-2.
+                    </li>
+                    <li>Differential and Integral Calculus Practice 2022-1, 2021-1, Calculus Practice 2020-1. </li>
+                    <li>Number Theory 2021-1. </li>
                 </ul>
             </li>
             <li class='kor'><b>서울대학교</b>
                 <ul>
-                    <li>고급수학연습 2023-2, 2023-1 (우수 조교 선정), 2021-2, 2020-2. </li>
-                    <li>미적분학연습 2022-1, 2021-1. </li>
-                    <li>정수론 2021-1, 수학연습 2020-1, 미적분학연습조교세미나 2024-1, 2020-1. </li>
+                    <li>미적분학연습조교세미나 2024-1, 2020-1. </li>
+                    <li>고급수학연습 2023-2, 2023-1 (<a href='assets/2023_TA_Award.pdf'>우수 조교</a> 선정), 2021-2, 2020-2. </li>
+                    <li>미적분학연습 2022-1, 2021-1, 수학연습 2020-1. </li>
+                    <li>정수론 2021-1. </li>
                 </ul>
             </li>
-            <li class='eng'><b>KMO Winter/Summer School</b>
+            <li class='eng'><b>Others</b>
                 <ul>
-                    <li>I worked as a TA in the Korean Mathematical Olympiad (KMO) Winter & Summer Schools from the 2013
-                        winter to the 2014 summer.
-                    </li>
+                    <li>SK Hynix i-TAP Lectures for Post‑Quantum Cryptography in 2021. </li>
+                    <li>KMO Winter/Summer School TA for the Korean Mathematical Olympiad (KMO) in 2013 and 2014. </li>
                 </ul>
             </li>
-            <li class='kor'><b>KMO 계절학교 조교</b>
+            <li class='kor'><b>그 외</b>
                 <ul>
-                    <li>2013년 겨울부터 2014년 여름까지 한국수학올림피아드 (KMO) 여름/겨울 계절학교 조교로 일했습니다.
-                    </li>
+                    <li>2021년 봄에 SK Hynix i-TAP 양자내성암호 교육의 조교로 5주간 일했습니다. </li>
+                    <li>KMO 계절학교 조교: 2013년 겨울부터 2014년 여름까지 한국수학올림피아드 (KMO) 여름/겨울 계절학교 조교로 일했습니다. </li>
                 </ul>
             </li>
         </ul>
@@ -283,466 +276,17 @@
                     & Clement Fung</a>.
             </li>
             <li>
-                Deadlines Calendar (last update: June, 2025).
-                <p>List of 2025-2026 conferences for personal reference :D</p>
-                <!-- TODO: hard-coded -> automatize -->
-                <!-- <div class="calendar">
-                    <div class="month">
-                        <h3>Jan. &nbsp;&nbsp;1&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color: #6495ED" ;
-                                    href="https://www.sigsac.org/ccs/CCS2025/">CCS '25 Oct.</a></span>
-                            <span class="date">1. 9 [1/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://acns2025.fordaysec.de/">ACNS '25 June</a></span>
-                            <span class="date">1. 13 [2/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES '25 Sep.</a></span>
-                            <span class="date">1. 15 [3/4]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://asiaccs2025.hust.edu.vn/">AsiaCCS '25 Aug.</a></span>
-                            <span class="date">1. 20 [2/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://sacworkshop.org/SAC25/index.html">SAC '25 Aug.</a></span>
-                            <span class="date">1. 27 [1/2]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>Feb. &nbsp;&nbsp;2&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX
-                                    '26 Aug.</a></span>
-                            <span class="date">2. 5 [2/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color: #6495ED" ;
-                                    href="https://crypto.iacr.org/2025/">Crypto '25 Aug.</a></span>
-                            <span class="date">2. 13 [1/1]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://petsymposium.org/">PETs '26 July</a></span>
-                            <span class="date">2. 28 [4/4]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>Mar. &nbsp;&nbsp;3&#26376;</h3>
-                    </div>
-
-                    <div class="month">
-                        <h3>Apr. &nbsp;&nbsp;4&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color: #6495ED" ;
-                                    href="https://www.sigsac.org/ccs/CCS2025/">CCS '25 Oct.</a></span>
-                            <span class="date">4. 14 [2/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES '25 Sep.</a></span>
-                            <span class="date">4. 15 [4/4]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>May. &nbsp;&nbsp;5&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://sacworkshop.org/SAC25/index.html">SAC '25 Aug.</a></span>
-                            <span class="date">5. 7 [2/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color: #6495ED" ;
-                                    href="https://asiacrypt.iacr.org/2025/">AC '25 Dec.</a></span>
-                            <span class="date">5. 16 [1/1]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://tcc.iacr.org/2025/">TCC '25 Dec.</a></span>
-                            <span class="date">5. 27 [1/1]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://petsymposium.org/">PETs '26 July</a></span>
-                            <span class="date">5. 31 [1/4]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>June &nbsp;&nbsp;6&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://sp2026.ieee-security.org/index.html">S&P
-                                    '26 May</a></span>
-                            <span class="date">6. 5 [1/2]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>July &nbsp;&nbsp;7&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES '25 Sep.</a></span>
-                            <span class="date">7. 15 [1/4]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>Aug. &nbsp;&nbsp;8&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://www.usenix.org/conference/usenixsecurity26">USENIX
-                                    '26 Aug.</a></span>
-                            <span class="date">8. 26 [1/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://petsymposium.org/">PETs '26 July</a></span>
-                            <span class="date">8. 31 [2/4]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>Sep. &nbsp;&nbsp;9&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://acns2025.fordaysec.de/">ACNS '25 June</a></span>
-                            <span class="date">9. 9 [1/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://asiaccs2025.hust.edu.vn/">AsiaCCS '25 Aug.</a></span>
-                            <span class="date">9. 20 [1/2]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>Oct. &nbsp;&nbsp;10&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color: #6495ED" ;
-                                    href="https://eurocrypt.iacr.org/2025/">EC '25 May</a></span>
-                            <span class="date">10. 2 [1/1]</span>
-                        </div>
-                        <!--
-                        Website currently unavailable!
-                        -->
-                        <!-- <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://fc25.ifca.ai/">FC</a></span>
-                        </div> -->
-                        <!--
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://ches.iacr.org/2025/">CHES '25 Sep.</a></span>
-                            <span class="date">10. 15 [2/4]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://pkc.iacr.org/2025/">PKC '25 May</a></span>
-                            <span class="date">10. 16 [1/1]</span>
-                        </div>
-                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://ct-rsa-2025.csa.iisc.ac.in/">CT-RSA '25 May</a></span>
-                            <span class="date">10. 30 [1/1]</span>
-                        </div>
-                        <div class="conf-entry"><span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://eurosp2025.ieee-security.org/">Euro S&P '25 June</a></span>
-                            <span class="date">10. 24 [1/1]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>Nov. &nbsp;&nbsp;11&#26376;</h3>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a style="color:DarkGoldenrod" ;
-                                    href="https://pqcrypto2025.iis.sinica.edu.tw/">PQC '25 Apr.</a></span>
-                            <span class="date">11. 1 [1/1]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://sp2026.ieee-security.org/index.html">S&P
-                                    '26 May</a></span>
-                            <span class="date">11. 13 [2/2]</span>
-                        </div>
-                        <div class="conf-entry">
-                            <span class="conf-name"><a href="https://petsymposium.org/">PETs '26 July</a></span>
-                            <span class="date">11. 30 [3/4]</span>
-                        </div>
-                    </div>
-
-                    <div class="month">
-                        <h3>Dec. &nbsp;&nbsp;12&#26376;</h3>
-                    </div>
-                </div>
+                Selected Deadlines (last update: June, 2025). 
+                <p>* All deadlines passed: <span class="expired-flag">!</span> &nbsp; * Event ended: <span style="text-decoration:line-through;">Conference</span>.</p>
             </li>
+            <!-- html preview: https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server -->
         </ul>
-    </div> -->
+    </div>
 
-    <!-- Conference Deadlines (Auto-Generated) -->
-    <div class="calendar"></div>
-
-    <script>
-        const conferenceDeadlines = [
-            {
-                name: "CCS '25 Oct.",
-                link: "https://www.sigsac.org/ccs/CCS2025/",
-                color: "#6495ED",
-                deadline: "2025-01-09",
-                cycle: "[1/2]"
-            },
-            {
-                name: "ACNS '25 June",
-                link: "https://acns2025.fordaysec.de/",
-                color: "DarkGoldenrod",
-                deadline: "2025-01-13",
-                cycle: "[2/2]"
-            },
-            {
-                name: "CHES '25 Sep.",
-                link: "https://ches.iacr.org/2025/",
-                color: "indianred",
-                deadline: "2025-01-15",
-                cycle: "[3/4]"
-            },
-            {
-                name: "AsiaCCS '25 Aug.",
-                link: "https://asiaccs2025.hust.edu.vn/",
-                color: "DarkGoldenrod",
-                deadline: "2025-01-20",
-                cycle: "[2/2]"
-            },
-            {
-                name: "SAC '25 Aug.",
-                link: "https://sacworkshop.org/SAC25/index.html",
-                color: "DarkGoldenrod",
-                deadline: "2025-01-27",
-                cycle: "[1/2]"
-            },
-            {
-                name: "USENIX '26 Aug.",
-                link: "https://www.usenix.org/conference/usenixsecurity26",
-                color: "indianred",
-                deadline: "2026-02-05",
-                cycle: "[2/2]"
-            },
-            {
-                name: "Crypto '25 Aug.",
-                link: "https://crypto.iacr.org/2025/",
-                color: "#6495ED",
-                deadline: "2025-02-13",
-                cycle: "[1/1]"
-            },
-            {
-                name: "PETs '26 July",
-                link: "https://petsymposium.org/",
-                color: "indianred",
-                deadline: "2026-02-28",
-                cycle: "[4/4]"
-            },
-            {
-                name: "CCS '25 Oct.",
-                link: "https://www.sigsac.org/ccs/CCS2025/",
-                color: "#6495ED",
-                deadline: "2025-04-14",
-                cycle: "[2/2]"
-            },
-            {
-                name: "CHES '25 Sep.",
-                link: "https://ches.iacr.org/2025/",
-                color: "indianred",
-                deadline: "2025-04-15",
-                cycle: "[4/4]"
-            },
-            {
-                name: "SAC '25 Aug.",
-                link: "https://sacworkshop.org/SAC25/index.html",
-                color: "DarkGoldenrod",
-                deadline: "2025-05-07",
-                cycle: "[2/2]"
-            },
-            {
-                name: "AC '25 Dec.",
-                link: "https://asiacrypt.iacr.org/2025/",
-                color: "#6495ED",
-                deadline: "2025-05-16",
-                cycle: "[1/1]"
-            },
-            {
-                name: "TCC '25 Dec.",
-                link: "https://tcc.iacr.org/2025/",
-                color: "DarkGoldenrod",
-                deadline: "2025-05-27",
-                cycle: "[1/1]"
-            },
-            {
-                name: "PETs '26 July",
-                link: "https://petsymposium.org/",
-                color: "indianred",
-                deadline: "2025-05-31",
-                cycle: "[1/4]"
-            },
-            {
-                name: "S&P '26 May",
-                link: "https://sp2026.ieee-security.org/index.html",
-                color: "indianred",
-                deadline: "2025-06-05",
-                cycle: "[1/2]"
-            },
-            {
-                name: "CHES '25 Sep.",
-                link: "https://ches.iacr.org/2025/",
-                color: "indianred",
-                deadline: "2024-07-15",
-                cycle: "[1/4]"
-            },
-            {
-                name: "USENIX '26 Aug.",
-                link: "https://www.usenix.org/conference/usenixsecurity26",
-                color: "indianred",
-                deadline: "2025-08-26",
-                cycle: "[1/2]"
-            },
-            {
-                name: "PETs '26 July",
-                link: "https://petsymposium.org/",
-                color: "indianred",
-                deadline: "2025-08-31",
-                cycle: "[2/4]"
-            },
-            {
-                name: "ACNS '25 June",
-                link: "https://acns2025.fordaysec.de/",
-                color: "DarkGoldenrod",
-                deadline: "2024-09-09",
-                cycle: "[1/2]"
-            },
-            {
-                name: "AsiaCCS '25 Aug.",
-                link: "https://asiaccs2025.hust.edu.vn/",
-                color: "DarkGoldenrod",
-                deadline: "2024-09-20",
-                cycle: "[1/2]"
-            },
-            {
-                name: "EC '25 May",
-                link: "https://eurocrypt.iacr.org/2025/",
-                color: "#6495ED",
-                deadline: "2024-10-02",
-                cycle: "[1/1]"
-            },
-            {
-                name: "CHES '25 Sep.",
-                link: "https://ches.iacr.org/2025/",
-                color: "indianred",
-                deadline: "2024-10-15",
-                cycle: "[2/4]"
-            },
-            {
-                name: "PKC '25 May",
-                link: "https://pkc.iacr.org/2025/",
-                color: "DarkGoldenrod",
-                deadline: "2024-10-16",
-                cycle: "[1/1]"
-            },
-            {
-                name: "CT-RSA '25 May",
-                link: "https://ct-rsa-2025.csa.iisc.ac.in/",
-                color: "DarkGoldenrod",
-                deadline: "2024-10-30",
-                cycle: "[1/1]"
-            },
-            {
-                name: "Euro S&P '25 June",
-                link: "https://eurosp2025.ieee-security.org/",
-                color: "DarkGoldenrod",
-                deadline: "2024-10-24",
-                cycle: "[1/1]"
-            },
-            {
-                name: "PQC '25 Apr.",
-                link: "https://pqcrypto2025.iis.sinica.edu.tw/",
-                color: "DarkGoldenrod",
-                deadline: "2024-11-01",
-                cycle: "[1/1]"
-            },
-            {
-                name: "S&P '26 May",
-                link: "https://sp2026.ieee-security.org/index.html",
-                color: "indianred",
-                deadline: "2025-11-13",
-                cycle: "[2/2]"
-            },
-            {
-                name: "PETs '26 July",
-                link: "https://petsymposium.org/",
-                color: "indianred",
-                deadline: "2025-11-30",
-                cycle: "[3/4]"
-            },
-            {
-                name: "WAHC '25 Oct.",
-                link: "https://homomorphicencryption.org/wahc-2025/", 
-                color: "DarkGoldenrod",
-                deadline: "2025-06-20",
-                cycle: "[1/1]"
-            }
-        ];
-
-
-        function generateCalendar(entries) {
-            const container = document.querySelector(".calendar");
-            container.innerHTML = "";
-
-            // 월별로 분류 (1~12월, index 0~11)
-            const monthMap = Array.from({ length: 12 }, () => []);
-
-            entries.forEach(conf => {
-                const date = new Date(conf.deadline);
-                const monthIndex = date.getMonth();
-                const year = date.getFullYear();
-                const day = date.getDate();
-
-                monthMap[monthIndex].push({
-                    ...conf,
-                    year,
-                    month: monthIndex,
-                    day
-                });
-            });
-
-            for (let i = 0; i < 12; i++) {
-                const monthDiv = document.createElement("div");
-                monthDiv.className = "month";
-
-                const monthLabel = new Date(2000, i).toLocaleString('default', { month: 'short' });
-                monthDiv.innerHTML = `<h3>${monthLabel}. ${i + 1}月</h3>`;
-
-                const confList = monthMap[i].sort((a, b) => a.day - b.day || a.year - b.year);
-
-                if (confList.length === 0) {
-                    monthDiv.innerHTML += `<p style="color:#aaa; text-align:center;">No deadlines</p>`;
-                }
-
-                confList.forEach(conf => {
-                    const today = new Date();
-                    const confDate = new Date(conf.deadline);
-                    const isPast = confDate < today;
-                    const className = isPast ? "date-late" : "date";
-
-                    monthDiv.innerHTML += `
-        <div class="conf-entry">
-          <span class="conf-name"><a style="color:${conf.color}" href="${conf.link}" target="_blank">${conf.name}</a></span>
-          <span class="${className}">${conf.month + 1}. ${conf.day} ${conf.cycle}</span>
-        </div>
-      `;
-                });
-
-                container.appendChild(monthDiv);
-            }
-        }
-        document.addEventListener("DOMContentLoaded", () => {
-            generateCalendar(conferenceDeadlines);
-        });
-    </script>
+    <!-- Conference Deadlines -->
+    <div class='wider-piece-no-top'>
+        <div class="calendar"></div>
+    </div>
 
     <!-- footer -->
     <footer class="_track load-footer" id='footer'></footer>
@@ -752,22 +296,269 @@
     <script src="js/jquery.js"></script>
     <script src='js/javascript.js'></script>
     <script>
-        const today = new Date();
-
-        document.querySelectorAll('.conf-entry .date').forEach(span => {
-            const text = span.textContent.trim();
-            const match = text.match(/^(\d{1,2})\.\s*(\d{1,2})/); // "MM. DD" 형태
-
-            if (match) {
-                const month = parseInt(match[1], 10) - 1;
-                const day = parseInt(match[2], 10);
-                const confDate = new Date(today.getFullYear(), month, day);
-
-                if (confDate < today) {
-                    span.classList.add('date-late');
-                }
+        // ******************************** //
+        // Lst of conferences and deadlines // 
+        // ******************************** //
+        const conferenceDeadlines = [
+            {
+                name: "CCS",
+                link: "https://www.sigsac.org/ccs/CCS2025/",
+                color: "CornflowerBlue",
+                deadlines: ["2025-01-09", "2025-04-14"],
+                eventDate: "2025-10-13"
+            },
+            {
+                name: "ACNS",
+                link: "https://acns2025.fordaysec.de/",
+                color: "DarkGoldenrod",
+                deadlines: ["2024-09-09", "2025-01-13"],
+                eventDate: "2025-06-23"
+            },
+            {
+                name: "CHES",
+                link: "https://ches.iacr.org/2025/",
+                color: "indianred",
+                deadlines: ["2024-07-15", "2024-10-15", "2025-01-15", "2025-04-15"],
+                eventDate: "2025-09-14"
+            },
+            {
+                name: "AsiaCCS",
+                link: "https://asiaccs2025.hust.edu.vn/",
+                color: "DarkGoldenrod",
+                deadlines: ["2024-09-20", "2025-01-20"],
+                eventDate: "2025-08-25"
+            },
+            {
+                name: "SAC",
+                link: "https://sacworkshop.org/SAC25/index.html",
+                color: "DarkGoldenrod",
+                deadlines: ["2025-01-27", "2025-05-07"],
+                eventDate: "2025-08-13"
+            },
+            {
+                name: "USENIX Sec.",
+                link: "https://www.usenix.org/conference/usenixsecurity26",
+                color: "indianred",
+                deadlines: ["2025-08-26", "2026-02-05"],
+                eventDate: "2026-08-12"
+            },
+            {
+                name: "Crypto",
+                link: "https://crypto.iacr.org/2025/",
+                color: "CornflowerBlue",
+                deadlines: ["2025-02-13"],
+                eventDate: "2025-08-17"
+            },
+            {
+                name: "PETs",
+                link: "https://petsymposium.org/",
+                color: "indianred",
+                deadlines: ["2025-05-31", "2025-08-31", "2025-11-30", "2026-02-28"],
+                eventDate: "2026-07-??"
+            },
+            {
+                name: "AC",
+                link: "https://asiacrypt.iacr.org/2025/",
+                color: "CornflowerBlue",
+                deadlines: ["2025-05-16"],
+                eventDate: "2026-12-08"
+            },
+            {
+                name: "TCC",
+                link: "https://tcc.iacr.org/2025/",
+                color: "DarkGoldenrod",
+                deadlines: ["2025-05-27"],
+                eventDate: "2025-12-01"
+            },
+            {
+                name: "S&P",
+                link: "https://sp2026.ieee-security.org/index.html",
+                color: "indianred",
+                deadlines: ["2025-06-05", "2025-11-13"],
+                eventDate: "2026-05-18"
+            },
+            {
+                name: "EC",
+                link: "https://eurocrypt.iacr.org/2026",
+                color: "CornflowerBlue",
+                deadlines: ["2025-10-02"],
+                eventDate: "2026-05-10"
+            },
+            {
+                name: "PKC",
+                link: "https://pkc.iacr.org/2025/",
+                color: "DarkGoldenrod",
+                deadlines: ["2024-10-16"],
+                eventDate: "2025-05-12"
+            },
+            {
+                name: "CT-RSA",
+                link: "https://ct-rsa-2025.csa.iisc.ac.in/",
+                color: "DarkGoldenrod",
+                deadlines: ["2024-10-30"],
+                eventDate: "2025-04-28"
+            },
+            {
+                name: "Euro S&P",
+                link: "https://eurosp2025.ieee-security.org/",
+                color: "DarkGoldenrod",
+                deadlines: ["2024-10-24"],
+                eventDate: "2025-06-30"
+            },
+            {
+                name: "PQC",
+                link: "https://pqcrypto2025.iis.sinica.edu.tw/",
+                color: "DarkGoldenrod",
+                deadlines: ["2024-11-01"],
+                eventDate: "2025-04-08"
+            },
+            {
+                name: "WAHC",
+                link: "https://homomorphicencryption.org/wahc-2025/",
+                color: "DarkGoldenrod",
+                deadlines: ["2025-06-27"],
+                eventDate: "2025-10-13"
             }
-        });
-    </script>
+        ];
 
+        // ****************** //
+        // Calendar Generator // 
+        // ****************** //
+        function generateCalendar(conferenceDeadlines) {
+            const container = document.querySelector(".calendar");
+            container.innerHTML = "";
+
+            // Get Conferences
+            let flattened = [];
+            conferenceDeadlines.forEach(conf => {
+                const total = conf.deadlines.length;
+                conf.deadlines.forEach((dateStr, idx) => {
+                    flattened.push({
+                        name: conf.name,
+                        link: conf.link,
+                        color: conf.color,
+                        deadline: dateStr,
+                        cycle: `[${idx + 1}/${total}]`,
+                        eventDate: conf.eventDate // pass eventDate along
+                    });
+                });
+            });
+
+            // AOE time
+            const now = new Date();
+            const utcTime = now.getTime() + now.getTimezoneOffset() * 60000;
+            const aoeTime = new Date(utcTime - 12 * 60 * 60 * 1000);
+
+            // Map with month
+            const monthMap = Array.from({ length: 12 }, () => []);
+            flattened.forEach(conf => {
+                const date = new Date(conf.deadline);
+                const monthIndex = date.getMonth();
+                const year = date.getFullYear();
+                const day = date.getDate();
+                monthMap[monthIndex].push({ ...conf, year, month: monthIndex, day });
+            });
+
+            // Language
+            const isKorean = lang.startsWith('ko');
+            const locale = isKorean ? 'ko-KR' : 'en-US';
+
+            // All months are displayed by default
+            for (let i = 0; i < 12; i++) {
+                const monthDiv = document.createElement("div");
+                monthDiv.className = "month";
+
+                // Months in Kor or Eng
+                const monthLabel = new Date(2000, i).toLocaleString(locale, { month: 'long' });
+                monthDiv.innerHTML = `<h3>${monthLabel}</h3>`;
+
+                // Make a list of conferences
+                const confList = monthMap[i].sort((a, b) => a.day - b.day || a.year - b.year);
+
+                // Check deadlines whether all of them are behind
+                const conferenceStatus = {};
+                conferenceDeadlines.forEach(conf => {
+                    const allPast = conf.deadlines.every(dateStr => {
+                        const d = new Date(dateStr);
+                        return d < aoeTime;
+                    });
+                    conferenceStatus[conf.name] = allPast;
+                });
+                // Display policy
+                confList.forEach(conf => {
+                    const confDate = new Date(conf.deadline);
+                    const isDeadlinePast = confDate < aoeTime;
+
+                    let isEventPast = false;
+                    const rawEventDate = conf.eventDate;
+                    if (rawEventDate && !rawEventDate.includes("??")) {
+                        const parsed = new Date(rawEventDate);
+                        if (!isNaN(parsed)) {
+                            isEventPast = parsed < aoeTime;
+                        }
+                    }
+
+                    // Deadline date: gray if passed
+                    const className = isDeadlinePast ? "date-late" : "date";
+
+                    // Year prefix for deadline date
+                    const thisYear = aoeTime.getFullYear();
+                    const deadlineYear = conf.year;
+                    const yearPrefix = (deadlineYear !== thisYear) ? `'${String(deadlineYear).slice(2)}.` : "";
+
+                    // Format event: '{year} month
+                    let eventSuffix = "";
+                    if (conf.eventDate) {
+                        const [yyyy, mm, dd] = conf.eventDate.split("-");
+                        let suffixParts = [];
+
+                        suffixParts.push(yyyy !== "??" ? `'${yyyy.slice(2)}` : "??");
+
+                        if (mm && mm !== "??") {
+                            const monthIndex = parseInt(mm, 10) - 1;
+                            const date = new Date(2000, monthIndex); // dummy year
+                            const monthStr = date.toLocaleString(locale, { month: 'short' });
+                            suffixParts.push(monthStr + ".");
+                        } else {
+                            suffixParts.push("??");
+                        }
+
+                        eventSuffix = " " + suffixParts.join(" ");
+                    }
+
+                    // Compose name with suffix and symbols
+                    let confNameDisplay = conf.name + eventSuffix;
+
+                    const allDeadlinesPast = conferenceStatus[conf.name];
+                    const showRedExclamation = allDeadlinesPast;
+
+                    if (showRedExclamation) {
+                        confNameDisplay += ` <span class="expired-flag">!</span>`;
+                    }
+
+                    // If event also passed, apply gray color + strikethrough
+                    const confColor = isEventPast ? "#aaa" : conf.color;
+                    const confStyle = isEventPast ? "text-decoration:line-through;" : "";
+
+                    // Display
+                    monthDiv.innerHTML += `
+                        <div class="conf-entry">
+                            <span class="conf-name">
+                                <a style="color:${confColor}; ${confStyle}" href="${conf.link}" target="_blank">${confNameDisplay}</a>
+                            </span>
+                            <span class="${className}">${yearPrefix}${conf.month + 1}.${conf.day} ${conf.cycle}</span>
+                        </div>
+                    `;
+                });
+
+                container.appendChild(monthDiv);
+            }
+        }
+
+        // Generate the calendar
+        document.addEventListener("DOMContentLoaded", () => {
+            generateCalendar(conferenceDeadlines);
+        });
+
+    </script>
 </body>
