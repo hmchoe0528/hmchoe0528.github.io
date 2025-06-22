@@ -78,6 +78,24 @@
             font-size: 10pt;
         }
 
+        .only-mobile {
+            display: none;
+        }
+
+        @media (max-width: 450px) {
+            .papers>li {
+                word-break: break-all;
+                overflow-wrap: break-word;
+                white-space: normal;
+            }
+            .no-mobile {
+                display: none;
+            }
+            .only-mobile {
+                display: inline;
+            }
+        }
+
         /* Dark mode detection */
         @media (prefers-color-scheme: dark) {
             li::marker {
@@ -96,7 +114,11 @@
     <div class='wide-piece'>
 
         <h1 class='talks'>Talks</h1>
-        <h2 class='talks' style="margin-top: 20px;">&#10004; Homomorphic Encryprion</h2>
+        <h2 class='talks' style="margin-top: 20px;">
+            <span style="font-size: 14pt;">&#10004;</span>
+            <span class='no-mobile'>Homomorphic Encryprion</span>
+            <span class='only-mobile'>FHE</span>
+        </h2>
         <ul class='talks'>
             <li>
                 <h3>Recent Advances in Fully Homomorphic Encryption
@@ -104,7 +126,9 @@
                 <ul>
                     <!--RUB 2025.01-->
                     <li class='eng'>[<a href="assets/slides/250122_RUB.pdf" ; style='color:blue'>Jan. 2025</a>]
-                        <b>Invited talk</b> at Ruhr University Bochum, Germany.
+                        <b>Invited talk</b> 
+                        <span class='no-mobile'>at Ruhr University Bochum, Germany.</span>
+                        <span class='only-mobile'>@RUB.</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/250122_RUB.pdf" ; style='color:blue'>2025. 01</a>]
                         <b>Invited talk</b>, 독일 루르 보훔 대학교.
@@ -120,14 +144,14 @@
                     <li class='eng'>[<a href="assets/slides/ccs_phd_slide_2024_10_14.pdf" ; style='color:blue'>Oct.
                             2024</a>]
                         <a href='https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html'>
-                            <b>ACM CCS 2024 Doctoral Symposium</b>
-                        </a> at Marriott Salt Lake City Creek, US.
+                            <b>ACM CCS 2024 Doctoral Symposium</b><span class='only-mobile'>.</span>
+                        </a><span class='no-mobile'>at Marriott Salt Lake City Creek, US.</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/ccs_phd_slide_2024_10_14.pdf" ; style='color:blue'>2024.
                             10</a>]
                         <a href='https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html'>
-                            <b>ACM CCS 2024 Doctoral Symposium</b>
-                        </a>, 미국 메리어트 솔트 레이크 시티 크릭.
+                            <b>ACM CCS 2024 Doctoral Symposium</b>,
+                        </a>미국 메리어트 솔트 레이크 시티 크릭.
                     </li>
                 </ul>
             </li>
@@ -141,15 +165,15 @@
                             style='color:blue'>April 2024</a>]
                         <a href='https://www.kms.or.kr/conference/2024_spring/program/session.html?period=87&session_detail=319'
                             ; style='color:lightcoral'>
-                            <b>KMS Spring Meeting</b>
-                        </a> at DCC, Korea.
+                            <b>KMS Spring Meeting</b><span class='only-mobile'>.</span>
+                        </a><span class='no-mobile'>at DCC, Korea.</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/INDCPAD_slide_2024_04_19_KMS_spring.pdf" ;
                             style='color:blue'>2024. 04</a>]
                         <a href='https://www.kms.or.kr/conference/2024_spring/program/session.html?period=87&session_detail=319'
                             ; style='color:lightcoral'>
-                            <b>대한수학회 봄 연구발표회</b>
-                        </a>, 대전컨벤션센터 (DCC).
+                            <b>대한수학회 봄 연구발표회</b>,
+                        </a>대전컨벤션센터 (DCC).
                     </li>
                 </ul>
             </li>
@@ -160,30 +184,39 @@
                 <ul>
                     <li class='eng'>[Oct. 2020] <a href='https://www.kms.or.kr/meetings/fall2020/' ;
                             style='color:lightcoral'>
-                            <b>KMS Fall Meeting</b></a>, virtual.
+                            <b>KMS Fall Meeting</b><span class='only-mobile'>.</span><span class='no-mobile'>,</span>
+                        </a><span class='no-mobile'>virtual</span></a>
                     </li>
                     <li class='kor'>[2020. 10] <a href='https://www.kms.or.kr/meetings/fall2020/' ;
                             style='color:lightcoral'>
-                            <b>대한수학회 가을 연구발표회</b></a>, 온라인.
+                            <b>대한수학회 가을 연구발표회</b>,</a> 온라인.
                     </li>
                 </ul>
             </li>
         </ul>
-        <h2 class='talks'>&#10004; Post-Quantum Cryptography</h2>
+        <h2 class='talks'>
+            <span style="font-size: 14pt;">&#10004;</span>
+            <span class='no-mobile'>Post-Quantum Cryptography</span>
+            <span class='only-mobile'>PQC</span>
+        </h2>
         <ul class='talks'>
             <li>
                 <h3>HAETAE and SMAUG-T: Korean PQC Standards</h3>
                 <ul>
                     <!-- Kookmin -->
                     <li class='eng'>[June 2025]
-                        <b>Invited talk</b> at Kookmin University, Korea.
+                        <b>Invited talk</b>
+                        <span class='no-mobile'>at Kookmin University, Korea.</span>
+                        <span class='only-mobile'>@KMU.</span>
                     </li>
                     <li class='kor'>[2025.06]
                         <b>Invited talk</b>, 국민대학교. 
                     </li>
                     <!-- Dongguk -->
                     <li class='eng'>[May 2025]
-                        <b>Invited talk</b> at Dongguk University, Korea.
+                        <b>Invited talk</b>
+                        <span class='no-mobile'>at Dongguk University, Korea.</span>
+                        <span class='only-mobile'>@Dongguk Univ.</span>
                     </li>
                     <li class='kor'>[2025.05]
                         <b>Invited talk</b>, 동국대학교. 
@@ -191,17 +224,17 @@
                     <!-- KMS -->
                     <li class='eng'>[<a href="assets/slides/2025_kms_invited_talk_2025_04_25.pdf" ;
                             style='color:blue'>Apr. 2025</a>]
-                        <b>Invited talk</b> at
-                        <a
-                            href='https://www.kms.or.kr/conference/meet/program/session.html?period=89&session_detail=580'>
-                            <b>2025 KMS Spring Meeting</b></a>, KAIST, Korea.
+                        <b>Invited talk</b> <span class='no-mobile'>at</span>
+                        <a href='https://www.kms.or.kr/conference/meet/program/session.html?period=89&session_detail=580'>
+                            <span class='only-mobile'>@</span><b>KMS Spring Meeting</b><span class='only-mobile'>.</span><span class='no-mobile'>,</span>
+                        </a><span class='no-mobile'>KAIST, Korea.</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/2025_kms_invited_talk_2025_04_25.pdf" ;
                             style='color:blue'>2025.04</a>]
                         <b>Invited talk</b>, 
                         <a
                             href='https://www.kms.or.kr/conference/meet/program/session.html?period=89&session_detail=580'>
-                            <b>2025 KMS Spring Meeting</b></a>, KAIST.
+                            <b>KMS Spring Meeting</b>,</a> KAIST.
                     </li>
                 </ul>
             </li>
@@ -215,20 +248,23 @@
                             style='color:blue'>Aug. 2024</a>]
                         <a href="https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=62&cate=%EA%B8%B0%ED%83%80"
                             ; style='color:lightcoral'>
-                            <b>KpqC 2nd Round Colloquium</b>
-                        </a> at Hansung University, Korea (virtually participate).
+                            <span class='only-mobile'><b>KpqC 2R Colloquium</b>.</span>
+                            <span class='no-mobile'><b>KpqC 2nd Round Colloquium</b>
+                        </a><span class='no-mobile'>at Hansung University, Korea (virtually participate).</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/HAETAE_slide_2024_08_28_KpqC_colloquium.pdf" ;
                             style='color:blue'>2024. 08</a>]
                         <a href="https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=62&cate=%EA%B8%B0%ED%83%80"
                             ; style='color:lightcoral'>
-                            <b>KpqC 2nd Round Colloquium</b>
-                        </a>, 한성대학교 (온라인).
+                            <b>KpqC 2nd Round Colloquium</b>,
+                        </a>한성대학교 (온라인).
                     </li>
                     <!--Sungshin Women's Univ 2024.05-->
                     <li class='eng'>[<a href="assets/slides/HAETAE_slide_2024_05_20_SungshinWomensUniv.pdf" ;
                             style='color:blue'>May 2024</a>]
-                        <b>Invited talk</b> at Sungshin Women's University, Korea.
+                        <b>Invited talk</b>
+                            <span class='no-mobile'>at Sungshin Women's University, Korea.</span>
+                            <span class='only-mobile'>@Sungshin Women's Univ.</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/HAETAE_slide_2024_05_20_SungshinWomensUniv.pdf" ;
                             style='color:blue'>2024. 05</a>]
@@ -239,47 +275,56 @@
                             style='color:blue'>Feb. 2024</a>]
                         <a href='https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=58&cate=%EA%B5%90%EC%9C%A1'
                             ; style='color:lightcoral'>
-                            <b>KpqC Winter Camp</b>
-                        </a> at Sogang University, Korea.
+                            <b>KpqC Winter Camp</b><span class='only-mobile'>.</span>
+                        </a><span class='no-mobile'>at Sogang University, Korea.</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/HAETAE_slide_2024_02_27_KpqC_Winter_Camp.pdf" ;
                             style='color:blue'>2024. 02</a>]
                         <a href='https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=58&cate=%EA%B5%90%EC%9C%A1'
                             ; style='color:lightcoral'>
-                            <b>KpqC Winter Camp</b>
-                        </a>, 서강대학교.
+                            <b>KpqC Winter Camp</b>,
+                        </a> 서강대학교.
                     </li>
                     <!--Algebra Camp 2024.02-->
                     <li class='eng'>[<a href="assets/slides/HAETAE_slide_2024_02_05_Algebra_Camp.pdf" ;
                             style='color:blue'>Feb. 2024</a>]
                         <a href='https://sites.google.com/snu.ac.kr/algebra-camp2024/' ; style='color:lightcoral'>
-                            <b>Algebra Camp</b>
-                        </a> at Korea University, Korea.
+                            <b>QSMS Algebra Camp</b><span class='only-mobile'>.</span>
+                        </a><span class='no-mobile'>at Bloomvista, Korea.</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/HAETAE_slide_2024_02_05_Algebra_Camp.pdf" ;
                             style='color:blue'>2024. 02</a>]
                         <a href='https://sites.google.com/snu.ac.kr/algebra-camp2024/' ; style='color:lightcoral'>
-                            <b>Algebra Camp</b>
-                        </a>, 양평 블룸비스타.
+                            <b>QSMS Algebra Camp</b>,
+                        </a>양평 블룸비스타.
                     </li>
                     <!--Korea Univ 2023.07-->
                     <li class='eng'>[<a href="assets/slides/HAETAE_slide_2023_07_24_korea_univ.pdf" ;
-                            style='color:blue'>July 2023</a>] <b>Invited talk</b> at Korea University, Korea.</li>
+                            style='color:blue'>July 2023</a>] <b>Invited talk</b> 
+                            <span class='no-mobile'>at Korea University, Korea.</span>
+                            <span class='only-mobile'>@Korea Univ.</span>
+                    </li>
                     <li class='kor'>[<a href="assets/slides/HAETAE_slide_2023_07_24_korea_univ.pdf" ;
-                            style='color:blue'>2023. 07</a>] <b>Invited talk</b>, 고려대학교.</li>
+                            style='color:blue'>2023. 07</a>] <b>Invited talk</b>, 고려대학교.
+                    </li>
                     <!--KIAS-JBNU-->
                     <li class='eng'>[<a href="assets/slides/HAETAE_slide_2023_05_19_kias-jbnu.pdf" ;
-                            style='color:blue'>May 2023</a>] <b>Invited talk</b> at <a href='http://events.kias.re.kr/h/KPQC' ;
-                            style='color:lightcoral'><b>KIAS-JBNU KpqC Workshop</b></a> at Jeonbuk National University,
-                        Korea.</li>
+                            style='color:blue'>May 2023</a>] <b>Invited talk</b> <span class='no-mobile'>at</span> 
+                            <a href='http://events.kias.re.kr/h/KPQC'; style='color:lightcoral'>
+                            <span class='only-mobile'>@</span><b>KIAS-JBNU KpqC Workshop</b><span class='only-mobile'>.</span></a>
+                                <span class='no-mobile'>at Jeonbuk National University, Korea.</span>
+                    </li>
                     <li class='kor'>[<a href="assets/slides/HAETAE_slide_2023_05_19_kias-jbnu.pdf" ;
                             style='color:blue'>2023. 05</a>] <b>Invited talk</b>, <a href='http://events.kias.re.kr/h/KPQC' ;
-                            style='color:lightcoral'><b>KIAS-JBNU KpqC Workshop</b></a>, 전북대학교.</li>
+                            style='color:lightcoral'><b>KIAS-JBNU KpqC Workshop</b></a>, 전북대학교.
+                    </li>
                     <!--KPQC Winter Camp-->
                     <li class='eng'>[<a href="assets/slides/HAETAE_slide_2023_02_23_winter_camp.pdf" ;
                             style='color:blue'>Feb. 2023</a>] <a
                             href='https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'
-                            ; style='color:lightcoral'><b>KpqC Winter Camp</b></a> at Chung-Ang University, Korea.</li>
+                            ; style='color:lightcoral'><b>KpqC Winter Camp</b><span class='only-mobile'>.</span></a> 
+                            <span class='no-mobile'>at Chung-Ang University, Korea.</span>
+                    </li>
                     <li class='kor'>[<a href="assets/slides/HAETAE_slide_2023_02_23_winter_camp.pdf" ;
                             style='color:blue'>2023. 02</a>] <a
                             href='https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'
@@ -295,14 +340,15 @@
                     <li class='eng'>[<a href="assets/slides/SMAUG_slide_2023_08_16_SAC_nosplit.pdf" ;
                             style='color:blue'>Aug. 2023</a>]
                         <a href='https://sac-workshop.github.io/sac-2023'>
-                            <b>SAC 2023</b>
-                        </a> at the University of New Brunswick, Canada.
+                            <b>SAC 2023</b><span class='only-mobile'>.</span>
+                        </a> 
+                            <span class='no-mobile'>at the University of New Brunswick, Canada.</span>
                     </li>
                     <li class='kor'>[<a href="assets/slides/SMAUG_slide_2023_08_16_SAC_nosplit.pdf" ;
                             style='color:blue'>2023. 08</a>]
                         <a href='https://sac-workshop.github.io/sac-2023'>
-                            <b>SAC 2023</b>
-                        </a>, 캐나다 뉴브런즈윅 대학교.
+                            <b>SAC 2023</b>,
+                        </a>캐나다 뉴브런즈윅 대학교.
                     </li>
                 </ul>
             </li>
@@ -324,14 +370,15 @@
                     <li class='eng'>[Nov. 2021]
                         <a href='https://kpqc.or.kr/contents/02_notice/board.html?no=27&mode=view&board_id=board_notice&start=&search_key=&keyword=&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'
                             ; style='color:lightcoral'>
-                            <b>3rd KpqC Workshop</b>
-                        </a> in Pyeongchang, Korea.
+                            <b>3rd KpqC Workshop</b><span class='only-mobile'>.</span>
+                        </a><span class='no-mobile'>at Alpensia, Korea.</span>
+                        <!-- Alpensia, Pyeongchang, Korea -->
                     </li>
                     <li class='kor'>[2021. 11]
                         <a href='https://kpqc.or.kr/contents/02_notice/board.html?no=27&mode=view&board_id=board_notice&start=&search_key=&keyword=&cate=%EC%9B%8C%ED%81%AC%EC%88%8D'
                             ; style='color:lightcoral'>
-                            <b>KpqC 연구단 3차 워크숍</b>
-                        </a>, 평창.
+                            <b>KpqC 연구단 3차 워크숍</b>,
+                        </a>평창.
                     </li>
                 </ul>
             </li>
