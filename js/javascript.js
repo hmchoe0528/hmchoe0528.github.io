@@ -118,22 +118,9 @@ function show_lang(that,language){
 	
 }
 
-function date_mmmddyyHHMM(date)
+function date_mmmddyy(date)
 {
-	var d = date.getDate();
-	var m = date.getMonth() + 1;
-	var y = date.getFullYear();
-	var h = date.getHours();
-	var mm = date.getMinutes();
-	var mmm = 
-		( 1==m)?'Jan':( 2==m)?'Feb':(3==m)?'Mar':
-		( 4==m)?'Apr':( 5==m)?'May':(6==m)?'Jun':
-		( 7==m)?'Jul':( 8==m)?'Aug':(9==m)?'Sep':
-		(10==m)?'Oct':(11==m)?'Nov':'Dec';
-
-	return "" +
-    mmm + " " + (d<10?"0"+d:d) + ", " +
-    y + " at " + (h<10?"0"+h:h) + ":" + (mm<10?"0"+mm:mm);
+	return date.toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: '2-digit'});
 }
 
 function lastUpdated(){
@@ -141,7 +128,7 @@ function lastUpdated(){
 		var s  = "Unknown";
 		var d1;
 		if(0 != (d1=Date.parse(document.lastModified))) {
-			s = "" + date_mmmddyyHHMM(new Date(d1));
+			s = "" + date_mmmddyy(new Date(d1));
 		}
 	  
 		$('.update-time').text('Last updated on ' + s);
