@@ -468,6 +468,13 @@ footer ._goto-top:hover {
     margin-bottom:80px;
     display:block;
 }
+.wider-piece-no-top{
+    width:950px!important;
+    margin:auto;
+    margin-bottom:80px;
+    margin-top: 0px;
+    display:block;
+}
 
 
 
@@ -631,6 +638,9 @@ footer ._goto-top:hover {
     .narrow-piece{
         width:55%!important;
     }
+    .wider-piece-no-top{
+        width:95%!important;
+    }
 
     .flex_r-block,
     .flex-block {
@@ -793,3 +803,13 @@ footer ._goto-top:hover {
 .post-with-description > li > div {padding:0px 10px}
 .post-with-description > li:hover {background:rgba(24,24,32,0.05)!important}
 .post-with-description .description {font-family:'noto-eng','noto-kor';font-size:12pt;color:black;margin:10px 10px;margin-bottom:0px;padding:10px 10px;border-left:3px lightgray solid}
+
+.expired-flag {
+    color: #ff4d4f;
+    font-weight: bold;
+}
+
+.gray-out {
+  opacity: 0.6;
+  text-decoration: none;
+}
