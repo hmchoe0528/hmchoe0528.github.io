@@ -19,31 +19,6 @@
 
     <!-- style -->
     <style>
-        /*
-        .glance {
-            background-color: rgba(205, 92, 92, 0.05);
-            padding-top: 30px;
-            padding-bottom: 30px;
-            margin-bottom: 50px;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .glance>div {
-            margin-bottom: 0px;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .glance>div>h1 {
-            margin-left: -50px;
-            display: inline-block;
-            font-family: "noto-eng", "noto-kor";
-            font-size: 15pt;
-            padding-bottom: 3px;
-            border-bottom: 1pt solid gray;
-        }
-        */
 
         .personals>ul {
             margin-top: 5px;
@@ -156,6 +131,9 @@
         .only-mobile {
             display: none;
         }
+        .only-mobile-block {
+            display: none;
+        }
 
         @media (max-width: 460px) {
             .personals li {
@@ -167,6 +145,9 @@
                 display: none;
             }
             .only-mobile {
+                display: inline;
+            }
+            .only-mobile-block {
                 display: block;
             }
         }
@@ -215,7 +196,7 @@
         <h1 class='eng'>About Me</h1>
         <h1 class='kor'>나에 대해서</h1>
         <ul>
-            <li class='eng'>My Korean name in <a href='https://en.wikipedia.org/wiki/Hangul'>Hangul</a> is
+            <li class='eng'>My name in <a href='https://en.wikipedia.org/wiki/Hangul'>Hangul</a> is
                     최형민 [Choe-Hyeong-min]</li>
             <!-- <li class='eng'>I served in the <i>Republic of Korea Air Force</i> from 2015 to 2017 as part of my mandatory
                 military service.</li>
@@ -227,12 +208,12 @@
                 </a> in August
                 2019 (2013-2019).
             </li> -->
-            <!-- <li class='kor'>저는 2019년 8월 <i>서울대학교 수리과학부</i> 에서 학부를 졸업했습니다 (2013년 3월 - 2019년 8월).</li> -->
+            <li class='kor'>저는 2019년 8월 <i>서울대학교 수리과학부</i> 에서 학부를 졸업했습니다 (2013년 3월 - 2019년 8월).</li>
             <li class='eng'>I completed my Doctorate in
                 <a
                     href='https://science.snu.ac.kr/en/edu/programs#:~:text=University/Graduate%20School-,Department%20of%20Mathematical%20Sciences,-The%20Department%20of'>
-                    <i>Mathematics at Seoul National University</i>
-                </a> in February 2025. Here is my doctoral
+                    <i>Math at SNU</i>
+                </a> in February 2025. Here is my
                 <a href='assets/draft_hyeongmin.pdf'>dissertation</a>.
                 <!-- , on improved underlying arithmetic for CKKS FHE scheme. -->
             </li>
@@ -242,9 +223,12 @@
                 연구입니다.
             </li>
             <li class='eng'>
-                Currently, I am a Cryptography Engineer at <a href="https://www.cryptolab.co.kr/en/home/">CryptoLab Inc.</a>
-                I am actively seeking <b>academic positions</b> for the next chapter of my career. 
+                Currently, I'm a Cryptography Engineer at <a href="https://www.cryptolab.co.kr/en/home/">CryptoLab Inc.</a>
+                I'm actively seeking academic positions for the next chapter of my career. 
                 Feel free to reach out!
+            </li>
+            <li class='kor'>
+                저는 현재 크립토랩에서 암호학 엔지니어로 일하고 있습니다. 
             </li>
         </ul>
 
@@ -254,10 +238,13 @@
             <li class='eng'><b>SNU</b>
                 <ul>
                     <li>Calculus TA Seminar 2024-1, 2020-1. </li>
-                    <li>Honor Calculus Practice 2023-2, 2023-1 (Awarded for
+                    <li class="no-mobile">Honor Calculus Practice 2023-2, 2023-1 (Awarded for
                         <a href='assets/2023_TA_Award.pdf'>Excellence in Teaching</a>), 2021-2, 2020-2.
                     </li>
-                    <li>Differential and Integral Calculus Practice 2022-1, 2021-1, Calculus Practice 2020-1. </li>
+                    <li class="no-mobile">Differential and Integral Calculus Practice 2022-1, 2021-1, Calculus Practice 2020-1. </li>
+                    <li class="only-mobile-block">Calculus Practices 2020-2023 except 2022-2. 
+                        Also <a href='assets/2023_TA_Award.pdf'>Awarded.</a>
+                    </li>
                     <li>Number Theory 2021-1. </li>
                 </ul>
             </li>
@@ -271,8 +258,11 @@
             </li>
             <li class='eng'><b>Others</b>
                 <ul>
-                    <li>SK Hynix i-TAP Lectures for Post‑Quantum Cryptography in 2021. </li>
-                    <li>KMO Winter/Summer School TA for the Korean Mathematical Olympiad (KMO) in 2013 and 2014. </li>
+                    <li>SK Hynix i-TAP Lectures for PQC in 2021. </li>
+                    <li>Winter/Summer School TA for 
+                        <span class="no-mobile">the Korean Mathematical Olympiad (KMO) in 2013-2014.</span>
+                        <span class="only-mobile">KMO in 2013-2014.</span>
+                    </li>
                 </ul>
             </li>
             <li class='kor'><b>그 외</b>
@@ -283,22 +273,27 @@
             </li>
         </ul>
 
-        <h1>Some Useful Links</h1>
+        <h1>In Security &amp; Cryptography</h1>
         <ul>
             <li>
-                Security/Cryptography Conference Rankings <a
+                Conference Rankings <a
                     href="https://people.engr.tamu.edu/guofei/sec_conf_stat.htm">by Guofei</a>
                     <!-- Guofei Gu -->
                 and <a href="http://jianying.space/conference-ranking.html">by Jianying</a>.
                     <!-- Jianying Zhou -->
             </li>
             <li>
-                Security/Cryptography Conference Deadlines <a href="https://sec-deadlines.github.io/">by Bogdan & Clement</a>.
+                Conference Deadlines <a href="https://sec-deadlines.github.io/">by Bogdan & Clement</a>.
                     <!-- Bogdan Kulynych & Clement Fung -->
             </li>
             <li>
-                Selected Deadlines (last update: June, 2025). 
-                <p>* All deadlines passed: <span class="expired-flag">!</span> &nbsp; * Event ended: <span style="text-decoration:line-through;">Conference</span>.</p>
+                Selected Deadlines<span class="no-mobile"> (last update: June, 2025)</span>.
+                <p style="height: 16px;">
+                    * All deadlines passed: <span class="expired-flag">!</span> &nbsp;
+                    <span class="no-mobile">
+                    * Event ended: <span style="text-decoration:line-through;">Conference</span>.</span>
+                    <p class='only-mobile' style="height: 16px;">
+                    * Event ended: <span style="text-decoration:line-through;">Conference</span>.</p></p>
             </li>
             <!-- html preview: https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server -->
         </ul>
@@ -498,7 +493,7 @@
                 
                 // Display "No deadlines" if none
                 if (confList.length === 0) {
-                    monthDiv.innerHTML += `<p class='only-mobile'; style="color:#aaa; text-align:center;">No deadlines</p>`;
+                    monthDiv.innerHTML += `<p class='only-mobile-block'; style="color:#aaa; text-align:center;">No deadlines</p>`;
                 }
 
                 // Check deadlines whether all of them are behind
