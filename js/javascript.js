@@ -1,4 +1,9 @@
-var versionUpdate='2.0.1';
+var versionUpdate='2.2.1';
+// 2.0.0 
+// 2.0.1 with copy-right
+// 2.1.0 with selected pubs and projs.
+// 2.2.0 with calendar
+// 2.2.1 with automized calendar
 var lang = 'eng';
 var langs = ['eng','kor']
 

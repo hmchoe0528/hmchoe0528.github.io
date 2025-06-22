@@ -3,10 +3,6 @@ My second webpage.
 
 Thanks to Jaihyun Park, for allowing me to fork his web page https://jaihyunp.github.io/.
 
-TODOs (of June 17th):
+TODOs (of June 22nd):
 
-Fix "personal" tab: 
-
-1) wiered menu bar.
-
-2) foot matters width. 
+1) ideas for simpler no/only-mobile visualization
