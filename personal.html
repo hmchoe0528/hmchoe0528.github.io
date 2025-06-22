@@ -276,7 +276,8 @@
                     & Clement Fung</a>.
             </li>
             <li>
-                Selected Deadlines (last update: June, 2025). List of 2025-2026 conferences for personal reference :D
+                Selected Deadlines (last update: June, 2025). 
+                <p>* All deadlines passed: <span class="expired-flag">!</span> &nbsp; * Event ended: <span style="text-decoration:line-through;">Conference</span>.</p>
             </li>
             <!-- html preview: https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server -->
         </ul>
@@ -335,7 +336,7 @@
                 eventDate: "2025-08-13"
             },
             {
-                name: "USENIX",
+                name: "USENIX Sec.",
                 link: "https://www.usenix.org/conference/usenixsecurity26",
                 color: "indianred",
                 deadlines: ["2025-08-26", "2026-02-05"],
@@ -483,35 +484,36 @@
                     });
                     conferenceStatus[conf.name] = allPast;
                 });
-
                 // Display policy
                 confList.forEach(conf => {
                     const confDate = new Date(conf.deadline);
                     const isDeadlinePast = confDate < aoeTime;
-                    const eventDate = new Date(conf.eventDate);
-                    const isEventPast = eventDate < aoeTime;
 
-                    // If ddl. is already past, display in gray
+                    let isEventPast = false;
+                    const rawEventDate = conf.eventDate;
+                    if (rawEventDate && !rawEventDate.includes("??")) {
+                        const parsed = new Date(rawEventDate);
+                        if (!isNaN(parsed)) {
+                            isEventPast = parsed < aoeTime;
+                        }
+                    }
+
+                    // Deadline date: gray if passed
                     const className = isDeadlinePast ? "date-late" : "date";
 
-                    // If year != current year, display year. 
+                    // Year prefix for deadline date
                     const thisYear = aoeTime.getFullYear();
                     const deadlineYear = conf.year;
                     const yearPrefix = (deadlineYear !== thisYear) ? `'${String(deadlineYear).slice(2)}.` : "";
 
-                    // Add conference year and month
+                    // Format event: '{year} month
                     let eventSuffix = "";
                     if (conf.eventDate) {
-                        const rawDate = conf.eventDate;
-                        const [yyyy, mm, dd] = rawDate.split("-");
+                        const [yyyy, mm, dd] = conf.eventDate.split("-");
                         let suffixParts = [];
 
-                        // If date is not yet specified, put "??" and here, it will anyway work. 
-                        if (yyyy && yyyy !== "??") {
-                            suffixParts.push(`'${yyyy.slice(2)}`);
-                        } else {
-                            suffixParts.push("??");
-                        }
+                        suffixParts.push(yyyy !== "??" ? `'${yyyy.slice(2)}` : "??");
+
                         if (mm && mm !== "??") {
                             const monthIndex = parseInt(mm, 10) - 1;
                             const date = new Date(2000, monthIndex); // dummy year
@@ -520,24 +522,29 @@
                         } else {
                             suffixParts.push("??");
                         }
+
                         eventSuffix = " " + suffixParts.join(" ");
                     }
+
+                    // Compose name with suffix and symbols
                     let confNameDisplay = conf.name + eventSuffix;
 
-                    // Add red "!" if deadlines have all passed but not the conference
-                    if (isDeadlinePast && !isEventPast) {
+                    const allDeadlinesPast = conferenceStatus[conf.name];
+                    const showRedExclamation = allDeadlinesPast;
+
+                    if (showRedExclamation) {
                         confNameDisplay += ` <span class="expired-flag">!</span>`;
                     }
 
-                    // Apply gray style if event is in the past
-                    const confStyle = isEventPast ? "gray-out" : "";
+                    // If event also passed, apply gray color + strikethrough
                     const confColor = isEventPast ? "#aaa" : conf.color;
+                    const confStyle = isEventPast ? "text-decoration:line-through;" : "";
 
                     // Display
                     monthDiv.innerHTML += `
                         <div class="conf-entry">
-                            <span class="conf-name ${confStyle}">
-                                <a style="color:${confColor}" href="${conf.link}" target="_blank">${confNameDisplay}</a>
+                            <span class="conf-name">
+                                <a style="color:${confColor}; ${confStyle}" href="${conf.link}" target="_blank">${confNameDisplay}</a>
                             </span>
                             <span class="${className}">${yearPrefix}${conf.month + 1}.${conf.day} ${conf.cycle}</span>
                         </div>

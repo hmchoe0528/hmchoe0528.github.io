@@ -808,8 +808,3 @@ footer ._goto-top:hover {
     color: #ff4d4f;
     font-weight: bold;
 }
-
-.gray-out {
-  opacity: 0.6;
-  text-decoration: none;
-}
