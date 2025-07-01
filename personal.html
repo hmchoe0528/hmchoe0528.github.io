@@ -134,6 +134,15 @@
         .only-mobile-block {
             display: none;
         }
+        .responsive-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            list-style: "* ";
+        }
+        .responsive-list li {
+            flex: none;
+        }
 
         @media (max-width: 460px) {
             .personals li {
@@ -149,6 +158,10 @@
             }
             .only-mobile-block {
                 display: block;
+            }
+            .responsive-list {
+                flex-direction: column;
+                gap: 0;
             }
         }
     </style>
@@ -288,12 +301,11 @@
             </li>
             <li>
                 Selected Deadlines<span class="no-mobile"> (last update: June, 2025)</span>.
-                <p style="height: 16px;">
-                    * All deadlines passed: <span class="expired-flag">!</span> &nbsp;
-                    <span class="no-mobile">
-                    * Event ended: <span style="text-decoration:line-through;">Conference</span>.</span>
-                    <p class='only-mobile' style="height: 16px;">
-                    * Event ended: <span style="text-decoration:line-through;">Conference</span>.</p></p>
+                <ul class="responsive-list">
+                    <li>All ddl. passed: <span class="expired-flag">!</span></li>
+                    <li>Events ended: <span style="text-decoration:line-through;">Conference</span>.</li>
+                    <li><span id="aoe-time"></span>.</li>
+                </ul>
             </li>
             <!-- html preview: https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server -->
         </ul>
@@ -650,6 +662,29 @@
         document.addEventListener("DOMContentLoaded", () => {
             generateCalendar(conferenceDeadlines);
         });
+    </script>
+    <script>
+        function updateAOETime() {
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
 
+        const now = new Date();
+        const utcMillis = now.getTime() + now.getTimezoneOffset() * 60000;
+        const aoeMillis = utcMillis - 12 * 60 * 60 * 1000;
+        const aoeTime = new Date(aoeMillis);
+
+        const month = monthNames[aoeTime.getUTCMonth()];
+        const day = String(aoeTime.getUTCDate()).padStart(2, '0');
+        const hh = String(aoeTime.getUTCHours()).padStart(2, '0');
+        const min = String(aoeTime.getUTCMinutes()).padStart(2, '0');
+
+        const formatted = `${month}, ${day}. ${hh}:${min} AOE`;
+        document.getElementById("aoe-time").textContent = formatted;
+        }
+
+        updateAOETime();
+        setInterval(updateAOETime, 60000);
     </script>
 </body>
