@@ -134,15 +134,6 @@
         .only-mobile-block {
             display: none;
         }
-        .responsive-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3px;
-            list-style: "* ";
-        }
-        .responsive-list li {
-            flex: none;
-        }
 
         @media (max-width: 460px) {
             .personals li {
@@ -158,10 +149,6 @@
             }
             .only-mobile-block {
                 display: block;
-            }
-            .responsive-list {
-                flex-direction: column;
-                gap: 0;
             }
         }
     </style>
@@ -286,26 +273,24 @@
             </li>
         </ul>
 
-        <h1>In Security &amp; Cryptography</h1>
+        <h1>Cryptography &amp; Security Conferences</h1>
         <ul>
             <li>
-                Conference Rankings <a
+                Rankings <a
                     href="https://people.engr.tamu.edu/guofei/sec_conf_stat.htm">by Guofei</a>
                     <!-- Guofei Gu -->
                 and <a href="http://jianying.space/conference-ranking.html">by Jianying</a>.
                     <!-- Jianying Zhou -->
             </li>
             <li>
-                Conference Deadlines <a href="https://sec-deadlines.github.io/">by Bogdan & Clement</a>.
+                Deadlines <a href="https://sec-deadlines.github.io/">by Bogdan & Clement</a>.
                     <!-- Bogdan Kulynych & Clement Fung -->
             </li>
             <li>
                 Selected Deadlines<span class="no-mobile"> (last update: June, 2025)</span>.
-                <ul class="responsive-list">
-                    <li>All ddl. passed: <span class="expired-flag">!</span></li>
-                    <li>Events ended: <span style="text-decoration:line-through;">Conference</span>.</li>
-                    <li><span id="aoe-time"></span>.</li>
-                </ul>
+                <br> &nbsp;* All ddl. passed: <span class="expired-flag">!</span>
+                <br class="only-mobile"> &nbsp;* Events ended: <span style="text-decoration:line-through;">Conference</span>.
+                <br class="only-mobile"> &nbsp;* AOE: <span id="aoe-time"></span>.
             </li>
             <!-- html preview: https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server -->
         </ul>
@@ -628,12 +613,14 @@
                     const allDeadlinesPast = conferenceStatus[conf.id];
                     const showRedExclamation = allDeadlinesPast;
 
+                    // If all deadlines past, apply expired flag (red !)
                     if (showRedExclamation) {
                         confNameDisplay += ` <span class="expired-flag">!</span>`;
                     }
 
-                    // If event also passed, apply gray color + strikethrough
-                    const confColor = isEventPast ? "#aaa" : conf.color;
+                    const confColor = conf.color;
+                    // const confColor = isEventPast ? "#aaa" : conf.color;
+                    // If event also passed, apply strikethrough
                     const confStyle = isEventPast ? "text-decoration:line-through;" : "";
 
                     // Display
@@ -665,22 +652,18 @@
     </script>
     <script>
         function updateAOETime() {
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-
         const now = new Date();
-        const utcMillis = now.getTime() + now.getTimezoneOffset() * 60000;
-        const aoeMillis = utcMillis - 12 * 60 * 60 * 1000;
-        const aoeTime = new Date(aoeMillis);
+        const options = {
+            timeZone: 'Etc/GMT+12', // AOE == UTC-12
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+        };
 
-        const month = monthNames[aoeTime.getUTCMonth()];
-        const day = String(aoeTime.getUTCDate()).padStart(2, '0');
-        const hh = String(aoeTime.getUTCHours()).padStart(2, '0');
-        const min = String(aoeTime.getUTCMinutes()).padStart(2, '0');
-
-        const formatted = `${month}, ${day}. ${hh}:${min} AOE`;
+        const formatted = new Intl.DateTimeFormat('en-US', options).format(now);
         document.getElementById("aoe-time").textContent = formatted;
         }
 
