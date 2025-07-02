@@ -196,14 +196,12 @@
         <h1 class='eng'>About Me</h1>
         <h1 class='kor'>나에 대해서</h1>
         <ul>
-            <li class='eng'>My name in <a href='https://en.wikipedia.org/wiki/Hangul'>Hangul</a> is
-                    최형민 [Choe-Hyeong-min]</li>
+            <li class='eng'>In <a href='https://en.wikipedia.org/wiki/Hangul'>Hangul</a>, my name is 최형민 [Choe Hyeong-min]</li>
             <!-- <li class='eng'>I served in the <i>Republic of Korea Air Force</i> from 2015 to 2017 as part of my mandatory
                 military service.</li>
             <li class='kor'>2015년부터 2017년까지 <i>대한민국 공군</i> 에 복무했습니다.</li> -->
             <!-- <li class='eng'>I earned my Bachelor's degree in
-                <a
-                    href='https://science.snu.ac.kr/en/edu/programs#:~:text=University/Graduate%20School-,Department%20of%20Mathematical%20Sciences,-The%20Department%20of'>
+                <a href='https://science.snu.ac.kr/en/edu/programs#:~:text=University/Graduate%20School-,Department%20of%20Mathematical%20Sciences,-The%20Department%20of'>
                     <i>Mathematics, Seoul National University (SNU)</i>
                 </a> in August
                 2019 (2013-2019).
@@ -213,14 +211,12 @@
                 <a
                     href='https://science.snu.ac.kr/en/edu/programs#:~:text=University/Graduate%20School-,Department%20of%20Mathematical%20Sciences,-The%20Department%20of'>
                     <i>Math at SNU</i>
-                </a> in February 2025. Here is my
-                <a href='assets/draft_hyeongmin.pdf'>dissertation</a>.
+                </a> in February 2025. Here is my <a href='assets/draft_hyeongmin.pdf'>dissertation</a>.
                 <!-- , on improved underlying arithmetic for CKKS FHE scheme. -->
             </li>
             <li class='kor'>저는 2025년 2월 <i>서울대학교 수리과학부</i> 에서 박사 학위를 취득했습니다 (2019년 9월 - 2025년 2월). 제 박사학위 논문 제목은
                 <a href='assets/draft_hyeongmin.pdf'>Accelerating Homomorphic Computation through Machine-Efficient
-                    Arithmetic</a>이며, CKKS 동형암호 스킴의 개선에 관한
-                연구입니다.
+                    Arithmetic</a>이며, CKKS 동형암호 스킴의 개선에 관한 연구입니다.
             </li>
             <li class='eng'>
                 Currently, I'm a Cryptography Engineer at <a href="https://www.cryptolab.co.kr/en/home/">CryptoLab Inc.</a>
@@ -291,6 +287,12 @@
                 <br> &nbsp;* All ddl. passed: <span class="expired-flag">!</span>
                 <br class="only-mobile"> &nbsp;* Events ended: <span style="text-decoration:line-through;">Conference</span>.
                 <br class="only-mobile"> &nbsp;* AOE: <span id="aoe-time"></span>.
+                <br class="no-mobile">
+                    <span class="no-mobile">
+                        &nbsp;<label>
+                            <input type="checkbox" id="filter-deadlines" /> Upcoming ddl. only
+                        </label>
+                    </span>
             </li>
             <!-- html preview: https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server -->
         </ul>
@@ -565,6 +567,10 @@
                     const confDate = new Date(conf.deadline);
                     const isDeadlinePast = confDate < aoeTime;
 
+                    if (showOnlyUpcoming && isDeadlinePast) {
+                        return;
+                    }
+
                     let isEventPast = false;
                     const rawEventDate = conf.eventDate;
                     if (rawEventDate && !rawEventDate.includes("??")) {
@@ -648,6 +654,15 @@
         // Generate the calendar
         document.addEventListener("DOMContentLoaded", () => {
             generateCalendar(conferenceDeadlines);
+        });
+
+        let showOnlyUpcoming = false;
+        document.addEventListener("DOMContentLoaded", () => {
+            const checkbox = document.getElementById("filter-deadlines");
+            checkbox.addEventListener("change", () => {
+                showOnlyUpcoming = checkbox.checked;
+                generateCalendar(conferenceDeadlines);
+            });
         });
     </script>
     <script>
