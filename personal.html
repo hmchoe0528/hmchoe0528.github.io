@@ -292,6 +292,9 @@
                         &nbsp;<label>
                             <input type="checkbox" id="filter-deadlines" /> Upcoming ddl. only
                         </label>
+                        &nbsp;<label>
+                            <input type="checkbox" id="filter-flagships" /> Flagships only
+                        </label>
                     </span>
             </li>
             <!-- html preview: https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server -->
@@ -371,6 +374,12 @@
             eventDate: "2025-10-13", 
             location: "Taipei, Taiwan"
         },
+        // {
+        //     name: "CiC",
+        //     link: "https://cic.iacr.org/",
+        //     color: "DarkGoldenrod",
+        //     deadlines: ["2025-07-07"]
+        // },
         {
             name: "CHES",
             link: "https://ches.iacr.org/2025/",
@@ -418,6 +427,14 @@
             deadlines: ["2024-10-24"],
             eventDate: "2025-06-30",
             location: "Venice, Italy"
+        },
+        {
+            name: "Euro S&P",
+            link: "https://eurosp2026.ieee-security.org/",
+            color: "DarkGoldenrod",
+            deadlines: ["2025-11-20"],
+            eventDate: "2025-07-06",
+            location: "Lisbon, Portugal"
         },
         {
             name: "PETs",
@@ -567,9 +584,10 @@
                     const confDate = new Date(conf.deadline);
                     const isDeadlinePast = confDate < aoeTime;
 
-                    if (showOnlyUpcoming && isDeadlinePast) {
-                        return;
-                    }
+                    
+                    if (showOnlyUpcoming && isDeadlinePast) return;
+                    if (showOnlyFlagships && !(conf.color === "CornflowerBlue" || conf.color === "indianred")) return;
+
 
                     let isEventPast = false;
                     const rawEventDate = conf.eventDate;
@@ -657,12 +675,27 @@
         });
 
         let showOnlyUpcoming = false;
+        let showOnlyFlagships = false;
+
         document.addEventListener("DOMContentLoaded", () => {
-            const checkbox = document.getElementById("filter-deadlines");
-            checkbox.addEventListener("change", () => {
-                showOnlyUpcoming = checkbox.checked;
-                generateCalendar(conferenceDeadlines);
-            });
+            const deadlineCheckbox = document.getElementById("filter-deadlines");
+            const flagshipCheckbox = document.getElementById("filter-flagships");
+
+            if (deadlineCheckbox) {
+                deadlineCheckbox.addEventListener("change", () => {
+                    showOnlyUpcoming = deadlineCheckbox.checked;
+                    generateCalendar(conferenceDeadlines);
+                });
+            }
+
+            if (flagshipCheckbox) {
+                flagshipCheckbox.addEventListener("change", () => {
+                    showOnlyFlagships = flagshipCheckbox.checked;
+                    generateCalendar(conferenceDeadlines);
+                });
+            }
+
+            generateCalendar(conferenceDeadlines);
         });
     </script>
     <script>
