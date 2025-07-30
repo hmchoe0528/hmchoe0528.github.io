@@ -558,7 +558,7 @@
             });
 
             // Language
-            const isKorean = lang.startsWith('ko');
+            const isKorean = navigator.language.startsWith('ko');
             const locale = isKorean ? 'ko-KR' : 'en-US';
 
             // All months are displayed by default
@@ -678,13 +678,10 @@
             }
         }
 
-        // Generate the calendar
-        document.addEventListener("DOMContentLoaded", () => {
-            generateCalendar(conferenceDeadlines);
-        });
-
         let showOnlyUpcoming = false;
         let showOnlyFlagships = false;
+
+        generateCalendar(conferenceDeadlines);
 
         document.addEventListener("DOMContentLoaded", () => {
             const deadlineCheckbox = document.getElementById("filter-deadlines");
@@ -703,9 +700,10 @@
                     generateCalendar(conferenceDeadlines);
                 });
             }
-
-            generateCalendar(conferenceDeadlines);
         });
+
+
+        
     </script>
     <script>
         function updateAOETime() {
