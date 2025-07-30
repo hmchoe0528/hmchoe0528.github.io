@@ -313,6 +313,23 @@
     <!-- javascript -->
     <script src="js/jquery.js"></script>
     <script src='js/javascript.js'></script>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cal = document.querySelector(".calendar");
+            if (!cal) {
+                console.log("🚫 .calendar not found");
+                return;
+            }
+
+            const div = document.createElement("div");
+            div.className = "month";
+            div.innerHTML = "<h3>July</h3><p class='conf-entry'>✅ Safari Works</p>";
+
+            cal.appendChild(div);
+            console.log("✅ Calendar div injected");
+        });
+    </script> -->
+
     <script>
         // ******************************** //
         // Lst of conferences and deadlines // 
@@ -539,6 +556,9 @@
             // Count how many times each name appears
             const nameCounts = {};
             conferenceDeadlines.forEach(conf => {
+                const hasValidDeadline = conf.deadlines.some(date => !date.includes("??"));
+                if (!hasValidDeadline) return;
+
                 nameCounts[conf.name] = (nameCounts[conf.name] || 0) + 1;
             });
 
@@ -550,7 +570,9 @@
             // Map with month
             const monthMap = Array.from({ length: 12 }, () => []);
             flattened.forEach(conf => {
+                if (conf.deadline.includes("??")) return;
                 const date = new Date(conf.deadline);
+                if (isNaN(date)) return;
                 const monthIndex = date.getMonth();
                 const year = date.getFullYear();
                 const day = date.getDate();
@@ -558,8 +580,10 @@
             });
 
             // Language
-            const isKorean = navigator.language.startsWith('ko');
-            const locale = isKorean ? 'ko-KR' : 'en-US';
+            // const isKorean = lang.startsWith('ko');
+            // const isKorean = navigator.language.startsWith('ko');
+            // const locale = isKorean ? 'ko-KR' : 'en-US';
+            const locale = 'en-US';
 
             // All months are displayed by default
             for (let i = 0; i < 12; i++) {
@@ -700,11 +724,9 @@
                     generateCalendar(conferenceDeadlines);
                 });
             }
-        });
-
-
-        
+        });        
     </script>
+
     <script>
         function updateAOETime() {
         const now = new Date();
