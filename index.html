@@ -278,7 +278,7 @@
 
         .card-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             max-width: 1200px;
             margin: 20px auto;
@@ -334,12 +334,6 @@
 
         /* 반응형 디자인 */
         @media (max-width: 1050px) {
-            .card-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 700px) {
             .card-container {
                 grid-template-columns: 1fr;
             }
@@ -738,104 +732,146 @@ Rule:
             <h1 class='kor'>대표업적</h1>
             <div class="card-container">
                 <div class="card">
-                    <h3><b>Grafting</b><span class="toggle-icon">-</span></h3>
-                    <p style="margin-top: 20px;">
-                        <b>Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS</b>,
+                    <h3>
+                        <b>High-precision Bootstrapping</b>
+                        <span class="toggle-icon">-</span>
+                    </h3>
+                    <p style="margin-top: 20px; margin-bottom: 5px;">
+                        Leveraging Discrete CKKS to Bootstrap in High Precision,
+                    </p><p style="font-size: 11pt; margin-bottom: 5px;">
+                        with Jaehyung Kim, Damien Stehl&eacute;, and Elias Suvanto,
                     </p><p>
-                        with Jung Hee Cheon, Minsik Kang, Jaehyung Kim, Seonghak Kim, Johannes Mono, and Taeyeong Noh,
-                    </p><p>
-                        <b><i>Eprint Archive 2024</i></b>.
+                        <i><b>ACM CCS 2025</b></i>
+                        <a href="https://www.sigsac.org/ccs/CCS2025/accepted-papers/#:~:text=(%23643)%20Leveraging%20Discrete%20CKKS%20to%20Bootstrap%20in%20High%20Precision"> &#8599;</a> 
+                        <!-- &#128206; &#128279;  -->
                     </p>
                     <div class="content">
-                        <p>-----</p>
-                        <!-- <p style="margin-bottom: 10px;"><b>Grafting: Decoupled Scale Factors and Modulus in
-                                RNS-CKKS</b>, <i>Eprint Archive 2024</i>.
-                        </p> -->
+                        <br>
+                        <!-- <p>-----</p> -->
                         <p class='eng'>
-                            In this paper, we revisit the arithmetic structure of CKKS FHE scheme and introduce
-                            <b>Grafting</b>, a technique that decouples the scale factor from the modulus.
-                            This enables <b>optimized RNS packing</b> and <b>flexible rescaling</b>, while <b>reducing
-                                public key sizes and execution time</b>.
-                            Our latest experiments show 1.92× faster bootstrapping, 1.89× faster Bit-CKKS bootstrspping,
-                            and 62% smaller public keys.
-                        </p>
-                        <p class='eng' style="margin-top: 10px;">
-                            <i>This work is part of my doctoral dissertation</i>.
+                            In this paper, we present a novel and efficient high-precision CKKS bootstrapping method. 
+                            We introduce an <b>Integer Cleaning</b> technique based on Discrete-CKKS, along with a <b>Thrifty approach</b>for digit-cleaning. 
+                            By incorporating these techniques into the EvalRound+ framework, we achieve effective high-precision bootstrapping. 
+                            Our grafting-based implementation demonstrates a 1.6× improvement in 80-bit precision CKKS bootstrapping.
                         </p>
                         <p class='kor'>
-                            이 논문에서는 CKKS FHE 스킴의 기초 산술 구조를 재설계하는 <b>Grafting</b>이라는 기법을 소개합니다.
-                            이 기법은 스케일 팩터와 암호문 모듈러스를 분리해, <b>RNS 패킹 최적화</b>와 <b>유연한 rescaling</b>을 가능하게 하며, <b>공개 키 크기와
-                                동형 연산 실행 시간까지도 줄여줍니다</b>.
-                            가장 최근 업데이트된 실험 결과에서, 부트스트래핑 속도는 1.92배 빨라졌고, Bit-CKKS의 이진 게이트 부트스트래핑은 1.89배 향상되었으며, 공개 키 크기는
-                            62% 감소했습니다.
+                            이 논문에서는 효율적인 <b>고정밀 CKKS 부트스트래핑</b>을 새롭게 제안합니다.
+                            우리는 Discrete-CKKS 기반의 동형 <b>Integer Cleaning</b> 기법과 효율적인 digit 클리닝 기법인 <b>Thrifty Approach</b>를 도입하여, 정수 노이즈를 효과적으로 제거하고 모듈러스와 성능 효율성을 동시에 달성합니다.
+                            이들 기법을 EvalRound+ 프레임워크에 적용하여 매우 효과적인 부트스트래핑을 제안하며, Grafting 기반의 구현으로 80비트 정밀도의 CKKS 부트스트래핑에서 약 1.6배 성능 향상을 입증하였습니다. 
                         </p>
-                        <p class='kor' style="margin-top: 10px;">
+                        <!-- <p>--</p>
+                        <p class='eng'>
+                            <i></i>.
+                        </p>
+                        <p class='kor'>
+                            <i></i>.
+                        </p> -->
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><b>Grafting</b><span class="toggle-icon">-</span></h3>
+                    <p style="margin-top: 20px; margin-bottom: 5px;">
+                        Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS,
+                    </p><p style="font-size: 11pt; margin-bottom: 5px;">
+                        with Jung Hee Cheon, Minsik Kang, Jaehyung Kim, Seonghak Kim, Johannes Mono, and Taeyeong Noh,
+                    </p><p>
+                        <i><b>ACM CCS 2025</b></i>
+                        <a href="https://eprint.iacr.org/2024/1014"> &#8599;</a> 
+                        <!-- &#128206; &#128279;  -->
+                    </p>
+                    <div class="content">
+                        <br>
+                        <!-- <p>-----</p> -->
+                        <p class='eng'>
+                            In this paper, we revisit the arithmetic structure of the CKKS FHE scheme and introduce <b>Grafting</b>, a technique that decouples the scale factor from the modulus. 
+                            This enables optimized RNS packing and more flexible rescaling, while also reducing public key sizes and execution time. 
+                            Our experimental results demonstrate 1.92× faster bootstrapping, 1.89× faster Bit-CKKS bootstrapping, and a 62% reduction in public key size.
+                        </p>
+                        <p class='kor'>
+                            이 논문에서는 CKKS FHE 스킴의 산술 구조를 재설계하여, 스케일 팩터와 모듈러스 간의 의존성을 분리하는 Grafting 기법을 소개합니다.
+                            이 기법은 최적화된 RNS 패킹과 보다 유연한 리스케일링을 가능하게 하며, 공개키 크기를 줄이고, 동형 연산을 가속화합니다. 
+                            구현을 통해 확인한 결과, 제안한 방법은 부트스트래핑에서 1.92배, Bit-CKKS 부트스트래핑에서 1.89배 더 빠른 성능을 달성하였으며, 공개키 크기를 62% 감소시켰습니다.
+                        </p>
+                        <!-- <p>--</p> -->
+                        <p class='eng' style="margin-top: 8px;">
+                            <i>This work is partly included in my PhD dissertation</i>.
+                        </p>
+                        <p class='kor' style="margin-top: 8px;">
                             <i>이 연구는 제 박사학위논문에도 수록되어 있습니다</i>.
                         </p>
                     </div>
                 </div>
                 <div class="card">
                     <h3><b>IND-CPA<sup>D</sup> Attacks</b><span class="toggle-icon">-</span></h3>
-                    <p style="margin-top: 20px;">
-                        <b>Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE</b>,
-                    </p><p>
+                    <p style="margin-top: 20px; margin-bottom: 5px;">
+                        Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE,
+                    </p><p style="font-size: 11pt; margin-bottom: 5px;">
                         with Jung Hee Cheon, Alain Passelègue, Damien Stehl&eacute;, and Elias Suvanto,
                     </p><p>
-                        <b><i>ACM CCS 2024</i></b>.
+                        <i><b>ACM CCS 2024</b></i>
+                        <a href="https://eprint.iacr.org/2024/127"> &#8599;</a> 
+                        <!-- &#128206; &#128279;  -->
                     </p>
                     <div class="content">
-                        <p>-----</p>
+                        <br>
+                        <!-- <p>-----</p> -->
                         <p class='eng'>
-                            In this paper, we address the <b>IND-CPA<sup>D</sup> insecurity of exact FHE schemes</b>,
+                            In this paper, we address the <b>IND-CPA<sup>D</sup> insecurity</b> of <b>exact FHE</b> schemes,
                             which was previously believed to apply only to approximate FHEs.
                             We identify vulnerabilities arising from <b>non-negligible incorrectness</b>, where the
                             probability of incorrect evaluation is not exponentially small.
                             Our attacks efficiently recover secret keys from BFV/BGV, DM/CGGI, and the exact variant of
                             CKKS, exposing vulnerabilities in current parameter choices.
                         </p>
-                        <p class='eng' style="margin-top: 10px;">
+                        <p class='kor'>
+                            이 논문에서는 이전까지 Approximate FHE 스킴에만 해당되는 것으로 여겨졌던 <b>IND-CPA<sup>D</sup></b> 안전성에 대한 공격을 <b>Exact FHE</b> 스킴에 확장 적용하여 그 취약성을 입증하였습니다. 
+                            우리는 스킴의 정확성, 특히 <b>non-negligible한 부정확성</b>이 <b>안전성</b>을 심각하게 위협한다는 점을 발견하였으며,
+                            BFV/BGV, DM/CGGI, Exact CKKS 스킴의 비밀 키를 효율적으로 복구할 수 있었습니다. 
+                            이러한 취약점은 지수함수적으로 작은 부정확성를 보장하는 파라미터를 사용함으로써 해결될 수 있습니다.
+                        </p>
+                        <!-- <p>--</p> -->
+                        <p class='eng' style="margin-top: 8px;">
                             <i>This paper received the <b>Grand prize</b> at the Korean National Cryptography Contest
                                 in 2024</i>.
                         </p>
-                        <p class='kor'>
-                            이 논문은 <b>Exact FHE 스킴들의 IND-CPA<sup>D</sup> 안전성</b>에 대해 다루며, 기존에는 Approximate FHE
-                            스킴에만 적용된다고 여겨졌던 IND-CPA<sup>D</sup> 공격을 Exact FHE 스킴에도 적용한 연구입니다.
-                            우리는 스킴의 <b>정확성</b>, 특히 <b>non-negligible한 부정확성</b>이 <b>안전성</b>을 심각하게 위협한다는 점을 발견하였으며,
-                            실제로 BFV/BGV, DM/CGGI, Exact CKKS 스킴에서 작은 파라미터들을 바탕으로, 비밀 키를 효율적으로 복구하는 공격을 구현하였습니다.
-                            이러한 취약점은 실제 쓰이는 파라미터로도 자연스럽게 확장되며, 지수적으로 작은 부정확도를 보장하는 파라미터를 사용함으로써 해결될 수 있습니다.
-                        </p>
-                        <p class='kor' style="margin-top: 10px;">
+                        <p class='kor' style="margin-top: 8px;">
                             <i>이 논문은 2024년 한국국가암호공모전에서 대상을 수상하였습니다</i>.
                         </p>
                     </div>
                 </div>
                 <div class="card">
                     <h3><b>Korean PQC Standards</b><span class="toggle-icon">-</span></h3>
-                    <p style="margin-top: 20px;">
-                        <b>HAETAE and SMAUG-T</b>, 
+                    <p style="margin-top: 20px; margin-bottom: 5px;">
+                        HAETAE and SMAUG-T, 
+                    </p><p style="font-size: 11pt; margin-bottom: 5px;">
+                        with Team HAETAE and Team SMAUG(-T),
                     </p><p>
-                        <i>Final Winners of KpqC Standardization Competition</i>.
+                        <i><b>Final Winners of KpqC</b></i>
+                        <a href="https://kpqc.or.kr/competition_02.html"> &#8599;</a> 
+                        <!-- &#128206; &#128279;  -->
                     </p>
                     <div class="content">
-                        <p>-----</p>
+                        <br>
+                        <!-- <p>-----</p> -->
                         <p class='eng'>
                             After 3 years of tremendous efforts—public evaluations, numerous improvements, and security
                             validations—<b>HAETAE</b> and <b>SMAUG-T</b> were selected as the
-                            <b>final winners of the KpqC Competition</b> in January 2025.
+                            <b>final winners</b> of the <b>KpqC Competition</b> in January 2025.
                             The competition aims to select Quantum-secure Digital Signatures and KEM candidates for
                             Korean Standards, similar to NIST's PQC standardization process.
                             As a main contributor to both schemes, I am truly proud of the progress we've made.
                         </p>
-                        <p class='eng' style="margin-top: 10px;">
-                            <i>The selected schemes will, in the near future, become part of the Korean Standard (KS)</i>.
-                        </p>
                         <p class='kor'>
                             지난 2021년 11월부터 시작된 한국양자내성암호 공모에서 약 3년 간의 공개적인 평가, 알고리즘 및 구현의 수정과 개선, 안전성 검증 등을
-                            거쳐 2025년 1월, 제가 제출한 <b>HAETAE</b>와 <b>SMAUG-T</b> 알고리즘이 <b>최종 우승자</b>로 선정되었습니다.
+                            거쳐 2025년 1월, 제가 제출한 HAETAE와 SMAUG-T 알고리즘이 최종 우승자로 선정되었습니다.
                             이 공모는 NIST의 PQC 표준화 과정과 유사하게, 한국 양자내성암호 표준 제정을 위한 전자서명 (Digital Signatures) 및
                             키 캡슐화 메커니즘 (KEM) 알고리즘을 선정하는 것을 목표로 진행되었습니다. 
                         </p>
-                        <p class='kor' style="margin-top: 10px;">
+                        <!-- <p>--</p> -->
+                        <p class='eng' style="margin-top: 8px;">
+                            <i>The selected schemes will, in the near future, become part of the Korean Standard (KS)</i>.
+                        </p>
+                        <p class='kor' style="margin-top: 8px;">
                             <i>선정된 스킴들은 한국 표준 (KS) 양자내성암호 알고리즘이 될 예정입니다</i>.
                         </p>
                     </div>
