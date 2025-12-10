@@ -483,41 +483,41 @@ footer ._goto-top:hover {
     display:flex;
     align-content: center;
     justify-content: space-between;
-    margin:auto;
+    margin: auto;
     overflow: auto;
 }
 .flex-block{flex-direction: row;}
 .flex_r-block{flex-direction: row-reverse;}
-.flex-block h1 {text-align:left;}
-.flex-block p {text-align:right;}
-.flex_r-block h1 {text-align:right;}
-.flex_r-block p {text-align:left;}
+.flex-block h1 {text-align: left;}
+.flex-block p {text-align: right;}
+.flex_r-block h1 {text-align: right;}
+.flex_r-block p {text-align: left;}
 
 .flex_r-block > *,
 .flex-block > * {
     align-self: center;
-    padding:0;
-    margin:auto 40px;
+    padding: 0;
+    margin: auto 40px;
 }
 
 .grid-2-1-ul {
-    width:100%;
-    display:grid;
+    width: 100%;
+    display: grid;
     grid-template-columns: 50% 50%;
 }
 
 .grid-3-2-ul,
 .grid-3-1-ul {
-    width:100%;
-    display:grid;
+    width: 100%;
+    display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
 }
 .grid-2-1-ul > li,
 .grid-3-2-ul > li{
-    margin:0;
+    margin: 0;
 }
 .grid-3-1-ul > li{
-    margin:5px auto ;
+    margin: 5px auto ;
     display: block;
     width: 90%;
     padding-left: 20px;
@@ -534,8 +534,8 @@ footer ._goto-top:hover {
     font-family: 'noto-eng-i','noto-kor-i';
     font-size: 12pt;
     position: relative;
-    margin:auto;
-    margin-right:0;
+    margin: auto;
+    margin-right: 0;
 }
 
 
