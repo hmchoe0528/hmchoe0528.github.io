@@ -400,7 +400,7 @@
                 <br><br>
                 I am a member of Team <a href="https://kpqc.cryptolab.co.kr/smaug-t">SMAUG(-T)</a> and Team <a href="https://kpqc.cryptolab.co.kr/haetae">HAETAE</a>, winners of the <a href="https://kpqc.or.kr/competition.html">KpqC Competition</a> for Korean PQC standards. HAETAE is also submitted to the <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Signature</a> Round 1.
                 <br><br>
-                I am currently serving as a Program Committee (PC) member for <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a> and a Co-Editor for <a href="https://ckks.org">CKKS.org</a>.
+                I am currently serving as a Program Committee member for <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a> and a Co-Editor for <a href="https://ckks.org">CKKS.org</a>.
             </p>
             <p class="bio kor">
                 안녕하세요! 저는 현재 <a href="https://www.uni.lu/en/">룩셈부르크 대학교</a>에서 박사후 연구원 (Postdoctoral Researcher)으로 근무하고 있습니다. 
@@ -782,7 +782,8 @@ Rule (baseline):
         <div class="selected wider-piece">
             <h1 class="eng">Selected Publications & Projects</h1>
             <h1 class="kor">대표업적</h1>
-            <div class="card-container">
+            <div class="card-container" id="card-list">
+            <!-- Card 1: High-precision Bootstrapping -->
                 <div class="card">
                     <h3>
                         <b>High-precision Bootstrapping</b>
@@ -821,6 +822,7 @@ Rule (baseline):
                         </p> -->
                     </div>
                 </div>
+            <!-- Card 2: Grafting -->
                 <div class="card">
                     <h3><b>Grafting</b><span class="toggle-icon">-</span></h3>
                     <p style="margin-top: 20px; margin-bottom: 5px;">
@@ -855,6 +857,7 @@ Rule (baseline):
                         </p>
                     </div>
                 </div>
+            <!-- Card 3: IND-CPA-D Attacks -->
                 <div class="card">
                     <h3><b>IND-CPA<sup>D</sup> Attacks</b><span class="toggle-icon">-</span></h3>
                     <p style="margin-top: 20px; margin-bottom: 5px;">
@@ -894,6 +897,7 @@ Rule (baseline):
                         </p>
                     </div>
                 </div>
+            <!-- Card 4: Korean PQC Standards -->
                 <div class="card">
                     <h3><b>Korean PQC Standards</b><span class="toggle-icon">-</span></h3>
                     <p style="margin-top: 20px; margin-bottom: 5px;">
@@ -932,6 +936,15 @@ Rule (baseline):
                         </p>
                     </div>
                 </div>
+            </div>
+            <!-- Add this button below the card-container -->
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="summaries.html" id="view-all-btn" class="eng" style="text-decoration: none; font-weight: bold; color: #555; border: 1px solid #ccc; padding: 10px 20px; border-radius: 25px;">
+                    View All Research Summaries &rarr;
+                </a>
+                <a href="summaries.html" id="view-all-btn-kor" class="kor" style="text-decoration: none; font-weight: bold; color: #555; border: 1px solid #ccc; padding: 10px 20px; border-radius: 25px;">
+                    연구 요약 전체 보기 &rarr;
+                </a>
             </div>
         </div>
     </section>
@@ -1040,6 +1053,29 @@ Rule (baseline):
                 item.remove();
             }
         });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const cardContainer = document.getElementById("card-list");
+    const allCards = cardContainer.querySelectorAll(".card");
+    const viewAllBtn = document.getElementById("view-all-btn");
+    const viewAllBtnKor = document.getElementById("view-all-btn-kor");
+
+    const limit = 2; // Set your limit here
+
+    if (allCards.length > limit) {
+        // Hide cards beyond the limit
+        for (let i = limit; i < allCards.length; i++) {
+            allCards[i].style.display = "none";
+        }
+        // Show the "View All" buttons
+        viewAllBtn.parentElement.style.display = "block";
+    } else {
+        // Hide the buttons if you have 4 or fewer cards
+        viewAllBtn.parentElement.style.display = "none";
+    }
     });
 </script>
 
