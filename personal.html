@@ -287,10 +287,9 @@
             </li>
             <li>
                 Selected Deadlines<span class="no-mobile"> (last update: June, 2026)</span>.
-                <br> &nbsp;* All ddl. passed: <span class="expired-flag">!</span>
-                <br class="only-mobile"> &nbsp;* Estimated ddl.: <span class="estimate-flag">?</span>
-                <br> &nbsp;* Events passed: <span style="text-decoration:line-through;">Conf.</span>
-                <br class="only-mobile"> &nbsp;* AOE: <span id="aoe-time"></span>
+                <br> &nbsp;<span class="expired-flag">!</span> All ddl. passed.
+                <br class="only-mobile"> &nbsp;<span class="estimate-flag">?</span> Estimated ddl.
+                <br class="only-mobile"> &nbsp;<span style="text-decoration:line-through;">Passed Conf.</span>
                 <span class="no-mobile">
                     <br> &nbsp;<label>
                         <input type="checkbox" id="filter-deadlines" /> Upcoming ddl. only
@@ -299,6 +298,7 @@
                         <input type="checkbox" id="filter-flagships" /> Flagships only
                     </label>
                 </span>
+                <br> &nbsp;&#9201; AOE: <span id="aoe-time"></span>
             </li>
             <!-- html preview: https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server -->
         </ul>
@@ -402,14 +402,14 @@
             eventDate: "2026-11-15", 
             location: "The Hague, The Netherlands"
         },
-        // {
-        //     name: "CCS",
-        //     link: "https://www.sigsac.org/ccs/CCS2027/",
-        //     color: "CornflowerBlue",
-        //     deadlines: ["2027-??-??", "2027-??-??"],
-        //     eventDate: "2027-??-??", 
-        //     location: "??, ??"
-        // },
+        {
+            name: "CCS",
+            link: "https://www.sigsac.org/ccs/CCS2027/",
+            color: "CornflowerBlue",
+            deadlines: ["2027-??-??", "2027-??-??"],
+            eventDate: "2027-10-??", 
+            location: "Atlanta，USA"
+        },
         {
             name: "CHES",
             link: "https://ches.iacr.org/2025/",
@@ -594,7 +594,7 @@
             link: "https://sp2027.ieee-security.org",
             color: "indianred",
             deadlines: ["2026-06-11", "2026-11-17"],
-            eventDate: "2027-??-??",
+            eventDate: "2027-05-??",
             location: "Montreal, Canada"
         },
         {
@@ -630,7 +630,7 @@
             location: "New York City, USA"
         },
         {
-            name: "Usenix Sec.",
+            name: "Usenix S.",
             link: "https://www.usenix.org/conference/usenixsecurity26",
             color: "indianred",
             deadlines: ["2025-08-26", "2026-02-05"],
@@ -638,7 +638,7 @@
             location: "Baltimore, MD, US"
         },
         {
-            name: "Usenix Sec.",
+            name: "Usenix S.",
             link: "https://www.usenix.org/conference/usenixsecurity27",
             color: "indianred",
             deadlines: ["2026-08-25", "2027-01-26"],
@@ -1029,11 +1029,11 @@
         const options = {
             timeZone: "Etc/GMT+12", // AOE == UTC-12
             year: "numeric",
-            month: "long",
+            month: "short",
             day: "numeric",
             hour: "numeric",
             minute: "2-digit",
-            hour12: true,
+            hour12: false,
         };
 
         const formatted = new Intl.DateTimeFormat("en-US", options).format(now);
