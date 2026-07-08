@@ -297,6 +297,9 @@
                     &nbsp;<label>
                         <input type="checkbox" id="filter-flagships" /> Flagships only
                     </label>
+                    &nbsp;<label>
+                        <input type="checkbox" id="filter-eventview" /> Event calendar
+                    </label>
                 </span>
                 <span style="float: right;">&#9201; AOE: <span id="aoe-time"></span>&nbsp;</span>
                 <span style="display: block; clear: both;"></span>
@@ -380,6 +383,14 @@
             location: "Bangalore, India"
         },
         {
+            name: "AsiaCCS",
+            link: "https://asiaccs2027.cityu.edu.mo",
+            color: "DarkGoldenrod",
+            deadlines: ["2026-08-21", "2026-12-11"],
+            eventDate: "2027-07-12",
+            location: "Macau"
+        },
+        {
             name: "CCS",
             link: "https://www.sigsac.org/ccs/CCS2024/",
             color: "CornflowerBlue",
@@ -432,8 +443,8 @@
             link: "https://ches.iacr.org/2027/",
             color: "indianred",
             deadlines: ["2026-07-15", "2026-10-15", "2027-01-15", "2027-04-15"],
-            eventDate: "2027-??-??",
-            location: "The Americas"
+            eventDate: "2027-09-06",
+            location: "Cancún, Mexico"
         },
         {
             name: "Crypto",
@@ -525,6 +536,14 @@
             location: "Taipei, Taiwan"
         },
         {
+            name: "FHE.org",
+            link: "https://fhe.org/conferences/conference-2027/",
+            color: "DarkGoldenrod",
+            deadlines: ["2026-??-??"],
+            eventDate: "2027-04-04",
+            location: "Seattle, USA"
+        },
+        {
             name: "PETs",
             link: "https://petsymposium.org/",
             color: "indianred",
@@ -595,7 +614,7 @@
             link: "https://sp2027.ieee-security.org",
             color: "indianred",
             deadlines: ["2026-06-11", "2026-11-17"],
-            eventDate: "2027-05-??",
+            eventDate: "2027-??-??",
             location: "Montreal, Canada"
         },
         {
@@ -769,70 +788,134 @@
                 return null;
             };
 
-            // Get Conferences
-            let flattened = [];
-            conferenceDeadlines.forEach(conf => {
-                const total = conf.deadlines.length;
-                conf.deadlines.forEach((dateStr, idx) => {
-                    flattened.push({
+            // Same idea for an unannounced ("YYYY-??-??") event date: borrow the
+            // month/day from the same conference one year earlier so the edition can
+            // still be placed in the event-calendar view. Returns { month, day } or null.
+            const prevYearEvent = (name, year) => {
+                for (const c of conferenceDeadlines) {
+                    if (c.name !== name) continue;
+                    const d = parseNumericDate(c.eventDate);
+                    if (d && d.year === year - 1) return { month: d.month, day: d.day };
+                }
+                return null;
+            };
+
+            // Build the month map. Every placed entry carries generic fields the
+            // renderer reads regardless of mode:
+            //   year / month (0-based) / day  -> position + the numeric shown on the right
+            //   rightEstimated                -> show "?.?" (position was only estimated)
+            //   cycleText                     -> deadline cycle "[i/n]" (blank in event mode)
+            //   estimatedDeadline             -> drives the "?" flag / upcoming status
+            // Two modes:
+            //   - deadline mode (default): one entry per deadline, placed by deadline month.
+            //   - event mode (groupByEvent): one entry per conference edition, placed by
+            //     event month (estimated from last year when the month is unannounced).
+            const monthMap = Array.from({ length: 12 }, () => []);
+            const nameCounts = {};
+
+            if (!groupByEvent) {
+                // ---- Deadline mode ----
+                let flattened = [];
+                conferenceDeadlines.forEach(conf => {
+                    const total = conf.deadlines.length;
+                    conf.deadlines.forEach((dateStr, idx) => {
+                        flattened.push({
+                            id: `${conf.name}-${conf.eventDate}`,
+                            name: conf.name,
+                            link: conf.link,
+                            color: conf.color,
+                            deadline: dateStr,
+                            cycleText: `[${idx + 1}/${total}]`,
+                            cycleIdx: idx,
+                            eventDate: conf.eventDate,
+                            location: conf.location,
+                            projected: conf.projected === true
+                        });
+                    });
+                });
+
+                // Count how many editions of each name will be shown (including those
+                // positioned via a previous-year estimate), so the past-event hide rule
+                // can tell single- from multi-edition conferences.
+                conferenceDeadlines.forEach(conf => {
+                    const willShow = conf.deadlines.some((date, idx) => {
+                        if (!date.includes("??")) return true;
+                        const y = date.split("-")[0];
+                        return isNumericPart(y) && prevYearDeadline(conf.name, +y, idx) !== null;
+                    });
+                    if (!willShow) return;
+                    nameCounts[conf.name] = (nameCounts[conf.name] || 0) + 1;
+                });
+
+                flattened.forEach(conf => {
+                    let year, monthIndex, day;
+                    let estimatedDeadline = false;
+
+                    if (conf.deadline.includes("??")) {
+                        // Deadline not announced yet: estimate its slot from last year's
+                        // timing so the conference still appears. The displayed date stays
+                        // "??" (see the rendering step below).
+                        const yPart = conf.deadline.split("-")[0];
+                        const knownYear = isNumericPart(yPart) ? +yPart : null;
+                        const est = knownYear !== null
+                            ? prevYearDeadline(conf.name, knownYear, conf.cycleIdx)
+                            : null;
+                        if (!est) return; // nothing to estimate from -> skip as before
+                        year = knownYear;
+                        monthIndex = est.month;
+                        day = est.day;
+                        estimatedDeadline = true;
+                    } else {
+                        const date = new Date(conf.deadline);
+                        if (isNaN(date)) return;
+                        monthIndex = date.getMonth();
+                        year = date.getFullYear();
+                        day = date.getDate();
+                    }
+
+                    monthMap[monthIndex].push({
+                        ...conf, year, month: monthIndex, day,
+                        estimatedDeadline, rightEstimated: estimatedDeadline
+                    });
+                });
+            } else {
+                // ---- Event mode ----
+                conferenceDeadlines.forEach(conf => {
+                    const [ey, em, ed] = (conf.eventDate || "").split("-");
+                    let year, monthIndex, day = null, estimatedEvent = false;
+
+                    if (isNumericPart(em)) {
+                        monthIndex = parseInt(em.trim(), 10) - 1;
+                        if (monthIndex < 0 || monthIndex > 11) return;
+                        year = isNumericPart(ey) ? +ey : aoeTime.getFullYear();
+                        day = isNumericPart(ed) ? +ed.trim() : null; // day may be unannounced
+                    } else {
+                        // Event month unannounced: estimate from last year's edition.
+                        const knownYear = isNumericPart(ey) ? +ey : null;
+                        const est = knownYear !== null ? prevYearEvent(conf.name, knownYear) : null;
+                        if (!est) return; // no basis to place it -> skip
+                        year = knownYear;
+                        monthIndex = est.month;
+                        day = est.day;
+                        estimatedEvent = true;
+                    }
+
+                    nameCounts[conf.name] = (nameCounts[conf.name] || 0) + 1;
+                    monthMap[monthIndex].push({
                         id: `${conf.name}-${conf.eventDate}`,
                         name: conf.name,
                         link: conf.link,
                         color: conf.color,
-                        deadline: dateStr,
-                        cycle: `[${idx + 1}/${total}]`,
-                        cycleIdx: idx,
                         eventDate: conf.eventDate,
                         location: conf.location,
-                        projected: conf.projected === true
+                        projected: conf.projected === true,
+                        year, month: monthIndex, day,
+                        cycleText: "",
+                        estimatedDeadline: false,
+                        rightEstimated: estimatedEvent
                     });
                 });
-            });
-
-            // Count how many times each name appears (counting entries that will be
-            // shown, including those positioned via a previous-year estimate).
-            const nameCounts = {};
-            conferenceDeadlines.forEach(conf => {
-                const willShow = conf.deadlines.some((date, idx) => {
-                    if (!date.includes("??")) return true;
-                    const y = date.split("-")[0];
-                    return isNumericPart(y) && prevYearDeadline(conf.name, +y, idx) !== null;
-                });
-                if (!willShow) return;
-
-                nameCounts[conf.name] = (nameCounts[conf.name] || 0) + 1;
-            });
-
-            // Map with month
-            const monthMap = Array.from({ length: 12 }, () => []);
-            flattened.forEach(conf => {
-                let year, monthIndex, day;
-                let estimatedDeadline = false;
-
-                if (conf.deadline.includes("??")) {
-                    // Deadline not announced yet: estimate its slot from last year's
-                    // timing so the conference still appears. The displayed date stays
-                    // "??" (see the rendering step below).
-                    const yPart = conf.deadline.split("-")[0];
-                    const knownYear = isNumericPart(yPart) ? +yPart : null;
-                    const est = knownYear !== null
-                        ? prevYearDeadline(conf.name, knownYear, conf.cycleIdx)
-                        : null;
-                    if (!est) return; // nothing to estimate from -> skip as before
-                    year = knownYear;
-                    monthIndex = est.month;
-                    day = est.day;
-                    estimatedDeadline = true;
-                } else {
-                    const date = new Date(conf.deadline);
-                    if (isNaN(date)) return;
-                    monthIndex = date.getMonth();
-                    year = date.getFullYear();
-                    day = date.getDate();
-                }
-
-                monthMap[monthIndex].push({ ...conf, year, month: monthIndex, day, estimatedDeadline });
-            });
+            }
 
             // Language
             const locale = "en-US";
@@ -858,16 +941,14 @@
 
             // Per-name facts used to decide whether a past edition may stay visible:
             //  - hasRealUpcoming: a non-projected edition whose event is not over yet
-            //  - hasProjection:   an auto-projected (uncertain) edition exists
             //  - latestPastRealYear: most recent year among past *real* editions
-            // When the only upcoming edition is a projection, we keep the most recent
-            // past real edition (struck-through) as a reference, since the projection
-            // is not confirmed.
+            // When there is no confirmed upcoming edition, we keep the most recent
+            // *certain* (non-projected) past edition (struck-through) as a reference,
+            // whether or not an auto-projection exists.
             const hasRealUpcoming = {};
-            const hasProjection = {};
             const latestPastRealYear = {};
             conferenceDeadlines.forEach(c => {
-                if (c.projected === true) { hasProjection[c.name] = true; return; }
+                if (c.projected === true) return; // projections don't count as certain
                 if (isEventPastOf(c)) {
                     const d = parseNumericDate(c.eventDate);
                     if (d && (latestPastRealYear[c.name] === undefined || d.year > latestPastRealYear[c.name])) {
@@ -888,7 +969,7 @@
                 monthDiv.innerHTML = `<h3>${monthLabel}</h3>`;
 
                 // Make a list of conferences
-                const confList = monthMap[i].sort((a, b) => a.year - b.year || a.day - b.day);
+                const confList = monthMap[i].sort((a, b) => a.year - b.year || (a.day || 0) - (b.day || 0));
                 
                 // Compute each entry's past-status and keep only the ones that will
                 // actually render. "No deadlines" must reflect what is *shown*, not the
@@ -897,22 +978,25 @@
                 const visible = confList
                     .map(conf => ({
                         conf,
-                        // Estimated (unannounced) deadlines are always upcoming.
-                        isDeadlinePast: conf.estimatedDeadline ? false : (new Date(conf.deadline) < aoeTime),
+                        // Estimated (unannounced) deadlines are always upcoming. In event
+                        // mode there is no single deadline per entry, so "deadline past"
+                        // means every deadline of the edition is behind us.
+                        isDeadlinePast: groupByEvent
+                            ? !!conferenceStatus[conf.id]
+                            : (conf.estimatedDeadline ? false : (new Date(conf.deadline) < aoeTime)),
                         isEventPast: isEventPastOf(conf)
                     }))
                     .filter(({ conf, isDeadlinePast, isEventPast }) => {
                         if (showOnlyUpcoming && isDeadlinePast) return false;
                         if (showOnlyFlagships && !(conf.color === "CornflowerBlue" || conf.color === "indianred")) return false;
                         // Past events are normally hidden when the conference has other
-                        // entries — but if the only upcoming edition is an auto-projected
-                        // (uncertain) one, keep the most recent past *real* edition visible
+                        // entries — but if there is no confirmed upcoming edition, keep the
+                        // most recent *certain* (non-projected) past edition visible
                         // (struck-through) as a reference.
                         if (isEventPast && nameCounts[conf.name] > 1) {
                             const d = parseNumericDate(conf.eventDate);
                             const keepAsReference =
                                 !hasRealUpcoming[conf.name] &&
-                                hasProjection[conf.name] &&
                                 !conf.projected &&
                                 d && d.year === latestPastRealYear[conf.name];
                             if (!keepAsReference) return false;
@@ -922,15 +1006,16 @@
 
                 // Display "No deadlines" only when nothing is actually shown.
                 if (visible.length === 0) {
-                    monthDiv.innerHTML += `<p style="color:#aaa; text-align:center;">No deadlines</p>`;
+                    monthDiv.innerHTML += `<p style="color:#aaa; text-align:center;">${groupByEvent ? "No events" : "No deadlines"}</p>`;
                 }
 
                 // Display policy
                 visible.forEach(({ conf, isDeadlinePast, isEventPast }) => {
 
                     
-                    // Deadline date: gray if passed
-                    const className = isDeadlinePast ? "date-late" : "date";
+                    // Right-side date: gray once the date it shows is behind us. That
+                    // date is the deadline (deadline mode) or the event date (event mode).
+                    const className = (groupByEvent ? isEventPast : isDeadlinePast) ? "date-late" : "date";
 
                     // Year prefix for deadline date
                     const thisYear = aoeTime.getFullYear();
@@ -948,12 +1033,15 @@
                         // Year
                         suffixParts.push(isNumericPart(yyyy) ? `'${yyyy.trim().slice(-2)}` : "??");
 
-                        // Month
-                        if (isNumericPart(mm)) {
-                            const monthIndex = parseInt(mm.trim(), 10) - 1;
-                            suffixParts.push((monthIndex >= 0 && monthIndex <= 11) ? monthShort(monthIndex) : "???.");
-                        } else {
-                            suffixParts.push("???.");
+                        // Month — hidden in event mode, where the calendar box already
+                        // is the month (so "Aug."/"Dec." next to the name is redundant).
+                        if (!groupByEvent) {
+                            if (isNumericPart(mm)) {
+                                const monthIndex = parseInt(mm.trim(), 10) - 1;
+                                suffixParts.push((monthIndex >= 0 && monthIndex <= 11) ? monthShort(monthIndex) : "???.");
+                            } else {
+                                suffixParts.push("???.");
+                            }
                         }
 
                         // The red "?" flags an *estimated deadline* (the one shown as
@@ -979,11 +1067,19 @@
                     // If event also passed, apply strikethrough
                     const confStyle = isEventPast ? "text-decoration:line-through;" : "";
 
-                    // Estimated deadlines show "?.?" (matching the "month.day" format)
-                    // instead of the borrowed date — e.g. "?.?" or "'26.?.?".
-                    const deadlineText = conf.estimatedDeadline
-                        ? `${yearPrefix}?.?`
-                        : `${yearPrefix}${conf.month + 1}.${conf.day}`;
+                    // Right-side numeric. In event mode it is hidden entirely (the month
+                    // is the calendar box and the year is already in the name), leaving just
+                    // the conference name. In deadline mode it shows the deadline "month.day":
+                    // an estimated position shows "?.?"; a known month with an unannounced day
+                    // shows "M.?"; otherwise the full "M.D", prefixed if a cross-year date.
+                    let deadlineText = "";
+                    if (!groupByEvent) {
+                        let rightNumeric;
+                        if (conf.rightEstimated) rightNumeric = "?.?";
+                        else if (conf.day == null) rightNumeric = `${conf.month + 1}.?`;
+                        else rightNumeric = `${conf.month + 1}.${conf.day}`;
+                        deadlineText = `${yearPrefix}${rightNumeric}`;
+                    }
 
                     // Fall back to "#" when the link is missing or a placeholder ("??").
                     const safeLink = (conf.link && !conf.link.includes("??")) ? conf.link : "#";
@@ -1001,7 +1097,7 @@
                                     ${confNameDisplay}
                                 </a>
                             </span>
-                            <span class="${className}">${deadlineText} ${conf.cycle}</span>
+                            <span class="${className}">${deadlineText} ${conf.cycleText}</span>
                         </div>
                     `;
                 });
@@ -1012,12 +1108,14 @@
 
         let showOnlyUpcoming = false;
         let showOnlyFlagships = false;
+        let groupByEvent = false;
 
         generateCalendar(conferenceDeadlines);
 
         document.addEventListener("DOMContentLoaded", () => {
             const deadlineCheckbox = document.getElementById("filter-deadlines");
             const flagshipCheckbox = document.getElementById("filter-flagships");
+            const eventviewCheckbox = document.getElementById("filter-eventview");
 
             if (deadlineCheckbox) {
                 deadlineCheckbox.addEventListener("change", () => {
@@ -1032,7 +1130,14 @@
                     generateCalendar(conferenceDeadlines);
                 });
             }
-        });        
+
+            if (eventviewCheckbox) {
+                eventviewCheckbox.addEventListener("change", () => {
+                    groupByEvent = eventviewCheckbox.checked;
+                    generateCalendar(conferenceDeadlines);
+                });
+            }
+        });
     </script>
 
     <script>
