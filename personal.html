@@ -118,6 +118,29 @@
             color: #ccc;
         }
 
+        /* Event calendar: host location on the right, truncated with "…" if long.
+           The conference name keeps its full width; only the location shrinks. */
+        .conf-entry .conf-name {
+            flex: 0 0 auto;
+        }
+
+        .conf-loc {
+            flex: 0 1 auto;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: right;
+            padding-left: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Flag emoji reveals the country name on hover (via its title). */
+        .conf-loc .flag {
+            cursor: default;
+        }
+
         /* Dark mode detection */
         @media (prefers-color-scheme: dark) {
             li::marker {
@@ -396,7 +419,7 @@
             color: "CornflowerBlue",
             deadlines: ["2024-01-28", "2024-04-29"],
             eventDate: "2024-10-14", 
-            location: "Salt Lake City, Utah, US"
+            location: "Salt Lake City, US" // Salt Lake City, Utah, US
         },
         {
             name: "CCS",
@@ -420,7 +443,7 @@
             color: "CornflowerBlue",
             deadlines: ["2027-??-??", "2027-??-??"],
             eventDate: "2027-10-??", 
-            location: "Atlanta，USA"
+            location: "Atlanta, US"
         },
         {
             name: "CHES",
@@ -476,7 +499,7 @@
             color: "DarkGoldenrod",
             deadlines: ["2024-10-30"],
             eventDate: "2025-04-28",
-            location: "San Francisco, CA, US"
+            location: "San Francisco, US" // San Francisco, CA, US
         },
         {
             name: "CT-RSA",
@@ -484,7 +507,7 @@
             color: "DarkGoldenrod",
             deadlines: ["2025-10-24"],
             eventDate: "2026-03-23",
-            location: "San Francisco, CA, US"
+            location: "San Francisco, US" // San Francisco, CA, US
         },
         {
             name: "CT-RSA",
@@ -492,7 +515,7 @@
             color: "DarkGoldenrod",
             deadlines: ["2026-??-??"],
             eventDate: "2027-04-05",
-            location: "San Francisco, CA, US"
+            location: "San Francisco, US" // San Francisco, CA, US
             // https://email.rsaconference.com/p/7K6E-BNA/us2027-ryi-form?&_gl=1*1htueik*_gcl_au*MTU3NDIyMDc2LjE3NzU4MjUyNTUuMTIyNDczMTM4Mi4xNzc2MjU3NDgyLjE3NzYyNTc0ODE.*_ga*MTI5NzYxODU3OC4xNzc1ODI1MjU1*_ga_Q3JZKF3KQM*czE3NzYyNjA4MzMkbzExJGcxJHQxNzc2MjYwODQ0JGo0OSRsMCRoMTkzNTA5MjY3Mw..&pfredir=2
         },
         {
@@ -541,7 +564,7 @@
             color: "DarkGoldenrod",
             deadlines: ["2026-??-??"],
             eventDate: "2027-04-04",
-            location: "Seattle, USA"
+            location: "Seattle, US"
         },
         {
             name: "PETs",
@@ -607,7 +630,7 @@
             color: "indianred",
             deadlines: ["2025-06-05", "2025-11-13"],
             eventDate: "2026-05-18",
-            location: "San Francisco, CA, US"
+            location: "San Francisco, US" // San Francisco, CA, US
         },
         {
             name: "S&P",
@@ -623,7 +646,7 @@
             color: "DarkGoldenrod",
             deadlines: ["2025-01-27", "2025-05-07"],
             eventDate: "2025-08-11",
-            location: "Toronto, ON, Canada"
+            location: "Toronto, Canada"
         },
         {
             name: "SAC",
@@ -631,7 +654,7 @@
             color: "DarkGoldenrod",
             deadlines: ["2026-02-02", "2026-05-11"],
             eventDate: "2026-08-24",
-            location: "Ottawa, ON, Canada"
+            location: "Ottawa, Canada"
         },
         {
             name: "TCC",
@@ -647,7 +670,7 @@
             color: "DarkGoldenrod",
             deadlines: ["2026-05-19"],
             eventDate: "2026-11-10",
-            location: "New York City, USA"
+            location: "New York, US"
         },
         {
             name: "Usenix S.",
@@ -655,7 +678,7 @@
             color: "indianred",
             deadlines: ["2025-08-26", "2026-02-05"],
             eventDate: "2026-08-12",
-            location: "Baltimore, MD, US"
+            location: "Baltimore, US" // Baltimore, MD, US
         },
         {
             name: "Usenix S.",
@@ -663,7 +686,7 @@
             color: "indianred",
             deadlines: ["2026-08-25", "2027-01-26"],
             eventDate: "2027-08-11",
-            location: "Denver, CO, US"
+            location: "Denver, US" // Denver, CO, US
 
         },
         {
@@ -920,6 +943,63 @@
             // Language
             const locale = "en-US";
 
+            // Human-readable event date for the event-calendar tooltip. Shows as much as
+            // is known: "April 14, 2026", or "April 2026" (day unannounced), or "2026"
+            // (month unannounced). Returns "" when even the year is unknown.
+            const formatEventDate = (ed) => {
+                const [y, m, d] = (ed || "").split("-");
+                if (!isNumericPart(y)) return "";
+                const yearNum = +y;
+                if (isNumericPart(m)) {
+                    const mi = parseInt(m.trim(), 10) - 1;
+                    if (mi >= 0 && mi <= 11) {
+                        return isNumericPart(d)
+                            ? new Date(yearNum, mi, +d).toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" })
+                            : new Date(yearNum, mi, 1).toLocaleDateString(locale, { year: "numeric", month: "long" });
+                    }
+                }
+                return String(yearNum);
+            };
+
+            // Event calendar shows "City 🇫🇱" instead of the full "City, Country" (some
+            // country names are long, e.g. "The Hague, The Netherlands"). Locations are
+            // "City, Country" or "City, State, Country" (US/Canada), so the first token is
+            // the city and the last is the country; the flag/name are looked up from that.
+            // A single-token location (e.g. "Macau") is treated as both. The flag carries a
+            // title so hovering it reveals the full country name.
+            const COUNTRY_INFO = {
+                "us": { flag: "🇺🇸", name: "United States" },
+                "usa": { flag: "🇺🇸", name: "United States" },
+                "canada": { flag: "🇨🇦", name: "Canada" },
+                "taiwan": { flag: "🇹🇼", name: "Taiwan" },
+                "france": { flag: "🇫🇷", name: "France" },
+                "netherlands": { flag: "🇳🇱", name: "The Netherlands" },
+                "china": { flag: "🇨🇳", name: "China" },
+                "mexico": { flag: "🇲🇽", name: "Mexico" },
+                "türkiye": { flag: "🇹🇷", name: "Türkiye" },
+                "turkiye": { flag: "🇹🇷", name: "Türkiye" },
+                "turkey": { flag: "🇹🇷", name: "Türkiye" },
+                "india": { flag: "🇮🇳", name: "India" },
+                "vietnam": { flag: "🇻🇳", name: "Vietnam" },
+                "malaysia": { flag: "🇲🇾", name: "Malaysia" },
+                "portugal": { flag: "🇵🇹", name: "Portugal" },
+                "australia": { flag: "🇦🇺", name: "Australia" },
+                "germany": { flag: "🇩🇪", name: "Germany" },
+                "italy": { flag: "🇮🇹", name: "Italy" },
+                "norway": { flag: "🇳🇴", name: "Norway" },
+                "denmark": { flag: "🇩🇰", name: "Denmark" },
+                "macau": { flag: "🇲🇴", name: "Macau" }
+            };
+            const locationToCityFlagHtml = (loc) => {
+                const parts = String(loc || "").split(/[,，]/).map(s => s.trim()).filter(Boolean);
+                if (!parts.length) return "";
+                const city = escapeHtml(parts[0]);
+                const country = parts[parts.length - 1].toLowerCase().replace(/^the\s+/, "");
+                const info = COUNTRY_INFO[country];
+                if (!info) return city;
+                return `${city} <span class="flag" title="${escapeHtml(info.name)}">${info.flag}</span>`;
+            };
+
             // Check, once, whether every deadline of a conference is behind us.
             const conferenceStatus = {};
             conferenceDeadlines.forEach(conf => {
@@ -1084,6 +1164,14 @@
                     // Fall back to "#" when the link is missing or a placeholder ("??").
                     const safeLink = (conf.link && !conf.link.includes("??")) ? conf.link : "#";
 
+                    // Event mode: show the host location on the right and put the event
+                    // date in the hover tooltip. Deadline mode keeps the deadline on the
+                    // right and the location in the tooltip.
+                    const titleText = groupByEvent ? formatEventDate(conf.eventDate) : (conf.location || "");
+                    const rightHtml = groupByEvent
+                        ? `<span class="conf-loc">${locationToCityFlagHtml(conf.location)}</span>`
+                        : `<span class="${className}">${deadlineText} ${conf.cycleText}</span>`;
+
                     // Display
                     monthDiv.innerHTML += `
                         <div class="conf-entry">
@@ -1092,12 +1180,12 @@
                                     style="color:${confColor}; ${confStyle}"
                                     href="${escapeHtml(safeLink)}"
                                     target="_blank"
-                                    title="${escapeHtml(conf.location || "")}"
+                                    title="${escapeHtml(titleText)}"
                                 >
                                     ${confNameDisplay}
                                 </a>
                             </span>
-                            <span class="${className}">${deadlineText} ${conf.cycleText}</span>
+                            ${rightHtml}
                         </div>
                     `;
                 });
