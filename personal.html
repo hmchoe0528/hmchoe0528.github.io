@@ -780,10 +780,16 @@
                     });
                     if (!allPassed) return;
                     const shift = target - latest;
+                    // Guess next year's homepage by sweeping the year in the template's
+                    // URL (e.g. ".../2026/" -> ".../2027/"). Falls back to the template
+                    // link when it has no such year, or "#" when there is no usable link.
+                    const projectedLink = (!template.link || template.link.includes("??"))
+                        ? "#"
+                        : template.link.split(String(latest)).join(String(target));
                     projected.push({
                         name,
                         color: template.color,
-                        link: (template.link && !template.link.includes("??")) ? template.link : "#",
+                        link: projectedLink,
                         deadlines: template.deadlines.map(dl => {
                             const d = parseNumericDate(dl);
                             return d ? `${d.year + shift}-??-??` : "??";
@@ -1168,8 +1174,13 @@
                     // date in the hover tooltip. Deadline mode keeps the deadline on the
                     // right and the location in the tooltip.
                     const titleText = groupByEvent ? formatEventDate(conf.eventDate) : (conf.location || "");
+                    // Auto-projected editions borrow last year's location, which is almost
+                    // always wrong (venues rotate). Show it as unannounced instead.
+                    const locHtml = conf.projected
+                        ? `<span class="flag" title="Location not announced yet">?</span>`
+                        : locationToCityFlagHtml(conf.location);
                     const rightHtml = groupByEvent
-                        ? `<span class="conf-loc">${locationToCityFlagHtml(conf.location)}</span>`
+                        ? `<span class="conf-loc">${locHtml}</span>`
                         : `<span class="${className}">${deadlineText} ${conf.cycleText}</span>`;
 
                     // Display
