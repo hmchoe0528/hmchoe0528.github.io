@@ -511,12 +511,12 @@
         },
         {
             name: "CT-RSA",
-            link: "??",
+            link: "https://email.rsaconference.com/p/7K6E-BNA/us2027-ryi-form?&_gl=1*1htueik*_gcl_au*MTU3NDIyMDc2LjE3NzU4MjUyNTUuMTIyNDczMTM4Mi4xNzc2MjU3NDgyLjE3NzYyNTc0ODE.*_ga*MTI5NzYxODU3OC4xNzc1ODI1MjU1*_ga_Q3JZKF3KQM*czE3NzYyNjA4MzMkbzExJGcxJHQxNzc2MjYwODQ0JGo0OSRsMCRoMTkzNTA5MjY3Mw..&pfredir=2",
+            // https://email.rsaconference.com/p/7K6E-BNA/us2027-ryi-form?&_gl=1*1htueik*_gcl_au*MTU3NDIyMDc2LjE3NzU4MjUyNTUuMTIyNDczMTM4Mi4xNzc2MjU3NDgyLjE3NzYyNTc0ODE.*_ga*MTI5NzYxODU3OC4xNzc1ODI1MjU1*_ga_Q3JZKF3KQM*czE3NzYyNjA4MzMkbzExJGcxJHQxNzc2MjYwODQ0JGo0OSRsMCRoMTkzNTA5MjY3Mw..&pfredir=2
             color: "DarkGoldenrod",
             deadlines: ["2026-??-??"],
             eventDate: "2027-04-05",
             location: "San Francisco, US" // San Francisco, CA, US
-            // https://email.rsaconference.com/p/7K6E-BNA/us2027-ryi-form?&_gl=1*1htueik*_gcl_au*MTU3NDIyMDc2LjE3NzU4MjUyNTUuMTIyNDczMTM4Mi4xNzc2MjU3NDgyLjE3NzYyNTc0ODE.*_ga*MTI5NzYxODU3OC4xNzc1ODI1MjU1*_ga_Q3JZKF3KQM*czE3NzYyNjA4MzMkbzExJGcxJHQxNzc2MjYwODQ0JGo0OSRsMCRoMTkzNTA5MjY3Mw..&pfredir=2
         },
         {
             name: "EC",
@@ -744,19 +744,44 @@
             const utcTime = now.getTime() + now.getTimezoneOffset() * 60000;
             const aoeTime = new Date(utcTime - 12 * 60 * 60 * 1000);
 
-            // Auto-project next year's edition of flagship venues (CornflowerBlue /
-            // indianred) when it isn't in the data yet. We roll the most recent real
-            // edition forward by a year and fill every date with "??", so the entry
-            // appears purely as a projection: positioned by last year's timing, with
-            // an estimated event month (red "?") and a "??" deadline. Real data always
-            // wins (no projection is added once next year's edition exists).
+            // Year of a "YYYY-..." date, or null when even the year is unknown.
+            const yearOf = (s) => {
+                const y = String(s ?? "").split("-")[0];
+                return isNumericPart(y) ? +y : null;
+            };
+
+            // Has this date passed? A partially known date (e.g. "2027-??-??") is
+            // judged by the *latest* moment it could still mean — end of the known
+            // year / month — so it stays upcoming for as long as it plausibly can,
+            // but does eventually go past instead of hanging around forever.
+            // Fully numeric dates keep the original plain comparison.
+            const isDatePast = (s) => {
+                const exact = parseNumericDate(s);
+                if (exact) return new Date(s) < aoeTime;
+                const year = yearOf(s);
+                if (year === null) return false;      // year unknown -> never past
+                const p = String(s).split("-");
+                const monthKnown = isNumericPart(p[1]);
+                const month = monthKnown ? +p[1] - 1 : 11;
+                if (month < 0 || month > 11) return false;
+                // Day 0 of the next month == last day of this month.
+                return new Date(year, month + 1, 0, 23, 59, 59, 999) < aoeTime;
+            };
+
+            // Auto-project the upcoming editions of flagship venues (CornflowerBlue /
+            // indianred) that aren't in the data yet. We roll the most recent real
+            // edition forward and fill every date with "??", so the entry appears
+            // purely as a projection: positioned by the last known timing, with an
+            // estimated event month (red "?") and a "??" deadline. Real data always
+            // wins (no projection is added for a year that already exists).
+            // The projection runs up to next year and, when the data has gone stale
+            // by more than a year, chains through the intervening years so the
+            // calendar still shows the current season rather than going blank.
             const projectFlagships = (confs) => {
                 const FLAGSHIP = new Set(["CornflowerBlue", "indianred"]);
-                const target = aoeTime.getFullYear() + 1; // next year
-                const eventYearOf = (c) => {
-                    const y = (c.eventDate || "").split("-")[0];
-                    return isNumericPart(y) ? +y : null;
-                };
+                const thisYear = aoeTime.getFullYear();
+                const target = thisYear + 1; // project no further than next year
+                const eventYearOf = (c) => yearOf(c.eventDate);
 
                 const byName = {};
                 confs.forEach(c => {
@@ -767,66 +792,79 @@
                 const projected = [];
                 Object.keys(byName).forEach(name => {
                     const years = byName[name].map(eventYearOf).filter(y => y !== null);
-                    if (!years.length) return;        // no numeric template to roll forward
+                    if (!years.length) return;        // no template to roll forward
                     const latest = Math.max(...years);
                     if (latest >= target) return;     // next year's edition already exists
                     const template = byName[name].find(c => eventYearOf(c) === latest);
                     // Only activate the projection once EVERY deadline of the most recent
                     // edition has passed (AOE). Until then, that edition is still the
                     // actionable one and we don't pre-show next year's projection.
-                    const allPassed = template.deadlines.every(dl => {
-                        const d = parseNumericDate(dl);
-                        return d !== null && new Date(dl) < aoeTime;
-                    });
-                    if (!allPassed) return;
-                    const shift = target - latest;
-                    // Guess next year's homepage by sweeping the year in the template's
-                    // URL (e.g. ".../2026/" -> ".../2027/"). Falls back to the template
-                    // link when it has no such year, or "#" when there is no usable link.
-                    const projectedLink = (!template.link || template.link.includes("??"))
-                        ? "#"
-                        : template.link.split(String(latest)).join(String(target));
-                    projected.push({
-                        name,
-                        color: template.color,
-                        link: projectedLink,
-                        deadlines: template.deadlines.map(dl => {
-                            const d = parseNumericDate(dl);
-                            return d ? `${d.year + shift}-??-??` : "??";
-                        }),
-                        eventDate: `${target}-??-??`,
-                        location: template.location,
-                        projected: true
-                    });
+                    if (!template.deadlines.every(isDatePast)) return;
+                    // Skip the years already behind us: an edition whose year is over
+                    // is of no use to anyone, so the chain starts at the current year.
+                    const from = Math.max(latest + 1, thisYear);
+                    for (let year = from; year <= target; year++) {
+                        const shift = year - latest;
+                        // Guess the homepage by sweeping the year in the template's URL
+                        // (e.g. ".../2026/" -> ".../2027/"). Falls back to the template
+                        // link when it has no such year, or "#" when there is no usable link.
+                        const projectedLink = (!template.link || template.link.includes("??"))
+                            ? "#"
+                            : template.link.split(String(latest)).join(String(year));
+                        projected.push({
+                            name,
+                            color: template.color,
+                            link: projectedLink,
+                            deadlines: template.deadlines.map(dl => {
+                                const d = yearOf(dl);
+                                return d !== null ? `${d + shift}-??-??` : "??";
+                            }),
+                            eventDate: `${year}-??-??`,
+                            location: template.location,
+                            projected: true
+                        });
+                    }
                 });
 
                 return confs.concat(projected);
             };
             conferenceDeadlines = projectFlagships(conferenceDeadlines);
 
-            // For an unannounced ("YYYY-??-??") deadline, borrow month/day from the
-            // same conference one year earlier (matched by cycle index). This is only
-            // used to place the entry in the right month; the date is still shown as
-            // "??". Returns { month, day } (0-based month) or null.
-            const prevYearDeadline = (name, year, cycleIdx) => {
+            // For an unannounced ("YYYY-??-??") deadline, borrow month/day from an
+            // earlier edition of the same conference (matched by cycle index). The
+            // most recent earlier year wins — not strictly the previous one, so a
+            // projection still lands correctly when the data is a few years stale.
+            // This only places the entry in the right month; the date is still shown
+            // as "??". Returns { month, day } (0-based month) or null.
+            const estimateDeadlineMD = (name, year, cycleIdx) => {
+                let best = null;
                 for (const c of conferenceDeadlines) {
                     if (c.name !== name) continue;
                     const d = parseNumericDate(c.deadlines[cycleIdx] ?? c.deadlines[0]);
-                    if (d && d.year === year - 1) return { month: d.month, day: d.day };
+                    if (d && d.year < year && (!best || d.year > best.year)) best = d;
                 }
-                return null;
+                return best ? { month: best.month, day: best.day } : null;
             };
 
-            // Same idea for an unannounced ("YYYY-??-??") event date: borrow the
-            // month/day from the same conference one year earlier so the edition can
-            // still be placed in the event-calendar view. Returns { month, day } or null.
-            const prevYearEvent = (name, year) => {
+            // Same idea for an unannounced ("YYYY-??-??") event date, so the edition
+            // can still be placed in the event-calendar view. An earlier edition only
+            // needs a known month to serve as a template (e.g. "2027-10-??" is enough
+            // to say "October"), in which case the day comes back as null.
+            // Returns { month, day } (day may be null) or null.
+            const estimateEventMD = (name, year) => {
+                let best = null;
                 for (const c of conferenceDeadlines) {
                     if (c.name !== name) continue;
-                    const d = parseNumericDate(c.eventDate);
-                    if (d && d.year === year - 1) return { month: d.month, day: d.day };
+                    const parts = String(c.eventDate ?? "").split("-");
+                    const y = yearOf(c.eventDate);
+                    if (y === null || y >= year || !isNumericPart(parts[1])) continue;
+                    const month = +parts[1] - 1;
+                    if (month < 0 || month > 11) continue;
+                    if (!best || y > best.year) {
+                        best = { year: y, month, day: isNumericPart(parts[2]) ? +parts[2] : null };
+                    }
                 }
-                return null;
+                return best ? { month: best.month, day: best.day } : null;
             };
 
             // Build the month map. Every placed entry carries generic fields the
@@ -870,7 +908,7 @@
                     const willShow = conf.deadlines.some((date, idx) => {
                         if (!date.includes("??")) return true;
                         const y = date.split("-")[0];
-                        return isNumericPart(y) && prevYearDeadline(conf.name, +y, idx) !== null;
+                        return isNumericPart(y) && estimateDeadlineMD(conf.name, +y, idx) !== null;
                     });
                     if (!willShow) return;
                     nameCounts[conf.name] = (nameCounts[conf.name] || 0) + 1;
@@ -887,7 +925,7 @@
                         const yPart = conf.deadline.split("-")[0];
                         const knownYear = isNumericPart(yPart) ? +yPart : null;
                         const est = knownYear !== null
-                            ? prevYearDeadline(conf.name, knownYear, conf.cycleIdx)
+                            ? estimateDeadlineMD(conf.name, knownYear, conf.cycleIdx)
                             : null;
                         if (!est) return; // nothing to estimate from -> skip as before
                         year = knownYear;
@@ -921,7 +959,7 @@
                     } else {
                         // Event month unannounced: estimate from last year's edition.
                         const knownYear = isNumericPart(ey) ? +ey : null;
-                        const est = knownYear !== null ? prevYearEvent(conf.name, knownYear) : null;
+                        const est = knownYear !== null ? estimateEventMD(conf.name, knownYear) : null;
                         if (!est) return; // no basis to place it -> skip
                         year = knownYear;
                         monthIndex = est.month;
@@ -1009,21 +1047,15 @@
             // Check, once, whether every deadline of a conference is behind us.
             const conferenceStatus = {};
             conferenceDeadlines.forEach(conf => {
-                const allPast = conf.deadlines.every(dateStr => new Date(dateStr) < aoeTime);
+                const allPast = conf.deadlines.every(isDatePast);
                 const confId = `${conf.name}-${conf.eventDate}`;
                 conferenceStatus[confId] = allPast;
             });
 
-            // Is a conference's event already over? Only numeric dates can be "past";
-            // unknown/junk (e.g. "2027-??-??") never counts as past.
-            const isEventPastOf = (c) => {
-                const parts = (c.eventDate || "").split("-");
-                if (parts.length === 3 && parts.every(isNumericPart)) {
-                    const parsed = new Date(parts.map(p => p.trim()).join("-"));
-                    if (!isNaN(parsed)) return parsed < aoeTime;
-                }
-                return false;
-            };
+            // Is a conference's event already over? A partially known date counts as
+            // past once the whole period it could refer to is behind us, so an entry
+            // like "2027-??-??" stops posing as upcoming in 2028.
+            const isEventPastOf = (c) => isDatePast(c.eventDate);
 
             // Per-name facts used to decide whether a past edition may stay visible:
             //  - hasRealUpcoming: a non-projected edition whose event is not over yet
@@ -1036,9 +1068,9 @@
             conferenceDeadlines.forEach(c => {
                 if (c.projected === true) return; // projections don't count as certain
                 if (isEventPastOf(c)) {
-                    const d = parseNumericDate(c.eventDate);
-                    if (d && (latestPastRealYear[c.name] === undefined || d.year > latestPastRealYear[c.name])) {
-                        latestPastRealYear[c.name] = d.year;
+                    const y = yearOf(c.eventDate);
+                    if (y !== null && (latestPastRealYear[c.name] === undefined || y > latestPastRealYear[c.name])) {
+                        latestPastRealYear[c.name] = y;
                     }
                 } else {
                     hasRealUpcoming[c.name] = true;
@@ -1064,12 +1096,14 @@
                 const visible = confList
                     .map(conf => ({
                         conf,
-                        // Estimated (unannounced) deadlines are always upcoming. In event
-                        // mode there is no single deadline per entry, so "deadline past"
-                        // means every deadline of the edition is behind us.
+                        // An estimated (unannounced) deadline stays upcoming until even
+                        // the last day it could fall on has passed — its position is a
+                        // guess, so only the announced part of the date is trusted. In
+                        // event mode there is no single deadline per entry, so "deadline
+                        // past" means every deadline of the edition is behind us.
                         isDeadlinePast: groupByEvent
                             ? !!conferenceStatus[conf.id]
-                            : (conf.estimatedDeadline ? false : (new Date(conf.deadline) < aoeTime)),
+                            : isDatePast(conf.deadline),
                         isEventPast: isEventPastOf(conf)
                     }))
                     .filter(({ conf, isDeadlinePast, isEventPast }) => {
@@ -1080,11 +1114,11 @@
                         // most recent *certain* (non-projected) past edition visible
                         // (struck-through) as a reference.
                         if (isEventPast && nameCounts[conf.name] > 1) {
-                            const d = parseNumericDate(conf.eventDate);
+                            const y = yearOf(conf.eventDate);
                             const keepAsReference =
                                 !hasRealUpcoming[conf.name] &&
                                 !conf.projected &&
-                                d && d.year === latestPastRealYear[conf.name];
+                                y !== null && y === latestPastRealYear[conf.name];
                             if (!keepAsReference) return false;
                         }
                         return true;
