@@ -433,8 +433,8 @@ Rule (baseline):
         <h1 class="eng">NEWS</h1>
         <h1 class="kor">최근 소식</h1>
         <ol id="news-list">
-            <!-- "26.07: CCS Accepted" -->
-            <li class="flex-block" data-expiry="2026-07">
+            <!-- "26.07: CCS Accepted (~27.07)" -->
+            <li class="flex-block" data-expiry="2027-07">
                 <h1>July 2026</h1>
                 <p class="eng">&#127881; My paper "New IND-CPA<sup>D</sup> Attacks on BFV and BGV" is <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>.
                 I will attend and present at ACM CCS 2026, The Hague, The Netherlands (Mid Nov. 2026).
@@ -442,8 +442,8 @@ Rule (baseline):
                 <p class="kor">&#127881; "New IND-CPA<sup>D</sup> Attacks on BFV and BGV" 논문이 <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>에 <b>accept</b>되었습니다.
                 저는 네덜란드 헤이그에서 열리는 ACM CCS 2026 학회에 참석하여, 이 논문을 발표할 예정입니다. </p>
             </li>
-            <!-- "26.05: EC Rome (~26.07)" -->
-            <li class="flex-block" data-expiry="2026-07">
+            <!-- "26.05: EC Rome (~26.08)" -->
+            <li class="flex-block" data-expiry="2026-08">
                 <h1>May 2026</h1>
                 <p class="eng">Attending <a href="https://eurocrypt.iacr.org/2026/">Eurocrypt 2026</a>, May 10th - 14th, Rome, Italy.</p>
                 <p class="kor">이탈리아 로마에서 열리는 학회 <a href="https://eurocrypt.iacr.org/2026/">Eurocrypt 2026</a>에 참석할 예정입니다 (5월 10-14일).</p>
@@ -854,9 +854,13 @@ Rule (baseline):
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const today = new Date();
-        const newsItems = document.querySelectorAll('#news-list li[data-expiry]');
+        const newsItems = Array.from(document.querySelectorAll('#news-list li[data-expiry]'));
 
-        newsItems.forEach(item => {
+        // 뉴스 목록이 통째로 비어 보이지 않도록, 살아있는 항목이 이 개수보다
+        // 적으면 만료된 항목 중 최신 것부터 채워 넣습니다.
+        const MIN_VISIBLE = 3;
+
+        const expired = newsItems.filter(item => {
             let dateStr = item.getAttribute('data-expiry');
             let expiryDate;
 
@@ -872,10 +876,14 @@ Rule (baseline):
                 expiryDate.setHours(23, 59, 59, 999);
             }
 
-            if (expiryDate < today) {
-                item.remove();
-            }
+            return expiryDate < today;
         });
+
+        // 목록은 최신순으로 작성되어 있으므로, 만료된 항목 중 문서상 앞쪽에 있는
+        // 것이 가장 최근 소식입니다. 부족한 만큼만 남기고 나머지를 지웁니다.
+        const alive = newsItems.length - expired.length;
+        const keep = Math.max(0, MIN_VISIBLE - alive);
+        expired.slice(keep).forEach(item => item.remove());
     });
 </script>
 
