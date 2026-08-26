@@ -39,6 +39,70 @@
             white-space: normal;
         }
 
+        /* Publications list: every <li> only needs a single "data-year" attribute
+           (e.g. data-year="2026"). A small inline script right after the list
+           (see below it in the HTML) computes, on load, which items start/end a
+           same-year run, the alternating tint, and the countdown numbering -
+           nothing here needs to change when a paper or a whole new year is added. */
+
+        ol.papers > li[data-year] {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+            padding: 10px 15px 10px 40px;
+            position: relative;
+            list-style: none;
+        }
+
+        ol.papers > li[data-year]::before {
+            content: attr(data-num) ".";
+            position: absolute;
+            left: 15px;
+            top: 10px;
+        }
+
+        ol.papers > li[data-year].shade {
+            background-color: hsl(210, 20%, 96%);
+        }
+
+        ol.papers > li[data-year]:not(.shade) {
+            background-color: white;
+        }
+
+        ol.papers > li[data-year].grp-start {
+            margin-top: 30px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        ol.papers > li[data-year].grp-end {
+            margin-bottom: 25px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        /* Above the point where .wide-piece is a fixed 850px column (see css/style.css),
+           bleed the background out to the viewport edges while keeping the text aligned
+           with the rest of the page's 850px content column. */
+        @media screen and (min-width: 1001px) {
+            ol.papers > li[data-year] {
+                width: 100vw;
+                margin-left: calc(50% - 50vw);
+                margin-right: calc(50% - 50vw);
+                padding-left: calc(50vw - 425px + 40px);
+                padding-right: calc(50vw - 425px + 15px);
+            }
+
+            ol.papers > li[data-year]::before {
+                left: calc(50vw - 425px + 15px);
+            }
+
+            /* Flat corners everywhere at this breakpoint */
+            ol.papers > li[data-year] {
+                border-radius: 0 !important;
+            }
+        }
+
         .papers>li h2 {
             font-family: "noto-eng", "noto-kor";
             font-size: 12pt;
@@ -53,6 +117,14 @@
         .papers .links {
             font-family: "noto-eng-i", "noto-kor-i";
             font-size: 10pt;
+        }
+
+        /* Simple divider line between each section (Publications / Ph.D. Dissertation /
+           Manuscripts / Specifications) - matches every h1.papers except the first. */
+        h1.papers ~ h1.papers {
+            border-top: 1pt solid lightgray;
+            margin-top: 40px;
+            padding-top: 20px;
         }
 
         /* Dark mode detection */
@@ -106,7 +178,7 @@
         <p class="eng">Asterisk (*) indicates corresponding author(s) for journal publications.</p>
         <p class="kor">별표 (*) 표시는 저널 논문의 교신 저자를 의미합니다.</p>
         <ol reversed class="papers">
-            <li>
+            <li data-year="2026">
                 <h2>
                     New IND-CPA<sup>D</sup> Attacks on BFV and BGV
                 </h2>
@@ -118,7 +190,7 @@
                 <p>To appear at <a href="https://www.sigsac.org/ccs/CCS2026"><b>ACM CCS 2026</b></a>
                 </p>
             </li>
-            <li>
+            <li data-year="2026">
                 <h2>
                     Multi-Party Homomorphic Encryption with Dynamicity and Ciphertext Reusability
                 </h2>
@@ -131,7 +203,7 @@
                     [<a href="https://eprint.iacr.org/2025/581" style="color:blue">preprint</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2025">
                 <h2>
                     Leveraging Discrete CKKS to Bootstrap in High Precision
                 </h2>
@@ -147,7 +219,7 @@
                     [<a href="https://ckks.org/blog/2025/high_prec_bootstrap" style="color:blue">blogpost</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2025">
                 <h2>
                     Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS
                 </h2>
@@ -162,7 +234,7 @@
                     [<a href="https://ckks.org/blog/2025/grafting" style="color:blue">blogpost (by J. Mono)</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2025">
                 <h2>
                     Tree-based Lookup Table on Batched Encrypted Queries using Homomorphic Encryption
                 </h2>
@@ -175,7 +247,7 @@
                     [<a href="https://eprint.iacr.org/2024/087" style="color:blue">preprint</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2024">
                 <h2>
                     SMAUG(-T), Revisited: Timing-secure, More Compact, Less Failure
                 </h2>
@@ -189,7 +261,7 @@
                     [<a href="https://github.com/hmchoe0528/smaug-t_public" style="color:blue">github</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2024">
                 <h2>
                     (Extended Abstract) Toward Practical Threshold FHE: Low Communication, Computation and Interaction
                 </h2>
@@ -202,7 +274,7 @@
                     [<a href="https://doi.org/10.1145/3658644.3690861" style="color:blue"><span class="no-mobile">extended-abstract</span><span class="only-mobile">ext-abs</span></a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2024">
                 <h2>
                     Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE Schemes
                 </h2>
@@ -217,7 +289,7 @@
                     [<a href="https://github.com/hmchoe0528/INDCPAD_HE_ThresFHE" style="color:blue">github</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2024">
                 <h2>
                     HAETAE: Shorter Lattice-Based Fiat-Shamir Signatures
                 </h2>
@@ -235,7 +307,7 @@
                     [<a href="https://eprint.iacr.org/2023/624" style="color:blue">preprint</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2023">
                 <h2>
                     SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits
                 </h2>
@@ -248,7 +320,7 @@
                     [<a href="https://eprint.iacr.org/2023/739" style="color:blue">preprint</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2022">
                 <h2>
                     Secure Tumor Classification by Shallow Neural Network Using Homomorphic Encryption
                 </h2>
@@ -262,7 +334,7 @@
                     [<a href="https://github.com/jaihyunp/iDash2020" style="color:blue">github</a>]
                 </p>
             </li>
-            <li>
+            <li data-year="2019">
                 <h2>
                     Faster Linear Transformations in HElib, revisited
                 </h2>
@@ -298,6 +370,34 @@
                         style="color:blue">paper</a>]</p>
             </li> -->
         </ol>
+        <script>
+            // Auto-computes, from each <li>'s data-year alone: the countdown
+            // numbering, the alternating tint between year-groups, and the
+            // rounded/merged corners at the start and end of each year-group.
+            // Runs synchronously here (right after the list) so it applies
+            // before first paint - no flash of unstyled list items.
+            (function () {
+                var items = document.querySelectorAll('ol.papers > li[data-year]');
+                var total = items.length;
+                var shade = false;
+                for (var i = 0; i < total; i++) {
+                    var year = items[i].getAttribute('data-year');
+                    var prevYear = i > 0 ? items[i - 1].getAttribute('data-year') : null;
+                    var nextYear = i < total - 1 ? items[i + 1].getAttribute('data-year') : null;
+                    if (year !== prevYear) {
+                        shade = !shade;
+                        items[i].classList.add('grp-start');
+                    }
+                    if (year !== nextYear) {
+                        items[i].classList.add('grp-end');
+                    }
+                    if (shade) {
+                        items[i].classList.add('shade');
+                    }
+                    items[i].setAttribute('data-num', total - i);
+                }
+            })();
+        </script>
 
         <h1 class="papers">Ph.D. Dissertation</h1>
         <ul class="papers">
