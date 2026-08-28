@@ -62,7 +62,7 @@
         }
 
         ol.papers > li[data-year].shade {
-            background-color: hsl(210, 20%, 96%);
+            background-color: hsl(200, 75%, 95%);
         }
 
         ol.papers > li[data-year]:not(.shade) {
@@ -79,28 +79,6 @@
             margin-bottom: 25px;
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
-        }
-
-        /* Above the point where .wide-piece is a fixed 850px column (see css/style.css),
-           bleed the background out to the viewport edges while keeping the text aligned
-           with the rest of the page's 850px content column. */
-        @media screen and (min-width: 1001px) {
-            ol.papers > li[data-year] {
-                width: 100vw;
-                margin-left: calc(50% - 50vw);
-                margin-right: calc(50% - 50vw);
-                padding-left: calc(50vw - 425px + 40px);
-                padding-right: calc(50vw - 425px + 15px);
-            }
-
-            ol.papers > li[data-year]::before {
-                left: calc(50vw - 425px + 15px);
-            }
-
-            /* Flat corners everywhere at this breakpoint */
-            ol.papers > li[data-year] {
-                border-radius: 0 !important;
-            }
         }
 
         .papers>li h2 {
