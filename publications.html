@@ -96,6 +96,15 @@
             font-size: 10pt;
         }
 
+        /* Venue color: conferences keep the default link color. */
+        .papers a.journal {
+            color: teal;
+        }
+
+        .papers a.abnormal {
+            color: black;
+        }
+
         /* Simple divider line between each section (Publications / Ph.D. Dissertation /
            Manuscripts / Specifications) - matches every h1.papers except the first. */
         h1.papers ~ h1.papers {
@@ -153,8 +162,9 @@
             Per item: <h2> title, eng authors, kor authors, venue + links.
         -->
         <h1 class="papers">Publications</h1>
-        <p class="eng">Asterisk (*) indicates corresponding author(s) for journal publications.</p>
-        <p class="kor">별표 (*) 표시는 저널 논문의 교신 저자를 의미합니다.</p>
+        <p><i><a style="color:indianred">Conferences</a> and <a style="color:teal">Journals</a>.</i></p>
+        <p class="eng">Asterisk (*) indicates corresponding author(s).</p>
+        <p class="kor">별표 (*) 표시는 교신 저자를 의미합니다.</p>
         <ol reversed class="papers">
 
             <li data-year="2027">
@@ -165,7 +175,7 @@
                     (α-β order) By
                     Song Bian,
                     <u>Hyeongmin Choe</u>,
-                    Changmin Lee,
+                    Changmin Lee*,
                     Jiseung Kim
                 </p>
                 <p class="kor no-mobile">
@@ -209,7 +219,7 @@
                     (알파벳순) By 천정희, <u>최형민</u>, 김승홍, 여용동
                 </p>
                 <p>
-                    <a href="https://cic.iacr.org/"><b>CiC</b></a>, Vol. 3, Iss. 1, 2026.
+                    <a class="journal" href="https://cic.iacr.org/"><b>CiC</b></a>, Vol. 3, Iss. 1, 2026.
                     [<a href="https://doi.org/10.62056/a0qj89krz" style="color:blue">paper</a>]
                     [<a href="https://eprint.iacr.org/2025/581" style="color:blue">preprint</a>]
                 </p>
@@ -276,7 +286,7 @@
                     (알파벳순) By 천정희, <u>최형민</u>, 박재현*
                 </p>
                 <p>
-                    <a href="https://jkms.kms.or.kr/content/about/aimsnscope.html"><b>JKMS</b></a>, Vol. 62, Iss. 5, 2025
+                    <a class="journal" href="https://jkms.kms.or.kr/content/about/aimsnscope.html"><b>JKMS</b></a>, Vol. 62, Iss. 5, 2025
                     [<a href="https://jkms.kms.or.kr/journal/view.html?doi=10.4134/JKMS.j240423" style="color:blue">paper</a>]
                     [<a href="https://eprint.iacr.org/2024/087" style="color:blue">preprint</a>]
                 </p>
@@ -297,7 +307,7 @@
                     (알파벳순) By 천정희, <u>최형민*</u>, 서정주, 성효은
                 </p>
                 <p>
-                    <a href="https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access"><b>IEEE ACCESS</b></a>, Vol. 12, 2024
+                    <a class="journal" href="https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access"><b>IEEE ACCESS</b></a>, Vol. 12, 2024
                     [<a href="https://doi.org/10.1109/ACCESS.2024.3511346" style="color:blue">paper</a>]
                     [<a href="https://github.com/hmchoe0528/smaug-t_public" style="color:blue">github</a>]
                 </p>
@@ -314,7 +324,7 @@
                     By <u>최형민*</u>
                 </p>
                 <p>
-                    <a href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">
+                    <a class="abnormal" href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">
                         <b>ACM CCS 2024
                             <span class="no-mobile">Doctoral Symposium</span>
                             <span class="only-mobile">Doct. Symp.</span></b></a>
@@ -409,7 +419,7 @@
                     By 홍승완*, 박재현, 조원희, <u>최형민</u>, 천정희
                 </p>
                 <p>
-                    <a href="https://bmcgenomics.biomedcentral.com/"><b>BMC Genomics</b></a>, Vol. 23, 2022
+                    <a class="journal" href="https://bmcgenomics.biomedcentral.com/"><b>BMC Genomics</b></a>, Vol. 23, 2022
                     [<a href="https://doi.org/10.1186/s12864-022-08469-w" style="color:blue">paper</a>]
                     [<a href="https://github.com/jaihyunp/iDash2020" style="color:blue">github</a>]
                 </p>
@@ -430,7 +440,7 @@
                     (알파벳순) By 천정희, <u>최형민</u>, 이동환, 손용하*
                 </p>
                 <p>
-                    <a href="https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access"><b>IEEE Access</b></a>, Vol. 7, 2019
+                    <a class="journal" href="https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access"><b>IEEE Access</b></a>, Vol. 7, 2019
                     [<a href="https://doi.org/10.1109/ACCESS.2019.2911300" style="color:blue">paper</a>]
                 </p>
             </li>
@@ -488,7 +498,8 @@
         </script>
 
         <!-- ==================== Ph.D. Dissertation ==================== -->
-        <h1 class="papers">Ph.D. Dissertation</h1>
+        <h1 class="papers">Dissertation</h1>
+        <p><i>PhD Thesis.</i></p>
         <ul class="papers">
             <li>
                 <h2 class="eng">
@@ -510,6 +521,7 @@
 
         <!-- ==================== Manuscripts ==================== -->
         <h1 class="papers">Manuscripts</h1>
+        <p><i>Archived.</i></p>
         <ul class="papers">
             <li>
                 <h2>
@@ -557,6 +569,7 @@
 
         <!-- ==================== Specifications ==================== -->
         <h1 class="papers">Specifications</h1>
+        <p><i>Specifications for schemes submitted to KpqC and NIST PQC.</i></p>
         <ul class="papers">
             <li>
                 <h2>
