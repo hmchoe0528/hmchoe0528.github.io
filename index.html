@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -8,14 +7,17 @@
     </noscript>
 
     <!-- meta set -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="EFkLSgA_HwZ6Olh8EouRompX7h6nKv7AdkgdVmw-WMs">
 
     <!-- title -->
     <title>Hyeongmin Choe</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/icons/logo-fill.png" type="image/x-icon">
+
     <style>
+        /* ---- Profile (header) ---- */
         .main-profile {
             z-index: 20;
             margin: auto;
@@ -28,7 +30,7 @@
             position: relative !important;
         }
 
-        .main-profile>img {
+        .main-profile > img {
             width: 230px;
             position: relative;
             margin-left: auto;
@@ -36,7 +38,7 @@
             margin-top: 0px;
         }
 
-        .main-profile>div {
+        .main-profile > div {
             width: 800px;
             position: relative;
             margin-bottom: 0px;
@@ -99,6 +101,7 @@
             margin-bottom: 5px;
         }
 
+        /* ---- Sections shared: News / Selected / Research Interests ---- */
         .news,
         .selected,
         .topics {
@@ -114,9 +117,9 @@
             position: relative !important;
         }
 
-        .news>h1,
-        .selected>h1,
-        .topics>h1 {
+        .news > h1,
+        .selected > h1,
+        .topics > h1 {
             font-family: "noto-eng-b", "noto-kor-b";
             font-size: 20pt;
             color: indianred;
@@ -143,7 +146,7 @@
             font-size: 12pt;
             color: black;
             margin: auto;
-            margin-left:0;
+            margin-left: 0;
             text-align: left !important;
         }
 
@@ -167,7 +170,8 @@
             flex: 1;
         }
 
-        .topics>h1 {
+        /* ---- Research Interests ---- */
+        .topics > h1 {
             margin-bottom: 20px;
         }
 
@@ -206,18 +210,19 @@
             height: 150px;
         }
 
+        /* ---- Responsive: profile / news / topics ---- */
         @media screen and (max-width: 1200px) {
             .main-profile {
                 margin-bottom: 80px;
                 width: 90%;
             }
 
-            .main-profile>img {
+            .main-profile > img {
                 width: 60%;
                 margin: auto;
             }
 
-            .main-profile>div {
+            .main-profile > div {
                 width: 100%;
                 margin: auto;
             }
@@ -231,9 +236,9 @@
                 font-size: 11pt;
             }
 
-            .news>div,
-            .topics>div,
-            .main-profile>div {
+            .news > div,
+            .topics > div,
+            .main-profile > div {
                 margin-top: 40px;
             }
 
@@ -243,7 +248,7 @@
             }
 
             .news > h1 {
-                text-align: left !important; 
+                text-align: left !important;
             }
 
             .news li h1,
@@ -275,6 +280,7 @@
             font-size: 2rem;
         } */
 
+        /* ---- Selected Publications & Projects (cards) ---- */
         .card-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -308,19 +314,17 @@
 
         .card h3 sup {
             position: relative;
-            top: -0.2em; 
-            font-size: 0.8em; 
+            top: -0.2em;
+            font-size: 0.8em;
             /* margin-right: 0.1em; */
             /* font-weight: bold; */
         }
 
         .card h3 .toggle-icon {
-            margin-left: auto;
-            /* Push the icon to the far right */
+            margin-left: auto; /* Push the icon to the far right */
             font-size: 1.5rem;
             font-weight: bold;
             color: blue;
-            /* Set the color to blue */
         }
 
         .content {
@@ -338,16 +342,13 @@
             }
         }
     </style>
-
-    <meta name="google-site-verification" content="EFkLSgA_HwZ6Olh8EouRompX7h6nKv7AdkgdVmw-WMs" />
 </head>
 
 <body>
     <div class="load-menubar" style="margin:0px!important;padding:0px!important;height:0px!important"></div>
 
-    <!-- header -->
+    <!-- ==================== Header / Profile ==================== -->
     <header id="header" class="flex-block wider-piece main-profile">
-
         <img src="assets/imgs/profile-picture.png" style="max-width: 400px; max-height: 400px; padding: 20px;">
         <div>
             <h1 class="kor">최 형 민</h1>
@@ -355,391 +356,569 @@
 
             <h2 class="kor">박사 • 암호학자</h2>
             <h2 class="eng">PhD • Cryptography Researcher</h2>
+
             <ul class="social">
                 <li>
                     <a href="#" onclick="copyLiame(); return false;">
-                        <img src="assets/icons/logo-mail.png" />
+                        <img src="assets/icons/logo-mail.png">
                         &nbsp;&nbsp;first.lastname (at) uni.lu
                     </a>
                 </li>
                 <li>
                     <a href="assets/CV_short.pdf">
-                        <img src="assets/icons/logo-cv.png" />
+                        <img src="assets/icons/logo-cv.png">
                         <p>CV</p>
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/hmchoe0528">
-                        <img src="assets/icons/GitHub-Mark-120px-plus.png" />
+                        <img src="assets/icons/GitHub-Mark-120px-plus.png">
                         <p>Github</p>
                     </a>
                 </li>
                 <li>
                     <a href="https://scholar.google.com/citations?user=Ih2nebEAAAAJ&hl=en">
-                        <img src="assets/icons/logo-google-scholar.png" />
+                        <img src="assets/icons/logo-google-scholar.png">
                         <p>Scholar</p>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.linkedin.com/in/hyeongmin-choe-0aab23233">
-                        <img src="assets/icons/logo-linkedin.png" />
+                        <img src="assets/icons/logo-linkedin.png">
                         <p>LinkedIn</p>
                     </a>
                 </li>
             </ul>
 
             <p class="bio eng">
-                I am a Postdoctoral Researcher in the Applied Crypto Group (ACG) led by <a href="http://www.crypto-uni.lu/jscoron/index.html">Prof. Jean-Sébastien Coron</a> at the <a href="https://www.uni.lu/en/">University of Luxembourg</a>. 
+                I am a Postdoctoral Researcher in the Applied Crypto Group (ACG)
+                led by <a href="http://www.crypto-uni.lu/jscoron/index.html">Prof. Jean-Sébastien Coron</a>
+                at the <a href="https://www.uni.lu/en/">University of Luxembourg</a>.
                 Previously, I was a Cryptography Engineer at <a href="https://www.cryptolab.co.kr/en/home">CryptoLab Inc.</a>
-                 <!-- (Mar-Oct 2025).  -->
-                I earned my Ph.D. in Mathematical Sciences from <a href="https://en.snu.ac.kr">Seoul National University</a> in Feb 2025 under the supervision of <a href="http://www.math.snu.ac.kr/~jhcheon/xe2">Prof. Jung Hee Cheon</a>. 
+                <!-- (Mar-Oct 2025).  -->
+                I earned my Ph.D. in Mathematical Sciences from <a href="https://en.snu.ac.kr">Seoul National University</a> in Feb 2025
+                under the supervision of <a href="http://www.math.snu.ac.kr/~jhcheon/xe2">Prof. Jung Hee Cheon</a>.
                 <!-- [<a href="https://s-space.snu.ac.kr/handle/10371/220155">Dissertation</a>] -->
                 <br><br>
-                My research focuses on cryptography, particularly (threshold) FHE and lattice-based PQC. I am also interested in privacy-enhancing technologies (PETs). 
+                My research focuses on cryptography, particularly (threshold) FHE and lattice-based PQC.
+                I am also interested in privacy-enhancing technologies (PETs).
                 <!-- [<a href="assets/CV.pdf">Curriculum Vitae</a>] -->
                 <br><br>
-                I am a member of Team <a href="https://kpqc.cryptolab.co.kr/smaug-t">SMAUG(-T)</a> and Team <a href="https://kpqc.cryptolab.co.kr/haetae">HAETAE</a>, winners of the <a href="https://kpqc.or.kr/competition.html">KpqC Competition</a> for Korean PQC standards. HAETAE is also submitted to the <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Signature</a> Round 1.
+                I am a member of Team <a href="https://kpqc.cryptolab.co.kr/smaug-t">SMAUG(-T)</a>
+                and Team <a href="https://kpqc.cryptolab.co.kr/haetae">HAETAE</a>,
+                winners of the <a href="https://kpqc.or.kr/competition.html">KpqC Competition</a> for Korean PQC standards.
+                HAETAE is also submitted to the <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Signature</a> Round 1.
                 <br><br>
-                I am currently serving as a Program Committee member for <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a> and a Co-Editor for <a href="https://ckks.org">CKKS.org</a>.
+                I am currently serving as a Program Committee member for <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>
+                and a Co-Editor for <a href="https://ckks.org">CKKS.org</a>.
             </p>
             <p class="bio kor">
-                안녕하세요! 저는 현재 <a href="https://www.uni.lu/en/">룩셈부르크 대학교</a>에서 박사후 연구원(Postdoctoral Researcher)으로 근무하고 있습니다. 
+                안녕하세요!
+                저는 현재 <a href="https://www.uni.lu/en/">룩셈부르크 대학교</a>에서 박사후 연구원(Postdoctoral Researcher)으로 근무하고 있습니다.
                 그 이전에는 2025년 3월부터 10월까지 <a href="https://www.cryptolab.co.kr">크립토랩</a>에서 Cryptography Engineer로 일했습니다.
                 <br><br>
-                저는 <a href="https://snu.ac.kr">서울대학교</a> 수리과학부에서 <a href="http://www.math.snu.ac.kr/~jhcheon/xe2">천정희 교수님</a>의 지도 하에 박사학위를 받았습니다. 
-                저는 암호학, 그 중에서도 특히 동형암호와 격자기반 양자내성암호(PQC)에 관심이 많습니다. 
+                저는 <a href="https://snu.ac.kr">서울대학교</a> 수리과학부에서
+                <a href="http://www.math.snu.ac.kr/~jhcheon/xe2">천정희 교수님</a>의 지도 하에 박사학위를 받았습니다.
+                저는 암호학, 그 중에서도 특히 동형암호와 격자기반 양자내성암호(PQC)에 관심이 많습니다.
                 <!-- 더 자세한 사항은 제 <a href="assets/CV.pdf">이력서</a>를 확인해보세요! -->
                 <br><br>
-                저는 <a href="https://kpqc.or.kr/competition.html">대한민국 양자내성암호 공모전(KpqC Competition)</a>에서 
-                최종 선정된 <a href="https://kpqc.cryptolab.co.kr/smaug-t">SMAUG(-T)</a> 팀과 
-                <a href="https://kpqc.cryptolab.co.kr/haetae">HAETAE</a> 팀의 멤버입니다. 
+                저는 <a href="https://kpqc.or.kr/competition.html">대한민국 양자내성암호 공모전(KpqC Competition)</a>에서
+                최종 선정된 <a href="https://kpqc.cryptolab.co.kr/smaug-t">SMAUG(-T)</a> 팀과
+                <a href="https://kpqc.cryptolab.co.kr/haetae">HAETAE</a> 팀의 멤버입니다.
                 HAETAE는 <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Signature</a> 1라운드에도 제출되었습니다.
                 <br><br>
-                현재 저는 <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>의 Program Committee 멤버 및 <a href="https://ckks.org">CKKS.org</a>의 Co-Editor로 활동하고 있습니다.            </p>
+                현재 저는 <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>의 Program Committee 멤버 및
+                <a href="https://ckks.org">CKKS.org</a>의 Co-Editor로 활동하고 있습니다.
+            </p>
         </div>
     </header>
 
-    <!--
-#####
-Rule (baseline): 
-	Papers and Conference Presentations: 	6-12 months
-	Workshop Presentations: 		        3-6 months
-	Announcements and good-to-know news: 	3-6 months
-	Attending/visiting: 			        max 3 months
-	What else? 
-#####
--->
+    <!-- ==================== News ====================
+        Newest first. Each item: a label comment, then <li data-expiry="YYYY-MM">.
+        Label comment format: "YY.MM: what (~YY.MM expiry)"
+
+        Expiry rule (baseline):
+            Papers and Conference Presentations:    6-12 months
+            Workshop Presentations:                 3-6 months
+            Announcements and good-to-know news:    3-6 months
+            Attending/visiting:                     max 3 months
+            What else?
+    -->
     <div class="news wider-piece">
         <h1 class="eng">NEWS</h1>
         <h1 class="kor">최근 소식</h1>
         <ol id="news-list">
+
             <!-- "26.09: GF-CKKS eprint online (~27.03)" -->
             <li class="flex-block" data-expiry="2027-03">
                 <h1>Sept. 2026</h1>
-                <p class="eng">My recent work <a href="https://ia.cr/2026/2190">"Stay in Your Lane: Fast Arithmetic over Large Finite Rings with CKKS"</a> is now available in <a href="https://eprint.iacr.org/2026/2190">eprint</a>. Please take a look!</p>
-                <p class="kor">최근 연구 중인 <a href="https://ia.cr/2026/2190">"Stay in Your Lane: Fast Arithmetic over Large Finite Rings with CKKS"</a>이 암호/보안 분야 아카이브인 <a href="https://eprint.iacr.org/2026/2190">eprint</a>에 공개되었습니다.</p>
+                <p class="eng">
+                    My recent work <a href="https://ia.cr/2026/2190">"Stay in Your Lane: Fast Arithmetic over Large Finite Rings with CKKS"</a>
+                    is now available in <a href="https://eprint.iacr.org/2026/2190">eprint</a>.
+                    Please take a look!
+                </p>
+                <p class="kor">
+                    최근 연구 중인 <a href="https://ia.cr/2026/2190">"Stay in Your Lane: Fast Arithmetic over Large Finite Rings with CKKS"</a>이
+                    암호/보안 분야 아카이브인 <a href="https://eprint.iacr.org/2026/2190">eprint</a>에 공개되었습니다.
+                </p>
             </li>
+
             <!-- "26.09: S&P Accepted (~27.09)" -->
             <li class="flex-block" data-expiry="2027-09">
                 <h1>Sept. 2026</h1>
-                <p class="eng">&#127881; The paper "Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity" is <b>accepted</b> to <a href="https://sp2027.ieee-security.org/">IEEE S&P 2027</a>.
+                <p class="eng">
+                    &#127881; The paper "Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity"
+                    is <b>accepted</b> to <a href="https://sp2027.ieee-security.org/">IEEE S&P 2027</a>.
                 </p>
-                <p class="kor">&#127881; "Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity" 논문이 <a href="https://sp2027.ieee-security.org/">IEEE S&P 2027</a>에 <b>accept</b>되었습니다.
+                <p class="kor">
+                    &#127881; "Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity" 논문이
+                    <a href="https://sp2027.ieee-security.org/">IEEE S&P 2027</a>에 <b>accept</b>되었습니다.
                 </p>
             </li>
+
             <!-- "26.07: CCS Accepted (~27.07)" -->
             <li class="flex-block" data-expiry="2027-07">
                 <h1>July 2026</h1>
-                <p class="eng">&#127881; My paper "New IND-CPA-D Attacks on BFV and BGV" is <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>.
-                I will attend and present at ACM CCS 2026, The Hague, The Netherlands (Mid Nov. 2026).
+                <p class="eng">
+                    &#127881; My paper "New IND-CPA-D Attacks on BFV and BGV"
+                    is <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>.
+                    I will attend and present at ACM CCS 2026, The Hague, The Netherlands (Mid Nov. 2026).
                 </p>
-                <p class="kor">&#127881; "New IND-CPA-D Attacks on BFV and BGV" 논문이 <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>에 <b>accept</b>되었습니다.
-                저는 네덜란드 헤이그에서 열리는 ACM CCS 2026 학회에 참석하여, 이 논문을 발표할 예정입니다. </p>
+                <p class="kor">
+                    &#127881; "New IND-CPA-D Attacks on BFV and BGV" 논문이
+                    <a href="https://www.sigsac.org/ccs/CCS2026/">ACM CCS 2026</a>에 <b>accept</b>되었습니다.
+                    저는 네덜란드 헤이그에서 열리는 ACM CCS 2026 학회에 참석하여, 이 논문을 발표할 예정입니다.
+                </p>
             </li>
+
             <!-- "26.05: EC Rome (~26.08)" -->
             <li class="flex-block" data-expiry="2026-08">
                 <h1>May 2026</h1>
-                <p class="eng">Attending <a href="https://eurocrypt.iacr.org/2026/">Eurocrypt 2026</a>, May 10th - 14th, Rome, Italy.</p>
-                <p class="kor">이탈리아 로마에서 열리는 학회 <a href="https://eurocrypt.iacr.org/2026/">Eurocrypt 2026</a>에 참석할 예정입니다 (5월 10-14일).</p>
+                <p class="eng">
+                    Attending <a href="https://eurocrypt.iacr.org/2026/">Eurocrypt 2026</a>, May 10th - 14th, Rome, Italy.
+                </p>
+                <p class="kor">
+                    이탈리아 로마에서 열리는 학회 <a href="https://eurocrypt.iacr.org/2026/">Eurocrypt 2026</a>에 참석할 예정입니다 (5월 10-14일).
+                </p>
             </li>
+
             <!-- "26.04: CiC accepted (~26.10)" -->
             <li class="flex-block" data-expiry="2026-10">
                 <h1>Apr. 2026</h1>
-                <p class="eng">The paper <a href="https://ia.cr/2025/581">"Multi-Party Homomorphic Encryption with Dynamicity and Ciphertext Reusability"</a> is <b>accepted</b> to <a href="https://cic.iacr.org/">CiC</a> &#127881;.
+                <p class="eng">
+                    The paper <a href="https://ia.cr/2025/581">"Multi-Party Homomorphic Encryption with Dynamicity and Ciphertext Reusability"</a>
+                    is <b>accepted</b> to <a href="https://cic.iacr.org/">CiC</a> &#127881;.
                 </p>
-                <p class="kor"><a href="https://ia.cr/2025/581">"Multi-Party Homomorphic Encryption with Dynamicity and Ciphertext Reusability"</a> 논문이 IACR 저널 <a href="https://cic.iacr.org/">CiC</a>에 <b>accept</b>되었습니다 &#127881;.
+                <p class="kor">
+                    <a href="https://ia.cr/2025/581">"Multi-Party Homomorphic Encryption with Dynamicity and Ciphertext Reusability"</a> 논문이
+                    IACR 저널 <a href="https://cic.iacr.org/">CiC</a>에 <b>accept</b>되었습니다 &#127881;.
                 </p>
             </li>
+
             <!-- "25.12: CKKS.ORG (~26.09)" -->
             <li class="flex-block" data-expiry="2026-09">
                 <h1>Dec. 2025</h1>
                 <p class="eng">
-                I recently joined the editorial board of <a href="https://ckks.org">CKKS.org</a> as a Co-Editor. 
-            </p>
+                    I recently joined the editorial board of <a href="https://ckks.org">CKKS.org</a> as a Co-Editor.
+                </p>
                 <p class="kor">
-                저는 12월부터 학술 블로그 <a href="https://ckks.org">CKKS.org</a>의 Co-Editor로 합류하였습니다.
+                    저는 12월부터 학술 블로그 <a href="https://ckks.org">CKKS.org</a>의 Co-Editor로 합류하였습니다.
                 </p>
             </li>
+
             <!-- "25.11: 퇴사 및 입사 (~26.04)" -->
             <li class="flex-block" data-expiry="2026-04">
                 <h1>Nov. 2025</h1>
                 <p class="eng">
-                I wrapped up my time at <a href="https://www.cryptolab.co.kr/en/home">CryptoLab Inc.</a> in Seoul and moved to Luxembourg with my wife to <b>start a new chapter</b> as a 
-                Postdoctoral Researcher at the <a href="https://www.uni.lu/en/">University of Luxembourg</a> in Esch-sur-Alzette. &#9992;&#65039;
+                    I wrapped up my time at <a href="https://www.cryptolab.co.kr/en/home">CryptoLab Inc.</a> in Seoul
+                    and moved to Luxembourg with my wife to <b>start a new chapter</b> as a
+                    Postdoctoral Researcher at the <a href="https://www.uni.lu/en/">University of Luxembourg</a> in Esch-sur-Alzette. &#9992;&#65039;
                 </p>
                 <p class="kor">
-                <a href="https://www.cryptolab.co.kr">크립토랩</a>에서 약 7개월간의 근무를 마치고, 아내와 함께 룩셈부르크로 이사하여 
-                <a href="https://www.uni.lu/en/">룩셈부르크 대학교</a>에서 <b>박사후 연구원</b>으로 인생의 새로운 장을 시작했습니다. &#9992;&#65039;
+                    <a href="https://www.cryptolab.co.kr">크립토랩</a>에서 약 7개월간의 근무를 마치고, 아내와 함께 룩셈부르크로 이사하여
+                    <a href="https://www.uni.lu/en/">룩셈부르크 대학교</a>에서 <b>박사후 연구원</b>으로 인생의 새로운 장을 시작했습니다. &#9992;&#65039;
                 </p>
             </li>
+
             <!-- "25.10: Excellence Award (~26.04)" -->
             <li class="flex-block" data-expiry="2026-04">
                 <h1>Oct. 2025</h1>
                 <p class="eng">
-                The <a href="https://ia.cr/2024/1014">Grafting paper</a>, presented at ACM CCS 2025, received the <b>Excellence Award</b> from the 
-                <a href="https://kcryptoforum.or.kr/web/Board/561/detailView.do">Korean National Cryptography Contest</a>. &#x1F3C6;
+                    The <a href="https://ia.cr/2024/1014">Grafting paper</a>, presented at ACM CCS 2025,
+                    received the <b>Excellence Award</b> from the
+                    <a href="https://kcryptoforum.or.kr/web/Board/561/detailView.do">Korean National Cryptography Contest</a>. &#x1F3C6;
                 </p>
                 <p class="kor">
-                <a href="https://kcryptoforum.or.kr/web/Board/561/detailView.do">국가암호공모전</a>에서 ACM CCS 2025 논문 
-                <a href="https://ia.cr/2024/1014">"Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS"</a>으로 
-                <b>최우수상</b>을 수상했습니다. &#x1F3C6;
+                    <a href="https://kcryptoforum.or.kr/web/Board/561/detailView.do">국가암호공모전</a>에서 ACM CCS 2025 논문
+                    <a href="https://ia.cr/2024/1014">"Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS"</a>으로
+                    <b>최우수상</b>을 수상했습니다. &#x1F3C6;
                 </p>
-            </li> 
+            </li>
+
             <!-- "25.07: Grafting accepted (~26.07)" -->
             <li class="flex-block" data-expiry="2026-07">
                 <h1>July 2025</h1>
                 <p class="eng">
-                <b>Two of my papers</b> were <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2025">ACM CCS 2025</a> &#127881;. 
-                One is <a href="https://ia.cr/2024/1014">"Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS"</a>, partly based on my dissertation, 
-                and the other is <a href="https://ia.cr/2025/1786">"Leveraging Discrete CKKS to Bootstrap in High Precision"</a>. 
-                I presented both papers at ACM CCS 2025 in mid-October in Taipei, Taiwan.
+                    <b>Two of my papers</b> were <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2025">ACM CCS 2025</a> &#127881;.
+                    One is <a href="https://ia.cr/2024/1014">"Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS"</a>, partly based on my dissertation,
+                    and the other is <a href="https://ia.cr/2025/1786">"Leveraging Discrete CKKS to Bootstrap in High Precision"</a>.
+                    I presented both papers at ACM CCS 2025 in mid-October in Taipei, Taiwan.
                 </p>
                 <p class="kor">
-                <b>제 논문 두 편</b>이 암호/보안 분야 탑티어 학회인 <a href="https://www.sigsac.org/ccs/CCS2025">ACM CCS 2025</a>에 
-                <b>accept</b>되었습니다 &#127881;. 첫 번째 논문은 제 박사 학위 논문에도 일부 수록된 
-                <a href="https://ia.cr/2024/1014">"Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS"</a>이며, 
-                두 번째 논문은 고정밀도 CKKS 부트스트래핑에 관한 
-                <a href="https://ia.cr/2025/1786">"Leveraging Discrete CKKS to Bootstrap in High Precision"</a>입니다. 
-                저는 올해 10월 대만 타이베이에서 열린 ACM CCS 2025에서 두 논문을 발표하였습니다.
+                    <b>제 논문 두 편</b>이 암호/보안 분야 탑티어 학회인 <a href="https://www.sigsac.org/ccs/CCS2025">ACM CCS 2025</a>에
+                    <b>accept</b>되었습니다 &#127881;.
+                    첫 번째 논문은 제 박사 학위 논문에도 일부 수록된
+                    <a href="https://ia.cr/2024/1014">"Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS"</a>이며,
+                    두 번째 논문은 고정밀도 CKKS 부트스트래핑에 관한
+                    <a href="https://ia.cr/2025/1786">"Leveraging Discrete CKKS to Bootstrap in High Precision"</a>입니다.
+                    저는 올해 10월 대만 타이베이에서 열린 ACM CCS 2025에서 두 논문을 발표하였습니다.
                 </p>
             </li>
+
             <!-- "25.04: KMS invited talk (~25.10)" -->
             <li class="flex-block" data-expiry="2025-10">
                 <h1>April 2025</h1>
                 <p class="eng">
-                I gave an <b>Invited Talk</b> on HAETAE and SMAUG-T, the KpqC Selected Algorithms, at the 
-                <a href="https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347">2025 KMS Spring Meeting</a>.
+                    I gave an <b>Invited Talk</b> on HAETAE and SMAUG-T, the KpqC Selected Algorithms, at the
+                    <a href="https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347">2025 KMS Spring Meeting</a>.
                 </p>
                 <p class="kor">
-                <a href="https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347">2025 대한수학회 봄 연구발표회</a>에서 HAETAE와 SMAUG-T에 대한 <b>초청강연</b>을 진행했습니다.
+                    <a href="https://www.kms.or.kr/conference/2025_spring/general/contents.html?period=89&idx=347">2025 대한수학회 봄 연구발표회</a>에서
+                    HAETAE와 SMAUG-T에 대한 <b>초청강연</b>을 진행했습니다.
                 </p>
             </li>
-            <!-- "25.03: JKMS accepted (~25.09)" --> 
+
+            <!-- "25.03: JKMS accepted (~25.09)" -->
             <li class="flex-block" data-expiry="2025-09">
                 <h1>Mar. 2025</h1>
-                <p class="eng">A <a href="https://eprint.iacr.org/2024/087">paper</a> introducing homomorphic LookUp
-                    Table evaluation is <b>accepted</b> to <a
-                        href=https://jkms.kms.or.kr/content/about/aimsnscope.html>Journal of the Korean Mathematical
-                        Society</a>.</p>
-                <p class="kor">동형 LookUp Table을 구현한 <a href="https://eprint.iacr.org/2024/087">논문</a>이 <a
-                        href=https://jkms.kms.or.kr/content/about/aimsnscope.html>대한수학회지(Journal of KMS)</a>에
-                    <b>accept</b>되었습니다.
+                <p class="eng">
+                    A <a href="https://eprint.iacr.org/2024/087">paper</a> introducing homomorphic LookUp Table evaluation
+                    is <b>accepted</b> to <a href="https://jkms.kms.or.kr/content/about/aimsnscope.html">Journal of the Korean Mathematical Society</a>.
+                </p>
+                <p class="kor">
+                    동형 LookUp Table을 구현한 <a href="https://eprint.iacr.org/2024/087">논문</a>이
+                    <a href="https://jkms.kms.or.kr/content/about/aimsnscope.html">대한수학회지(Journal of KMS)</a>에 <b>accept</b>되었습니다.
                 </p>
             </li>
+
             <!-- "25.02: Grafting eprint update (~25.05)" -->
             <li class="flex-block" data-expiry="2025-05">
                 <h1>Feb. 2025</h1>
-                <p class="eng">My eprint paper <a href="https://ia.cr/2024/1014">"Grafting: Complementing RNS in CKKS"</a> has been updated significantly. Check it out!</p>
-                <p class="kor">최근 연구 중인 <a href="https://ia.cr/2024/1014">"Grafting: Complementing RNS in CKKS"</a>이 암호/보안 분야 아카이브인 <a href="https://eprint.iacr.org/2024/1014">eprint</a>에 업데이트되었습니다.</p>
+                <p class="eng">
+                    My eprint paper <a href="https://ia.cr/2024/1014">"Grafting: Complementing RNS in CKKS"</a> has been updated significantly.
+                    Check it out!
+                </p>
+                <p class="kor">
+                    최근 연구 중인 <a href="https://ia.cr/2024/1014">"Grafting: Complementing RNS in CKKS"</a>이
+                    암호/보안 분야 아카이브인 <a href="https://eprint.iacr.org/2024/1014">eprint</a>에 업데이트되었습니다.
+                </p>
             </li>
+
             <!-- "25.01: KpqC final (~26.01)" -->
             <li class="flex-block" data-expiry="2026-01">
                 <h1>Jan. 2025</h1>
                 <p class="eng">
-                <b>HAETAE</b> digital signature scheme and <b>SMAUG-T</b> KEM scheme were selected as <b>final winners</b> of the 
-                <a href="https://kpqc.or.kr/competition.html">KpqC competition</a>. &#x1F3C6;
+                    <b>HAETAE</b> digital signature scheme and <b>SMAUG-T</b> KEM scheme were selected as <b>final winners</b> of the
+                    <a href="https://kpqc.or.kr/competition.html">KpqC competition</a>. &#x1F3C6;
                 </p>
                 <p class="kor">
-                <b>HAETAE</b> 전자서명 스킴과 <b>SMAUG-T</b> KEM 스킴이 KpqC 공모전에서 <b>최종 우승 알고리즘</b>으로 선정되었습니다. &#x1F3C6;
+                    <b>HAETAE</b> 전자서명 스킴과 <b>SMAUG-T</b> KEM 스킴이 KpqC 공모전에서 <b>최종 우승 알고리즘</b>으로 선정되었습니다. &#x1F3C6;
                 </p>
             </li>
+
             <!-- "25.01: Visiting RUB (~25.04)" -->
             <li class="flex-block" data-expiry="2025-04">
                 <h1>Jan. 2025</h1>
-                <p class="eng">I am visiting <b>Ruhr Bochum University</b> in Germany for a week, for an invited talk.</p>
-                <p class="kor">독일 <b>Ruhr Bochum 대학</b>에 초청 받아 일주일간 방문할 예정입니다. </p>
+                <p class="eng">
+                    I am visiting <b>Ruhr Bochum University</b> in Germany for a week, for an invited talk.
+                </p>
+                <p class="kor">
+                    독일 <b>Ruhr Bochum 대학</b>에 초청 받아 일주일간 방문할 예정입니다.
+                </p>
             </li>
+
             <!-- "24.12: IEEE accepted (~25.06)" -->
             <li class="flex-block" data-expiry="2025-06">
                 <h1>Dec. 2024</h1>
-                <p class="eng">The paper analyzing the KpqC Round2 changes of SMAUG-T KEM is <b>accepted</b> to <a
-                        href=https://ieeeaccess.ieee.org>IEEE ACCESS</a>.
-                    The paper introduces new designs to SMAUG-T making it more timing-secure and efficient with less
-                    failures. </p>
-                <p class="kor">SMAUG-T KEM 스킴의 KpqC 공모전 2라운드 변경 사항에 대한 논문이 <a href=https://ieeeaccess.ieee.org>IEEE
-                        ACCESS</a>에 <b>accept</b>되었습니다.</p>
+                <p class="eng">
+                    The paper analyzing the KpqC Round2 changes of SMAUG-T KEM
+                    is <b>accepted</b> to <a href="https://ieeeaccess.ieee.org">IEEE ACCESS</a>.
+                    The paper introduces new designs to SMAUG-T making it more timing-secure and efficient with less failures.
+                </p>
+                <p class="kor">
+                    SMAUG-T KEM 스킴의 KpqC 공모전 2라운드 변경 사항에 대한 논문이
+                    <a href="https://ieeeaccess.ieee.org">IEEE ACCESS</a>에 <b>accept</b>되었습니다.
+                </p>
             </li>
+
             <!-- "24.10: Grand prize (~25.04)" -->
             <li class="flex-block" data-expiry="2025-04">
                 <h1>Oct. 2024</h1>
-                <p class="eng">I received <b>Grand Prize</b> from the <a
-                        href="https://kcryptoforum.or.kr/web/Board/549/detailView.do">Korean National Cryptography
-                        Contest</a> for the CCS 2024 paper <a href="https://ia.cr/2024/127">"Attacks Against the
-                        IND-CPA^D Security of Exact FHE"</a>.</p>
-                <p class="kor"><a href="https://kcryptoforum.or.kr/web/Board/549/detailView.do">국가암호공모전</a>에서 CCS 2024
-                    논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact FHE"</a>으로
+                <p class="eng">
+                    I received <b>Grand Prize</b> from the
+                    <a href="https://kcryptoforum.or.kr/web/Board/549/detailView.do">Korean National Cryptography Contest</a>
+                    for the CCS 2024 paper <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact FHE"</a>.
+                </p>
+                <p class="kor">
+                    <a href="https://kcryptoforum.or.kr/web/Board/549/detailView.do">국가암호공모전</a>에서 CCS 2024 논문
+                    <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA^D Security of Exact FHE"</a>으로
                     <b>대상</b>을 수상하였습니다.
                 </p>
             </li>
+
             <!-- "24.07: INDCPAD accepted (~25.07)" -->
             <li class="flex-block" data-expiry="2025-07">
                 <h1>July 2024</h1>
-                <p class="eng">The paper <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA<sup>D</sup> Security of
-                        Exact FHE"</a> is <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS
-                        2024</a>. &#x1F38A; I am attending CCS, Salt Lake City, US and also presenting at the <a
-                        href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral Symposium</a>
-                    (Mid Oct. 2024).</p>
-                <p class="kor">논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA<sup>D</sup> Security of Exact
-                        FHE"</a>이 암호/보안 분야 국제 학회인 <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS 2024</a>에
-                    <b>accept</b> 되었습니다.
-                    미국 솔트 레이크 시티에서 열리는 ACM CCS 2024 학회에 참석하며, <a
-                        href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral
-                        Symposium</a>에서 발표할 예정입니다 (10월 중순 경).
+                <p class="eng">
+                    The paper <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE"</a>
+                    is <b>accepted</b> to <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS 2024</a>. &#x1F38A;
+                    I am attending CCS, Salt Lake City, US and also presenting at the
+                    <a href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral Symposium</a> (Mid Oct. 2024).
+                </p>
+                <p class="kor">
+                    논문 <a href="https://ia.cr/2024/127">"Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE"</a>이
+                    암호/보안 분야 국제 학회인 <a href="https://www.sigsac.org/ccs/CCS2024">ACM CCS 2024</a>에 <b>accept</b> 되었습니다.
+                    미국 솔트 레이크 시티에서 열리는 ACM CCS 2024 학회에 참석하며,
+                    <a href="https://www.sigsac.org/ccs/CCS2024/program/doctoral-symposium.html">Doctoral Symposium</a>에서 발표할 예정입니다 (10월 중순 경).
                 </p>
             </li>
+
             <!-- "24.06: Grafting eprint online (~24.12)" -->
             <li class="flex-block" data-expiry="2024-12">
                 <h1>June 2024</h1>
-                <p class="eng">My recent work <a href="https://ia.cr/2024/1014">"Grafting: Complementing RNS in CKKS"</a> is now available in <a href="https://eprint.iacr.org/2024/1014">eprint</a>. Please take a look!</p>
-                <p class="kor">최근 연구 중인 <a href="https://ia.cr/2024/1014">"Grafting: Complementing RNS in CKKS"</a>이 암호/보안 분야 아카이브인 <a href="https://eprint.iacr.org/2024/1014">eprint</a>에 공개되었습니다.</p>
+                <p class="eng">
+                    My recent work <a href="https://ia.cr/2024/1014">"Grafting: Complementing RNS in CKKS"</a>
+                    is now available in <a href="https://eprint.iacr.org/2024/1014">eprint</a>.
+                    Please take a look!
+                </p>
+                <p class="kor">
+                    최근 연구 중인 <a href="https://ia.cr/2024/1014">"Grafting: Complementing RNS in CKKS"</a>이
+                    암호/보안 분야 아카이브인 <a href="https://eprint.iacr.org/2024/1014">eprint</a>에 공개되었습니다.
+                </p>
             </li>
+
             <!-- "24.07: HAETAE update v3.0 (~25.01)" -->
             <li class="flex-block" data-expiry="2025-01">
                 <h1>July 2024</h1>
-                <p class="eng">HAETAE update: v3.0 is now available on HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">website</a>.</p>
-                <p class="kor">대한민국 양자내성암호 표준에 제출된 HAETAE 전자 서명 스킴의 v3.0 버전이 HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">웹사이트</a>에 공개되었습니다.</p>
+                <p class="eng">
+                    HAETAE update: v3.0 is now available on HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">website</a>.
+                </p>
+                <p class="kor">
+                    대한민국 양자내성암호 표준에 제출된 HAETAE 전자 서명 스킴의 v3.0 버전이
+                    HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">웹사이트</a>에 공개되었습니다.
+                </p>
             </li>
+
             <!-- "24.03: HAETAE accepted (~25.03)" -->
             <li class="flex-block" data-expiry="2025-03">
                 <h1>Mar. 2024</h1>
-                <p class="eng">The paper <a href="https://ia.cr/2023/624">"HAETAE: Shorter Lattice-Based Fiat-Shamir Signatures"</a> is <b>accepted</b> to <a href="https://ches.iacr.org/2024">CHES 2024</a>.
-                I am attending CHES 2024, Halifax, Canada (Early Sept. 2024).</p>
-                <p class="kor">논문 <a href="https://ia.cr/2023/624">"HAETAE: Shorter Lattice-Based Fiat-Shamir Signatures"</a>이 보안 분야 국제 학회인 <a href="https://ches.iacr.org/2024">CHES 2024</a>에 <b>accept</b> 되었습니다.
-                캐나다 핼리팩스에서 열리는 CHES 2024 학회에 참석할 예정입니다 (9월 초 경).</p>
+                <p class="eng">
+                    The paper <a href="https://ia.cr/2023/624">"HAETAE: Shorter Lattice-Based Fiat-Shamir Signatures"</a>
+                    is <b>accepted</b> to <a href="https://ches.iacr.org/2024">CHES 2024</a>.
+                    I am attending CHES 2024, Halifax, Canada (Early Sept. 2024).
+                </p>
+                <p class="kor">
+                    논문 <a href="https://ia.cr/2023/624">"HAETAE: Shorter Lattice-Based Fiat-Shamir Signatures"</a>이
+                    보안 분야 국제 학회인 <a href="https://ches.iacr.org/2024">CHES 2024</a>에 <b>accept</b> 되었습니다.
+                    캐나다 핼리팩스에서 열리는 CHES 2024 학회에 참석할 예정입니다 (9월 초 경).
+                </p>
             </li>
+
             <!-- "24.02: KpqC Round 2 submission (~24.08)" -->
             <li class="flex-block" data-expiry="2024-08">
                 <h1>Feb. 2024</h1>
-                <p class="eng">SMAUG-T (a merge of SMAUG and TiGER) and HAETAE are in KpqC Competition Round 2.</p>
-                <p class="kor">SMAUG-T (SMAUG와 TiGER 스킴의 결합 스킴) KEM 스킴과 HAETAE 전자서명 스킴이 대한민국 양자내성암호 국가공모전 2 라운드에 제출되었습니다.</p>
+                <p class="eng">
+                    SMAUG-T (a merge of SMAUG and TiGER) and HAETAE are in KpqC Competition Round 2.
+                </p>
+                <p class="kor">
+                    SMAUG-T (SMAUG와 TiGER 스킴의 결합 스킴) KEM 스킴과 HAETAE 전자서명 스킴이 대한민국 양자내성암호 국가공모전 2 라운드에 제출되었습니다.
+                </p>
             </li>
+
             <!-- "23.12: KpqC Round 1 ended (~24.06)" -->
             <li class="flex-block" data-expiry="2024-06">
                 <h1>Dec. 2023</h1>
-                <p class="eng">SMAUG and HAETAE are selected from KpqC Competition Round 1, and are advanced to Round 2.</p>
-                <p class="kor">대한민국 양자내성암호 국가공모전에 제출된 SMAUG KEM 스킴과 HAETAE 전자서명 스킴이 1 라운드에서 선정되어, 2 라운드로 진출하였습니다.</p>
+                <p class="eng">
+                    SMAUG and HAETAE are selected from KpqC Competition Round 1, and are advanced to Round 2.
+                </p>
+                <p class="kor">
+                    대한민국 양자내성암호 국가공모전에 제출된 SMAUG KEM 스킴과 HAETAE 전자서명 스킴이 1 라운드에서 선정되어, 2 라운드로 진출하였습니다.
+                </p>
             </li>
+
             <!-- "23.11: HAETAE update (~24.05)" -->
             <li class="flex-block" data-expiry="2024-05">
                 <h1>Nov. 2023</h1>
-                <p class="eng">HAETAE update: v2.0 is now available on HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">website</a>.</p>
-                <p class="kor">대한민국 양자내성암호 표준에 제출된 HAETAE 전자 서명 스킴의 v2.0 버전이 HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">웹사이트</a>에 공개되었습니다.</p>
+                <p class="eng">
+                    HAETAE update: v2.0 is now available on HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">website</a>.
+                </p>
+                <p class="kor">
+                    대한민국 양자내성암호 표준에 제출된 HAETAE 전자 서명 스킴의 v2.0 버전이
+                    HAETAE <a href="https://kpqc.cryptolab.co.kr/haetae">웹사이트</a>에 공개되었습니다.
+                </p>
             </li>
+
             <!-- "23.10: SMAUG update (~24.04)" -->
             <li class="flex-block" data-expiry="2024-04">
                 <h1>Oct. 2023</h1>
-                <p class="eng">SMAUG update: v2.0 is now available on SMAUG <a href="https://kpqc.cryptolab.co.kr/smaug">website</a> and <a href="https://github.com/hmchoe0528/SMAUG_public">GitHub repository</a>.</p>
-                <p class="kor">대한민국 양자내성암호 표준에 제출된 SMAUG 키 캡슐화 메커니즘 스킴의 v2.0 버전이 SMAUG <a href="https://kpqc.cryptolab.co.kr/smaug">웹사이트</a>와 <a href="https://github.com/hmchoe0528/SMAUG_public">GitHub repository</a>에 공개되었습니다.</p>
-            </li>            
+                <p class="eng">
+                    SMAUG update: v2.0 is now available on SMAUG <a href="https://kpqc.cryptolab.co.kr/smaug">website</a>
+                    and <a href="https://github.com/hmchoe0528/SMAUG_public">GitHub repository</a>.
+                </p>
+                <p class="kor">
+                    대한민국 양자내성암호 표준에 제출된 SMAUG 키 캡슐화 메커니즘 스킴의 v2.0 버전이
+                    SMAUG <a href="https://kpqc.cryptolab.co.kr/smaug">웹사이트</a>와
+                    <a href="https://github.com/hmchoe0528/SMAUG_public">GitHub repository</a>에 공개되었습니다.
+                </p>
+            </li>
+
             <!-- "23.08.14-27: SAC and Crypto (~24.08)" -->
             <li class="flex-block" data-expiry="2024-08">
                 <h1>Aug. 2023</h1>
-                <p class="eng">The paper <a href="https://ia.cr/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a> is accepted to
-                    <a href="https://sac-workshop.github.io/sac-2023">SAC 2023</a>.
-			I am attending SAC, then <a href="https://crypto.iacr.org/2023">Crypto 2023</a>.
+                <p class="eng">
+                    The paper <a href="https://ia.cr/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a>
+                    is accepted to <a href="https://sac-workshop.github.io/sac-2023">SAC 2023</a>.
+                    I am attending SAC, then <a href="https://crypto.iacr.org/2023">Crypto 2023</a>.
                 </p>
-                        <p class="kor">논문 <a href="https://ia.cr/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a> 이 캐나다 암호 학회인
-                            <a href="https://sac-workshop.github.io/sac-2023">SAC 2023</a>에 accept 되었습니다.
+                <p class="kor">
+                    논문 <a href="https://ia.cr/2023/739">"SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits"</a> 이
+                    캐나다 암호 학회인 <a href="https://sac-workshop.github.io/sac-2023">SAC 2023</a>에 accept 되었습니다.
                     SAC에서 발표 후 미국 산타 바바라에서 열린 Crypto 2023 학회에 참석하였습니다.
                 </p>
-            </li>            
+            </li>
+
             <!-- "23.07.17: NIST additional sig (~24.07)" -->
             <li class="flex-block" data-expiry="2024-07">
                 <h1>July 2023</h1>
-                <p class="eng">HAETAE is in <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Digital Signature</a> Round 1.</p>
-                <p class="kor">HAETAE 전자서명 스킴이 <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Digital Signature</a> Round 1에서 표준화를 위해 경쟁 중입니다.</p>
+                <p class="eng">
+                    HAETAE is in <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Digital Signature</a> Round 1.
+                </p>
+                <p class="kor">
+                    HAETAE 전자서명 스킴이 <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-1-additional-signatures">NIST PQC Additional Digital Signature</a> Round 1에서
+                    표준화를 위해 경쟁 중입니다.
+                </p>
             </li>
+
             <!-- "23.05.18-20: KIAS-JBNU (~23.08)" -->
             <li class="flex-block" data-expiry="2023-08">
                 <h1>May 2023</h1>
-                <p class="eng">Presented HAETAE at <a href="http://events.kias.re.kr/h/KPQC/">KIAS-JBNU KpqC Workshop</a>, May 18-20th, Jeonju, Korea.</p>
-                <p class="kor"><a href="http://events.kias.re.kr/h/KPQC/">KIAS-JBNU KpqC Workshop</a>에서 HAETAE 전자서명 스킴에 대해 발표하였습니다 (5월 18-20일).</p>
-            </li>            
+                <p class="eng">
+                    Presented HAETAE at <a href="http://events.kias.re.kr/h/KPQC/">KIAS-JBNU KpqC Workshop</a>, May 18-20th, Jeonju, Korea.
+                </p>
+                <p class="kor">
+                    <a href="http://events.kias.re.kr/h/KPQC/">KIAS-JBNU KpqC Workshop</a>에서 HAETAE 전자서명 스킴에 대해 발표하였습니다 (5월 18-20일).
+                </p>
+            </li>
+
             <!-- "23.05: SMAUG/HAETAE updates (~23.11)" -->
             <li class="flex-block" data-expiry="2023-11">
                 <h1>May 2023</h1>
-                <p class="eng">SMAUG and HAETAE update: v1.0 is now available on our <a href="https://kpqc.cryptolab.co.kr">website</a>.</p>
-                <p class="kor">대한민국 양자내성암호 표준에 제출된 SMAUG 키 캡슐화 메커니즘 및 HAETAE 전자서명 스킴의 v1.0 버전이 <a href="https://kpqc.cryptolab.co.kr">공개</a>되었습니다.</p>
-            </li>            
+                <p class="eng">
+                    SMAUG and HAETAE update: v1.0 is now available on our <a href="https://kpqc.cryptolab.co.kr">website</a>.
+                </p>
+                <p class="kor">
+                    대한민국 양자내성암호 표준에 제출된 SMAUG 키 캡슐화 메커니즘 및 HAETAE 전자서명 스킴의 v1.0 버전이
+                    <a href="https://kpqc.cryptolab.co.kr">공개</a>되었습니다.
+                </p>
+            </li>
+
             <!-- "23.03: HES/FHE.org/RWC (~23.10)" -->
             <li class="flex-block" data-expiry="2023-10">
                 <h1>Mar. 2023</h1>
-                <p class="eng">Attended <a href="https://homomorphicencryption.org/6th-homomorphicencryption-org-standards-meeting/">6th HES Meeting</a> in Seoul, Korea (staff), 
-			<a href="https://fhe.org/conferences/conference-2023/home">2nd FHE.org Conference</a>, and <a href="https://rwc.iacr.org/2023/">Real World Crypto 2023</a> in Tokyo, Japan.</p>
-                <p class="kor">대한민국 서울에서 열린 동형암호 학회 <a href="https://homomorphicencryption.org/6th-homomorphicencryption-org-standards-meeting/">6th HES Meeting</a> (스태프), 
-			일본 도쿄에서 열리는 암호 학회 <a href="https://fhe.org/conferences/conference-2023/home">2nd FHE.org Conference</a>와 <a href="https://rwc.iacr.org/2023/">Real World Crypto 2023</a>에 
-			참석했습니다 (3월 23-29일).</p>
+                <p class="eng">
+                    Attended <a href="https://homomorphicencryption.org/6th-homomorphicencryption-org-standards-meeting/">6th HES Meeting</a> in Seoul, Korea (staff),
+                    <a href="https://fhe.org/conferences/conference-2023/home">2nd FHE.org Conference</a>,
+                    and <a href="https://rwc.iacr.org/2023/">Real World Crypto 2023</a> in Tokyo, Japan.
+                </p>
+                <p class="kor">
+                    대한민국 서울에서 열린 동형암호 학회 <a href="https://homomorphicencryption.org/6th-homomorphicencryption-org-standards-meeting/">6th HES Meeting</a> (스태프),
+                    일본 도쿄에서 열리는 암호 학회 <a href="https://fhe.org/conferences/conference-2023/home">2nd FHE.org Conference</a>와
+                    <a href="https://rwc.iacr.org/2023/">Real World Crypto 2023</a>에 참석했습니다 (3월 23-29일).
+                </p>
             </li>
+
             <!-- "23.02: KpqC winter camp (~23.09)" -->
             <li class="flex-block" data-expiry="2023-09">
                 <h1>Feb. 2023</h1>
-                <p class="eng">Presented HAETAE at <a href="https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D">2023 KpqC Winter Camp</a>, 
-			Feb. 22-24nd, Seoul, Korea.</p>
-                <p class="kor"><a href="https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D">2023 KpqC Winter Camp</a>에서 HAETAE 전자서명 
-			스킴에 대해 발표하였습니다 (2월 22-24일).</p>
-            </li>            
+                <p class="eng">
+                    Presented HAETAE at <a href="https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D">2023 KpqC Winter Camp</a>,
+                    Feb. 22-24nd, Seoul, Korea.
+                </p>
+                <p class="kor">
+                    <a href="https://kpqc.or.kr/contents/02_notice/board.html?board_id=board_notice&mode=view&no=48&cate=%EC%9B%8C%ED%81%AC%EC%88%8D">2023 KpqC Winter Camp</a>에서
+                    HAETAE 전자서명 스킴에 대해 발표하였습니다 (2월 22-24일).
+                </p>
+            </li>
+
             <!-- "22.10: KpqC submission (~23.04)" -->
             <li class="flex-block" data-expiry="2023-04">
                 <h1>Oct. 2022</h1>
-                <p class="eng">Involving in Korean Post Quantum Cryptography competition, for Korean standard: Key Encapsulation Mechanism <b>SMAUG</b> and Digital Signature <b>HAETAE</b>. 
-			<a href="https://kpqc.or.kr/competition.html">Now available!</a></p>
-                <p class="kor">대한민국의 양자내성암호 표준 제정을 위한 KpqC competition에 키 캡슐화 메커니즘 <b>SMAUG</b>와 전자서명 <b>HAETAE</b>의 설계, 안전성 분석, 파라미터 분석 등 전반에 걸쳐 참여 중입니다. 
-			<a href="https://kpqc.or.kr/contents/03_exhibit/sub01.html">확인해보세요!</a></p>
-            </li>            
+                <p class="eng">
+                    Involving in Korean Post Quantum Cryptography competition, for Korean standard:
+                    Key Encapsulation Mechanism <b>SMAUG</b> and Digital Signature <b>HAETAE</b>.
+                    <a href="https://kpqc.or.kr/competition.html">Now available!</a>
+                </p>
+                <p class="kor">
+                    대한민국의 양자내성암호 표준 제정을 위한 KpqC competition에 키 캡슐화 메커니즘 <b>SMAUG</b>와 전자서명 <b>HAETAE</b>의
+                    설계, 안전성 분석, 파라미터 분석 등 전반에 걸쳐 참여 중입니다.
+                    <a href="https://kpqc.or.kr/contents/03_exhibit/sub01.html">확인해보세요!</a>
+                </p>
+            </li>
+
             <!-- "22.09: Visiting ENS Lyon (~23.03)" -->
             <li class="flex-block" data-expiry="2023-03">
                 <h1>Sept. 2022</h1>
-                <p class="eng">Visited ENS de Lyon, Sept. 5th - Oct. 31st, Lyon, France.</p>
-                <p class="kor">프랑스 리옹의 ENS de Lyon에 두 달간 방문 했습니다 (9월 초 - 10월 말).</p>
-            </li>            
+                <p class="eng">
+                    Visited ENS de Lyon, Sept. 5th - Oct. 31st, Lyon, France.
+                </p>
+                <p class="kor">
+                    프랑스 리옹의 ENS de Lyon에 두 달간 방문 했습니다 (9월 초 - 10월 말).
+                </p>
+            </li>
+
             <!-- "22.09: HES Geneva (~23.03)" -->
             <li class="flex-block" data-expiry="2023-03">
                 <h1>Sept. 2022</h1>
-                <p class="eng">Attended <a href="https://homomorphicencryption.org/5th-homomorphicencryption-org-standards-meeting/">5th HE.org Standards Meeting</a>, Sept. 1st - 2nd, Geneve, Switzerland.</p>
-                <p class="kor">스위스 제네바에서 열린 학회 <a href="https://homomorphicencryption.org/5th-homomorphicencryption-org-standards-meeting/">5th HE.org Standards Meeting</a> 에 참석하였습니다 (9월 1-2일).</p>
+                <p class="eng">
+                    Attended <a href="https://homomorphicencryption.org/5th-homomorphicencryption-org-standards-meeting/">5th HE.org Standards Meeting</a>,
+                    Sept. 1st - 2nd, Geneve, Switzerland.
+                </p>
+                <p class="kor">
+                    스위스 제네바에서 열린 학회 <a href="https://homomorphicencryption.org/5th-homomorphicencryption-org-standards-meeting/">5th HE.org Standards Meeting</a> 에
+                    참석하였습니다 (9월 1-2일).
+                </p>
             </li>
-            
+
             <!-- "22.05: Eurocrypt Trondheim (~22.11)" -->
-	        <li class="flex-block" data-expiry="2022-11">
+            <li class="flex-block" data-expiry="2022-11">
                 <h1>May 2022</h1>
-                <p class="eng">Attended 1st FHE.org Conference and <a href="https://eurocrypt.iacr.org/2022/">Eurocrypt 2022</a>, May 29th - June 3rd, Trondheim, Norway. </p>
-                <p class="kor">노르웨이 트론헤임에서 열린 학회 1st FHE.org Conference와 <a href="https://eurocrypt.iacr.org/2022/">Eurocrypt 2022</a> 에 참석하였습니다 (5월 29일 - 6월 3일).</p>
+                <p class="eng">
+                    Attended 1st FHE.org Conference and <a href="https://eurocrypt.iacr.org/2022/">Eurocrypt 2022</a>,
+                    May 29th - June 3rd, Trondheim, Norway.
+                </p>
+                <p class="kor">
+                    노르웨이 트론헤임에서 열린 학회 1st FHE.org Conference와 <a href="https://eurocrypt.iacr.org/2022/">Eurocrypt 2022</a> 에
+                    참석하였습니다 (5월 29일 - 6월 3일).
+                </p>
             </li>
-            
+
             <!-- "22.04: BMC Genomics (~23.04)" -->
             <li class="flex-block" data-expiry="2023-04">
                 <h1>Apr. 2022</h1>
-                <p class="eng">The paper <a href="https://doi.org/10.1186/s12864-022-08469-w">"Secure tumor classification by shallow neural network using homomorphic encryption"</a> was accepted to 
-			<a href="https://bmcgenomics.biomedcentral.com">BMC Genomics</a>.</p>
-                <p class="kor">논문 <a href="https://doi.org/10.1186/s12864-022-08469-w">"Secure tumor classification by shallow neural network using homomorphic encryption"</a> 이 
-			<a href="https://bmcgenomics.biomedcentral.com">BMC Genomics</a> 에 게재됐습니다.</p>
+                <p class="eng">
+                    The paper <a href="https://doi.org/10.1186/s12864-022-08469-w">"Secure tumor classification by shallow neural network using homomorphic encryption"</a>
+                    was accepted to <a href="https://bmcgenomics.biomedcentral.com">BMC Genomics</a>.
+                </p>
+                <p class="kor">
+                    논문 <a href="https://doi.org/10.1186/s12864-022-08469-w">"Secure tumor classification by shallow neural network using homomorphic encryption"</a> 이
+                    <a href="https://bmcgenomics.biomedcentral.com">BMC Genomics</a> 에 게재됐습니다.
+                </p>
             </li>
+
         </ol>
     </div>
 
-    <!-------------------------- 
-    ---- Research Interests ----
-    --------------------------->
+    <!-- ==================== Research Interests ==================== -->
     <div class="topics wider-piece">
         <h1 class="eng">Research Interests</h1>
         <h1 class="kor">관심있는 연구주제</h1>
@@ -750,14 +929,13 @@ Rule (baseline):
                     <h1 class="eng">Homomorphic Encryption</h1>
                     <h1 class="kor">동형암호</h1>
                     <p class="eng">
-                        Cloud computing enables complex operations that clients with limited resources cannot compute
-                        alone.
-                        But is it safe? Wouldn't cloud providers use your data for other purposes?
-                        While general encryption only securely stores your data, Homorphic Encryption (HE) enables
-                        computation on encrypted data.
+                        Cloud computing enables complex operations that clients with limited resources cannot compute alone.
+                        But is it safe?
+                        Wouldn't cloud providers use your data for other purposes?
+                        While general encryption only securely stores your data, Homorphic Encryption (HE) enables computation on encrypted data.
                         HE enables cloud computing while ensuring data privacy.
-                        I am interested in broad topics in HE, e.g., security notions, accelerations, applications, and
-                        extensions to the threshold/multi-party setting.
+                        I am interested in broad topics in HE, e.g., security notions, accelerations, applications,
+                        and extensions to the threshold/multi-party setting.
                     </p>
                     <p class="kor">
                         클라우드 컴퓨팅은 컴퓨팅 리소스가 제한된 일반 사용자가 직접 계산할 수 없는 복잡한 작업을 가능하게 합니다.
@@ -779,8 +957,8 @@ Rule (baseline):
                         Will cryptosystems still be secure in the future when quantum computers are commercialized?
                         The security of most modern cryptosystems is guaranteed by its base hard problems.
                         However, most of the hard problems currently in use can be easily solved by quantum computers.
-                        Post-Quantum (or quantum-resistant) cryptography designs cryptosystems using hard problems that
-                        are difficult to solve even with quantum computers.
+                        Post-Quantum (or quantum-resistant) cryptography designs cryptosystems using hard problems
+                        that are difficult to solve even with quantum computers.
                         I am particularly interested in cryptosystems based on lattice problems.
                     </p>
                     <p class="kor">
@@ -795,36 +973,38 @@ Rule (baseline):
         </ol>
     </div>
 
-    <!------------------------------ 
-    ---- Selected Pubs & Projs. ----
-    ------------------------------->
+    <!-- ==================== Selected Publications & Projects ==================== -->
     <section>
         <div class="selected wider-piece">
             <h1 class="eng">Selected Publications & Projects</h1>
             <h1 class="kor">대표업적</h1>
-            <!-- Cards are auto-loaded from the first `limit` entries of summaries.html by the loader script near the bottom of this file -->
+
+            <!-- Cards are auto-loaded from the first `limit` entries of summaries.html
+                 by the loader script near the bottom of this file -->
             <div class="card-container" id="card-list"></div>
-            <!-- Add this button below the card-container -->
+
+            <!-- "View all" buttons (hidden by the loader script when there is nothing more to show) -->
             <div style="text-align: center; margin-top: 30px;">
-                <a href="summaries.html" id="view-all-btn" class="eng" style="text-decoration: none; font-weight: bold; color: #555; border: 1px solid #ccc; padding: 10px 20px; border-radius: 25px;">
+                <a href="summaries.html" id="view-all-btn" class="eng"
+                    style="text-decoration: none; font-weight: bold; color: #555; border: 1px solid #ccc; padding: 10px 20px; border-radius: 25px;">
                     View All Research Summaries &rarr;
                 </a>
-                <a href="summaries.html" id="view-all-btn-kor" class="kor" style="text-decoration: none; font-weight: bold; color: #555; border: 1px solid #ccc; padding: 10px 20px; border-radius: 25px;">
+                <a href="summaries.html" id="view-all-btn-kor" class="kor"
+                    style="text-decoration: none; font-weight: bold; color: #555; border: 1px solid #ccc; padding: 10px 20px; border-radius: 25px;">
                     연구 요약 전체 보기 &rarr;
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- footer -->
+    <!-- ==================== Footer ==================== -->
     <footer class="_track load-footer" id="footer"></footer>
 
-
-    <!-- javascript -->
+    <!-- ==================== Scripts ==================== -->
     <script src="js/jquery.js"></script>
     <script src="js/javascript.js"></script>
 
-    <!-- Toggle scripts -->
+    <!-- Card expand/collapse -->
     <script>
         // Enable expand/collapse for the given cards (called after cards are injected)
         function setupCardCollapse(cards) {
@@ -847,101 +1027,104 @@ Rule (baseline):
         }
     </script>
 
+    <!-- Copy e-mail address to clipboard -->
     <script>
         function copyText(text) {
-        navigator.clipboard.writeText(text).then(function () {
-            alert("Copied: " + text);
-        }, function (err) {
-            alert("Failed to copy text: " + err);
-        });
+            navigator.clipboard.writeText(text).then(function () {
+                alert("Copied: " + text);
+            }, function (err) {
+                alert("Failed to copy text: " + err);
+            });
         }
 
         function copyLiame() {
-        const local = "hyeongmin.choe";
-        const domain = "uni.lu";
-        const liame = `${local}@${domain}`;
-        copyText(liame);
+            const local = "hyeongmin.choe";
+            const domain = "uni.lu";
+            const liame = `${local}@${domain}`;
+            copyText(liame);
         }
     </script>
 
+    <!-- Remove expired news items (data-expiry) -->
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const today = new Date();
-        const newsItems = Array.from(document.querySelectorAll('#news-list li[data-expiry]'));
+        document.addEventListener("DOMContentLoaded", function () {
+            const today = new Date();
+            const newsItems = Array.from(document.querySelectorAll('#news-list li[data-expiry]'));
 
-        // 뉴스 목록이 통째로 비어 보이지 않도록, 살아있는 항목이 이 개수보다
-        // 적으면 만료된 항목 중 최신 것부터 채워 넣습니다.
-        const MIN_VISIBLE = 3;
+            // 뉴스 목록이 통째로 비어 보이지 않도록, 살아있는 항목이 이 개수보다
+            // 적으면 만료된 항목 중 최신 것부터 채워 넣습니다.
+            const MIN_VISIBLE = 3;
 
-        const expired = newsItems.filter(item => {
-            let dateStr = item.getAttribute('data-expiry');
-            let expiryDate;
+            const expired = newsItems.filter(item => {
+                let dateStr = item.getAttribute('data-expiry');
+                let expiryDate;
 
-            // YYYY-MM 형식(7글자)으로 입력된 경우 처리
-            if (dateStr.length === 7) {
-                const [year, month] = dateStr.split('-').map(Number);
-                // 다음 달의 0일로 설정하면 이번 달의 마지막 날이 됩니다.
-                // 월은 0부터 시작하므로 month를 그대로 넣으면 다음 달이 됩니다.
-                expiryDate = new Date(year, month, 0, 23, 59, 59);
-            } else {
-                // 기존 YYYY-MM-DD 형식 처리
-                expiryDate = new Date(dateStr);
-                expiryDate.setHours(23, 59, 59, 999);
-            }
+                // YYYY-MM 형식(7글자)으로 입력된 경우 처리
+                if (dateStr.length === 7) {
+                    const [year, month] = dateStr.split('-').map(Number);
+                    // 다음 달의 0일로 설정하면 이번 달의 마지막 날이 됩니다.
+                    // 월은 0부터 시작하므로 month를 그대로 넣으면 다음 달이 됩니다.
+                    expiryDate = new Date(year, month, 0, 23, 59, 59);
+                } else {
+                    // 기존 YYYY-MM-DD 형식 처리
+                    expiryDate = new Date(dateStr);
+                    expiryDate.setHours(23, 59, 59, 999);
+                }
 
-            return expiryDate < today;
-        });
-
-        // 목록은 최신순으로 작성되어 있으므로, 만료된 항목 중 문서상 앞쪽에 있는
-        // 것이 가장 최근 소식입니다. 부족한 만큼만 남기고 나머지를 지웁니다.
-        const alive = newsItems.length - expired.length;
-        const keep = Math.max(0, MIN_VISIBLE - alive);
-        expired.slice(keep).forEach(item => item.remove());
-    });
-</script>
-
-<script>
-    // Auto-fill the "Selected Publications & Projects" cards from summaries.html,
-    // so the summaries only need to be maintained in one place.
-    document.addEventListener("DOMContentLoaded", async function() {
-        const cardContainer = document.getElementById("card-list");
-        const viewAllBtn = document.getElementById("view-all-btn");
-        const limit = 2; // Number of summaries to show on the home page
-
-        try {
-            const response = await fetch("summaries.html");
-            const html = await response.text();
-            const doc = new DOMParser().parseFromString(html, "text/html");
-            const sourceCards = Array.from(doc.querySelectorAll(".cards-container .card"));
-
-            // Fill only the first `limit` summaries into the home-page card list
-            sourceCards.slice(0, limit).forEach(src => {
-                const card = src.cloneNode(true);
-                // Rebuild the header into the collapsible home-page style (add toggle icon)
-                const h3 = card.querySelector("h3");
-                const titleB = h3.querySelector("b");
-                const titleHTML = titleB ? titleB.innerHTML : h3.innerHTML;
-                h3.innerHTML = `<b>${titleHTML}</b><span class="toggle-icon">-</span>`;
-                cardContainer.appendChild(card);
+                return expiryDate < today;
             });
 
-            // Enable expand/collapse on the freshly injected cards
-            setupCardCollapse(cardContainer.querySelectorAll(".card"));
+            // 목록은 최신순으로 작성되어 있으므로, 만료된 항목 중 문서상 앞쪽에 있는
+            // 것이 가장 최근 소식입니다. 부족한 만큼만 남기고 나머지를 지웁니다.
+            const alive = newsItems.length - expired.length;
+            const keep = Math.max(0, MIN_VISIBLE - alive);
+            expired.slice(keep).forEach(item => item.remove());
+        });
+    </script>
 
-            // Apply the current language filter to the freshly injected .eng/.kor text
-            // (the site's initial show_lang() ran before these cards existed)
-            if (typeof show_lang === "function") {
-                show_lang(cardContainer, typeof lang !== "undefined" ? lang : "eng");
+    <!-- Load "Selected Publications & Projects" cards from summaries.html -->
+    <script>
+        // Auto-fill the "Selected Publications & Projects" cards from summaries.html,
+        // so the summaries only need to be maintained in one place.
+        document.addEventListener("DOMContentLoaded", async function () {
+            const cardContainer = document.getElementById("card-list");
+            const viewAllBtn = document.getElementById("view-all-btn");
+            const limit = 2; // Number of summaries to show on the home page
+
+            try {
+                const response = await fetch("summaries.html");
+                const html = await response.text();
+                const doc = new DOMParser().parseFromString(html, "text/html");
+                const sourceCards = Array.from(doc.querySelectorAll(".cards-container .card"));
+
+                // Fill only the first `limit` summaries into the home-page card list
+                sourceCards.slice(0, limit).forEach(src => {
+                    const card = src.cloneNode(true);
+                    // Rebuild the header into the collapsible home-page style (add toggle icon)
+                    const h3 = card.querySelector("h3");
+                    const titleB = h3.querySelector("b");
+                    const titleHTML = titleB ? titleB.innerHTML : h3.innerHTML;
+                    h3.innerHTML = `<b>${titleHTML}</b><span class="toggle-icon">-</span>`;
+                    cardContainer.appendChild(card);
+                });
+
+                // Enable expand/collapse on the freshly injected cards
+                setupCardCollapse(cardContainer.querySelectorAll(".card"));
+
+                // Apply the current language filter to the freshly injected .eng/.kor text
+                // (the site's initial show_lang() ran before these cards existed)
+                if (typeof show_lang === "function") {
+                    show_lang(cardContainer, typeof lang !== "undefined" ? lang : "eng");
+                }
+
+                // Show the "View All" buttons only when summaries.html has more entries than shown
+                viewAllBtn.parentElement.style.display =
+                    sourceCards.length > limit ? "block" : "none";
+            } catch (err) {
+                console.error("Failed to load research summaries:", err);
             }
-
-            // Show the "View All" buttons only when summaries.html has more entries than shown
-            viewAllBtn.parentElement.style.display =
-                sourceCards.length > limit ? "block" : "none";
-        } catch (err) {
-            console.error("Failed to load research summaries:", err);
-        }
-    });
-</script>
-
-
+        });
+    </script>
 </body>
+
+</html>

@@ -7,18 +7,17 @@
     </noscript>
 
     <!-- meta set -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- title -->
     <title>Hyeongmin Choe</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/icons/logo-fill.png" type="image/x-icon">
 
-    <!-- style -->
     <style>
-
-        .personals>ul {
+        /* ---- Text sections ---- */
+        .personals > ul {
             margin-top: 5px;
             margin-left: 8px;
             margin-right: 0px;
@@ -50,7 +49,7 @@
             margin-bottom: auto;
         }
 
-        /* calendar */
+        /* ---- Calendar ---- */
         .calendar {
             display: grid;
             grid-template-columns: 1fr;
@@ -145,14 +144,15 @@
         /* Dark mode detection */
         @media (prefers-color-scheme: dark) {
             li::marker {
-                color: white;
-                /* Make bullets visible in dark mode */
+                color: white; /* Make bullets visible in dark mode */
             }
         }
 
+        /* ---- Mobile-only / desktop-only text ---- */
         .only-mobile {
             display: none;
         }
+
         .only-mobile-block {
             display: none;
         }
@@ -163,12 +163,15 @@
                 overflow-wrap: break-word;
                 white-space: normal;
             }
+
             .no-mobile {
                 display: none;
             }
+
             .only-mobile {
                 display: inline;
             }
+
             .only-mobile-block {
                 display: block;
             }
@@ -180,7 +183,6 @@
     <div class="load-menubar"></div>
     <header style="padding-top:160px"></header>
 
-    <!--#### contents #####-->
     <!-- <div class="glance">
         <div class="wide-piece">
             <h1 class="eng">&nbsp;Hyeongmin Choe&nbsp;</h1>
@@ -215,23 +217,32 @@
 
     <div class="wider-piece personals">
 
+        <!-- ==================== About Me ==================== -->
         <h1 class="eng">About Me</h1>
         <h1 class="kor">나에 대해서</h1>
         <ul>
-            <li class="eng">In Korean (<a href="https://en.wikipedia.org/wiki/Hangul">Hangul</a>), my name is 최형민 [Choe Hyeong-min]</li>
-            
-            <li class="eng">I served in the Republic of Korea Air Force from 2015 to 2017 as part of my mandatory
-                military service.</li>
-            <li class="kor">2015년부터 2017년까지 대한민국 공군에 복무했습니다.</li>
-            
-            <li class="eng">I earned my Bachelor's degree in
+            <li class="eng">
+                In Korean (<a href="https://en.wikipedia.org/wiki/Hangul">Hangul</a>), my name is 최형민 [Choe Hyeong-min]
+            </li>
+
+            <li class="eng">
+                I served in the Republic of Korea Air Force from 2015 to 2017 as part of my mandatory military service.
+            </li>
+            <li class="kor">
+                2015년부터 2017년까지 대한민국 공군에 복무했습니다.
+            </li>
+
+            <li class="eng">
+                I earned my Bachelor's degree in
                 <a href="https://science.snu.ac.kr/en/edu/programs#:~:text=University/Graduate%20School-,Department%20of%20Mathematical%20Sciences,-The%20Department%20of">
                     Mathematics, Seoul National University (SNU)
-                </a> in August
-                2019 (2013-2019).
+                </a> in August 2019 (2013-2019).
             </li>
-            <li class="kor">저는 2019년 8월 서울대학교 수리과학부에서 학부를 졸업했습니다 (2013년 3월 - 2019년 8월).</li>
-            <!-- 
+            <li class="kor">
+                저는 2019년 8월 서울대학교 수리과학부에서 학부를 졸업했습니다 (2013년 3월 - 2019년 8월).
+            </li>
+
+            <!--
             <li class="eng">I completed my Doctorate in
                 <a
                     href="https://science.snu.ac.kr/en/edu/programs#:~:text=University/Graduate%20School-,Department%20of%20Mathematical%20Sciences,-The%20Department%20of">
@@ -239,75 +250,106 @@
                 </a> in February 2025. Here is my <a href="assets/draft_hyeongmin.pdf">dissertation</a>.
                 https://s-space.snu.ac.kr/handle/10371/220155
             </li>  -->
-            <!-- 
+            <!--
             <li class="kor">저는 2025년 2월 <i>서울대학교 수리과학부</i> 에서 박사 학위를 취득했습니다 (2019년 9월 - 2025년 2월). 제 박사학위 논문 제목은
                 <a href="assets/draft_hyeongmin.pdf">Accelerating Homomorphic Computation through Machine-Efficient
                     Arithmetic</a>이며, CKKS 동형암호 스킴의 개선에 관한 연구입니다.
             </li>
             <li class="eng">
                 Currently, I"m a Cryptography Engineer at <a href="https://www.cryptolab.co.kr/en/home/">CryptoLab Inc.</a>
-                I"m actively seeking academic positions for the next chapter of my career. 
+                I"m actively seeking academic positions for the next chapter of my career.
                 Feel free to reach out!
             </li> -->
-            <!-- 
+            <!--
             <li class="kor">
-                저는 현재 크립토랩에서 암호학 엔지니어로 일하고 있습니다. 
+                저는 현재 크립토랩에서 암호학 엔지니어로 일하고 있습니다.
             </li> -->
         </ul>
 
+        <!-- ==================== Teaching Assistant ==================== -->
         <h1 class="eng">Teaching Assistant</h1>
         <h1 class="kor">조교 활동</h1>
         <ul>
-            <li class="eng"><b>SNU</b>
+            <li class="eng">
+                <b>SNU</b>
                 <ul>
-                    <li>Calculus TA Seminar 2024-1, 2020-1. </li>
-                    <li class="no-mobile">Honor Calculus Practice 2023-2, 2023-1 (Awarded for
-                        <a href="assets/2023_TA_Award.pdf">Excellence in Teaching</a>), 2021-2, 2020-2.
+                    <li>
+                        Calculus TA Seminar 2024-1, 2020-1.
                     </li>
-                    <li class="no-mobile">Differential and Integral Calculus Practice 2022-1, 2021-1, Calculus Practice 2020-1. </li>
-                    <li class="only-mobile-block">Calculus Practices 2020-2023 except 2022-2. 
+                    <li class="no-mobile">
+                        Honor Calculus Practice 2023-2, 2023-1
+                        (Awarded for <a href="assets/2023_TA_Award.pdf">Excellence in Teaching</a>), 2021-2, 2020-2.
+                    </li>
+                    <li class="no-mobile">
+                        Differential and Integral Calculus Practice 2022-1, 2021-1, Calculus Practice 2020-1.
+                    </li>
+                    <li class="only-mobile-block">
+                        Calculus Practices 2020-2023 except 2022-2.
                         Also <a href="assets/2023_TA_Award.pdf">Awarded.</a>
                     </li>
-                    <li>Number Theory 2021-1. </li>
+                    <li>
+                        Number Theory 2021-1.
+                    </li>
                 </ul>
             </li>
-            <li class="kor"><b>서울대학교</b>
+            <li class="kor">
+                <b>서울대학교</b>
                 <ul>
-                    <li>미적분학연습조교세미나 2024-1, 2020-1. </li>
-                    <li>고급수학연습 2023-2, 2023-1 (<a href="assets/2023_TA_Award.pdf">우수 조교</a> 선정), 2021-2, 2020-2. </li>
-                    <li>미적분학연습 2022-1, 2021-1, 수학연습 2020-1. </li>
-                    <li>정수론 2021-1. </li>
+                    <li>
+                        미적분학연습조교세미나 2024-1, 2020-1.
+                    </li>
+                    <li>
+                        고급수학연습 2023-2, 2023-1 (<a href="assets/2023_TA_Award.pdf">우수 조교</a> 선정), 2021-2, 2020-2.
+                    </li>
+                    <li>
+                        미적분학연습 2022-1, 2021-1, 수학연습 2020-1.
+                    </li>
+                    <li>
+                        정수론 2021-1.
+                    </li>
                 </ul>
             </li>
-            <li class="eng"><b>Others</b>
+            <li class="eng">
+                <b>Others</b>
                 <ul>
-                    <li>SK Hynix i-TAP Lectures for PQC in 2021. </li>
-                    <li>Winter/Summer School TA for 
+                    <li>
+                        SK Hynix i-TAP Lectures for PQC in 2021.
+                    </li>
+                    <li>
+                        Winter/Summer School TA for
                         <span class="no-mobile">the Korean Mathematical Olympiad (KMO) in 2013-2014.</span>
                         <span class="only-mobile">KMO in 2013-2014.</span>
                     </li>
                 </ul>
             </li>
-            <li class="kor"><b>그 외</b>
+            <li class="kor">
+                <b>그 외</b>
                 <ul>
-                    <li>2021년 봄에 SK Hynix i-TAP 양자내성암호 교육의 조교로 5주간 일했습니다. </li>
-                    <li>KMO 계절학교 조교: 2013년 겨울부터 2014년 여름까지 한국수학올림피아드 (KMO) 여름/겨울 계절학교 조교로 일했습니다. </li>
+                    <li>
+                        2021년 봄에 SK Hynix i-TAP 양자내성암호 교육의 조교로 5주간 일했습니다.
+                    </li>
+                    <li>
+                        KMO 계절학교 조교: 2013년 겨울부터 2014년 여름까지 한국수학올림피아드 (KMO) 여름/겨울 계절학교 조교로 일했습니다.
+                    </li>
                 </ul>
             </li>
         </ul>
 
+        <!-- ==================== Conferences ====================
+            The calendar itself is generated by the script below from the
+            conferenceDeadlines list; add or update conferences there.
+        -->
         <h1>Cryptography &amp; Security Conferences</h1>
         <ul>
             <li>
-                Rankings <a
-                    href="https://people.engr.tamu.edu/guofei/sec_conf_stat.htm">by Guofei</a>
-                    <!-- Guofei Gu -->
+                Rankings <a href="https://people.engr.tamu.edu/guofei/sec_conf_stat.htm">by Guofei</a>
+                <!-- Guofei Gu -->
                 and <a href="http://jianying.space/conference-ranking.html">by Jianying</a>.
-                    <!-- Jianying Zhou -->
+                <!-- Jianying Zhou -->
             </li>
             <li>
                 Deadlines <a href="https://sec-deadlines.github.io/">by Bogdan & Clement</a>.
-                    <!-- Bogdan Kulynych & Clement Fung -->
+                <!-- Bogdan Kulynych & Clement Fung -->
             </li>
             <li>
                 Selected Deadlines<span class="no-mobile"> (last update: June, 2026)</span>.
@@ -316,13 +358,13 @@
                 <br class="only-mobile"> &nbsp;<span style="text-decoration:line-through;">Passed Conf.</span>
                 <span class="no-mobile">
                     <br> &nbsp;<label>
-                        <input type="checkbox" id="filter-deadlines" /> Upcoming ddl. only
+                        <input type="checkbox" id="filter-deadlines"> Upcoming ddl. only
                     </label>
                     &nbsp;<label>
-                        <input type="checkbox" id="filter-flagships" /> Flagships only
+                        <input type="checkbox" id="filter-flagships"> Flagships only
                     </label>
                     &nbsp;<label>
-                        <input type="checkbox" id="filter-eventview" /> Event calendar
+                        <input type="checkbox" id="filter-eventview"> Event calendar
                     </label>
                 </span>
                 <span style="float: right;">&#9201; AOE: <span id="aoe-time"></span>&nbsp;</span>
@@ -337,382 +379,381 @@
         <div class="calendar"></div>
     </div>
 
-    <!-- footer -->
+    <!-- ==================== Footer ==================== -->
     <footer class="_track load-footer" id="footer"></footer>
 
-
-    <!-- javascript -->
+    <!-- ==================== Scripts ==================== -->
     <script src="js/jquery.js"></script>
     <script src="js/javascript.js"></script>
 
+    <!-- Conference deadline / event calendar -->
     <script>
         // ********************************* //
         // List of conferences and deadlines //
         // ********************************* //
         const conferenceDeadlines = [
-        {
-            name: "AC",
-            link: "https://asiacrypt.iacr.org/2025/",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2025-05-16"],
-            eventDate: "2025-12-08", 
-            location: "Melbourne, Australia"
-        },
-        {
-            name: "AC",
-            link: "https://asiacrypt.iacr.org/2026/",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2026-05-21"],
-            eventDate: "2026-12-07", 
-            location: "Hong Kong, China"
-        },
-        // {
-        //     name: "AC",
-        //     link: "??",
-        //     color: "hsl(219, 80%, 58%)",
-        //     deadlines: ["2027-??-??"],
-        //     eventDate: "2027-??-??", 
-        //     location: "??, ??"
-        // },
-        {
-            name: "ACNS",
-            link: "https://acns2025.fordaysec.de/",
-            color: "DimGray",
-            deadlines: ["2024-09-09", "2025-01-13"],
-            eventDate: "2025-06-23",
-            location: "Munich, Germany"
-        },
-        {
-            name: "ACNS",
-            link: "https://acns2026.github.io",
-            color: "DimGray",
-            deadlines: ["2025-09-26", "2026-01-23"],
-            eventDate: "2026-06-22",
-            location: "New York, US"
-        },
-        {
-            name: "AsiaCCS",
-            link: "https://asiaccs2025.hust.edu.vn/",
-            color: "DimGray",
-            deadlines: ["2024-09-20", "2025-01-20"],
-            eventDate: "2025-08-25",
-            location: "Ha Noi, Vietnam"
-        },
-        {
-            name: "AsiaCCS",
-            link: "https://asiaccs2026.cse.iitkgp.ac.in/",
-            color: "DimGray",
-            deadlines: ["2025-08-25", "2025-12-12"],
-            eventDate: "2026-06-01",
-            location: "Bangalore, India"
-        },
-        {
-            name: "AsiaCCS",
-            link: "https://asiaccs2027.cityu.edu.mo",
-            color: "DimGray",
-            deadlines: ["2026-08-21", "2026-12-11"],
-            eventDate: "2027-07-12",
-            location: "Macau"
-        },
-        {
-            name: "CCS",
-            link: "https://www.sigsac.org/ccs/CCS2024/",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2024-01-28", "2024-04-29"],
-            eventDate: "2024-10-14", 
-            location: "Salt Lake City, US" // Salt Lake City, Utah, US
-        },
-        {
-            name: "CCS",
-            link: "https://www.sigsac.org/ccs/CCS2025/",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2025-01-09", "2025-04-14"],
-            eventDate: "2025-10-13", 
-            location: "Taipei, Taiwan"
-        },
-        {
-            name: "CCS",
-            link: "https://www.sigsac.org/ccs/CCS2026/",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2026-01-14", "2026-04-29"],
-            eventDate: "2026-11-15", 
-            location: "The Hague, The Netherlands"
-        },
-        {
-            name: "CCS",
-            link: "https://www.sigsac.org/ccs/CCS2027/",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2027-??-??", "2027-??-??"],
-            eventDate: "2027-10-??", 
-            location: "Atlanta, US"
-        },
-        {
-            name: "CHES",
-            link: "https://ches.iacr.org/2025/",
-            color: "indianred",
-            deadlines: ["2024-07-15", "2024-10-15", "2025-01-15", "2025-04-15"],
-            eventDate: "2025-09-14",
-            location: "Kuala Lumpur, Malaysia"
-        },
-        {
-            name: "CHES",
-            link: "https://ches.iacr.org/2026/",
-            color: "indianred",
-            deadlines: ["2025-07-15", "2025-10-15", "2026-01-15", "2026-04-15"],
-            eventDate: "2026-10-11",
-            location: "Antalya, Türkiye"
-        },
-        {
-            name: "CHES",
-            link: "https://ches.iacr.org/2027/",
-            color: "indianred",
-            deadlines: ["2026-07-15", "2026-10-15", "2027-01-15", "2027-04-15"],
-            eventDate: "2027-09-06",
-            location: "Cancún, Mexico"
-        },
-        {
-            name: "Crypto",
-            link: "https://crypto.iacr.org/2025/",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2025-02-13"],
-            eventDate: "2025-08-17",
-            location: "Santa Barbara, US"
-        },
-        {
-            name: "Crypto",
-            link: "https://crypto.iacr.org/2026/",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2026-02-12"],
-            eventDate: "2026-08-17",
-            location: "Santa Barbara, US"
-        },
-        // {
-        //     name: "Crypto",
-        //     link: "https://crypto.iacr.org/2027/",
-        //     color: "hsl(219, 80%, 58%)",
-        //     deadlines: ["2027-??-??"],
-        //     eventDate: "2027-??-??",
-        //     location: "??, ??"
-        // },
-        {
-            name: "CT-RSA",
-            link: "https://ct-rsa-2025.csa.iisc.ac.in/",
-            color: "DimGray",
-            deadlines: ["2024-10-30"],
-            eventDate: "2025-04-28",
-            location: "San Francisco, US" // San Francisco, CA, US
-        },
-        {
-            name: "CT-RSA",
-            link: "https://conference.wsu.edu/ct-rsa-2026/",
-            color: "DimGray",
-            deadlines: ["2025-10-24"],
-            eventDate: "2026-03-23",
-            location: "San Francisco, US" // San Francisco, CA, US
-        },
-        {
-            name: "CT-RSA",
-            link: "https://email.rsaconference.com/p/7K6E-BNA/us2027-ryi-form?&_gl=1*1htueik*_gcl_au*MTU3NDIyMDc2LjE3NzU4MjUyNTUuMTIyNDczMTM4Mi4xNzc2MjU3NDgyLjE3NzYyNTc0ODE.*_ga*MTI5NzYxODU3OC4xNzc1ODI1MjU1*_ga_Q3JZKF3KQM*czE3NzYyNjA4MzMkbzExJGcxJHQxNzc2MjYwODQ0JGo0OSRsMCRoMTkzNTA5MjY3Mw..&pfredir=2",
-            // https://email.rsaconference.com/p/7K6E-BNA/us2027-ryi-form?&_gl=1*1htueik*_gcl_au*MTU3NDIyMDc2LjE3NzU4MjUyNTUuMTIyNDczMTM4Mi4xNzc2MjU3NDgyLjE3NzYyNTc0ODE.*_ga*MTI5NzYxODU3OC4xNzc1ODI1MjU1*_ga_Q3JZKF3KQM*czE3NzYyNjA4MzMkbzExJGcxJHQxNzc2MjYwODQ0JGo0OSRsMCRoMTkzNTA5MjY3Mw..&pfredir=2
-            color: "DimGray",
-            deadlines: ["2026-??-??"],
-            eventDate: "2027-04-05",
-            location: "San Francisco, US" // San Francisco, CA, US
-        },
-        {
-            name: "EC",
-            link: "https://eurocrypt.iacr.org/2026",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2025-10-02"],
-            eventDate: "2026-05-10",
-            location: "Rome, Italy"
-        },
-        {
-            name: "EC",
-            link: "https://eurocrypt.iacr.org/2027",
-            color: "hsl(219, 80%, 58%)",
-            deadlines: ["2026-09-17"],
-            eventDate: "2027-04-11",
-            location: "Eindhoven, The Netherlands"
-        },
-        {
-            name: "Euro S&P",
-            link: "https://eurosp2025.ieee-security.org/",
-            color: "DimGray",
-            deadlines: ["2024-10-24"],
-            eventDate: "2025-06-30",
-            location: "Venice, Italy"
-        },
-        {
-            name: "Euro S&P",
-            link: "https://eurosp2026.ieee-security.org/",
-            color: "DimGray",
-            deadlines: ["2025-11-20"],
-            eventDate: "2026-07-06",
-            location: "Lisbon, Portugal"
-        },
-        {
-            name: "FHE.org",
-            link: "https://fhe.org/conferences/conference-2026/",
-            color: "DimGray",
-            deadlines: ["2025-11-01"],  // Delayed a lot
-            eventDate: "2026-03-08",
-            location: "Taipei, Taiwan"
-        },
-        {
-            name: "FHE.org",
-            link: "https://fhe.org/conferences/conference-2027/",
-            color: "DimGray",
-            deadlines: ["2026-11-01"],
-            eventDate: "2027-04-04",
-            location: "Seattle, US"
-        },
-        {
-            name: "PETs",
-            link: "https://petsymposium.org/",
-            color: "indianred",
-            deadlines: ["2025-05-31", "2025-08-31", "2025-11-30", "2026-02-28"],
-            eventDate: "2026-07-20",
-            location: "Calgary, Canada"
-        },
-        {
-            name: "PETs",
-            link: "https://petsymposium.org/cfp27.php",
-            color: "indianred",
-            deadlines: ["2026-05-31", "2026-08-31", "2026-11-30", "2027-02-28"],
-            eventDate: "2027-07-19",
-            location: "Delft, Netherlands"
-        },
-        {
-            name: "PKC",
-            link: "https://pkc.iacr.org/2025/",
-            color: "DimGray",
-            deadlines: ["2024-10-16"],
-            eventDate: "2025-05-12",
-            location: "Røros, Norway"
-        },
-        {
-            name: "PKC",
-            link: "https://pkc.iacr.org/2026/",
-            color: "DimGray",
-            deadlines: ["2025-10-24"],
-            eventDate: "2026-05-25",
-            location: "West Palm Beach, US"
-        },
-        {
-            name: "PKC",
-            link: "https://pkc.iacr.org/2027/",
-            color: "DimGray",
-            deadlines: ["2026-08-03"],
-            eventDate: "2027-03-01",
-            location: "Taipei, Taiwan"
-        },
-        {
-            name: "PQC",
-            link: "https://pqcrypto2025.iis.sinica.edu.tw/",
-            color: "DimGray",
-            deadlines: ["2024-11-01"],
-            eventDate: "2025-04-08",
-            location: "Taipei, Taiwan"
-            // https://pqcrypto.org/conferences.html
-        },
-        {
-            name: "PQC",
-            link: "https://pqcrypto2026.irisa.fr/",
-            color: "DimGray",
-            deadlines: ["2025-11-07"],
-            eventDate: "2026-04-14",
-            location: "Saint-Malo, France"
-            // https://pqcrypto.org/conferences.html
-        },
-        {
-            name: "S&P",
-            link: "https://sp2026.ieee-security.org",
-            color: "indianred",
-            deadlines: ["2025-06-05", "2025-11-13"],
-            eventDate: "2026-05-18",
-            location: "San Francisco, US" // San Francisco, CA, US
-        },
-        {
-            name: "S&P",
-            link: "https://sp2027.ieee-security.org",
-            color: "indianred",
-            deadlines: ["2026-06-11", "2026-11-17"],
-            eventDate: "2027-??-??",
-            location: "Montreal, Canada"
-        },
-        {
-            name: "SAC",
-            link: "https://sacworkshop.org/SAC25",
-            color: "DimGray",
-            deadlines: ["2025-01-27", "2025-05-07"],
-            eventDate: "2025-08-11",
-            location: "Toronto, Canada"
-        },
-        {
-            name: "SAC",
-            link: "https://sacworkshop.org/SAC26",
-            color: "DimGray",
-            deadlines: ["2026-02-02", "2026-05-11"],
-            eventDate: "2026-08-24",
-            location: "Ottawa, Canada"
-        },
-        {
-            name: "TCC",
-            link: "https://tcc.iacr.org/2025/",
-            color: "DimGray",
-            deadlines: ["2025-05-27"],
-            eventDate: "2025-12-01",
-            location: "Aarhus, Denmark"
-        },
-        {
-            name: "TCC",
-            link: "https://tcc.iacr.org/2026/",
-            color: "DimGray",
-            deadlines: ["2026-05-19"],
-            eventDate: "2026-11-10",
-            location: "New York, US"
-        },
-        {
-            name: "Usenix S.",
-            link: "https://www.usenix.org/conference/usenixsecurity26",
-            color: "indianred",
-            deadlines: ["2025-08-26", "2026-02-05"],
-            eventDate: "2026-08-12",
-            location: "Baltimore, US" // Baltimore, MD, US
-        },
-        {
-            name: "Usenix S.",
-            link: "https://www.usenix.org/conference/usenixsecurity27",
-            color: "indianred",
-            deadlines: ["2026-08-25", "2027-01-26"],
-            eventDate: "2027-08-11",
-            location: "Denver, US" // Denver, CO, US
-
-        },
-        {
-            name: "WAHC",
-            link: "https://homomorphicencryption.org/wahc-2025/",
-            color: "DimGray",
-            deadlines: ["2025-07-27"],
-            eventDate: "2025-10-13",
-            location: "Taipei, Taiwan"
-        },
-        {
-            name: "WAHC",
-            link: "https://homomorphicencryption.org/wahc-2026/",
-            color: "DimGray",
-            deadlines: ["2026-07-19"], 
-            // Updated to July 19th. 
-            // June 20th at https://homomorphicencryption.org/wahc-2026
-            // But, July 2nd at https://wahc26.hotcrp.com/deadlines
-            eventDate: "2026-11-15",
-            location: "The Hague, The Netherlands"
-        }
+            {
+                name: "AC",
+                link: "https://asiacrypt.iacr.org/2025/",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2025-05-16"],
+                eventDate: "2025-12-08",
+                location: "Melbourne, Australia"
+            },
+            {
+                name: "AC",
+                link: "https://asiacrypt.iacr.org/2026/",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2026-05-21"],
+                eventDate: "2026-12-07",
+                location: "Hong Kong, China"
+            },
+            // {
+            //     name: "AC",
+            //     link: "??",
+            //     color: "hsl(219, 80%, 58%)",
+            //     deadlines: ["2027-??-??"],
+            //     eventDate: "2027-??-??",
+            //     location: "??, ??"
+            // },
+            {
+                name: "ACNS",
+                link: "https://acns2025.fordaysec.de/",
+                color: "DimGray",
+                deadlines: ["2024-09-09", "2025-01-13"],
+                eventDate: "2025-06-23",
+                location: "Munich, Germany"
+            },
+            {
+                name: "ACNS",
+                link: "https://acns2026.github.io",
+                color: "DimGray",
+                deadlines: ["2025-09-26", "2026-01-23"],
+                eventDate: "2026-06-22",
+                location: "New York, US"
+            },
+            {
+                name: "AsiaCCS",
+                link: "https://asiaccs2025.hust.edu.vn/",
+                color: "DimGray",
+                deadlines: ["2024-09-20", "2025-01-20"],
+                eventDate: "2025-08-25",
+                location: "Ha Noi, Vietnam"
+            },
+            {
+                name: "AsiaCCS",
+                link: "https://asiaccs2026.cse.iitkgp.ac.in/",
+                color: "DimGray",
+                deadlines: ["2025-08-25", "2025-12-12"],
+                eventDate: "2026-06-01",
+                location: "Bangalore, India"
+            },
+            {
+                name: "AsiaCCS",
+                link: "https://asiaccs2027.cityu.edu.mo",
+                color: "DimGray",
+                deadlines: ["2026-08-21", "2026-12-11"],
+                eventDate: "2027-07-12",
+                location: "Macau"
+            },
+            {
+                name: "CCS",
+                link: "https://www.sigsac.org/ccs/CCS2024/",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2024-01-28", "2024-04-29"],
+                eventDate: "2024-10-14",
+                location: "Salt Lake City, US" // Salt Lake City, Utah, US
+            },
+            {
+                name: "CCS",
+                link: "https://www.sigsac.org/ccs/CCS2025/",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2025-01-09", "2025-04-14"],
+                eventDate: "2025-10-13",
+                location: "Taipei, Taiwan"
+            },
+            {
+                name: "CCS",
+                link: "https://www.sigsac.org/ccs/CCS2026/",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2026-01-14", "2026-04-29"],
+                eventDate: "2026-11-15",
+                location: "The Hague, The Netherlands"
+            },
+            {
+                name: "CCS",
+                link: "https://www.sigsac.org/ccs/CCS2027/",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2027-??-??", "2027-??-??"],
+                eventDate: "2027-10-??",
+                location: "Atlanta, US"
+            },
+            {
+                name: "CHES",
+                link: "https://ches.iacr.org/2025/",
+                color: "indianred",
+                deadlines: ["2024-07-15", "2024-10-15", "2025-01-15", "2025-04-15"],
+                eventDate: "2025-09-14",
+                location: "Kuala Lumpur, Malaysia"
+            },
+            {
+                name: "CHES",
+                link: "https://ches.iacr.org/2026/",
+                color: "indianred",
+                deadlines: ["2025-07-15", "2025-10-15", "2026-01-15", "2026-04-15"],
+                eventDate: "2026-10-11",
+                location: "Antalya, Türkiye"
+            },
+            {
+                name: "CHES",
+                link: "https://ches.iacr.org/2027/",
+                color: "indianred",
+                deadlines: ["2026-07-15", "2026-10-15", "2027-01-15", "2027-04-15"],
+                eventDate: "2027-09-06",
+                location: "Cancún, Mexico"
+            },
+            {
+                name: "Crypto",
+                link: "https://crypto.iacr.org/2025/",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2025-02-13"],
+                eventDate: "2025-08-17",
+                location: "Santa Barbara, US"
+            },
+            {
+                name: "Crypto",
+                link: "https://crypto.iacr.org/2026/",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2026-02-12"],
+                eventDate: "2026-08-17",
+                location: "Santa Barbara, US"
+            },
+            // {
+            //     name: "Crypto",
+            //     link: "https://crypto.iacr.org/2027/",
+            //     color: "hsl(219, 80%, 58%)",
+            //     deadlines: ["2027-??-??"],
+            //     eventDate: "2027-??-??",
+            //     location: "??, ??"
+            // },
+            {
+                name: "CT-RSA",
+                link: "https://ct-rsa-2025.csa.iisc.ac.in/",
+                color: "DimGray",
+                deadlines: ["2024-10-30"],
+                eventDate: "2025-04-28",
+                location: "San Francisco, US" // San Francisco, CA, US
+            },
+            {
+                name: "CT-RSA",
+                link: "https://conference.wsu.edu/ct-rsa-2026/",
+                color: "DimGray",
+                deadlines: ["2025-10-24"],
+                eventDate: "2026-03-23",
+                location: "San Francisco, US" // San Francisco, CA, US
+            },
+            {
+                name: "CT-RSA",
+                link: "https://email.rsaconference.com/p/7K6E-BNA/us2027-ryi-form?&_gl=1*1htueik*_gcl_au*MTU3NDIyMDc2LjE3NzU4MjUyNTUuMTIyNDczMTM4Mi4xNzc2MjU3NDgyLjE3NzYyNTc0ODE.*_ga*MTI5NzYxODU3OC4xNzc1ODI1MjU1*_ga_Q3JZKF3KQM*czE3NzYyNjA4MzMkbzExJGcxJHQxNzc2MjYwODQ0JGo0OSRsMCRoMTkzNTA5MjY3Mw..&pfredir=2",
+                // https://email.rsaconference.com/p/7K6E-BNA/us2027-ryi-form?&_gl=1*1htueik*_gcl_au*MTU3NDIyMDc2LjE3NzU4MjUyNTUuMTIyNDczMTM4Mi4xNzc2MjU3NDgyLjE3NzYyNTc0ODE.*_ga*MTI5NzYxODU3OC4xNzc1ODI1MjU1*_ga_Q3JZKF3KQM*czE3NzYyNjA4MzMkbzExJGcxJHQxNzc2MjYwODQ0JGo0OSRsMCRoMTkzNTA5MjY3Mw..&pfredir=2
+                color: "DimGray",
+                deadlines: ["2026-??-??"],
+                eventDate: "2027-04-05",
+                location: "San Francisco, US" // San Francisco, CA, US
+            },
+            {
+                name: "EC",
+                link: "https://eurocrypt.iacr.org/2026",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2025-10-02"],
+                eventDate: "2026-05-10",
+                location: "Rome, Italy"
+            },
+            {
+                name: "EC",
+                link: "https://eurocrypt.iacr.org/2027",
+                color: "hsl(219, 80%, 58%)",
+                deadlines: ["2026-09-17"],
+                eventDate: "2027-04-11",
+                location: "Eindhoven, The Netherlands"
+            },
+            {
+                name: "Euro S&P",
+                link: "https://eurosp2025.ieee-security.org/",
+                color: "DimGray",
+                deadlines: ["2024-10-24"],
+                eventDate: "2025-06-30",
+                location: "Venice, Italy"
+            },
+            {
+                name: "Euro S&P",
+                link: "https://eurosp2026.ieee-security.org/",
+                color: "DimGray",
+                deadlines: ["2025-11-20"],
+                eventDate: "2026-07-06",
+                location: "Lisbon, Portugal"
+            },
+            {
+                name: "FHE.org",
+                link: "https://fhe.org/conferences/conference-2026/",
+                color: "DimGray",
+                deadlines: ["2025-11-01"],  // Delayed a lot
+                eventDate: "2026-03-08",
+                location: "Taipei, Taiwan"
+            },
+            {
+                name: "FHE.org",
+                link: "https://fhe.org/conferences/conference-2027/",
+                color: "DimGray",
+                deadlines: ["2026-11-01"],
+                eventDate: "2027-04-04",
+                location: "Seattle, US"
+            },
+            {
+                name: "PETs",
+                link: "https://petsymposium.org/",
+                color: "indianred",
+                deadlines: ["2025-05-31", "2025-08-31", "2025-11-30", "2026-02-28"],
+                eventDate: "2026-07-20",
+                location: "Calgary, Canada"
+            },
+            {
+                name: "PETs",
+                link: "https://petsymposium.org/cfp27.php",
+                color: "indianred",
+                deadlines: ["2026-05-31", "2026-08-31", "2026-11-30", "2027-02-28"],
+                eventDate: "2027-07-19",
+                location: "Delft, Netherlands"
+            },
+            {
+                name: "PKC",
+                link: "https://pkc.iacr.org/2025/",
+                color: "DimGray",
+                deadlines: ["2024-10-16"],
+                eventDate: "2025-05-12",
+                location: "Røros, Norway"
+            },
+            {
+                name: "PKC",
+                link: "https://pkc.iacr.org/2026/",
+                color: "DimGray",
+                deadlines: ["2025-10-24"],
+                eventDate: "2026-05-25",
+                location: "West Palm Beach, US"
+            },
+            {
+                name: "PKC",
+                link: "https://pkc.iacr.org/2027/",
+                color: "DimGray",
+                deadlines: ["2026-08-03"],
+                eventDate: "2027-03-01",
+                location: "Taipei, Taiwan"
+            },
+            {
+                name: "PQC",
+                link: "https://pqcrypto2025.iis.sinica.edu.tw/",
+                color: "DimGray",
+                deadlines: ["2024-11-01"],
+                eventDate: "2025-04-08",
+                location: "Taipei, Taiwan"
+                // https://pqcrypto.org/conferences.html
+            },
+            {
+                name: "PQC",
+                link: "https://pqcrypto2026.irisa.fr/",
+                color: "DimGray",
+                deadlines: ["2025-11-07"],
+                eventDate: "2026-04-14",
+                location: "Saint-Malo, France"
+                // https://pqcrypto.org/conferences.html
+            },
+            {
+                name: "S&P",
+                link: "https://sp2026.ieee-security.org",
+                color: "indianred",
+                deadlines: ["2025-06-05", "2025-11-13"],
+                eventDate: "2026-05-18",
+                location: "San Francisco, US" // San Francisco, CA, US
+            },
+            {
+                name: "S&P",
+                link: "https://sp2027.ieee-security.org",
+                color: "indianred",
+                deadlines: ["2026-06-11", "2026-11-17"],
+                eventDate: "2027-??-??",
+                location: "Montreal, Canada"
+            },
+            {
+                name: "SAC",
+                link: "https://sacworkshop.org/SAC25",
+                color: "DimGray",
+                deadlines: ["2025-01-27", "2025-05-07"],
+                eventDate: "2025-08-11",
+                location: "Toronto, Canada"
+            },
+            {
+                name: "SAC",
+                link: "https://sacworkshop.org/SAC26",
+                color: "DimGray",
+                deadlines: ["2026-02-02", "2026-05-11"],
+                eventDate: "2026-08-24",
+                location: "Ottawa, Canada"
+            },
+            {
+                name: "TCC",
+                link: "https://tcc.iacr.org/2025/",
+                color: "DimGray",
+                deadlines: ["2025-05-27"],
+                eventDate: "2025-12-01",
+                location: "Aarhus, Denmark"
+            },
+            {
+                name: "TCC",
+                link: "https://tcc.iacr.org/2026/",
+                color: "DimGray",
+                deadlines: ["2026-05-19"],
+                eventDate: "2026-11-10",
+                location: "New York, US"
+            },
+            {
+                name: "Usenix S.",
+                link: "https://www.usenix.org/conference/usenixsecurity26",
+                color: "indianred",
+                deadlines: ["2025-08-26", "2026-02-05"],
+                eventDate: "2026-08-12",
+                location: "Baltimore, US" // Baltimore, MD, US
+            },
+            {
+                name: "Usenix S.",
+                link: "https://www.usenix.org/conference/usenixsecurity27",
+                color: "indianred",
+                deadlines: ["2026-08-25", "2027-01-26"],
+                eventDate: "2027-08-11",
+                location: "Denver, US" // Denver, CO, US
+            },
+            {
+                name: "WAHC",
+                link: "https://homomorphicencryption.org/wahc-2025/",
+                color: "DimGray",
+                deadlines: ["2025-07-27"],
+                eventDate: "2025-10-13",
+                location: "Taipei, Taiwan"
+            },
+            {
+                name: "WAHC",
+                link: "https://homomorphicencryption.org/wahc-2026/",
+                color: "DimGray",
+                deadlines: ["2026-07-19"],
+                // Updated to July 19th.
+                // June 20th at https://homomorphicencryption.org/wahc-2026
+                // But, July 2nd at https://wahc26.hotcrp.com/deadlines
+                eventDate: "2026-11-15",
+                location: "The Hague, The Netherlands"
+            }
         ];
 
         // ****************** //
-        // Calendar Generator // 
+        // Calendar Generator //
         // ****************** //
         function generateCalendar(conferenceDeadlines) {
             const container = document.querySelector(".calendar");
@@ -1089,7 +1130,7 @@
 
                 // Make a list of conferences
                 const confList = monthMap[i].sort((a, b) => a.year - b.year || (a.day || 0) - (b.day || 0));
-                
+
                 // Compute each entry's past-status and keep only the ones that will
                 // actually render. "No deadlines" must reflect what is *shown*, not the
                 // raw count — otherwise a month whose entries are all filtered out
@@ -1132,8 +1173,6 @@
 
                 // Display policy
                 visible.forEach(({ conf, isDeadlinePast, isEventPast }) => {
-
-                    
                     // Right-side date: gray once the date it shows is behind us. That
                     // date is the deadline (deadline mode) or the event date (event mode).
                     const className = (groupByEvent ? isEventPast : isDeadlinePast) ? "date-late" : "date";
@@ -1274,24 +1313,27 @@
         });
     </script>
 
+    <!-- AOE clock -->
     <script>
         function updateAOETime() {
-        const now = new Date();
-        const options = {
-            timeZone: "Etc/GMT+12", // AOE == UTC-12
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: false,
-        };
+            const now = new Date();
+            const options = {
+                timeZone: "Etc/GMT+12", // AOE == UTC-12
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: false,
+            };
 
-        const formatted = new Intl.DateTimeFormat("en-US", options).format(now);
-        document.getElementById("aoe-time").textContent = formatted;
+            const formatted = new Intl.DateTimeFormat("en-US", options).format(now);
+            document.getElementById("aoe-time").textContent = formatted;
         }
 
         updateAOETime();
         setInterval(updateAOETime, 60000);
     </script>
 </body>
+
+</html>
