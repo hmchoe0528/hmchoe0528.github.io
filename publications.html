@@ -38,7 +38,7 @@
             white-space: normal;
         }
 
-        /* Publications list: every <li> only needs a single "data-year" attribute
+        /* Conference list: every <li> only needs a single "data-year" attribute
            (e.g. data-year="2026"). A small inline script right after the list
            (see below it in the HTML) computes, on load, which items start/end a
            same-year run, the alternating tint, and the countdown numbering -
@@ -96,17 +96,8 @@
             font-size: 10pt;
         }
 
-        /* Venue color: conferences keep the default link color. */
-        .papers a.journal {
-            color: teal;
-        }
-
-        .papers a.abnormal {
-            color: black;
-        }
-
-        /* Simple divider line between each section (Publications / Ph.D. Dissertation /
-           Manuscripts / Specifications) - matches every h1.papers except the first. */
+        /* Simple divider line between each section (Conference Papers / Journal Papers /
+           Dissertation / Manuscripts / Specifications) - matches every h1.papers except the first. */
         h1.papers ~ h1.papers {
             border-top: 1pt solid lightgray;
             margin-top: 40px;
@@ -156,29 +147,26 @@
 
     <div class="wide-piece">
 
-        <!-- ==================== Publications ====================
+        <!-- ==================== Conference Papers ====================
             Newest first. Each <li> only needs data-year; numbering, year-group
             tint and rounded corners are computed by the script right after the list.
             Per item: <h2> title, eng authors, kor authors, venue + links.
         -->
-        <h1 class="papers">Publications</h1>
-        <p><i><a style="color:indianred">Conferences</a> and <a style="color:teal">Journals</a>.</i></p>
-        <p class="eng">Asterisk (*) indicates corresponding author(s).</p>
-        <p class="kor">별표 (*) 표시는 교신 저자를 의미합니다.</p>
+        <h1 class="papers">Conference Papers</h1>
         <ol reversed class="papers">
 
             <li data-year="2027">
                 <h2>
                     Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     Song Bian,
                     <u>Hyeongmin Choe</u>,
-                    Changmin Lee*,
+                    Changmin Lee,
                     Jiseung Kim
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By 송 비안, <u>최형민</u>, 이창민, 김지승
                 </p>
                 <p>
@@ -190,13 +178,13 @@
                 <h2>
                     New IND-CPA-D Attacks on BFV and BGV
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     <u>Hyeongmin Choe</u>,
                     <a href="https://mskang0503.github.io/">Minsik Kang</a>,
                     <a href="http://perso.ens-lyon.fr/damien.stehle/">Damien Stehl&eacute;</a>
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By <u>최형민</u>, 강민식, 다미안 스텔레
                 </p>
                 <p>
@@ -204,46 +192,25 @@
                 </p>
             </li>
 
-            <li data-year="2026">
-                <h2>
-                    Multi-Party Homomorphic Encryption with Dynamicity and Ciphertext Reusability
-                </h2>
-                <p class="eng no-mobile">
-                    (α-β order) By
-                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe*</u>,
-                    Seunghong Kim,
-                    <a href="https://yongdongyeo.github.io/">Yongdong Yeo</a>
-                </p>
-                <p class="kor no-mobile">
-                    (알파벳순) By 천정희, <u>최형민</u>, 김승홍, 여용동
-                </p>
-                <p>
-                    <a class="journal" href="https://cic.iacr.org/"><b>CiC</b></a>, Vol. 3, Iss. 1, 2026.
-                    [<a href="https://doi.org/10.62056/a0qj89krz" style="color:blue">paper</a>]
-                    [<a href="https://eprint.iacr.org/2025/581" style="color:blue">preprint</a>]
-                </p>
-            </li>
-
             <li data-year="2025">
                 <h2>
                     Leveraging Discrete CKKS to Bootstrap in High Precision
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     <u>Hyeongmin Choe</u>,
                     <a href="https://jaehyungkim0.github.io/">Jaehyung Kim</a>,
                     <a href="http://perso.ens-lyon.fr/damien.stehle/">Damien Stehl&eacute;</a>,
                     Elias Suvanto
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By <u>최형민</u>, 김재형, 다미안 스텔레, 일리아스 수반토
                 </p>
                 <p>
                     <a href="https://www.sigsac.org/ccs/CCS2025"><b>ACM CCS 2025</b></a>
-                    [<a href="https://doi.org/10.1145/3719027.3765080" style="color:blue">paper</a>]
-                    [<a href="https://eprint.iacr.org/2025/1786" style="color:blue">preprint</a>]
-                    [<a href="https://ckks.org/blog/2025/high_prec_bootstrap" style="color:blue">blogpost</a>]
+                    <a class="ref" href="https://doi.org/10.1145/3719027.3765080">[paper]</a>
+                    <a class="ref" href="https://eprint.iacr.org/2025/1786">[preprint]</a>
+                    <a class="ref" href="https://ckks.org/blog/2025/high_prec_bootstrap">[blogpost]</a>
                 </p>
             </li>
 
@@ -251,7 +218,7 @@
                 <h2>
                     Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
                     <u>Hyeongmin Choe</u>,
@@ -261,66 +228,25 @@
                     <a href="https://www.asdf.one/">Johannes Mono</a>,
                     Taeyeong Noh
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By 천정희, <u>최형민</u>, 강민식, 김재형, 김성학, 요하네스 모노, 노태영
                 </p>
                 <p>
                     <a href="https://www.sigsac.org/ccs/CCS2025"><b>ACM CCS 2025</b></a>
-                    [<a href="https://doi.org/10.1145/3719027.3765083" style="color:blue">paper</a>]
-                    [<a href="https://eprint.iacr.org/2024/1014" style="color:blue">preprint</a>]
-                    [<a href="https://ckks.org/blog/2025/grafting" style="color:blue">blogpost (by J. Mono)</a>]
+                    <a class="ref" href="https://doi.org/10.1145/3719027.3765083">[paper]</a>
+                    <a class="ref" href="https://eprint.iacr.org/2024/1014">[preprint]</a>
+                    <a class="ref" href="https://ckks.org/blog/2025/grafting">[blogpost (by J. Mono)]</a>
                 </p>
             </li>
 
-            <li data-year="2025">
-                <h2>
-                    Tree-based Lookup Table on Batched Encrypted Queries using Homomorphic Encryption
-                </h2>
-                <p class="eng no-mobile">
-                    (α-β order) By
-                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe</u>,
-                    <a href="https://jaihyunp.github.io/">Jai Hyun Park*</a>
-                </p>
-                <p class="kor no-mobile">
-                    (알파벳순) By 천정희, <u>최형민</u>, 박재현*
-                </p>
-                <p>
-                    <a class="journal" href="https://jkms.kms.or.kr/content/about/aimsnscope.html"><b>JKMS</b></a>, Vol. 62, Iss. 5, 2025
-                    [<a href="https://jkms.kms.or.kr/journal/view.html?doi=10.4134/JKMS.j240423" style="color:blue">paper</a>]
-                    [<a href="https://eprint.iacr.org/2024/087" style="color:blue">preprint</a>]
-                </p>
-            </li>
-
-            <li data-year="2024">
-                <h2>
-                    SMAUG(-T), Revisited: Timing-secure, More Compact, Less Failure
-                </h2>
-                <p class="eng no-mobile">
-                    (α-β order) By
-                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe*</u>,
-                    Jungjoo Seo,
-                    Hyoeun Seong
-                </p>
-                <p class="kor no-mobile">
-                    (알파벳순) By 천정희, <u>최형민*</u>, 서정주, 성효은
-                </p>
-                <p>
-                    <a class="journal" href="https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access"><b>IEEE ACCESS</b></a>, Vol. 12, 2024
-                    [<a href="https://doi.org/10.1109/ACCESS.2024.3511346" style="color:blue">paper</a>]
-                    [<a href="https://github.com/hmchoe0528/smaug-t_public" style="color:blue">github</a>]
-                </p>
-            </li>
-
-            <li data-year="2024">
+            <!-- <li data-year="2024">
                 <h2>
                     (Extended Abstract) Toward Practical Threshold FHE: Low Communication, Computation and Interaction
                 </h2>
-                <p class="eng no-mobile">
-                    By <u>Hyeongmin Choe*</u>
+                <p class="eng no-mobile authors">
+                    By <u>Hyeongmin Choe</u>
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     By <u>최형민*</u>
                 </p>
                 <p>
@@ -328,15 +254,15 @@
                         <b>ACM CCS 2024
                             <span class="no-mobile">Doctoral Symposium</span>
                             <span class="only-mobile">Doct. Symp.</span></b></a>
-                    [<a href="https://doi.org/10.1145/3658644.3690861" style="color:blue"><span class="no-mobile">extended-abstract</span><span class="only-mobile">ext-abs</span></a>]
+                    <a class="ref" href="https://doi.org/10.1145/3658644.3690861">[<span class="no-mobile">extended-abstract</span><span class="only-mobile">ext-abs</span>]</a>
                 </p>
-            </li>
+            </li> -->
 
             <li data-year="2024">
                 <h2>
                     Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE Schemes
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
                     <u>Hyeongmin Choe</u>,
@@ -344,14 +270,14 @@
                     <a href="http://perso.ens-lyon.fr/damien.stehle/">Damien Stehl&eacute;</a>,
                     Elias Suvanto
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By 천정희, <u>최형민</u>, 알랑 파슬렠, 다미안 스텔레, 일리아스 수반토
                 </p>
                 <p>
                     <a href="https://www.sigsac.org/ccs/CCS2024"><b>ACM CCS 2024</b></a>
-                    [<a href="https://doi.org/10.1145/3658644.3690341" style="color:blue">paper</a>]
-                    [<a href="https://eprint.iacr.org/2024/127" style="color:blue">preprint</a>]
-                    [<a href="https://github.com/hmchoe0528/INDCPAD_HE_ThresFHE" style="color:blue">github</a>]
+                    <a class="ref" href="https://doi.org/10.1145/3658644.3690341">[paper]</a>
+                    <a class="ref" href="https://eprint.iacr.org/2024/127">[preprint]</a>
+                    <a class="ref" href="https://github.com/hmchoe0528/INDCPAD_HE_ThresFHE">[github]</a>
                 </p>
             </li>
 
@@ -359,7 +285,7 @@
                 <h2>
                     HAETAE: Shorter Lattice-Based Fiat-Shamir Signatures
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
                     <u>Hyeongmin Choe</u>,
@@ -372,13 +298,13 @@
                     <a href="http://perso.ens-lyon.fr/damien.stehle/">Damien Stehl&eacute;</a>,
                     MinJune Yi
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By 천정희, <u>최형민</u>, 쥴리앙 드브붸, 팀 구네슈, 홍동연, 마르커스 크라우쯔, 게오르그 랑, 마크 뮬러, 다미안 스텔레, 이민준
                 </p>
                 <p>
                     <a href="https://ches.iacr.org/2024/"><b>CHES 2024</b></a>
-                    [<a href="https://doi.org/10.46586/tches.v2024.i3.25-75" style="color:blue">paper</a>]
-                    [<a href="https://eprint.iacr.org/2023/624" style="color:blue">preprint</a>]
+                    <a class="ref" href="https://doi.org/10.46586/tches.v2024.i3.25-75">[paper]</a>
+                    <a class="ref" href="https://eprint.iacr.org/2023/624">[preprint]</a>
                 </p>
             </li>
 
@@ -386,88 +312,26 @@
                 <h2>
                     SMAUG: Pushing Lattice-based Key Encapsulation Mechanisms to the Limits
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
                     <u>Hyeongmin Choe</u>,
                     Dongyeon Hong,
                     MinJune Yi
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By 천정희, <u>최형민</u>, 홍동연, 이민준
                 </p>
                 <p>
                     <a href="https://sac-workshop.github.io/sac-2023/"><b>SAC 2023</b></a>
-                    [<a href="https://doi.org/10.1007/978-3-031-53368-6_7" style="color:blue">paper</a>]
-                    [<a href="https://eprint.iacr.org/2023/739" style="color:blue">preprint</a>]
+                    <a class="ref" href="https://doi.org/10.1007/978-3-031-53368-6_7">[paper]</a>
+                    <a class="ref" href="https://eprint.iacr.org/2023/739">[preprint]</a>
                 </p>
             </li>
-
-            <li data-year="2022">
-                <h2>
-                    Secure Tumor Classification by Shallow Neural Network Using Homomorphic Encryption
-                </h2>
-                <p class="eng no-mobile">
-                    By
-                    <a href="https://swanhong.github.io/">Seungwan Hong*</a>,
-                    <a href="https://jaihyunp.github.io/">Jai Hyun Park</a>,
-                    <a href="https://wony0404.github.io/">Wonhee Cho</a>,
-                    <u>Hyeongmin Choe</u>,
-                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>
-                </p>
-                <p class="kor no-mobile">
-                    By 홍승완*, 박재현, 조원희, <u>최형민</u>, 천정희
-                </p>
-                <p>
-                    <a class="journal" href="https://bmcgenomics.biomedcentral.com/"><b>BMC Genomics</b></a>, Vol. 23, 2022
-                    [<a href="https://doi.org/10.1186/s12864-022-08469-w" style="color:blue">paper</a>]
-                    [<a href="https://github.com/jaihyunp/iDash2020" style="color:blue">github</a>]
-                </p>
-            </li>
-
-            <li data-year="2019">
-                <h2>
-                    Faster Linear Transformations in HElib, revisited
-                </h2>
-                <p class="eng no-mobile">
-                    (α-β order) By
-                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
-                    <u>Hyeongmin Choe</u>,
-                    Donghwan Lee,
-                    Yongha Son*
-                </p>
-                <p class="kor no-mobile">
-                    (알파벳순) By 천정희, <u>최형민</u>, 이동환, 손용하*
-                </p>
-                <p>
-                    <a class="journal" href="https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access"><b>IEEE Access</b></a>, Vol. 7, 2019
-                    [<a href="https://doi.org/10.1109/ACCESS.2019.2911300" style="color:blue">paper</a>]
-                </p>
-            </li>
-
-            <!-- <li>
-                <h2>
-                    On Fourth-order Iterative Methods for Multiple Roots of Nonlinear Equations with High Efficiency
-                </h2>
-                <p class="eng no-mobile">By Siyul Lee*, <u>Hyeongmin Choe</u> (Highschool research) </p>
-                <p class="kor no-mobile">By 이시열*, <u>최형민</u></p>
-                <p><b>JoCAAA</b> 2015
-                    [<a href="https://www.researchgate.net/publication/295559175_On_fourth-order_iterative_methods_for_multiple_roots_of_nonlinear_equations_with_high_efficiency"
-                        style="color:blue">paper</a>]</p>
-            </li>
-            <li>
-                <h2>
-                    Multiplicational Combinations and A General Scheme of Single-step Iterative Methods for Multiple
-                    Roots
-                </h2>
-                <p class="eng no-mobile">By Siyul Lee*, <u>Hyeongmin Choe</u> (Highschool research) </p>
-                <p class="kor no-mobile">By 이시열*, <u>최형민</u></p>
-                <p><b>JoCAAA</b> 2013
-                    [<a href="https://www.researchgate.net/publication/266919595_Multiplicational_combinations_and_a_general_scheme_of_single-step_iterative_methods_for_multiple_roots"
-                        style="color:blue">paper</a>]</p>
-            </li> -->
 
         </ol>
+
+        <!-- Number and tint the conference list by year -->
         <script>
             // Auto-computes, from each <li>'s data-year alone: the countdown
             // numbering, the alternating tint between year-groups, and the
@@ -497,9 +361,144 @@
             })();
         </script>
 
-        <!-- ==================== Ph.D. Dissertation ==================== -->
+        <!-- ==================== Journal Papers ====================
+            Newest first. Plain numbered list: no data-year, so no year-group tint.
+            Per item: <h2> title, eng authors, kor authors, venue + links.
+        -->
+        <h1 class="papers">Journal Papers</h1>
+        <p class="eng">Asterisk (*) indicates corresponding author(s).</p>
+        <p class="kor">별표 (*) 표시는 교신 저자를 의미합니다.</p>
+        <ol reversed class="papers">
+
+            <li>
+                <h2>
+                    Multi-Party Homomorphic Encryption with Dynamicity and Ciphertext Reusability
+                </h2>
+                <p class="eng no-mobile authors">
+                    (α-β order) By
+                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
+                    <u>Hyeongmin Choe*</u>,
+                    Seunghong Kim,
+                    <a href="https://yongdongyeo.github.io/">Yongdong Yeo</a>
+                </p>
+                <p class="kor no-mobile authors">
+                    (알파벳순) By 천정희, <u>최형민*</u>, 김승홍, 여용동
+                </p>
+                <p>
+                    <a href="https://cic.iacr.org/"><b>CiC</b></a>, Vol. 3, Iss. 1, 2026.
+                    <a class="ref" href="https://doi.org/10.62056/a0qj89krz">[paper]</a>
+                    <a class="ref" href="https://eprint.iacr.org/2025/581">[preprint]</a>
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    Tree-based Lookup Table on Batched Encrypted Queries using Homomorphic Encryption
+                </h2>
+                <p class="eng no-mobile authors">
+                    (α-β order) By
+                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
+                    <u>Hyeongmin Choe</u>,
+                    <a href="https://jaihyunp.github.io/">Jai Hyun Park*</a>
+                </p>
+                <p class="kor no-mobile authors">
+                    (알파벳순) By 천정희, <u>최형민</u>, 박재현*
+                </p>
+                <p>
+                    <a href="https://jkms.kms.or.kr/content/about/aimsnscope.html"><b>JKMS</b></a>, Vol. 62, Iss. 5, 2025
+                    <a class="ref" href="https://jkms.kms.or.kr/journal/view.html?doi=10.4134/JKMS.j240423">[paper]</a>
+                    <a class="ref" href="https://eprint.iacr.org/2024/087">[preprint]</a>
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    SMAUG(-T), Revisited: Timing-secure, More Compact, Less Failure
+                </h2>
+                <p class="eng no-mobile authors">
+                    (α-β order) By
+                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
+                    <u>Hyeongmin Choe*</u>,
+                    Jungjoo Seo,
+                    Hyoeun Seong
+                </p>
+                <p class="kor no-mobile authors">
+                    (알파벳순) By 천정희, <u>최형민*</u>, 서정주, 성효은
+                </p>
+                <p>
+                    <a href="https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access"><b>IEEE ACCESS</b></a>, Vol. 12, 2024
+                    <a class="ref" href="https://doi.org/10.1109/ACCESS.2024.3511346">[paper]</a>
+                    <a class="ref" href="https://github.com/hmchoe0528/smaug-t_public">[github]</a>
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    Secure Tumor Classification by Shallow Neural Network Using Homomorphic Encryption
+                </h2>
+                <p class="eng no-mobile authors">
+                    By
+                    <a href="https://swanhong.github.io/">Seungwan Hong*</a>,
+                    <a href="https://jaihyunp.github.io/">Jai Hyun Park</a>,
+                    <a href="https://wony0404.github.io/">Wonhee Cho</a>,
+                    <u>Hyeongmin Choe</u>,
+                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>
+                </p>
+                <p class="kor no-mobile authors">
+                    By 홍승완*, 박재현, 조원희, <u>최형민</u>, 천정희
+                </p>
+                <p>
+                    <a href="https://bmcgenomics.biomedcentral.com/"><b>BMC Genomics</b></a>, Vol. 23, 2022
+                    <a class="ref" href="https://doi.org/10.1186/s12864-022-08469-w">[paper]</a>
+                    <a class="ref" href="https://github.com/jaihyunp/iDash2020">[github]</a>
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    Faster Linear Transformations in HElib, revisited
+                </h2>
+                <p class="eng no-mobile authors">
+                    (α-β order) By
+                    <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
+                    <u>Hyeongmin Choe</u>,
+                    Donghwan Lee,
+                    Yongha Son*
+                </p>
+                <p class="kor no-mobile authors">
+                    (알파벳순) By 천정희, <u>최형민</u>, 이동환, 손용하*
+                </p>
+                <p>
+                    <a href="https://ieeeaccess.ieee.org/about-ieee-access/learn-more-about-ieee-access"><b>IEEE Access</b></a>, Vol. 7, 2019
+                    <a class="ref" href="https://doi.org/10.1109/ACCESS.2019.2911300">[paper]</a>
+                </p>
+            </li>
+
+            <!-- <li>
+                <h2>
+                    On Fourth-order Iterative Methods for Multiple Roots of Nonlinear Equations with High Efficiency
+                </h2>
+                <p class="eng no-mobile authors">By Siyul Lee*, <u>Hyeongmin Choe</u> (Highschool research) </p>
+                <p class="kor no-mobile authors">By 이시열*, <u>최형민</u></p>
+                <p><b>JoCAAA</b> 2015
+                    <a class="ref" href="https://www.researchgate.net/publication/295559175_On_fourth-order_iterative_methods_for_multiple_roots_of_nonlinear_equations_with_high_efficiency">[paper]</a></p>
+            </li>
+            <li>
+                <h2>
+                    Multiplicational Combinations and A General Scheme of Single-step Iterative Methods for Multiple
+                    Roots
+                </h2>
+                <p class="eng no-mobile authors">By Siyul Lee*, <u>Hyeongmin Choe</u> (Highschool research) </p>
+                <p class="kor no-mobile authors">By 이시열*, <u>최형민</u></p>
+                <p><b>JoCAAA</b> 2013
+                    <a class="ref" href="https://www.researchgate.net/publication/266919595_Multiplicational_combinations_and_a_general_scheme_of_single-step_iterative_methods_for_multiple_roots">[paper]</a></p>
+            </li> -->
+
+        </ol>
+
+        <!-- ==================== Dissertation ==================== -->
         <h1 class="papers">Dissertation</h1>
-        <p><i>PhD Thesis.</i></p>
+        <p><i>PhD thesis.</i></p>
         <ul class="papers">
             <li>
                 <h2 class="eng">
@@ -507,39 +506,39 @@
                 </h2>
                 <p class="eng">
                     Seoul National University, Feb 2025
-                    [<a href="https://s-space.snu.ac.kr/handle/10371/220155" style="color:blue">thesis</a>]
+                    <a class="ref" href="https://s-space.snu.ac.kr/handle/10371/220155">[thesis]</a>
                 </p>
                 <h2 class="kor">
                     기계 친화적 산술 구조를 통한 동형 연산 가속화 연구
                 </h2>
                 <p class="kor">
                     서울대학교, 2025년 2월
-                    [<a href="https://s-space.snu.ac.kr/handle/10371/220155" style="color:blue">thesis</a>]
+                    <a class="ref" href="https://s-space.snu.ac.kr/handle/10371/220155">[thesis]</a>
                 </p>
             </li>
         </ul>
 
         <!-- ==================== Manuscripts ==================== -->
         <h1 class="papers">Manuscripts</h1>
-        <p><i>Archived.</i></p>
+        <p><i>Archived, not peer-reviewed.</i></p>
         <ul class="papers">
             <li>
                 <h2>
                     (eprint) Stay in Your Lane: Fast Arithmetic over Large Finite Rings with CKKS
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     <u>Hyeongmin Choe</u>,
                     <a href="https://www.uni.lu/snt-en/people/robin-kostler/">Robin Köstler</a>,
                     <a href="https://www.uni.lu/fstm-en/people/tim-seure/">Tim Seuré</a>
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By <u>최형민</u>, 로빈 쾿틀러, 팀 슈헤
                 </p>
                 <p class="links">
                     <!--Awarded from <a href="https://kcryptoforum.or.kr/web/Board/523/detailView.do"><b>National Cryptography Contest 2022</b></a> -->
                     Eprint <span class="no-mobile">archive</span> 2026/2190
-                    [<a href="https://eprint.iacr.org/2026/2190" style="color:blue">preprint</a>]
+                    <a class="ref" href="https://eprint.iacr.org/2026/2190">[preprint]</a>
                 </p>
             </li>
 
@@ -547,7 +546,7 @@
                 <h2>
                     (eprint) Arithmetic PCA for Encrypted Data
                 </h2>
-                <p class="eng no-mobile">
+                <p class="eng no-mobile authors">
                     (α-β order) By
                     <a href="http://www.math.snu.ac.kr/~jhcheon/xe2/">Jung Hee Cheon</a>,
                     <u>Hyeongmin Choe</u>,
@@ -556,78 +555,78 @@
                     Dah Hoon Lee,
                     <a href="https://jaihyunp.github.io/">Jai Hyun Park</a>
                 </p>
-                <p class="kor no-mobile">
+                <p class="kor no-mobile authors">
                     (알파벳순) By 천정희, <u>최형민</u>, 정새별, 김두형, 이다훈, 박재현
                 </p>
                 <p class="links">
                     <!--Awarded from <a href="https://kcryptoforum.or.kr/web/Board/523/detailView.do"><b>National Cryptography Contest 2022</b></a> -->
                     Eprint <span class="no-mobile">archive</span> 2023/1544
-                    [<a href="https://eprint.iacr.org/2023/1544" style="color:blue">preprint</a>]
+                    <a class="ref" href="https://eprint.iacr.org/2023/1544">[preprint]</a>
                 </p>
             </li>
         </ul>
 
         <!-- ==================== Specifications ==================== -->
         <h1 class="papers">Specifications</h1>
-        <p><i>Specifications for schemes submitted to KpqC and NIST PQC.</i></p>
+        <p><i>Schemes submitted to KpqC and NIST PQC.</i></p>
         <ul class="papers">
             <li>
                 <h2>
                     HAETAE (Winner of KpqC Competition)
-                    [<a href="https://kpqc.or.kr/images/pdf/HAETAE.pdf" style="color:blue">v0.9</a>]
-                    [<a href="assets/manuscripts/HAETAE_spec_23.05.02_v1.0.pdf" style="color:blue">v1.0</a>]
-                    [<a href="assets/manuscripts/HAETAE_spec_23.11.29_v2.0.pdf" style="color:blue">v2.0</a>]
-                    [<a href="assets/manuscripts/HAETAE_spec_24.02.23_v2.1.pdf" style="color:blue">v2.1</a>]
-                    [<a href="assets/manuscripts/HAETAE_spec_24.07.04_v3.0.pdf" style="color:blue">v3.0</a>]
-                    [<a href="https://kpqc.cryptolab.co.kr/haetae" style="color:blue">website</a>]
+                    <a class="ref" href="https://kpqc.or.kr/images/pdf/HAETAE.pdf">[v0.9]</a>
+                    <a class="ref" href="assets/manuscripts/HAETAE_spec_23.05.02_v1.0.pdf">[v1.0]</a>
+                    <a class="ref" href="assets/manuscripts/HAETAE_spec_23.11.29_v2.0.pdf">[v2.0]</a>
+                    <a class="ref" href="assets/manuscripts/HAETAE_spec_24.02.23_v2.1.pdf">[v2.1]</a>
+                    <a class="ref" href="assets/manuscripts/HAETAE_spec_24.07.04_v3.0.pdf">[v3.0]</a>
+                    <a class="ref" href="https://kpqc.cryptolab.co.kr/haetae">[website]</a>
                 </h2>
                 <p>
                     <a href="https://kpqc.or.kr/competition.html"><b>KpqC
                         <span class="no-mobile">Competition Round 2,</span>
                         <span class="only-mobile">R2,</span>
                     </b></a> 2024
-                    [<a href="assets/manuscripts/HAETAE_spec_24.02.23_v2.1.pdf" style="color:blue">v2.1</a>]
+                    <a class="ref" href="assets/manuscripts/HAETAE_spec_24.02.23_v2.1.pdf">[v2.1]</a>
                 </p>
                 <p>
                     <a href="https://csrc.nist.gov/projects/pqc-dig-sig"><b>NIST
                         <span class="no-mobile">Additional Signatures Round 1,</span>
                         <span class="only-mobile">Sig. R1,</span>
                     </b></a> 2023
-                    [<a href="https://csrc.nist.gov/csrc/media/Projects/pqc-dig-sig/documents/round-1/spec-files/haetae-spec-web.pdf" style="color:blue">spec</a>]
+                    <a class="ref" href="https://csrc.nist.gov/csrc/media/Projects/pqc-dig-sig/documents/round-1/spec-files/haetae-spec-web.pdf">[spec]</a>
                 </p>
                 <p>
                     <a href="https://kpqc.or.kr/competition.html"><b>KpqC
                         <span class="no-mobile">Competition Round 1,</span>
                         <span class="only-mobile">R1,</span>
                     </b></a>2022
-                    [<a href="https://kpqc.or.kr/images/pdf/HAETAE.pdf" style="color:blue">v0.9</a>]
+                    <a class="ref" href="https://kpqc.or.kr/images/pdf/HAETAE.pdf">[v0.9]</a>
                 </p>
             </li>
 
             <li>
                 <h2>
                     SMAUG(-T) (Winner of KpqC Competition)
-                    [<a href="https://kpqc.or.kr/images/pdf/Smaug.pdf" style="color:blue">v0.9</a>]
-                    [<a href="assets/manuscripts/SMAUG_spec_23.05.23_v1.0.pdf" style="color:blue">v1.0</a>]
-                    [<a href="assets/manuscripts/SMAUG_spec_23.10.30_v2.0.pdf" style="color:blue">v2.0</a>]
-                    [<a href="assets/manuscripts/SMAUG-T_spec_24.02.23_v3.0.pdf" style="color:blue">v3.0</a>]
-                    [<a href="assets/manuscripts/SMAUG_T_spec_Oct24_v4.0.pdf" style="color:blue">v4.0</a>]
-                    [<a href="https://github.com/hmchoe0528/SMAUG-T_public" style="color:blue">github</a>]
-                    [<a href="https://kpqc.cryptolab.co.kr/smaug-t" style="color:blue">website</a>]
+                    <a class="ref" href="https://kpqc.or.kr/images/pdf/Smaug.pdf">[v0.9]</a>
+                    <a class="ref" href="assets/manuscripts/SMAUG_spec_23.05.23_v1.0.pdf">[v1.0]</a>
+                    <a class="ref" href="assets/manuscripts/SMAUG_spec_23.10.30_v2.0.pdf">[v2.0]</a>
+                    <a class="ref" href="assets/manuscripts/SMAUG-T_spec_24.02.23_v3.0.pdf">[v3.0]</a>
+                    <a class="ref" href="assets/manuscripts/SMAUG_T_spec_Oct24_v4.0.pdf">[v4.0]</a>
+                    <a class="ref" href="https://github.com/hmchoe0528/SMAUG-T_public">[github]</a>
+                    <a class="ref" href="https://kpqc.cryptolab.co.kr/smaug-t">[website]</a>
                 </h2>
                 <p>
                     <a href="https://kpqc.or.kr/competition.html"><b>KpqC
                         <span class="no-mobile">Competition Round 2,</span>
                         <span class="only-mobile">R2,</span>
                     </b></a> 2024
-                    [<a href="assets/manuscripts/SMAUG-T_spec_24.02.23_v3.0.pdf" style="color:blue">v3.0</a>]
+                    <a class="ref" href="assets/manuscripts/SMAUG-T_spec_24.02.23_v3.0.pdf">[v3.0]</a>
                 </p>
                 <p>
                     <a href="https://kpqc.or.kr/competition.html"><b>KpqC
                         <span class="no-mobile">Competition Round 1,</span>
                         <span class="only-mobile">R1,</span>
                     </b></a> 2022
-                    [<a href="https://kpqc.or.kr/images/pdf/Smaug.pdf" style="color:blue">v0.9</a>]
+                    <a class="ref" href="https://kpqc.or.kr/images/pdf/Smaug.pdf">[v0.9]</a>
                 </p>
             </li>
         </ul>

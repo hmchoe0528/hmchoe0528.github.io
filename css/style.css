@@ -60,6 +60,9 @@ html, body { color: black; font-family: 'noto-eng','noto-kor' !important; height
 * {margin: 0;padding: 0;box-sizing: border-box}
 a {color:indianred;text-decoration:none;}
 a:hover {border-bottom: 1pt dashed black!important}
+/* Link colors by role, shared by all pages. Venue links keep the default color above. */
+a.ref {color:dimgray} /* resource links, brackets included: [paper], [preprint], [slides], ... */
+.authors a {color:dimgray} /* author names */
 b {position:relative!important;font-family: 'noto-eng-b','noto-kor-b'}
 img {display:block}
 
@@ -71,7 +74,7 @@ header,footer {
     position: relative;
     background: no-repeat center fixed;
     background-size: cover;
-    
+
 }
 footer * {position: relative}
 
@@ -269,7 +272,7 @@ footer ._goto-top:hover {
 .menubar .right-menu a:hover,
 .menubar .right-menu .this-page{
     /*color:rgb(200,150,120)!important;*/
-    color: indianred;!important;
+    color: indianred;
     transition:0.2s ease-in-out;
 }
 .menubar .right-menu .right-menu-menu{
@@ -593,7 +596,7 @@ footer ._goto-top:hover {
         margin-right:0px;
         cursor:pointer;
     }
-  
+
 
     ._profile {
         position: relative;
