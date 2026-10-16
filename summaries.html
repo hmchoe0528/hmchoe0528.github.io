@@ -16,17 +16,22 @@
         .cards-container {
             display: flex;
             flex-direction: column;
-            gap: 30px; /* 카드 사이의 간격 */
+            gap: 30px;
+            /* 카드 사이의 간격 */
             margin-top: 30px;
         }
 
         /* 각 연구 항목 카드 스타일 */
         .card {
             background-color: #ffffff;
-            border: 1px solid #e1e4e8; /* 연한 테두리 */
-            border-radius: 16px; /* 둥근 모서리 */
-            padding: 25px; /* 내부 여백 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+            border: 1px solid #e1e4e8;
+            /* 연한 테두리 */
+            border-radius: 16px;
+            /* 둥근 모서리 */
+            padding: 25px;
+            /* 내부 여백 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            /* 은은한 그림자 */
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -101,17 +106,28 @@
                 </p>
                 <p>
                     <i><b>IEEE S&P 2027</b></i>
-                    <!-- <a href="https://eprint.iacr.org/?/?"> &nbsp;ePrint&#8599;</a>  -->
+                    <a href="https://ia.cr/2026/2490"> &nbsp;ePrint&#8599;</a>
                     <!-- <a href="assets/slides/?"> &nbsp;slides&#8599;</a>  -->
                     <!-- &#128206; &#128279; &#8599; -->
                 </p>
                 <div class="content">
                     <br>
                     <p class="eng">
-                        TBD, after Coordinated Disclosure.
+                        FHE is actively deployed,
+                        yet its IND-CPA(-D) security relies on the assumptions of its security game, hard to satisfy in practice.
+                        <b>Reaction attacks</b>, where an adversary only sees whether the client accepts the decryption,
+                        exploit this gap in exact schemes like TFHE and BGV.
+                        We extend and enhance this attack to CKKS,
+                        <b>recovering the secret key</b> with nearly information-theoretically optimal queries.
+                        Secure deployment must thus enforce these assumptions,
+                        e.g., by blocking reaction leakage or using verifiable FHE.
                     </p>
                     <p class="kor">
-                        TBD, after Coordinated Disclosure.
+                        동형암호의 상용화가 활발히 진행되고 있으나,
+                        IND-CPA(-D) 안전성은 안전성 모델의 가정이 지켜질 때만 보장되므로 실제로 이를 만족하기는 까다롭습니다.
+                        복호화 결과에 대한 클라이언트의 수용 여부만 관찰하는 <b>리액션 공격</b>은 TFHE나 BGV 같은 exact 동형암호에서 이 간극을 파고들어 왔습니다.
+                        본 연구는 이 공격을 CKKS로 확장 및 개선하여, 정보 이론적 최적치에 가까운 쿼리 수만으로 <b>비밀키를 복구</b>할 수 있음을 보입니다.
+                        따라서 동형암호를 안전하게 배포하려면 리액션 누출을 차단하거나 Verifiable FHE를 도입하는 등 안전성 모델의 가정을 지켜야 합니다.
                     </p>
                 </div>
             </div>
@@ -165,13 +181,17 @@
                     <br>
                     <p class="eng">
                         In this paper, we present a novel and efficient high-precision CKKS bootstrapping method.
-                        We introduce an <b>Integer Cleaning</b> technique based on Discrete-CKKS, along with a <b>Thrifty approach</b> for digit-cleaning.
-                        By incorporating these techniques into the EvalRound+ framework, we achieve effective high-precision bootstrapping.
-                        Our Grafting-based implementation demonstrates a 1.6× improvement in 80-bit precision CKKS bootstrapping.
+                        We introduce an <b>Integer Cleaning</b> technique based on Discrete-CKKS, along with a
+                        <b>Thrifty approach</b> for digit-cleaning.
+                        By incorporating these techniques into the EvalRound+ framework, we achieve effective
+                        high-precision bootstrapping.
+                        Our Grafting-based implementation demonstrates a 1.6× improvement in 80-bit precision CKKS
+                        bootstrapping.
                     </p>
                     <p class="kor">
                         이 논문에서는 효율적인 <b>고정밀 CKKS 부트스트래핑</b>을 새롭게 제안합니다.
-                        우리는 Discrete-CKKS 기반의 동형 <b>Integer Cleaning</b> 기법과 효율적인 digit 클리닝 기법인 <b>Thrifty Approach</b>를 도입하여,
+                        우리는 Discrete-CKKS 기반의 동형 <b>Integer Cleaning</b> 기법과 효율적인 digit 클리닝 기법인 <b>Thrifty Approach</b>를
+                        도입하여,
                         정수 노이즈를 효과적으로 제거하고 모듈러스와 성능 효율성을 동시에 달성합니다.
                         이들 기법을 EvalRound+ 프레임워크에 적용하여 매우 효과적인 부트스트래핑을 제안하며,
                         Grafting 기반의 구현으로 80비트 정밀도의 CKKS 부트스트래핑에서 약 1.6배 성능 향상을 입증하였습니다.
@@ -199,10 +219,13 @@
                     <br>
                     <!-- <p>-----</p> -->
                     <p class="eng">
-                        In this paper, we revisit the arithmetic structure of the CKKS FHE scheme and introduce <b>Grafting</b>,
+                        In this paper, we revisit the arithmetic structure of the CKKS FHE scheme and introduce
+                        <b>Grafting</b>,
                         a technique that decouples the scale factor from the modulus.
-                        This enables optimized RNS packing and more flexible rescaling, while also reducing public key sizes and execution time.
-                        Our experimental results demonstrate 1.92× faster bootstrapping, 1.89× faster Bit-CKKS bootstrapping, and a 62% reduction in public key size.
+                        This enables optimized RNS packing and more flexible rescaling, while also reducing public key
+                        sizes and execution time.
+                        Our experimental results demonstrate 1.92× faster bootstrapping, 1.89× faster Bit-CKKS
+                        bootstrapping, and a 62% reduction in public key size.
                     </p>
                     <p class="kor">
                         이 논문에서는 CKKS FHE 스킴의 산술 구조를 재설계하여, 스케일 팩터와 모듈러스 간의 의존성을 분리하는 Grafting 기법을 소개합니다.
@@ -212,7 +235,8 @@
                     </p>
                     <!-- <p>--</p> -->
                     <p class="eng" style="margin-top: 8px;">
-                        <i>This work is partly included in my PhD dissertation. It also receives the <b>Excellence Award</b> at 2025 Korean National Cryptography Contest</i>.
+                        <i>This work is partly included in my PhD dissertation. It also receives the <b>Excellence
+                                Award</b> at 2025 Korean National Cryptography Contest</i>.
                     </p>
                     <p class="kor" style="margin-top: 8px;">
                         <i>이 연구는 제 박사학위논문에도 수록되어 있으며, 2025년 한국국가암호공모전에서 최우수상을 수상할 예정입니다</i>.
@@ -242,11 +266,13 @@
                     <br>
                     <!-- <p>-----</p> -->
                     <p class="eng">
-                        In this paper, we address the <b>IND-CPA<sup>D</sup>&nbsp; insecurity</b> of <b>exact FHE</b> schemes,
+                        In this paper, we address the <b>IND-CPA<sup>D</sup>&nbsp; insecurity</b> of <b>exact FHE</b>
+                        schemes,
                         which was previously believed to apply only to approximate FHEs.
                         We identify vulnerabilities arising from <b>non-negligible incorrectness</b>,
                         where the probability of incorrect evaluation is not exponentially small.
-                        Our attacks efficiently recover secret keys from BFV/BGV, DM/CGGI, and the exact variant of CKKS,
+                        Our attacks efficiently recover secret keys from BFV/BGV, DM/CGGI, and the exact variant of
+                        CKKS,
                         exposing vulnerabilities in current parameter choices.
                     </p>
                     <p class="kor">
@@ -287,9 +313,12 @@
                     <br>
                     <!-- <p>-----</p> -->
                     <p class="eng">
-                        After 3 years of tremendous efforts—public evaluations, numerous improvements, and security validations—<b>HAETAE</b>
-                        and <b>SMAUG-T</b> were selected as the <b>final winners</b> of the <b>KpqC Competition</b> in January 2025.
-                        The competition aims to select Quantum-secure Digital Signatures and KEM candidates for Korean Standards,
+                        After 3 years of tremendous efforts—public evaluations, numerous improvements, and security
+                        validations—<b>HAETAE</b>
+                        and <b>SMAUG-T</b> were selected as the <b>final winners</b> of the <b>KpqC Competition</b> in
+                        January 2025.
+                        The competition aims to select Quantum-secure Digital Signatures and KEM candidates for Korean
+                        Standards,
                         similar to NIST's PQC standardization process.
                         As a main contributor to both schemes, I am truly proud of the progress we've made.
                     </p>
