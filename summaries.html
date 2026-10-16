@@ -102,7 +102,7 @@
                     Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity,
                 </p>
                 <p style="font-size: 11pt; margin-bottom: 5px;">
-                    with Song Bian, Changmin Lee, and Jiseung Kim,
+                    with Song Bian, Jiseung Kim, and Changmin Lee
                 </p>
                 <p>
                     <i><b>IEEE S&P 2027</b></i>
@@ -119,15 +119,16 @@
                         exploit this gap in exact schemes like TFHE and BGV.
                         We extend and enhance this attack to CKKS,
                         <b>recovering the secret key</b> with nearly information-theoretically optimal queries.
-                        Secure deployment must thus enforce these assumptions,
+                        Secure deployment, not only for CKKS but for all FHE schemes, must thus enforce these assumptions,
                         e.g., by blocking reaction leakage or using verifiable FHE.
                     </p>
                     <p class="kor">
-                        동형암호의 상용화가 활발히 진행되고 있으나,
+                        최근 들어 동형암호의 상용화가 활발히 진행되고 있으나,
                         IND-CPA(-D) 안전성은 안전성 모델의 가정이 지켜질 때만 보장되므로 실제로 이를 만족하기는 까다롭습니다.
                         복호화 결과에 대한 클라이언트의 수용 여부만 관찰하는 <b>리액션 공격</b>은 TFHE나 BGV 같은 exact 동형암호에서 이 간극을 파고들어 왔습니다.
                         본 연구는 이 공격을 CKKS로 확장 및 개선하여, 정보 이론적 최적치에 가까운 쿼리 수만으로 <b>비밀키를 복구</b>할 수 있음을 보입니다.
-                        따라서 동형암호를 안전하게 배포하려면 리액션 누출을 차단하거나 Verifiable FHE를 도입하는 등 안전성 모델의 가정을 지켜야 합니다.
+                        따라서 CKKS 뿐만아리아 모든 동형암호 스킴을 안전하게 상용화하려면 사용자의 반응 누출을 차단하거나 Verifiable FHE를 도입하는 등 안전성 모델의 
+                        가정을 준수하여야 합니다.
                     </p>
                 </div>
             </div>
