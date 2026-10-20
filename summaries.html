@@ -49,7 +49,7 @@
         }
 
         /* 링크 버튼 스타일 (ePrint, slides 등) */
-        .card a {
+        .card > p a {
             text-decoration: none;
             color: #0366d6;
             font-weight: bold;
@@ -125,8 +125,8 @@
                     <p class="kor">
                         최근 들어 동형암호의 상용화가 활발히 진행되고 있으나,
                         IND-CPA(-D) 안전성은 안전성 모델의 가정이 지켜질 때만 보장되므로 실제로 이를 만족하기는 까다롭습니다.
-                        복호화 결과에 대한 클라이언트의 수용 여부만 관찰하는 <b>리액션 공격</b>은 TFHE나 BGV 같은 exact 동형암호에서 이 간극을 파고들어 왔습니다.
-                        본 연구는 이 공격을 CKKS로 확장 및 개선하여, 정보 이론적 최적치에 가까운 쿼리 수만으로 <b>비밀키를 복구</b>할 수 있음을 보입니다.
+                        복호화 결과에 대한 클라이언트의 수용 여부만 관찰하는 <b>reaction attacks</b>은 TFHE나 BGV 같은 exact 동형암호에서 이 간극을 파고들어 왔습니다.
+                        본 연구는 이 어택을 CKKS로 확장 및 개선하여, 정보 이론적 최적치에 가까운 쿼리 수만으로 <b>비밀키를 복구</b>할 수 있음을 보입니다.
                         따라서 CKKS 뿐만아리아 모든 동형암호 스킴을 안전하게 상용화하려면 사용자의 반응 누출을 차단하거나 Verifiable FHE를 도입하는 등 안전성 모델의 
                         가정을 준수하여야 합니다.
                     </p>
@@ -146,17 +146,34 @@
                 </p>
                 <p>
                     <i><b>ACM CCS 2026</b></i>
-                    <!-- <a href="https://eprint.iacr.org/?/?"> &nbsp;ePrint&#8599;</a>  -->
+                    <a href="https://eprint.iacr.org/2026/2546"> &nbsp;ePrint&#8599;</a> 
                     <!-- <a href="assets/slides/?"> &nbsp;slides&#8599;</a>  -->
                     <!-- &#128206; &#128279; &#8599; -->
                 </p>
                 <div class="content">
                     <br>
                     <p class="eng">
-                        TBD, after Coordinated Disclosure.
+                        Extending our <a href="summaries.html#indcpad-ccs24">IND-CPA-D attacks</a> from ACM CCS 2024, we present three new attacks 
+                        on BFV and BGV.
+                        The first extends the <b>bootstrapping failure attacks</b> on DM/CGGI and CKKS to BGV/BFV,
+                        over the non-power-of-two cyclotomic rings used in HElib.
+                        The second and third are the first to exploit the <b>heuristic nature of noise analysis</b>:
+                        the <i>O</i>(√<i>N</i>)-type savings commonly used to set parameters assume random-like, independent inputs,
+                        which no longer holds when the adversary chooses what to compute.
+                        By crafting plaintexts for BFV plaintext-ciphertext multiplications,
+                        the second attack <i>recovers the secret key</i> in OpenFHE within minutes to a few hours;
+                        the third skews the ciphertext mask in ciphertext-ciphertext multiplications to break IND-CPA-D.
                     </p>
                     <p class="kor">
-                        TBD, after Coordinated Disclosure.
+                        이 논문에서는 ACM CCS 2024에서 발표한 <a href="summaries.html#indcpad-ccs24">IND-CPA-D 어택</a>을 확장하여, BFV와 BGV 동형암호 스킴에 
+                        대한 세 개의 새로운 어택을 제시합니다.
+                        첫 번째 어택은 DM/CGGI와 CKKS에 대한 <b>부트스트래핑 실패 어택</b>을 HElib이 사용하는 non-power-of-two 다항식 환 위에서의 BGV/BFV 어택으로 
+                        확장합니다.
+                        두 번째와 세 번째 어택은 처음으로 <b>휴리스틱 노이즈 분석</b>을 공략합니다: 동형암호
+                        파라미터 설정에 널리 쓰이는 <i>O</i>(√<i>N</i>) 수준의 노이즈 절감은 입력이 랜덤하고 서로 독립이라는 가정 하에서 사용되어야 하지만,
+                        공격자가 연산 회로를 고를 수 있는 IND-CPA-D 환경에서는 이 가정이 성립하지 않습니다.
+                        두 번째 어택은 BFV 평문-암호문 곱셈에 맞춤 제작한 평문을 사용해 OpenFHE에서 수 분에서 수 시간 만에 <i>비밀키를 완벽하게 복구</i>하고,
+                        세 번째 어택은 암호문-암호문 곱셈에서 암호문의 mask를 한쪽으로 치우치게 만들어 IND-CPA-D 안전성을 깨뜨립니다.
                     </p>
                 </div>
             </div>
@@ -245,8 +262,8 @@
                 </div>
             </div>
 
-            <!-- Card: IND-CPA<sup>D</sup> Attacks -->
-            <div class="card">
+            <!-- Card: IND-CPA<sup>D</sup> Attacks (linked from the New IND-CPA-D Attacks card) -->
+            <div class="card" id="indcpad-ccs24">
                 <h3>
                     <b style="font-size: 18pt;color: indianred;">IND-CPA<sup>D</sup> Attacks</b>
                 </h3>
@@ -277,7 +294,7 @@
                         exposing vulnerabilities in current parameter choices.
                     </p>
                     <p class="kor">
-                        이 논문에서는 이전까지 Approximate FHE 스킴에만 해당되는 것으로 여겨졌던 <b>IND-CPA<sup>D</sup></b> 안전성에 대한 공격을
+                        이 논문에서는 이전까지 Approximate FHE 스킴에만 해당되는 것으로 여겨졌던 <b>IND-CPA<sup>D</sup></b> 안전성에 대한 어택을
                         <b>Exact FHE</b> 스킴에 확장 적용하여 그 취약성을 입증하였습니다.
                         우리는 스킴의 정확성, 특히 <b>non-negligible한 부정확성</b>이 <b>안전성</b>을 심각하게 위협한다는 점을 발견하였으며,
                         BFV/BGV, DM/CGGI, Exact CKKS 스킴의 비밀 키를 효율적으로 복구할 수 있었습니다.
