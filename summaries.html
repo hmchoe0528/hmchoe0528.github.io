@@ -49,11 +49,86 @@
         }
 
         /* 링크 버튼 스타일 (ePrint, slides 등) */
-        .card > p a {
+        .card > p a,
+        .card-info p a {
             text-decoration: none;
             color: #0366d6;
             font-weight: bold;
             margin-left: 10px;
+        }
+
+        /* 그림(왼쪽) + 논문 정보(오른쪽). 그림 원본: hmchoe-figures 레포의 TikZ */
+        .card-head {
+            display: flex;
+            align-items: stretch;
+            gap: 28px;
+        }
+
+        /* 제목 / 저자 / 학회: 위 여백과 줄 간격을 같게. 길어지면 그림보다 길게 늘어남 */
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 18px;
+            padding-top: 18px;
+        }
+
+        .card-info p {
+            margin: 0 !important;
+        }
+
+        /* 가로로 넓은 그림: 카드 폭 전체, 논문 정보는 그림 아래 */
+        .card-head.wide {
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .card-head.wide .card-fig {
+            flex-basis: auto;
+            width: 100%;
+            max-width: 760px;
+            align-self: center;
+        }
+
+        /* 그림 아래 본문 간격은 .card-head 마진으로 */
+        .card-head {
+            margin-bottom: 12px;
+        }
+
+        .card-head + .content > br:first-child {
+            display: none;
+        }
+
+        .card-fig {
+            flex: 0 0 360px;
+            width: 360px;
+            max-width: 100%;
+            height: auto;
+            /* 세로로 긴 그림은 높이를 제한하고 360px 칸 안에서 가운데 정렬 */
+            max-height: 260px;
+            object-fit: contain;
+            padding: 4px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 800px) {
+            .card-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .card-fig {
+                flex-basis: auto;
+                align-self: center;
+            }
+
+            .card-info {
+                gap: 8px;
+                padding-top: 0;
+            }
         }
 
         /* 다크모드 대응 (사용 중이시라면) */
@@ -98,18 +173,23 @@
                 <h3>
                     <b style="font-size: 18pt;color: indianred;">Reaction Attack with Optimal Complexity</b>
                 </h3>
-                <p style="margin-top: 20px; margin-bottom: 5px;">
-                    Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity,
-                </p>
-                <p style="font-size: 11pt; margin-bottom: 5px;">
-                    with Song Bian, Jiseung Kim, and Changmin Lee
-                </p>
-                <p>
-                    <i><b>IEEE S&P 2027</b></i>
-                    <a href="https://ia.cr/2026/2490"> &nbsp;ePrint&#8599;</a>
-                    <!-- <a href="assets/slides/?"> &nbsp;slides&#8599;</a>  -->
-                    <!-- &#128206; &#128279; &#8599; -->
-                </p>
+                <div class="card-head">
+                    <img class="card-fig" src="assets/imgs/summaries/reaction.svg" alt="Reaction attack: adversarial ciphertext, 1-bit reaction, secret key recovered">
+                    <div class="card-info">
+                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                            Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity,
+                        </p>
+                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                            with Song Bian, Jiseung Kim, and Changmin Lee
+                        </p>
+                        <p>
+                            <i><b>IEEE S&P 2027</b></i>
+                            <a href="https://ia.cr/2026/2490"> &nbsp;ePrint&#8599;</a>
+                            <!-- <a href="assets/slides/?"> &nbsp;slides&#8599;</a>  -->
+                            <!-- &#128206; &#128279; &#8599; -->
+                        </p>
+                    </div>
+                </div>
                 <div class="content">
                     <br>
                     <p class="eng">
@@ -138,18 +218,23 @@
                 <h3>
                     <b style="font-size: 18pt;color: indianred;">New IND-CPA-D Attacks</b>
                 </h3>
-                <p style="margin-top: 20px; margin-bottom: 5px;">
-                    New IND-CPA-D Attacks on BFV and BGV,
-                </p>
-                <p style="font-size: 11pt; margin-bottom: 5px;">
-                    with Minsik Kang and Damien Stehl&eacute;,
-                </p>
-                <p>
-                    <i><b>ACM CCS 2026</b></i>
-                    <a href="https://eprint.iacr.org/2026/2546"> &nbsp;ePrint&#8599;</a> 
-                    <!-- <a href="assets/slides/?"> &nbsp;slides&#8599;</a>  -->
-                    <!-- &#128206; &#128279; &#8599; -->
-                </p>
+                <div class="card-head">
+                    <img class="card-fig" src="assets/imgs/summaries/indcpad-new.svg" style="max-height: 225px;" alt="Measured noise outgrows the heuristic bound in PT-CT multiplications; CT-CT decryption distributions are distinguishable">
+                    <div class="card-info">
+                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                            New IND-CPA-D Attacks on BFV and BGV,
+                        </p>
+                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                            with Minsik Kang and Damien Stehl&eacute;,
+                        </p>
+                        <p>
+                            <i><b>ACM CCS 2026</b></i>
+                            <a href="https://eprint.iacr.org/2026/2546"> &nbsp;ePrint&#8599;</a> 
+                            <!-- <a href="assets/slides/?"> &nbsp;slides&#8599;</a>  -->
+                            <!-- &#128206; &#128279; &#8599; -->
+                        </p>
+                    </div>
+                </div>
                 <div class="content">
                     <br>
                     <p class="eng">
@@ -183,18 +268,23 @@
                 <h3>
                     <b style="font-size: 18pt;color: indianred;">High-precision Bootstrapping</b>
                 </h3>
-                <p style="margin-top: 20px; margin-bottom: 5px;">
-                    Leveraging Discrete CKKS to Bootstrap in High Precision,
-                </p>
-                <p style="font-size: 11pt; margin-bottom: 5px;">
-                    with Jaehyung Kim, Damien Stehl&eacute;, and Elias Suvanto,
-                </p>
-                <p>
-                    <i><b>ACM CCS 2025</b></i>
-                    <a href="https://eprint.iacr.org/2025/1786"> &nbsp;ePrint&#8599;</a>
-                    <a href="assets/slides/251014_ccs_hp-bts.pdf"> &nbsp;slides&#8599;</a>
-                    <!-- &#128206; &#128279; &#8599; -->
-                </p>
+                <div class="card-head">
+                    <img class="card-fig" src="assets/imgs/summaries/hpbts.svg" alt="Integer cleaning: digit extraction, iterative digit cleaning, and recombination reduce the error">
+                    <div class="card-info">
+                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                            Leveraging Discrete CKKS to Bootstrap in High Precision,
+                        </p>
+                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                            with Jaehyung Kim, Damien Stehl&eacute;, and Elias Suvanto,
+                        </p>
+                        <p>
+                            <i><b>ACM CCS 2025</b></i>
+                            <a href="https://eprint.iacr.org/2025/1786"> &nbsp;ePrint&#8599;</a>
+                            <a href="assets/slides/251014_ccs_hp-bts.pdf"> &nbsp;slides&#8599;</a>
+                            <!-- &#128206; &#128279; &#8599; -->
+                        </p>
+                    </div>
+                </div>
                 <div class="content">
                     <br>
                     <p class="eng">
@@ -222,17 +312,22 @@
                 <h3>
                     <b style="font-size: 18pt;color: indianred;">Grafting</b>
                 </h3>
-                <p style="margin-top: 20px; margin-bottom: 5px;">
-                    Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS,
-                </p>
-                <p style="font-size: 11pt; margin-bottom: 5px;">
-                    with Jung Hee Cheon, Minsik Kang, Jaehyung Kim, Seonghak Kim, Johannes Mono, and Taeyeong Noh,
-                </p>
-                <p>
-                    <i><b>ACM CCS 2025</b></i>
-                    <a href="https://eprint.iacr.org/2024/1014"> &nbsp;ePrint&#8599;</a>
-                    <a href="assets/slides/251014_ccs_grafting.pdf"> &nbsp;slides&#8599;</a>
-                </p>
+                <div class="card-head">
+                    <img class="card-fig" src="assets/imgs/summaries/grafting.svg" style="max-height: 210px;" alt="Grafting: word-size primes with a sprout replace many scale-sized primes">
+                    <div class="card-info">
+                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                            Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS,
+                        </p>
+                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                            with Jung Hee Cheon, Minsik Kang, Jaehyung Kim, Seonghak Kim, Johannes Mono, and Taeyeong Noh,
+                        </p>
+                        <p>
+                            <i><b>ACM CCS 2025</b></i>
+                            <a href="https://eprint.iacr.org/2024/1014"> &nbsp;ePrint&#8599;</a>
+                            <a href="assets/slides/251014_ccs_grafting.pdf"> &nbsp;slides&#8599;</a>
+                        </p>
+                    </div>
+                </div>
                 <div class="content">
                     <br>
                     <!-- <p>-----</p> -->
@@ -253,11 +348,11 @@
                     </p>
                     <!-- <p>--</p> -->
                     <p class="eng" style="margin-top: 8px;">
-                        <i>This work is partly included in my PhD dissertation. It also receives the <b>Excellence
-                                Award</b> at 2025 Korean National Cryptography Contest</i>.
+                        <i>This work is partly included in my PhD dissertation. It also received the <b>Top Excellence
+                                Prize</b> (track 1st) at 2025 Korean National Cryptography Contest</i>.
                     </p>
                     <p class="kor" style="margin-top: 8px;">
-                        <i>이 연구는 제 박사학위논문에도 수록되어 있으며, 2025년 한국국가암호공모전에서 최우수상을 수상할 예정입니다</i>.
+                        <i>이 연구는 제 박사학위논문에도 수록되어 있으며, 2025년 한국국가암호공모전에서 <b>최우수상</b>을 수상했습니다</i>.
                     </p>
                 </div>
             </div>
@@ -267,19 +362,24 @@
                 <h3>
                     <b style="font-size: 18pt;color: indianred;">IND-CPA<sup>D</sup> Attacks</b>
                 </h3>
-                <p style="margin-top: 20px; margin-bottom: 5px;">
-                    Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE,
-                </p>
-                <p style="font-size: 11pt; margin-bottom: 5px;">
-                    with Jung Hee Cheon, Alain Passelègue, Damien Stehl&eacute;, and Elias Suvanto,
-                </p>
-                <p>
-                    <i><b>ACM CCS 2024</b></i>
-                    <a href="https://eprint.iacr.org/2024/127"> &nbsp;ePrint&#8599;</a>
-                    <a href="https://newtpqc.org/public/damien_stehle.pdf"> &nbsp;slides&#8599;</a>
-                    <!-- https://dl.acm.org/doi/10.1145/3658644.3690341 -->
-                    <!-- &#128206; &#128279; &#8599; -->
-                </p>
+                <div class="card-head">
+                    <img class="card-fig" src="assets/imgs/summaries/indcpad-ccs24.svg" alt="Non-negligible decryption failure probability leaks hints on the secret key">
+                    <div class="card-info">
+                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                            Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE,
+                        </p>
+                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                            with Jung Hee Cheon, Alain Passelègue, Damien Stehl&eacute;, and Elias Suvanto,
+                        </p>
+                        <p>
+                            <i><b>ACM CCS 2024</b></i>
+                            <a href="https://eprint.iacr.org/2024/127"> &nbsp;ePrint&#8599;</a>
+                            <a href="https://newtpqc.org/public/damien_stehle.pdf"> &nbsp;slides&#8599;</a>
+                            <!-- https://dl.acm.org/doi/10.1145/3658644.3690341 -->
+                            <!-- &#128206; &#128279; &#8599; -->
+                        </p>
+                    </div>
+                </div>
                 <div class="content">
                     <br>
                     <!-- <p>-----</p> -->
@@ -302,10 +402,10 @@
                     </p>
                     <!-- <p>--</p> -->
                     <p class="eng" style="margin-top: 8px;">
-                        <i>This paper received the <b>Grand Prize</b> at 2024 Korean National Cryptography Contest</i>.
+                        <i>This paper received the <b>Grand Prize</b> (overall 1st) at 2024 Korean National Cryptography Contest</i>.
                     </p>
                     <p class="kor" style="margin-top: 8px;">
-                        <i>이 논문은 2024년 한국국가암호공모전에서 대상을 수상하였습니다</i>.
+                        <i>이 논문은 2024년 한국국가암호공모전에서 <b>대상</b>을 수상했습니다</i>.
                     </p>
                 </div>
             </div>
@@ -315,18 +415,23 @@
                 <h3>
                     <b style="font-size: 18pt;color: indianred;">Korean PQC Standards</b>
                 </h3>
-                <p style="margin-top: 20px; margin-bottom: 5px;">
-                    HAETAE and SMAUG-T,
-                </p>
-                <p style="font-size: 11pt; margin-bottom: 5px;">
-                    with Team HAETAE and Team SMAUG(-T),
-                </p>
-                <p>
-                    <i><b>Final Winners of KpqC</b></i>
-                    <a href="https://kpqc.or.kr/competition_02.html"> &nbsp;KpqC&#8599;</a>
-                    <a href="https://kpqc.cryptolab.co.kr/home"> &nbsp;website&#8599;</a>
-                    <!-- &#128206; &#128279;  -->
-                </p>
+                <div class="card-head">
+                    <img class="card-fig" src="assets/imgs/summaries/kpqc.png" alt="HAETAE and SMAUG-T logos">
+                    <div class="card-info">
+                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                            HAETAE and SMAUG-T,
+                        </p>
+                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                            with Team HAETAE and Team SMAUG(-T),
+                        </p>
+                        <p>
+                            <i><b>Final Winners of KpqC</b></i>
+                            <a href="https://kpqc.or.kr/competition_02.html"> &nbsp;KpqC&#8599;</a>
+                            <a href="https://kpqc.cryptolab.co.kr/home"> &nbsp;website&#8599;</a>
+                            <!-- &#128206; &#128279;  -->
+                        </p>
+                    </div>
+                </div>
                 <div class="content">
                     <br>
                     <!-- <p>-----</p> -->
