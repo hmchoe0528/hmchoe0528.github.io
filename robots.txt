@@ -1,3 +1,26 @@
+# Search engines: pages may be indexed; files under /assets/ (CV, slides, manuscripts, images) may not.
 User-agent: *
-Allow: /
+Disallow: /assets/
+
+# AI training and AI data crawlers: nothing.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: PerplexityBot
+User-agent: Diffbot
+User-agent: AI2Bot
+User-agent: Omgilibot
+User-agent: ImagesiftBot
+User-agent: Timpibot
+Disallow: /
+
 Sitemap: https://hmchoe0528.github.io/sitemap.xml
