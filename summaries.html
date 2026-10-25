@@ -16,22 +16,17 @@
         .cards-container {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            /* 카드 사이의 간격 */
+            gap: 30px; /* 카드 사이의 간격 */
             margin-top: 30px;
         }
 
         /* 각 연구 항목 카드 스타일 */
         .card {
             background-color: #ffffff;
-            border: 1px solid #e1e4e8;
-            /* 연한 테두리 */
-            border-radius: 16px;
-            /* 둥근 모서리 */
-            padding: 25px;
-            /* 내부 여백 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            /* 은은한 그림자 */
+            border: 1px solid #e1e4e8; /* 연한 테두리 */
+            border-radius: 16px; /* 둥근 모서리 */
+            padding: 25px; /* 내부 여백 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -48,11 +43,14 @@
             color: #333;
         }
 
-        /* 링크 버튼 스타일 (ePrint, slides 등) */
-        .card > p a,
-        .card-info p a {
-            text-decoration: none;
-            color: #0366d6;
+        /* 카드 제목. 홈 화면은 이 <b>의 내용만 가져가 자체 스타일로 다시 그림 */
+        .card h3 b {
+            font-size: 18pt;
+            color: indianred;
+        }
+
+        /* 자료 링크 (ePrint, slides 등). 색은 css/style.css의 a.ref */
+        .card-info a.ref {
             font-weight: bold;
             margin-left: 10px;
         }
@@ -62,6 +60,7 @@
             display: flex;
             align-items: stretch;
             gap: 28px;
+            margin-bottom: 12px; /* 그림 아래 본문 간격 */
         }
 
         /* 제목 / 저자 / 학회: 위 여백과 줄 간격을 같게. 길어지면 그림보다 길게 늘어남 */
@@ -74,25 +73,12 @@
         }
 
         .card-info p {
-            margin: 0 !important;
+            margin: 0;
         }
 
-        /* 가로로 넓은 그림: 카드 폭 전체, 논문 정보는 그림 아래 */
-        .card-head.wide {
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .card-head.wide .card-fig {
-            flex-basis: auto;
-            width: 100%;
-            max-width: 760px;
-            align-self: center;
-        }
-
-        /* 그림 아래 본문 간격은 .card-head 마진으로 */
-        .card-head {
-            margin-bottom: 12px;
+        /* 논문 제목: 저자 줄(11pt)보다 살짝 크게 */
+        .card-info p:first-child {
+            font-size: 13pt;
         }
 
         .card-head + .content > br:first-child {
@@ -104,8 +90,7 @@
             width: 360px;
             max-width: 100%;
             height: auto;
-            /* 세로로 긴 그림은 높이를 제한하고 360px 칸 안에서 가운데 정렬 */
-            max-height: 260px;
+            max-height: 260px; /* 세로로 긴 그림은 높이를 제한하고 360px 칸 안에서 가운데 정렬 */
             object-fit: contain;
             padding: 4px;
             box-sizing: border-box;
@@ -160,33 +145,28 @@
     <div class="wide-piece">
         <h1 class="page-title eng">Research Summaries</h1>
         <h1 class="page-title kor">연구 요약</h1>
-        <h3>
-            <p>
-                <i>for selected and recent research papers.</i>
-            </p>
-        </h3>
+        <h3><i>for selected and recent research papers.</i></h3>
 
         <div class="cards-container">
 
             <!-- Card: Reaction Attack -->
             <div class="card">
                 <h3>
-                    <b style="font-size: 18pt;color: indianred;">Reaction Attack with Optimal Complexity</b>
+                    <b>Reaction Attack with Optimal Complexity</b>
                 </h3>
                 <div class="card-head">
                     <img class="card-fig" src="assets/imgs/summaries/reaction.svg" alt="Reaction attack: adversarial ciphertext, 1-bit reaction, secret key recovered">
                     <div class="card-info">
-                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                        <p>
                             Reaction Attack on CKKS Deployments with Asymptotically Optimal Query Complexity,
                         </p>
-                        <p style="font-size: 11pt; margin-bottom: 5px;">
-                            with Song Bian, Jiseung Kim, and Changmin Lee
+                        <p style="font-size: 11pt;">
+                            with Song Bian, Jiseung Kim, and Changmin Lee,
                         </p>
                         <p>
                             <i><b>IEEE S&P 2027</b></i>
-                            <a href="https://ia.cr/2026/2490"> &nbsp;ePrint&#8599;</a>
-                            <!-- <a href="assets/slides/?"> &nbsp;slides&#8599;</a>  -->
-                            <!-- &#128206; &#128279; &#8599; -->
+                            <a class="ref" href="https://ia.cr/2026/2490"> &nbsp;ePrint&#8599;</a>
+                            <!-- <a class="ref" href="assets/slides/?"> &nbsp;slides&#8599;</a> -->
                         </p>
                     </div>
                 </div>
@@ -205,10 +185,10 @@
                     <p class="kor">
                         최근 들어 동형암호의 상용화가 활발히 진행되고 있으나,
                         IND-CPA(-D) 안전성은 안전성 모델의 가정이 지켜질 때만 보장되므로 실제로 이를 만족하기는 까다롭습니다.
-                        복호화 결과에 대한 클라이언트의 수용 여부만 관찰하는 <b>reaction attacks</b>은 TFHE나 BGV 같은 exact 동형암호에서 이 간극을 파고들어 왔습니다.
+                        복호화 결과에 대한 클라이언트의 수용 여부만 관찰하는 <b>reaction attack</b>은 TFHE나 BGV 같은 exact 동형암호에서 이 간극을 파고들어 왔습니다.
                         본 연구는 이 어택을 CKKS로 확장 및 개선하여, 정보 이론적 최적치에 가까운 쿼리 수만으로 <b>비밀키를 복구</b>할 수 있음을 보입니다.
-                        따라서 CKKS 뿐만아리아 모든 동형암호 스킴을 안전하게 상용화하려면 사용자의 반응 누출을 차단하거나 Verifiable FHE를 도입하는 등 안전성 모델의 
-                        가정을 준수하여야 합니다.
+                        따라서 CKKS뿐만 아니라 모든 동형암호 스킴을 안전하게 상용화하려면
+                        사용자의 반응 누출을 차단하거나 Verifiable FHE를 도입하는 등 안전성 모델의 가정을 준수하여야 합니다.
                     </p>
                 </div>
             </div>
@@ -216,30 +196,28 @@
             <!-- Card: New IND-CPA-D Attacks -->
             <div class="card">
                 <h3>
-                    <b style="font-size: 18pt;color: indianred;">New IND-CPA-D Attacks</b>
+                    <b>New IND-CPA-D Attacks</b>
                 </h3>
                 <div class="card-head">
                     <img class="card-fig" src="assets/imgs/summaries/indcpad-new.svg" style="max-height: 225px;" alt="Measured noise outgrows the heuristic bound in PT-CT multiplications; CT-CT decryption distributions are distinguishable">
                     <div class="card-info">
-                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                        <p>
                             New IND-CPA-D Attacks on BFV and BGV,
                         </p>
-                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                        <p style="font-size: 11pt;">
                             with Minsik Kang and Damien Stehl&eacute;,
                         </p>
                         <p>
                             <i><b>ACM CCS 2026</b></i>
-                            <a href="https://eprint.iacr.org/2026/2546"> &nbsp;ePrint&#8599;</a> 
-                            <!-- <a href="assets/slides/?"> &nbsp;slides&#8599;</a>  -->
-                            <!-- &#128206; &#128279; &#8599; -->
+                            <a class="ref" href="https://eprint.iacr.org/2026/2546"> &nbsp;ePrint&#8599;</a>
+                            <!-- <a class="ref" href="assets/slides/?"> &nbsp;slides&#8599;</a> -->
                         </p>
                     </div>
                 </div>
                 <div class="content">
                     <br>
                     <p class="eng">
-                        Extending our <a href="summaries.html#indcpad-ccs24">IND-CPA-D attacks</a> from ACM CCS 2024, we present three new attacks 
-                        on BFV and BGV.
+                        Extending our <a href="summaries.html#indcpad-ccs24">IND-CPA-D attacks</a> from ACM CCS 2024, we present three new attacks on BFV and BGV.
                         The first extends the <b>bootstrapping failure attacks</b> on DM/CGGI and CKKS to BGV/BFV,
                         over the non-power-of-two cyclotomic rings used in HElib.
                         The second and third are the first to exploit the <b>heuristic nature of noise analysis</b>:
@@ -250,12 +228,10 @@
                         the third skews the ciphertext mask in ciphertext-ciphertext multiplications to break IND-CPA-D.
                     </p>
                     <p class="kor">
-                        이 논문에서는 ACM CCS 2024에서 발표한 <a href="summaries.html#indcpad-ccs24">IND-CPA-D 어택</a>을 확장하여, BFV와 BGV 동형암호 스킴에 
-                        대한 세 개의 새로운 어택을 제시합니다.
-                        첫 번째 어택은 DM/CGGI와 CKKS에 대한 <b>부트스트래핑 실패 어택</b>을 HElib이 사용하는 non-power-of-two 다항식 환 위에서의 BGV/BFV 어택으로 
-                        확장합니다.
-                        두 번째와 세 번째 어택은 처음으로 <b>휴리스틱 노이즈 분석</b>을 공략합니다: 동형암호
-                        파라미터 설정에 널리 쓰이는 <i>O</i>(√<i>N</i>) 수준의 노이즈 절감은 입력이 랜덤하고 서로 독립이라는 가정 하에서 사용되어야 하지만,
+                        이 논문에서는 ACM CCS 2024에서 발표한 <a href="summaries.html#indcpad-ccs24">IND-CPA-D 어택</a>을 확장하여, BFV와 BGV 동형암호 스킴에 대한 세 개의 새로운 어택을 제시합니다.
+                        첫 번째 어택은 DM/CGGI와 CKKS에 대한 <b>부트스트래핑 실패 어택</b>을 HElib이 사용하는 non-power-of-two 다항식 환 위에서의 BGV/BFV 어택으로 확장합니다.
+                        두 번째와 세 번째 어택은 처음으로 <b>휴리스틱 노이즈 분석</b>을 공략합니다:
+                        동형암호 파라미터 설정에 널리 쓰이는 <i>O</i>(√<i>N</i>) 수준의 노이즈 절감은 입력이 랜덤하고 서로 독립이라는 가정 하에서 사용되어야 하지만,
                         공격자가 연산 회로를 고를 수 있는 IND-CPA-D 환경에서는 이 가정이 성립하지 않습니다.
                         두 번째 어택은 BFV 평문-암호문 곱셈에 맞춤 제작한 평문을 사용해 OpenFHE에서 수 분에서 수 시간 만에 <i>비밀키를 완벽하게 복구</i>하고,
                         세 번째 어택은 암호문-암호문 곱셈에서 암호문의 mask를 한쪽으로 치우치게 만들어 IND-CPA-D 안전성을 깨뜨립니다.
@@ -266,22 +242,21 @@
             <!-- Card: High-precision Bootstrapping -->
             <div class="card">
                 <h3>
-                    <b style="font-size: 18pt;color: indianred;">High-precision Bootstrapping</b>
+                    <b>High-precision Bootstrapping</b>
                 </h3>
                 <div class="card-head">
                     <img class="card-fig" src="assets/imgs/summaries/hpbts.svg" alt="Integer cleaning: digit extraction, iterative digit cleaning, and recombination reduce the error">
                     <div class="card-info">
-                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                        <p>
                             Leveraging Discrete CKKS to Bootstrap in High Precision,
                         </p>
-                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                        <p style="font-size: 11pt;">
                             with Jaehyung Kim, Damien Stehl&eacute;, and Elias Suvanto,
                         </p>
                         <p>
                             <i><b>ACM CCS 2025</b></i>
-                            <a href="https://eprint.iacr.org/2025/1786"> &nbsp;ePrint&#8599;</a>
-                            <a href="assets/slides/251014_ccs_hp-bts.pdf"> &nbsp;slides&#8599;</a>
-                            <!-- &#128206; &#128279; &#8599; -->
+                            <a class="ref" href="https://eprint.iacr.org/2025/1786"> &nbsp;ePrint&#8599;</a>
+                            <a class="ref" href="assets/slides/251014_ccs_hp-bts.pdf"> &nbsp;slides&#8599;</a>
                         </p>
                     </div>
                 </div>
@@ -289,17 +264,13 @@
                     <br>
                     <p class="eng">
                         In this paper, we present a novel and efficient high-precision CKKS bootstrapping method.
-                        We introduce an <b>Integer Cleaning</b> technique based on Discrete-CKKS, along with a
-                        <b>Thrifty approach</b> for digit-cleaning.
-                        By incorporating these techniques into the EvalRound+ framework, we achieve effective
-                        high-precision bootstrapping.
-                        Our Grafting-based implementation demonstrates a 1.6× improvement in 80-bit precision CKKS
-                        bootstrapping.
+                        We introduce an <b>Integer Cleaning</b> technique based on Discrete-CKKS, along with a <b>Thrifty approach</b> for digit-cleaning.
+                        By incorporating these techniques into the EvalRound+ framework, we achieve effective high-precision bootstrapping.
+                        Our Grafting-based implementation demonstrates a 1.6× improvement in 80-bit precision CKKS bootstrapping.
                     </p>
                     <p class="kor">
                         이 논문에서는 효율적인 <b>고정밀 CKKS 부트스트래핑</b>을 새롭게 제안합니다.
-                        우리는 Discrete-CKKS 기반의 동형 <b>Integer Cleaning</b> 기법과 효율적인 digit 클리닝 기법인 <b>Thrifty Approach</b>를
-                        도입하여,
+                        우리는 Discrete-CKKS 기반의 동형 <b>Integer Cleaning</b> 기법과 효율적인 digit 클리닝 기법인 <b>Thrifty Approach</b>를 도입하여,
                         정수 노이즈를 효과적으로 제거하고 모듈러스와 성능 효율성을 동시에 달성합니다.
                         이들 기법을 EvalRound+ 프레임워크에 적용하여 매우 효과적인 부트스트래핑을 제안하며,
                         Grafting 기반의 구현으로 80비트 정밀도의 CKKS 부트스트래핑에서 약 1.6배 성능 향상을 입증하였습니다.
@@ -310,35 +281,32 @@
             <!-- Card: Grafting -->
             <div class="card">
                 <h3>
-                    <b style="font-size: 18pt;color: indianred;">Grafting</b>
+                    <b>Grafting</b>
                 </h3>
                 <div class="card-head">
                     <img class="card-fig" src="assets/imgs/summaries/grafting.svg" style="max-height: 210px;" alt="Grafting: word-size primes with a sprout replace many scale-sized primes">
                     <div class="card-info">
-                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                        <p>
                             Grafting: Decoupled Scale Factors and Modulus in RNS-CKKS,
                         </p>
-                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                        <p style="font-size: 11pt;">
                             with Jung Hee Cheon, Minsik Kang, Jaehyung Kim, Seonghak Kim, Johannes Mono, and Taeyeong Noh,
                         </p>
                         <p>
                             <i><b>ACM CCS 2025</b></i>
-                            <a href="https://eprint.iacr.org/2024/1014"> &nbsp;ePrint&#8599;</a>
-                            <a href="assets/slides/251014_ccs_grafting.pdf"> &nbsp;slides&#8599;</a>
+                            <a class="ref" href="https://eprint.iacr.org/2024/1014"> &nbsp;ePrint&#8599;</a>
+                            <a class="ref" href="assets/slides/251014_ccs_grafting.pdf"> &nbsp;slides&#8599;</a>
                         </p>
                     </div>
                 </div>
                 <div class="content">
                     <br>
-                    <!-- <p>-----</p> -->
                     <p class="eng">
-                        In this paper, we revisit the arithmetic structure of the CKKS FHE scheme and introduce
-                        <b>Grafting</b>,
+                        In this paper, we revisit the arithmetic structure of the CKKS FHE scheme and introduce <b>Grafting</b>,
                         a technique that decouples the scale factor from the modulus.
-                        This enables optimized RNS packing and more flexible rescaling, while also reducing public key
-                        sizes and execution time.
-                        Our experimental results demonstrate 1.92× faster bootstrapping, 1.89× faster Bit-CKKS
-                        bootstrapping, and a 62% reduction in public key size.
+                        This enables optimized RNS packing and more flexible rescaling,
+                        while also reducing public key sizes and execution time.
+                        Our experimental results demonstrate 1.92× faster bootstrapping, 1.89× faster Bit-CKKS bootstrapping, and a 62% reduction in public key size.
                     </p>
                     <p class="kor">
                         이 논문에서는 CKKS FHE 스킴의 산술 구조를 재설계하여, 스케일 팩터와 모듈러스 간의 의존성을 분리하는 Grafting 기법을 소개합니다.
@@ -346,10 +314,9 @@
                         구현을 통해 확인한 결과, 제안한 방법은 부트스트래핑에서 1.92배, Bit-CKKS 부트스트래핑에서 1.89배 더 빠른 성능을 달성하였으며,
                         공개키 크기를 62% 감소시켰습니다.
                     </p>
-                    <!-- <p>--</p> -->
                     <p class="eng" style="margin-top: 8px;">
-                        <i>This work is partly included in my PhD dissertation. It also received the <b>Top Excellence
-                                Prize</b> (track 1st) at 2025 Korean National Cryptography Contest</i>.
+                        <i>This work is partly included in my PhD dissertation.
+                        It also received the <b>Top Excellence Prize</b> (track 1st) at 2025 Korean National Cryptography Contest</i>.
                     </p>
                     <p class="kor" style="margin-top: 8px;">
                         <i>이 연구는 제 박사학위논문에도 수록되어 있으며, 2025년 한국국가암호공모전에서 <b>최우수상</b>을 수상했습니다</i>.
@@ -360,37 +327,33 @@
             <!-- Card: IND-CPA<sup>D</sup> Attacks (linked from the New IND-CPA-D Attacks card) -->
             <div class="card" id="indcpad-ccs24">
                 <h3>
-                    <b style="font-size: 18pt;color: indianred;">IND-CPA<sup>D</sup> Attacks</b>
+                    <b>IND-CPA<sup>D</sup> Attacks</b>
                 </h3>
                 <div class="card-head">
                     <img class="card-fig" src="assets/imgs/summaries/indcpad-ccs24.svg" alt="Non-negligible decryption failure probability leaks hints on the secret key">
                     <div class="card-info">
-                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                        <p>
                             Attacks Against the IND-CPA<sup>D</sup> Security of Exact FHE,
                         </p>
-                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                        <p style="font-size: 11pt;">
                             with Jung Hee Cheon, Alain Passelègue, Damien Stehl&eacute;, and Elias Suvanto,
                         </p>
                         <p>
                             <i><b>ACM CCS 2024</b></i>
-                            <a href="https://eprint.iacr.org/2024/127"> &nbsp;ePrint&#8599;</a>
-                            <a href="https://newtpqc.org/public/damien_stehle.pdf"> &nbsp;slides&#8599;</a>
+                            <a class="ref" href="https://eprint.iacr.org/2024/127"> &nbsp;ePrint&#8599;</a>
+                            <a class="ref" href="https://newtpqc.org/public/damien_stehle.pdf"> &nbsp;slides&#8599;</a>
                             <!-- https://dl.acm.org/doi/10.1145/3658644.3690341 -->
-                            <!-- &#128206; &#128279; &#8599; -->
                         </p>
                     </div>
                 </div>
                 <div class="content">
                     <br>
-                    <!-- <p>-----</p> -->
                     <p class="eng">
-                        In this paper, we address the <b>IND-CPA<sup>D</sup>&nbsp; insecurity</b> of <b>exact FHE</b>
-                        schemes,
+                        In this paper, we address the <b>IND-CPA<sup>D</sup>&nbsp; insecurity</b> of <b>exact FHE</b> schemes,
                         which was previously believed to apply only to approximate FHEs.
                         We identify vulnerabilities arising from <b>non-negligible incorrectness</b>,
                         where the probability of incorrect evaluation is not exponentially small.
-                        Our attacks efficiently recover secret keys from BFV/BGV, DM/CGGI, and the exact variant of
-                        CKKS,
+                        Our attacks efficiently recover secret keys from BFV/BGV, DM/CGGI, and the exact variant of CKKS,
                         exposing vulnerabilities in current parameter choices.
                     </p>
                     <p class="kor">
@@ -398,9 +361,8 @@
                         <b>Exact FHE</b> 스킴에 확장 적용하여 그 취약성을 입증하였습니다.
                         우리는 스킴의 정확성, 특히 <b>non-negligible한 부정확성</b>이 <b>안전성</b>을 심각하게 위협한다는 점을 발견하였으며,
                         BFV/BGV, DM/CGGI, Exact CKKS 스킴의 비밀 키를 효율적으로 복구할 수 있었습니다.
-                        이러한 취약점은 지수함수적으로 작은 부정확성를 보장하는 파라미터를 사용함으로써 해결될 수 있습니다.
+                        이러한 취약점은 지수함수적으로 작은 부정확성을 보장하는 파라미터를 사용함으로써 해결될 수 있습니다.
                     </p>
-                    <!-- <p>--</p> -->
                     <p class="eng" style="margin-top: 8px;">
                         <i>This paper received the <b>Grand Prize</b> (overall 1st) at 2024 Korean National Cryptography Contest</i>.
                     </p>
@@ -413,45 +375,39 @@
             <!-- Card: Korean PQC Standards -->
             <div class="card">
                 <h3>
-                    <b style="font-size: 18pt;color: indianred;">Korean PQC Standards</b>
+                    <b>Korean PQC Standards</b>
                 </h3>
                 <div class="card-head">
                     <img class="card-fig" src="assets/imgs/summaries/kpqc.png" alt="HAETAE and SMAUG-T logos">
                     <div class="card-info">
-                        <p style="margin-top: 20px; margin-bottom: 5px;">
+                        <p>
                             HAETAE and SMAUG-T,
                         </p>
-                        <p style="font-size: 11pt; margin-bottom: 5px;">
+                        <p style="font-size: 11pt;">
                             with Team HAETAE and Team SMAUG(-T),
                         </p>
                         <p>
                             <i><b>Final Winners of KpqC</b></i>
-                            <a href="https://kpqc.or.kr/competition_02.html"> &nbsp;KpqC&#8599;</a>
-                            <a href="https://kpqc.cryptolab.co.kr/home"> &nbsp;website&#8599;</a>
-                            <!-- &#128206; &#128279;  -->
+                            <a class="ref" href="https://kpqc.or.kr/competition_02.html"> &nbsp;KpqC&#8599;</a>
+                            <a class="ref" href="https://kpqc.cryptolab.co.kr/home"> &nbsp;website&#8599;</a>
                         </p>
                     </div>
                 </div>
                 <div class="content">
                     <br>
-                    <!-- <p>-----</p> -->
                     <p class="eng">
-                        After 3 years of tremendous efforts—public evaluations, numerous improvements, and security
-                        validations—<b>HAETAE</b>
-                        and <b>SMAUG-T</b> were selected as the <b>final winners</b> of the <b>KpqC Competition</b> in
-                        January 2025.
-                        The competition aims to select Quantum-secure Digital Signatures and KEM candidates for Korean
-                        Standards,
+                        After 3 years of tremendous efforts—public evaluations, numerous improvements, and security validations—<b>HAETAE</b> and <b>SMAUG-T</b>
+                        were selected as the <b>final winners</b> of the <b>KpqC Competition</b> in January 2025.
+                        The competition aims to select Quantum-secure Digital Signatures and KEM candidates for Korean Standards,
                         similar to NIST's PQC standardization process.
                         As a main contributor to both schemes, I am truly proud of the progress we've made.
                     </p>
                     <p class="kor">
                         지난 2021년 11월부터 시작된 한국양자내성암호 공모에서 약 3년 간의 공개적인 평가, 알고리즘 및 구현의 수정과 개선, 안전성 검증 등을 거쳐
                         2025년 1월, 제가 제출한 <b>HAETAE</b>와 <b>SMAUG-T</b> 알고리즘이 <b>최종 우승자</b>로 선정되었습니다.
-                        이 공모는 NIST의 PQC 표준화 과정과 유사하게, 한국 양자내성암호 표준 제정을 위한 전자서명 (Digital Signatures) 및
-                        키 캡슐화 메커니즘 (KEM) 알고리즘을 선정하는 것을 목표로 진행되었습니다.
+                        이 공모는 NIST의 PQC 표준화 과정과 유사하게,
+                        한국 양자내성암호 표준 제정을 위한 전자서명 (Digital Signatures) 및 키 캡슐화 메커니즘 (KEM) 알고리즘을 선정하는 것을 목표로 진행되었습니다.
                     </p>
-                    <!-- <p>--</p> -->
                     <p class="eng" style="margin-top: 8px;">
                         <i>The selected schemes will, in the near future, become part of the Korean Standard (KS)</i>.
                     </p>
