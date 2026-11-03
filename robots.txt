@@ -1,5 +1,7 @@
-# Search engines: pages may be indexed; files under /assets/ (CV, slides, manuscripts, images) may not.
+# Search engines: pages may be indexed; files under /assets/ (CV, slides, manuscripts, images) may not,
+# except /assets/icons/ so the favicon can appear in search results.
 User-agent: *
+Allow: /assets/icons/
 Disallow: /assets/
 
 # AI training and AI data crawlers: nothing.
