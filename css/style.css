@@ -694,3 +694,70 @@ footer ._goto-top:hover {
     color: #ff4d4f;
     font-weight: bold;
 }
+/* Header logo easter egg (js/javascript.js, logoEasterEgg): rest the mouse on the logo for a second.
+   ".menubar" in front beats ".menubar * {position: relative}". */
+.menubar .logo-egg-stage {
+    position: absolute;
+    pointer-events: none;
+    z-index: 960; /* above the bubble, so the pieces are visible as they leave it */
+}
+.menubar .logo-egg-stage svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.menubar .logo-egg-bubble {
+    position: absolute; /* left/top/max-width set by the script: right of the logo, short of the right menu */
+    z-index: 950;
+    width: max-content;
+    padding: 10px 14px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+.menubar .logo-egg-bubble.show {
+    opacity: 1;
+    transform: none;
+}
+.menubar .logo-egg-bubble::before {
+    content: "";
+    position: absolute;
+    top: 26px; /* points at the middle of the 64px logo */
+    left: -6px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    transform: rotate(45deg);
+}
+.menubar .logo-egg-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 6px;
+    font-family: 'noto-kor', 'noto-eng';
+    font-size: 15px;
+    line-height: 1.5;
+    color: #c8c8c8;
+}
+.menubar .logo-egg-row span {
+    display: inline-block;
+}
+.menubar .logo-egg-row span.on {
+    color: indianred;
+    animation: logo-egg-hop 0.35s ease-out;
+}
+.menubar .logo-egg-row span.used {
+    color: #ececec;
+}
+@keyframes logo-egg-hop {
+    40% { transform: translateY(-6px); }
+}
