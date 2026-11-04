@@ -35,6 +35,13 @@
             margin-bottom: 5px;
         }
 
+        /* Divider between sections (About Me / Teaching & Supervision / Conferences), as on publications.html */
+        .personals > h1 ~ h1 {
+            border-top: 1pt solid lightgray;
+            margin-top: 40px;
+            padding-top: 20px;
+        }
+
         .personals p {
             font-family: "noto-eng-i", "noto-kor-i";
             font-size: 12pt;
@@ -180,7 +187,7 @@
     </style>
 </head>
 
-<body>
+<body data-logo-egg>
     <div class="load-menubar"></div>
     <header style="padding-top:160px"></header>
 
@@ -219,8 +226,7 @@
     <div class="wider-piece personals">
 
         <!-- ==================== About Me ==================== -->
-        <h1 class="eng">About Me</h1>
-        <h1 class="kor">나에 대해서</h1>
+        <h1>About Me</h1>
         <ul>
             <li class="eng">
                 In Korean (<a href="https://en.wikipedia.org/wiki/Hangul">Hangul</a>), my name is 최형민 [Choe Hyeong-min]
@@ -268,8 +274,7 @@
         </ul>
 
         <!-- ==================== Teaching & Supervision ==================== -->
-        <h1 class="eng">Teaching &amp; Supervision</h1>
-        <h1 class="kor">조교 및 지도 활동</h1>
+        <h1>Teaching &amp; Supervision</h1>
         <ul>
             <li class="eng">
                 <b>University of Luxembourg</b>

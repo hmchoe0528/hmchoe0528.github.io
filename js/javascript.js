@@ -40,19 +40,25 @@ function loadMenubar() {
 	});
 }
 
-// Easter egg: rest the mouse on the header logo for about a second and a bubble with the Hangul
-// jamo opens below it; ㄷ ㅐ ㅇ ㅌ light up and hop one by one into the logo.
+// Easter egg, only on pages whose <body> has data-logo-egg (personal.html): rest the mouse on the
+// header logo for about a second and a bubble with the Hangul jamo opens beside it;
+// ㄷ ㅐ ㅇ ㅌ light up and hop one by one into the logo.
 // The pieces are cut from assets/icons/logo-choe.svg itself (its <rect> frame and its four <path>s,
 // in the order ㄷ ㅐ ㅇ ㅌ), so the animation follows the logo file.
 function logoEasterEgg(menubar) {
 	var link = menubar.find('.logo-link'), img = link.find('img');
+	if (!document.body.hasAttribute('data-logo-egg')) return;
 	if (!img.length || !window.fetch || !Element.prototype.animate) return;
 	var NS = 'http://www.w3.org/2000/svg';
+	// Timing (ms): jamo light up LIGHT_STEP_MS apart; the first hop starts at FIRST_HOP_MS;
+	// pieces leave HOP_STEP_MS apart and each hop takes HOP_MS.
+	var LIGHT_STEP_MS = 300, FIRST_HOP_MS = 1300, HOP_STEP_MS = 400, HOP_MS = 1050;
 	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	var row = function(chars){
 		return '<div class="logo-egg-row">' + chars.split('').map(function(c){ return '<span>' + c + '</span>'; }).join('') + '</div>';
 	};
 	var bubble = $('<div class="logo-egg-bubble" aria-hidden="true">'
+		+ '<div class="logo-egg-label">한글 Hangul</div>'
 		+ row('ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ') + row('ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ') + '</div>');
 	var stage = $('<div class="logo-egg-stage" aria-hidden="true"></div>');
 	link.parent().append(stage, bubble);
@@ -100,7 +106,7 @@ function logoEasterEgg(menubar) {
 			el.getAnimations().forEach(function(a){ a.cancel(); });
 			el.style.opacity = 0;
 		});
-		$(spans).removeClass('on used');
+		$(spans).removeClass('on');
 		img.css('visibility', '');
 	}
 
@@ -121,8 +127,7 @@ function logoEasterEgg(menubar) {
 		keys.push({ offset: 0.88, opacity: 1, transform: 'scale(1.15, 0.8)' });
 		keys.push({ offset: 0.95, opacity: 1, transform: 'scale(0.95, 1.07)' });
 		keys.push({ offset: 1, opacity: 1, transform: 'none' });
-		svg.animate(keys, { duration: 900, easing: 'linear', fill: 'forwards' });
-		later(100, function(){ $(sources[i]).removeClass('on').addClass('used'); });
+		svg.animate(keys, { duration: HOP_MS, easing: 'linear', fill: 'forwards' });
 	}
 
 	function play() {
@@ -138,14 +143,14 @@ function logoEasterEgg(menubar) {
 		});
 		var gap = 14, bubbleLeft = img[0].getBoundingClientRect().right + gap;
 		bubble.css({ left: pos.left + w + gap, top: pos.top, maxWidth: Math.max(120, menuLeft - bubbleLeft - 12) }).addClass('show');
-		sources.forEach(function(s, i){ later(i * 200, function(){ $(s).addClass('on'); }); });
+		sources.forEach(function(s, i){ later(i * LIGHT_STEP_MS, function(){ $(s).addClass('on'); }); });
 		if (reduceMotion) { playing = false; return; }
 		img.css('visibility', 'hidden');
 		frame.style.opacity = 1;
-		later(950, function(){
-			pieces.forEach(function(p, i){ later(i * 260, function(){ hop(i); }); });
+		later(FIRST_HOP_MS, function(){
+			pieces.forEach(function(p, i){ later(i * HOP_STEP_MS, function(){ hop(i); }); });
 		});
-		later(950 + 3 * 260 + 900, function(){ playing = false; });
+		later(FIRST_HOP_MS + 3 * HOP_STEP_MS + HOP_MS, function(){ playing = false; });
 	}
 }
 

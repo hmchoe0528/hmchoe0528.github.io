@@ -739,6 +739,12 @@ footer ._goto-top:hover {
     border-bottom: 1px solid #ddd;
     transform: rotate(45deg);
 }
+.menubar .logo-egg-label {
+    margin-bottom: 2px;
+    font-family: 'noto-kor', 'noto-eng';
+    font-size: 9pt;
+    color: #999;
+}
 .menubar .logo-egg-row {
     display: flex;
     flex-wrap: wrap;
@@ -754,9 +760,6 @@ footer ._goto-top:hover {
 .menubar .logo-egg-row span.on {
     color: indianred;
     animation: logo-egg-hop 0.35s ease-out;
-}
-.menubar .logo-egg-row span.used {
-    color: #ececec;
 }
 @keyframes logo-egg-hop {
     40% { transform: translateY(-6px); }
