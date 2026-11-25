@@ -58,11 +58,14 @@
 /* Global Setting */
 html, body { color: black; font-family: 'noto-eng','noto-kor' !important; height: 100%; background:white}
 * {margin: 0;padding: 0;box-sizing: border-box}
-a {color:indianred;text-decoration:none;}
-a:hover {border-bottom: 1pt dashed black!important}
-/* Link colors by role, shared by all pages. Venue links keep the default color above. */
-a.ref {color:dimgray} /* resource links, brackets included: [paper], [preprint], [slides], ... */
-.authors a {color:dimgray} /* author names */
+
+a {color:inherit;text-decoration:underline;text-decoration-color:#c8c8c8;text-underline-offset:2px;} /* inline link: no color, quiet underline */
+a:hover {text-decoration-color:black}
+/* Link colors by role, shared by all pages. Color is reserved for the red spotlight; ordinary links read as underlined text. */
+a.ref {color:dimgray;text-decoration:none} /* resource links, brackets included: [paper], [preprint], [slides], ... */
+.authors a {color:dimgray;text-decoration:none} /* author names */
+a:has(> b) {text-decoration:none} /* bold-wrapped links carry their own emphasis, no underline */
+a b {color:indianred} /* spotlight link: bold-wrapped venue names and awards, e.g. <a><b>ACM CCS 2026</b></a> */
 b {position:relative!important;font-family: 'noto-eng-b','noto-kor-b'}
 img {display:block}
 
